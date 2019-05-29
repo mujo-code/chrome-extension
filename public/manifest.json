@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "short_name": "Mujō",
+  "name": "Mujō a transience page",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "notifications",
+    "alarms",
+    "background",
+    "topSites",
+    "chrome://favicon/"
+  ],
+  "icons": {
+    "16": "favicon.png",
+    "32": "favicon.png",
+    "48": "favicon.png",
+    "96": "favicon.png",
+    "128": "favicon.png",
+    "512": "favicon.png"
+  },
+  "browser_action": {
+    "default_icon": "favicon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "web_accessible_resources": ["images/*.png", "images/*.svg", "template/*"],
+  "content_security_policy": "script-src 'self' https://storage.googleapis.com https://platform.twitter.com https://cdn.syndication.twimg.com 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; font-src https://fonts.googleapis.com; object-src 'self'; img-src 'self' chrome://favicon;"
+}

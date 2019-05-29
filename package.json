@@ -1,0 +1,23 @@
+{
+  "name": "Mujo",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@jcblw/box": "^1.0.3",
+    "glamor": "^2.20.40",
+    "prettier": "^1.14.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-modal": "^3.1.7",
+    "react-scripts": "^3.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    "last 3 Chrome versions"
+  ]
+}
