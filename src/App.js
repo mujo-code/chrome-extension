@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { css } from 'glamor';
 import { Box, styleGuide } from '@jcblw/box';
 import { HeaderL, HeaderS, BodyS, Link } from './components/fonts';
 import { Button } from './components/button';
 import { FavRows } from './components/fav-rows';
+import { Player } from './components/player';
 import * as utilStyles from './styles/utils';
-import transienceLogo from './transcience.svg';
 import { useAppState } from './hooks/use-app-state';
 
 import './index.css';
@@ -30,13 +30,14 @@ const siteWrapper = css({
 const DEFAULT_SIZE = 24;
 const factor = x => x * 8;
 const factorMin = size => Math.max(size, DEFAULT_SIZE);
-const getFactor = x => `${factorMin(factor(x))}px`;
+const getFactor = x => factorMin(factor(x));
 
 const Mujō = () => {
   const [
     { alarmEnabled, topSites, pageViews },
     { setAlarmEnabled, updateSitesUsed, resetUsage },
   ] = useAppState();
+  const [isOpen, setIsOpen] = useState(false);
 
   const logoSize = getFactor(pageViews);
 
@@ -49,19 +50,20 @@ const Mujō = () => {
       <Box
         display="flex"
         flex={0}
-        paddingTop="m"
         alignItems="center"
         textAlign="center"
         justifyContent="center"
       >
-        <Box
-          Component="img"
-          src={transienceLogo}
+        <Player
+          isOpen={isOpen}
           width={logoSize}
           height={logoSize}
-          onClick={() => {
-            window.location = 'https://www.youtube.com/watch?v=5f5N6YFjvVc';
+          onFinish={() => {
+            setIsOpen(false);
             resetUsage();
+          }}
+          onClick={() => {
+            setIsOpen(true);
           }}
         />
       </Box>

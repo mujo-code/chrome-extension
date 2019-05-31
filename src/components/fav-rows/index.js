@@ -31,7 +31,7 @@ export const FavRows = ({ items, updateSitesUsed }) => {
           {column.map(item => (
             <FavButton
               style="tertiary"
-              key={item.url}
+              key={item.title}
               marginBottom="m"
               url={item.url}
               title={item.title}

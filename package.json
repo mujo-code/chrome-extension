@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@jcblw/box": "^1.0.3",
+    "@tweenjs/tween.js": "^17.4.0",
     "glamor": "^2.20.40",
     "prettier": "^1.14.3",
     "react": "^16.8.6",
