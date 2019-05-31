@@ -31,7 +31,7 @@ const toolTipText = css({
 
 const toolTipPositions = {
   below: css({
-    transform: 'translateY(32px) scale(1)',
+    transform: 'translateY(8px) scale(1)',
     opacity: 1,
     transitionDelay: '0.7s',
   }),
@@ -42,8 +42,29 @@ const toolTipPositions = {
   }),
 };
 
+const trianglePositions = {
+  above: css({
+    transform: 'rotate(45deg)',
+    top: '56%',
+    left: '50%',
+    marginLeft: '-9px',
+    zIndex: '0',
+  }),
+  below: css({
+    transform: 'rotate(45deg)',
+    top: '-8%',
+    left: '50%',
+    marginLeft: '-9px',
+    zIndex: '0',
+  }),
+};
+
 export const ToolTip = props => {
-  const { isOpen } = props;
+  const { isOpen, below } = props;
+  const styles = below ? toolTipPositions.below : toolTipPositions.above;
+  const triangleStyles = below
+    ? trianglePositions.below
+    : trianglePositions.above;
   const restProps = removeKeys(props, 'isOpen', 'children');
   return (
     <Box position="relative">
@@ -53,7 +74,7 @@ export const ToolTip = props => {
         justifyContent="center"
         display="flex"
         {...toolTipWrapper}
-        {...(isOpen ? toolTipPositions.above : {})}
+        {...(isOpen ? styles : {})}
       >
         <Box
           Component="span"
@@ -76,7 +97,7 @@ export const ToolTip = props => {
             borderRadius="xs"
             padding="xs"
             position="absolute"
-            {...toolTipTriangle}
+            {...triangleStyles}
           />
           <Box position="relative" {...toolTipText}>
             {props.children}

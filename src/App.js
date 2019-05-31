@@ -5,6 +5,7 @@ import { HeaderL, HeaderS, BodyS, Link } from './components/fonts';
 import { Button } from './components/button';
 import { FavRows } from './components/fav-rows';
 import { Player } from './components/player';
+import { ToolTip } from './components/tool-tip';
 import * as utilStyles from './styles/utils';
 import { useAppState } from './hooks/use-app-state';
 
@@ -27,7 +28,7 @@ const siteWrapper = css({
   },
 });
 
-const DEFAULT_SIZE = 24;
+const DEFAULT_SIZE = 40;
 const factor = x => x * 8;
 const factorMin = size => Math.max(size, DEFAULT_SIZE);
 const getFactor = x => factorMin(factor(x));
@@ -38,6 +39,7 @@ const Mujō = () => {
     { setAlarmEnabled, updateSitesUsed, resetUsage },
   ] = useAppState();
   const [isOpen, setIsOpen] = useState(false);
+  const [toolTipOpen, setToolTipOpen] = useState(false);
 
   const logoSize = getFactor(pageViews);
 
@@ -49,10 +51,14 @@ const Mujō = () => {
     <Box color="white" display="flex" direction="column" {...bgStyles}>
       <Box
         display="flex"
+        direction="column"
         flex={0}
         alignItems="center"
         textAlign="center"
         justifyContent="center"
+        position="relative"
+        onMouseEnter={() => setToolTipOpen(true)}
+        onMouseLeave={() => setToolTipOpen(false)}
       >
         <Player
           isOpen={isOpen}
@@ -66,6 +72,9 @@ const Mujō = () => {
             setIsOpen(true);
           }}
         />
+        <ToolTip isOpen={toolTipOpen} below>
+          Take a break!
+        </ToolTip>
       </Box>
       <Box
         display="flex"
