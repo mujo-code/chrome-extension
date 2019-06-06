@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
-import { css } from 'glamor';
-import { Box, styleGuide } from '@jcblw/box';
-import { HeaderL, HeaderS, BodyS, Link } from './components/fonts';
-import { Button } from './components/button';
-import { FavRows } from './components/fav-rows';
-import { Player } from './components/player';
-import { ToolTip } from './components/tool-tip';
-import * as utilStyles from './styles/utils';
-import { useAppState } from './hooks/use-app-state';
+import { Box, styleGuide } from '@jcblw/box'
+import { css } from 'glamor'
+import React, { useState } from 'react'
+import { Button } from './components/button'
+import { FavRows } from './components/fav-rows'
+import { HeaderS } from './components/fonts'
+import { Player } from './components/player'
+import { ToolTip } from './components/tool-tip'
+import { useAppState } from './hooks/use-app-state'
+import * as utilStyles from './styles/utils'
 
-import './index.css';
-
-styleGuide.push(utilStyles);
+styleGuide.push(utilStyles)
 
 const bgStyles = css({
   background: 'radial-gradient(ellipse at center, #fff 0%,#c8c0ca 100%)',
   height: '100vh',
-});
+})
 
 const siteWrapper = css({
   transition: 'all 0.5s ease-in 0.2s',
@@ -26,27 +24,27 @@ const siteWrapper = css({
     opacity: 1,
     transform: 'scale(1)',
   },
-});
+})
 
-const DEFAULT_SIZE = 40;
-const factor = x => x * 8;
-const factorMin = size => Math.max(size, DEFAULT_SIZE);
-const getFactor = x => factorMin(factor(x));
+const DEFAULT_SIZE = 40
+const factor = x => x * 8
+const factorMin = size => Math.max(size, DEFAULT_SIZE)
+const getFactor = x => factorMin(factor(x))
 
 const Mujō = () => {
   const [
     { alarmEnabled, topSites, pageViews },
     { setAlarmEnabled, updateSitesUsed, resetUsage },
-  ] = useAppState();
-  const [isOpen, setIsOpen] = useState(false);
-  const [toolTipOpen, setToolTipOpen] = useState(false);
+  ] = useAppState()
+  const [isOpen, setIsOpen] = useState(false)
+  const [toolTipOpen, setToolTipOpen] = useState(false)
 
-  const logoSize = getFactor(pageViews);
+  const logoSize = getFactor(pageViews)
 
   const onAlarmToggle = () => {
-    const enabled = !alarmEnabled;
-    setAlarmEnabled(enabled);
-  };
+    const enabled = !alarmEnabled
+    setAlarmEnabled(enabled)
+  }
   return (
     <Box color="white" display="flex" direction="column" {...bgStyles}>
       <Box
@@ -65,11 +63,11 @@ const Mujō = () => {
           width={logoSize}
           height={logoSize}
           onFinish={() => {
-            setIsOpen(false);
-            resetUsage();
+            setIsOpen(false)
+            resetUsage()
           }}
           onClick={() => {
-            setIsOpen(true);
+            setIsOpen(true)
           }}
         />
         <ToolTip isOpen={toolTipOpen} below>
@@ -85,7 +83,7 @@ const Mujō = () => {
         textAlign="center"
         {...siteWrapper}
       >
-        <HeaderL>Top Sites</HeaderL>
+        <HeaderS>Top Sites</HeaderS>
         {topSites.length ? (
           <FavRows items={topSites} updateSitesUsed={updateSitesUsed} />
         ) : null}
@@ -111,7 +109,7 @@ const Mujō = () => {
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default Mujō;
+export default Mujō

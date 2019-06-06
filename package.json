@@ -1,24 +1,35 @@
 {
   "name": "Mujo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "dependencies": {
     "@jcblw/box": "^1.0.3",
     "@tweenjs/tween.js": "^17.4.0",
     "glamor": "^2.20.40",
+    "idb": "^4.0.3",
     "prettier": "^1.14.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-modal": "^3.1.7",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "react-use-file-reader": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "react-scripts start &",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "fmt": "prettier '{src,public}/**/*.js' --write",
+    "lint": "eslint '{src,public}/**/*.js'",
+    "dist": "./scripts/dist.sh"
   },
   "browserslist": [
     "last 3 Chrome versions"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import-order-alphabetical": "0.0.2",
+    "eslint-plugin-prettier": "^3.1.0"
+  }
 }

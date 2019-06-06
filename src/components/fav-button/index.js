@@ -1,40 +1,37 @@
-import React, { useState } from 'react';
-import { css } from 'glamor';
-import { Box } from '@jcblw/box';
-import { removeKeys } from '@jcblw/box/dist/lib/remove-keys';
-
-import { headerS } from '../fonts/styles';
-import { ToolTip } from '../tool-tip';
+import { Box } from '@jcblw/box'
+import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
+import { css } from 'glamor'
+import React, { useState } from 'react'
+import { ToolTip } from '../tool-tip'
 
 const colors = {
   primary: { backgroundColor: 'amethyst' },
   secondary: { backgroundColor: 'danube' },
   tertiary: { backgroundColor: 'mischka' },
-};
+}
 
 const imageStyles = css({
   opacity: 0,
   transition: 'all 0.3s',
-});
+})
 
-const loadedStyles = css({
-  opacity: 1,
-});
+const loadedStyles = css({ opacity: 1 })
 
 export const FavButton = props => {
-  const { style = 'primary' } = props;
-  const restProps = removeKeys(props, 'style', 'url', 'title');
-  const { backgroundColor } = colors[style];
-  const [tooltipOpen, setToolTipOpen] = useState(false);
-  const [isServer, setIsServer] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const { style = 'primary', disable } = props
+  const restProps = removeKeys(props, 'style', 'url', 'title', 'disable')
+  const { backgroundColor } = colors[style]
+  const [tooltipOpen, setToolTipOpen] = useState(false)
+  const [isServer, setIsServer] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(false)
   const iconUrl = isServer
     ? `https://mujō.com/api/icon?site=${encodeURIComponent(props.url)}`
-    : `chrome://favicon/${props.url}`;
+    : `chrome://favicon/${props.url}`
   return (
     <Box
-      href={props.url}
       Component="a"
+      disable
+      href={disable ? null : props.url}
       cursor="pointer"
       backgroundColor={backgroundColor}
       display="flex"
@@ -47,11 +44,12 @@ export const FavButton = props => {
       onMouseLeave={() => setToolTipOpen(false)}
       {...restProps}
     >
+      <link rel="preconnect" href={props.url} />
       <Box
         Component="img"
         onError={() => setIsServer(false)}
         onLoad={() => {
-          setIsLoaded(true);
+          setIsLoaded(true)
         }}
         src={iconUrl}
         width="16px"
@@ -59,10 +57,13 @@ export const FavButton = props => {
         alt={`${props.title}`}
         {...imageStyles}
         {...(isLoaded ? loadedStyles : {})}
+        {...(disable ? css({ opacity: 0.5 }) : {})}
       />
-      <ToolTip isOpen={tooltipOpen}>{props.title}</ToolTip>
+      <ToolTip isOpen={tooltipOpen}>
+        {disable ? 'Bring back this link by taking a break' : props.title}
+      </ToolTip>
     </Box>
-  );
-};
+  )
+}
 
-FavButton.defaultProps = { Component: 'a' };
+FavButton.defaultProps = { Component: 'a' }

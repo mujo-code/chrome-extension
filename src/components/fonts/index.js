@@ -1,6 +1,6 @@
-import React from 'react';
-import { headerL, headerS, bodyL, bodyS } from './styles';
-import { Box } from '@jcblw/box';
+import { Box } from '@jcblw/box'
+import React from 'react'
+import { headerL, headerS, bodyL, bodyS } from './styles'
 
 export const HeaderL = props => (
   <Box
@@ -11,7 +11,7 @@ export const HeaderL = props => (
     {...headerL}
     {...props}
   />
-);
+)
 
 export const HeaderS = props => (
   <Box
@@ -22,7 +22,7 @@ export const HeaderS = props => (
     {...headerS}
     {...props}
   />
-);
+)
 
 export const BodyL = props => (
   <Box
@@ -33,7 +33,7 @@ export const BodyL = props => (
     {...bodyL}
     {...props}
   />
-);
+)
 
 export const BodyS = props => (
   <Box
@@ -44,7 +44,7 @@ export const BodyS = props => (
     {...bodyS}
     {...props}
   />
-);
+)
 
 export const Link = props => (
   <Box
@@ -54,4 +54,4 @@ export const Link = props => (
     textDecoration="underline"
     {...props}
   />
-);
+)

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { css } from 'glamor';
-import { Box } from '@jcblw/box';
-import { removeKeys } from '@jcblw/box/dist/lib/remove-keys';
+import { Box } from '@jcblw/box'
+import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
+import { css } from 'glamor'
+import React from 'react'
 
 const toolTipWrapper = css({
   top: 0,
@@ -12,22 +12,14 @@ const toolTipWrapper = css({
   transitionDelay: '0s',
   opacity: 0,
   transform: 'translateY(-32px) scale(0)',
-});
-
-const toolTipTriangle = css({
-  transform: 'rotate(45deg)',
-  top: '56%',
-  left: '50%',
-  marginLeft: '-9px',
-  zIndex: '0',
-});
+})
 
 const toolTipText = css({
   zIndex: '1',
   fontSize: '12px',
   fontWeight: 'normal',
   lineHeight: 'initial',
-});
+})
 
 const toolTipPositions = {
   below: css({
@@ -40,7 +32,7 @@ const toolTipPositions = {
     opacity: 1,
     transitionDelay: '0.7s',
   }),
-};
+}
 
 const trianglePositions = {
   above: css({
@@ -57,15 +49,15 @@ const trianglePositions = {
     marginLeft: '-9px',
     zIndex: '0',
   }),
-};
+}
 
 export const ToolTip = props => {
-  const { isOpen, below } = props;
-  const styles = below ? toolTipPositions.below : toolTipPositions.above;
+  const { isOpen, below } = props
+  const styles = below ? toolTipPositions.below : toolTipPositions.above
   const triangleStyles = below
     ? trianglePositions.below
-    : trianglePositions.above;
-  const restProps = removeKeys(props, 'isOpen', 'children');
+    : trianglePositions.above
+  const otherProps = removeKeys(props, 'isOpen', 'children')
   return (
     <Box position="relative">
       <Box
@@ -89,7 +81,7 @@ export const ToolTip = props => {
           whiteSpace="nowrap"
           maxWidth="100px"
           position="relative"
-          {...props}
+          {...otherProps}
         >
           <Box
             display="block"
@@ -105,7 +97,7 @@ export const ToolTip = props => {
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-ToolTip.defaultProps = { isOpen: false };
+ToolTip.defaultProps = { isOpen: false }
