@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "short_name": "Mujō",
-  "name": "Mujō a transience page",
+  "name": "Mujō - Be mindful of your time",
+  "description": "Mujō is a extension that reminds you not to over work yourself.",
   "background": {
     "scripts": ["background.js"],
     "persistent": true
