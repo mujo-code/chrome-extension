@@ -11,10 +11,9 @@ import * as utilStyles from './styles/utils'
 
 styleGuide.push(utilStyles)
 
-css.global('body', {
-  background: 'radial-gradient(ellipse at center, #fff 0%,#c8c0ca 100%)',
-  height: '100vh',
-})
+css.global('body', {background: 'radial-gradient(ellipse at center, #fff 0%,#c8c0ca 100%)',})
+
+const appWrapper = css({ height: '100vh' })
 
 const siteWrapper = css({
   transition: 'all 0.5s ease-in 0.2s',
@@ -46,7 +45,13 @@ const Mujō = () => {
     setAlarmEnabled(enabled)
   }
   return (
-    <Box color="white" display="flex" direction="column" position="relative">
+    <Box
+      color="white"
+      display="flex"
+      direction="column"
+      position="relative"
+      {...appWrapper}
+    >
       <Box
         display="flex"
         direction="column"
