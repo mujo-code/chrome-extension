@@ -18,8 +18,8 @@ const imageStyles = css({
 const loadedStyles = css({ opacity: 1 })
 
 export const FavButton = props => {
-  const { style = 'primary', disable } = props
-  const restProps = removeKeys(props, 'style', 'url', 'title', 'disable')
+  const { style = 'primary', disabled } = props
+  const restProps = removeKeys(props, 'style', 'url', 'title', 'disabled')
   const { backgroundColor } = colors[style]
   const [tooltipOpen, setToolTipOpen] = useState(false)
   const [isServer, setIsServer] = useState(true)
@@ -30,8 +30,8 @@ export const FavButton = props => {
   return (
     <Box
       Component="a"
-      disable
-      href={disable ? null : props.url}
+      disabled
+      href={disabled ? null : props.url}
       cursor="pointer"
       backgroundColor={backgroundColor}
       display="flex"
@@ -57,10 +57,10 @@ export const FavButton = props => {
         alt={`${props.title}`}
         {...imageStyles}
         {...(isLoaded ? loadedStyles : {})}
-        {...(disable ? css({ opacity: 0.5 }) : {})}
+        {...(disabled ? css({ opacity: 0.5 }) : {})}
       />
       <ToolTip isOpen={tooltipOpen}>
-        {disable ? 'Bring back this link by taking a break' : props.title}
+        {disabled ? 'Bring back this link by taking a break' : props.title}
       </ToolTip>
     </Box>
   )

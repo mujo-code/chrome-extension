@@ -34,9 +34,9 @@ export const FavRows = ({ items, updateSitesUsed }) => {
               marginBottom="m"
               url={item.url}
               title={item.title}
-              disable={item.isUsed}
+              disabled={item.isUsed}
               onClick={e => {
-                const url = e.target.href
+                const url = e.currentTarget.href
                 if (url) {
                   updateSitesUsed(item)
                   window.location = url

@@ -11,7 +11,7 @@ import * as utilStyles from './styles/utils'
 
 styleGuide.push(utilStyles)
 
-const bgStyles = css({
+css.global('body', {
   background: 'radial-gradient(ellipse at center, #fff 0%,#c8c0ca 100%)',
   height: '100vh',
 })
@@ -46,7 +46,7 @@ const Mujō = () => {
     setAlarmEnabled(enabled)
   }
   return (
-    <Box color="white" display="flex" direction="column" {...bgStyles}>
+    <Box color="white" display="flex" direction="column" position="relative">
       <Box
         display="flex"
         direction="column"
@@ -55,6 +55,7 @@ const Mujō = () => {
         textAlign="center"
         justifyContent="center"
         position="relative"
+        layer="2"
         onMouseEnter={() => setToolTipOpen(true)}
         onMouseLeave={() => setToolTipOpen(false)}
       >
@@ -70,7 +71,7 @@ const Mujō = () => {
             setIsOpen(true)
           }}
         />
-        <ToolTip isOpen={toolTipOpen} below>
+        <ToolTip isOpen={toolTipOpen && !isOpen} below>
           Take a break!
         </ToolTip>
       </Box>
@@ -81,6 +82,8 @@ const Mujō = () => {
         justifyContent="center"
         alignItems="center"
         textAlign="center"
+        position="relative"
+        layer="1"
         {...siteWrapper}
       >
         <HeaderS>Top Sites</HeaderS>

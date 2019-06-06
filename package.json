@@ -5,6 +5,7 @@
   "dependencies": {
     "@jcblw/box": "^1.0.3",
     "@tweenjs/tween.js": "^17.4.0",
+    "cra-append-sw": "^2.6.1",
     "glamor": "^2.20.40",
     "idb": "^4.0.3",
     "prettier": "^1.14.3",
@@ -17,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "react-scripts start &",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cra-append-sw --mode replace --skip-compile ./public/service-worker.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "fmt": "prettier '{src,public}/**/*.js' --write",

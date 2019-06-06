@@ -29,3 +29,9 @@ export const position = {
 export const display = { table: css({ display: 'table' }) }
 
 export const borderRadius = { xs: css({ borderRadius: '4px' }) }
+
+export const layer = {
+  0: css({ zIndex: 0 }),
+  1: css({ zIndex: 10 }),
+  2: css({ zIndex: 100 }),
+}

@@ -31,5 +31,5 @@
     "newtab": "index.html"
   },
   "web_accessible_resources": ["images/*.png", "images/*.svg", "template/*"],
-  "content_security_policy": "script-src 'self' https://storage.googleapis.com 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; font-src https://fonts.googleapis.com; object-src 'self'; img-src 'self' chrome://favicon https://xn--muj-sxa.com;"
+  "content_security_policy": "script-src 'self' https://storage.googleapis.com 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU=' 'sha256-Hh68uPWQF960rB8rb9c+clat9HNoP1DpxpruDkr5esY='; font-src https://fonts.googleapis.com; object-src 'self'; img-src 'self' chrome://favicon https://xn--muj-sxa.com;"
 }
