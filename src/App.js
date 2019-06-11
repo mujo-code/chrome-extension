@@ -8,6 +8,7 @@ import { Player } from './components/player'
 import { ToolTip } from './components/tool-tip'
 import { useAppState } from './hooks/use-app-state'
 import * as utilStyles from './styles/utils'
+import { track } from './tracker'
 
 styleGuide.push(utilStyles)
 
@@ -72,6 +73,7 @@ const Mujō = () => {
           onFinish={() => {
             setIsOpen(false)
             resetUsage()
+            track('event', 'finish', { event_category: 'player' })
           }}
           onClick={() => {
             setIsOpen(true)

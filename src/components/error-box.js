@@ -1,5 +1,6 @@
 import { Box } from '@jcblw/box'
 import React from 'react'
+import { track } from '../tracker'
 import { HeaderS } from './fonts'
 
 export class ErrorBox extends React.Component {
@@ -15,7 +16,7 @@ export class ErrorBox extends React.Component {
 
   /* eslint-disable-next-line */
   componentDidCatch(err) {
-    gtag('event', 'exception', {
+    track('event', 'exception', {
       description: err,
       fatal: false, // set to true if the error is fatal
     })
