@@ -7,20 +7,31 @@ const loop = shouldLoop => time => {
   }
 }
 
-export const createTween = ({
-  updateTween,
-  completeTween,
-  setTween,
-  repeat = 2,
-  startDelay = 700,
-  circleScale = 1,
-  circleScaleExpanded = 2,
-  circleInnerScale = 1,
-  circleInnerExpanded = 1.6,
-  breathTime = 3000,
-  shouldLoop,
-}) => {
-  let iteration = 0
+const defaultsOptions = {
+  repeat: 2,
+  startDelay: 700,
+  circleScale: 1,
+  circleScaleExpanded: 1.6,
+  circleInnerScale: 1,
+  circleInnerExpanded: 1.4,
+  breathTime: 3000,
+}
+
+export const createTween = inputOptions => {
+  const options = Object.assign({}, defaultsOptions, inputOptions)
+  const {
+    updateTween,
+    completeTween,
+    setTween,
+    repeat,
+    startDelay,
+    circleScale,
+    circleScaleExpanded,
+    circleInnerScale,
+    circleInnerExpanded,
+    breathTime,
+    shouldLoop,
+  } = options
   const renderLoop = loop(shouldLoop)
   const position = { scale: circleScale, scale2: circleInnerScale }
   const breathIn = new TWEEN.Tween(position)
@@ -31,14 +42,7 @@ export const createTween = ({
     .to({ scale: circleScale, scale2: circleInnerScale }, breathTime)
     .easing(TWEEN.Easing.Back.InOut)
     .onUpdate(update)
-    .onComplete(() => {
-      iteration += 1
-      if (iteration === repeat) {
-        completeTween()
-      } else {
-        breathIn.start()
-      }
-    })
+    .onComplete(completeTween(Object.assign({ tween: breathIn }, options)))
 
   breathIn.chain(breathOut).onUpdate(update)
 
@@ -50,15 +54,24 @@ export const createTween = ({
 
   // return function to teardown
   return {
-    update: ({ updateTween: nextUpdateTween, shouldLoop: nextShouldLoop }) => {
+    repeat,
+    update: ({
+      updateTween: nextUpdateTween,
+      shouldLoop: nextShouldLoop,
+      completeTween: nextCompleteTween,
+    }) => {
       const nextUpdate = nextUpdateTween({
         tween: breathIn,
         shouldUpdate: nextShouldLoop,
       })
       breathIn.onUpdate(nextUpdate)
       breathOut.onUpdate(nextUpdate)
+      breathOut.onComplete(
+        nextCompleteTween(Object.assign({ tween: breathIn }, options))
+      )
     },
     stop: () => {
+      console.log('STOP')
       setTween(null)
       clearTimeout(timer)
       breathIn.stop()

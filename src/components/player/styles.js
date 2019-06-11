@@ -53,3 +53,18 @@ export const toTextProps = ({ width, height, isOpen }, animating) =>
       animating
     )
   )
+
+export const toCountProps = ({ width, height, isOpen }, animating) =>
+  Object.assign(
+    {
+      x: isOpen ? window.innerWidth / 2 : width / 2,
+      // NOTE: goes down half font size
+      y: (isOpen ? window.innerHeight : height) - 16,
+      textAnchor: 'middle',
+    },
+    css(
+      { width: '300px', textAlign: 'center' },
+      transition({ width, height, isOpen }),
+      animating
+    )
+  )

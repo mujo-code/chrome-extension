@@ -1,4 +1,20 @@
+import { generateStyle } from '@jcblw/box/dist/styles/helpers'
 import { css } from 'glamor'
+
+const colorNames = {
+  outerSpace: '#353D42',
+  saltBox: '#756577',
+  mischka: '#EAE2EB',
+}
+
+const keys = Object.keys(colorNames)
+
+const reduceBackgroundColor = generateStyle('backgroundColor', colorNames)
+export const backgroundColor = keys.reduce(reduceBackgroundColor, {})
+const reduceColor = generateStyle('color', colorNames)
+export const color = keys.reduce(reduceColor, {})
+const reduceFill = generateStyle('fill', colorNames)
+export const fill = keys.reduce(reduceFill, {})
 
 export const maxWidth = {
   '100%': css({ maxWidth: '100%' }),

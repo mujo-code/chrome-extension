@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "private": true,
   "dependencies": {
-    "@jcblw/box": "^1.0.3",
+    "@jcblw/box": "^2.0.0",
     "@tweenjs/tween.js": "^17.4.0",
     "cra-append-sw": "^2.6.1",
     "glamor": "^2.20.40",

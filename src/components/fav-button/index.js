@@ -5,8 +5,8 @@ import React, { useState } from 'react'
 import { ToolTip } from '../tool-tip'
 
 const colors = {
-  primary: { backgroundColor: 'amethyst' },
-  secondary: { backgroundColor: 'danube' },
+  primary: { backgroundColor: 'outerSpace' },
+  secondary: { backgroundColor: 'saltBox' },
   tertiary: { backgroundColor: 'mischka' },
 }
 

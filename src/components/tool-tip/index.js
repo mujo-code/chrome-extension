@@ -76,8 +76,8 @@ export const ToolTip = props => {
           paddingBottom="xs"
           paddingLeft="s"
           paddingRight="s"
-          backgroundColor="nevada"
-          color="white"
+          backgroundColor="outerSpace"
+          color="mischka"
           whiteSpace="nowrap"
           maxWidth="100px"
           position="relative"
@@ -85,7 +85,7 @@ export const ToolTip = props => {
         >
           <Box
             display="block"
-            backgroundColor="nevada"
+            backgroundColor="outerSpace"
             borderRadius="xs"
             padding="xs"
             position="absolute"

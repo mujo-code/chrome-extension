@@ -5,9 +5,9 @@ import { headerS } from '../fonts/styles'
 import { ToolTip } from '../tool-tip'
 
 const colors = {
-  primary: { color: 'white', backgroundColor: 'amethyst' },
-  secondary: { color: 'white', backgroundColor: 'danube' },
-  tertiary: { color: 'nevada', backgroundColor: 'mischka' },
+  primary: { color: 'mischka', backgroundColor: 'outerSpace' },
+  secondary: { color: 'white', backgroundColor: 'saltBox' },
+  tertiary: { color: 'outerSpace', backgroundColor: 'mischka' },
 }
 
 export const Button = props => {

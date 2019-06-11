@@ -36,7 +36,8 @@
     "context": "readonly",
     "it": "readonly",
     "cy": "readonly",
-    "Cypress": "readonly"
+    "Cypress": "readonly",
+    "gtag": "readonly"
   },
   "env": {
     "browser": true,

@@ -13,8 +13,12 @@ export class ErrorBox extends React.Component {
     return { hasError: true, error }
   }
 
-  componentDidCatch(...args) {
-    console.error(...args)
+  /* eslint-disable-next-line */
+  componentDidCatch(err) {
+    gtag('event', 'exception', {
+      description: err,
+      fatal: false, // set to true if the error is fatal
+    })
   }
 
   render() {
@@ -22,7 +26,7 @@ export class ErrorBox extends React.Component {
     if (hasError) {
       return (
         <Box
-          backgroundColor="amethyst"
+          backgroundColor="saltBox"
           maxWidth="300px"
           borderRadius="s"
           paddingLeft="s"

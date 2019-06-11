@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react'
-import { toSvgProps, toCircleProps, toTextProps, toRectProps } from './styles'
+import {
+  toSvgProps,
+  toCircleProps,
+  toTextProps,
+  toRectProps,
+  toCountProps,
+} from './styles'
 import { createTween } from './tweens'
 
 export { transition } from './styles'
 
+const REPEAT = 5
 export const wait = fn => (...args) => setTimeout(() => fn(...args), 0)
 
 const animatingPropsFactory = () => ({
@@ -12,7 +19,14 @@ const animatingPropsFactory = () => ({
   circle2: {},
 })
 
-export const useAnimations = props => {
+const defaultsOptions = {
+  breathTimeIncrease: 300,
+  circleScaleExpandedIncrease: 0.2,
+  circleInnerExpandedIncrease: 0.1,
+}
+
+export const useAnimations = (props, argOptions = {}) => {
+  const options = Object.assign({}, defaultsOptions, argOptions)
   const { isOpen, onFinish } = props
   const [animatingProps, setAnimatingProps] = useState(animatingPropsFactory())
   const [isBreathIn, setIsBreathIn] = useState(true)
@@ -41,7 +55,36 @@ export const useAnimations = props => {
       })
     )
   }
-  const completeTween = () => {
+  // TODO: update to be able to hot swappable like update
+  const completeTween = ({
+    repeat: iteration,
+    breathTime,
+    circleScaleExpanded,
+    circleInnerExpanded,
+  }) => () => {
+    if (iteration > 1) {
+      const {
+        breathTimeIncrease,
+        circleScaleExpandedIncrease,
+        circleInnerExpandedIncrease,
+      } = options
+      setTween(
+        createTween({
+          updateTween,
+          completeTween,
+          startDelay: 0,
+          repeat: iteration - 1,
+          shouldLoop: () => isOpen,
+          breathTime: breathTime + breathTimeIncrease,
+          circleScaleExpanded:
+            circleScaleExpanded + circleScaleExpandedIncrease,
+          circleInnerExpanded:
+            circleInnerExpanded + circleInnerExpandedIncrease,
+          setTween,
+        })
+      )
+      return
+    }
     setAnimatingProps(animatingPropsFactory())
     onFinish()
   }
@@ -51,7 +94,7 @@ export const useAnimations = props => {
         createTween({
           updateTween,
           completeTween,
-          repeat: 5,
+          repeat: REPEAT,
           shouldLoop: () => isOpen,
           setTween,
         })
@@ -68,6 +111,7 @@ export const useAnimations = props => {
       tween.update({
         updateTween,
         shouldLoop: () => isOpen,
+        completeTween,
       })
     }
   }, [isOpen, animatingProps, isBreathIn, tween])
@@ -77,9 +121,11 @@ export const useAnimations = props => {
     circle: toCircleProps(props, animatingProps.circle),
     circle2: toCircleProps(props, animatingProps.circle2),
     text: toTextProps(props, {}),
+    count: toCountProps(props, {}),
   }
   return [
     {
+      iteration: tween ? tween.repeat : 0,
       animationProps,
       isBreathIn,
     },

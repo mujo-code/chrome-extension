@@ -11,7 +11,8 @@ import * as utilStyles from './styles/utils'
 
 styleGuide.push(utilStyles)
 
-css.global('body', {background: 'radial-gradient(ellipse at center, #fff 0%,#c8c0ca 100%)',})
+const lightGradient = 'radial-gradient(ellipse at center, #fff 0%,#EAE2EB 100%)'
+css.global('body', { background: lightGradient })
 
 const appWrapper = css({ height: '100vh' })
 
@@ -91,7 +92,7 @@ const Mujō = () => {
         layer="1"
         {...siteWrapper}
       >
-        <HeaderS>Top Sites</HeaderS>
+        <HeaderS color="outerSpace">Top Sites</HeaderS>
         {topSites.length ? (
           <FavRows items={topSites} updateSitesUsed={updateSitesUsed} />
         ) : null}
