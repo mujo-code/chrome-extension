@@ -11,11 +11,14 @@
   "permissions": [
     "tabs",
     "activeTab",
+    "webNavigation",
     "notifications",
     "alarms",
     "background",
     "topSites",
-    "chrome://favicon/"
+    "chrome://favicon/",
+    "https://*/*",
+    "http://*/*"
   ],
   "icons": {
     "16": "favicon.png",

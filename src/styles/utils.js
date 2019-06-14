@@ -5,6 +5,7 @@ const colorNames = {
   outerSpace: '#353D42',
   saltBox: '#756577',
   mischka: '#EAE2EB',
+  transparent: 'transparent',
 }
 
 const keys = Object.keys(colorNames)
@@ -15,6 +16,8 @@ const reduceColor = generateStyle('color', colorNames)
 export const color = keys.reduce(reduceColor, {})
 const reduceFill = generateStyle('fill', colorNames)
 export const fill = keys.reduce(reduceFill, {})
+const reduceStroke = generateStyle('stroke', colorNames)
+export const stroke = keys.reduce(reduceStroke, {})
 
 export const maxWidth = {
   '100%': css({ maxWidth: '100%' }),
@@ -50,4 +53,5 @@ export const layer = {
   0: css({ zIndex: 0 }),
   1: css({ zIndex: 10 }),
   2: css({ zIndex: 100 }),
+  3: css({ zIndex: 1000 }),
 }

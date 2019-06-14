@@ -8,12 +8,18 @@ export const usePersistantState = (key, options = {}) => {
   // TODO: not sure I should be doing this ||
   const [value, setState] = useState(storeValue || defaultValue)
   const updatePersistantState = (val, opts = {}) => {
-    const { onlyMemory } = opts
+    const { onlyMemory, refresh } = opts
+    if (refresh) {
+      const storeVal = deserialize(localStorage.getItem(key))
+      setState(storeVal)
+      return
+    }
     if (!onlyMemory) {
       localStorage.setItem(key, serialize(val))
     }
     setState(val)
   }
+
   return [value, updatePersistantState]
 }
 
@@ -27,6 +33,9 @@ export const stampBooleanOptions = options =>
 export const stampJSONOptions = options =>
   Object.assign(
     {},
-    { deserialize: n => JSON.parse(n), serialize: n => JSON.stringify(n) },
+    {
+      deserialize: n => JSON.parse(n),
+      serialize: n => JSON.stringify(n),
+    },
     options
   )

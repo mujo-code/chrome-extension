@@ -3,6 +3,7 @@ import { css } from 'glamor'
 import React, { useState } from 'react'
 import { Button } from './components/button'
 import { Player } from './components/player'
+import { ScreenTime } from './components/screen-time'
 import { ToolTip } from './components/tool-tip'
 import { TopSites } from './components/top-sites'
 import { useAppState } from './hooks/use-app-state'
@@ -11,7 +12,8 @@ import { track } from './tracker'
 
 styleGuide.push(utilStyles)
 
-const lightGradient = 'radial-gradient(ellipse at center, #fff 0%,#EAE2EB 100%)'
+const lightGradient =
+  'radial-gradient(ellipse at center, #fff 0%,#EAE2EB 100%)'
 css.global('body', { background: lightGradient })
 
 const appWrapper = css({ height: '100vh' })
@@ -23,8 +25,13 @@ const getFactor = x => factorMin(factor(x))
 
 const Mujō = () => {
   const [
-    { alarmEnabled, topSites, pageViews, showTopSites },
-    { setAlarmEnabled, updateSitesUsed, resetUsage, updateShowTopSites },
+    { alarmEnabled, topSites, pageViews, showTopSites, siteTimes },
+    {
+      setAlarmEnabled,
+      updateSitesUsed,
+      resetUsage,
+      updateShowTopSites,
+    },
   ] = useAppState()
   const [isOpen, setIsOpen] = useState(false)
   const [toolTipOpen, setToolTipOpen] = useState(false)
@@ -70,8 +77,13 @@ const Mujō = () => {
         </ToolTip>
       </Box>
       <Box flex="1" />
-      {showTopSites && (
-        <TopSites topSites={topSites} updateSitesUsed={updateSitesUsed} />
+      {showTopSites ? (
+        <TopSites
+          topSites={topSites}
+          updateSitesUsed={updateSitesUsed}
+        />
+      ) : (
+        <ScreenTime data={siteTimes} />
       )}
       <Box flex="1" />
       <Box
@@ -81,8 +93,19 @@ const Mujō = () => {
         alignItems="center"
         textAlign="center"
         justifyContent="center"
+        layer="3"
+        position="relative"
       >
-        <Box display="flex" flex={0} direction="row" marginBottom="m">
+        <Box flex={0} display="flex" direction="row" marginBottom="m">
+          <Button
+            whiteSpace="nowrap"
+            style="tertiary"
+            alt={'foo'}
+            marginRight="m"
+            altOffset={225}
+          >
+            Screen time stats
+          </Button>
           <Button
             whiteSpace="nowrap"
             style="tertiary"
