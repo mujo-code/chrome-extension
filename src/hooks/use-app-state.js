@@ -11,6 +11,7 @@ const LOCAL_STORAGE_ALARM_KEY = 'MINDFUL_ALARM'
 const LOCAL_STORAGE_TOP_SITES_KEY = 'TOP_SITES'
 const LOCAL_STORAGE_TOP_SITES_USAGE_KEY = 'TOP_SITES_USAGE'
 const PAGE_VIEWS_KEY = 'PAGE_VIEWS'
+const SHOW_TOP_SITES_KEY = 'SHOW_TOP_SITES'
 // actions
 const NEW_TAB_CONNECTION = 'New Connection'
 const CLEAR_ALARM = 'Clear Alarm'
@@ -46,6 +47,10 @@ export const useAppState = () => {
   const [pageViews, updatePageViews] = usePersistantState(
     PAGE_VIEWS_KEY,
     stampJSONOptions({ defaultValue: 0 })
+  )
+  const [showTopSites, updateShowTopSites] = usePersistantState(
+    SHOW_TOP_SITES_KEY,
+    stampBooleanOptions({ defaultValue: true })
   )
 
   // mount hook
@@ -86,12 +91,13 @@ export const useAppState = () => {
   })
 
   return [
-    { topSites: mappedTopSites, alarmEnabled, pageViews },
+    { topSites: mappedTopSites, alarmEnabled, pageViews, showTopSites },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
       setTopSites,
       updateSitesUsed,
       resetUsage,
+      updateShowTopSites,
     },
   ]
 }

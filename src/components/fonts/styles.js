@@ -1,6 +1,12 @@
 import { css } from 'glamor'
 
-const medium = { fontWeight: 500 }
+css.global('*', {
+  fontFamily: "'IBM Plex Sans', sans-serif",
+  '-webkit-font-smoothing': 'antialiased',
+  '-moz-osx-font-smoothing': 'grayscale',
+})
+
+const medium = { fontWeight: 700 }
 
 const extraLight = { fontWeight: 200 }
 

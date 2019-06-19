@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './app'
+import App from './App'
 import { ErrorBox } from './components/error-box'
 
 import './tracker'

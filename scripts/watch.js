@@ -2,7 +2,10 @@ const { spawn } = require('child_process')
 /* eslint-disable-next-line */
 const { Gaze } = require('gaze')
 
-const gaze = new Gaze('{public,src}/*.{json,js,html}')
+const logger = label => str => console.log(`${label || new Date()}: ${str}`)
+const log = logger()
+
+const gaze = new Gaze('{public,src}/**/*.{json,js,html}')
 let isBuilding = false
 
 const runBuild = () => {
@@ -12,14 +15,13 @@ const runBuild = () => {
   }
   const build = spawn('npm', ['run', 'build'], { stdio: 'inherit' })
   const ts = +new Date()
-  console.log(`${ts}: Change detected rebuilding....`)
+  log('Change detected rebuilding...')
   isBuilding = true
 
   build.on('close', code => {
     isBuilding = false
     const endTS = +new Date()
-    console.log(`Build closed with the code ${code}`)
-    console.log(`${endTS}: Build completed in ${endTS - ts}ms`)
+    log(`Build completed with the code ${code} in ${endTS - ts}ms`)
   })
 }
 
