@@ -10,7 +10,7 @@ const gaze = new Gaze('{public,src}/**/*.{json,js,html}')
 const createBuilder = () => {
   let isEnded = false
   const builder = spawn('npm', ['run', 'build'], {
-    stderr: process.stderr,
+    stdio: 'inherit',
     detached: true,
   })
   const ts = +new Date()

@@ -2,6 +2,7 @@ import { Box } from '@jcblw/box'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
 import { css } from 'glamor'
 import React from 'react'
+import { useTheme } from '../../hooks/use-theme'
 
 const toolTipWrapper = css({
   top: 0,
@@ -57,6 +58,7 @@ const trianglePositions = {
 
 export const ToolTip = props => {
   const { isOpen, below, offset } = props
+  const { foreground, background } = useTheme()
   const styles = below
     ? toolTipPositions.below
     : toolTipPositions.above
@@ -88,8 +90,8 @@ export const ToolTip = props => {
           paddingBottom="xs"
           paddingLeft="s"
           paddingRight="s"
-          backgroundColor="outerSpace"
-          color="mischka"
+          backgroundColor={foreground}
+          color={background}
           whiteSpace="nowrap"
           maxWidth="100px"
           position="relative"
@@ -97,7 +99,7 @@ export const ToolTip = props => {
         >
           <Box
             display="block"
-            backgroundColor="outerSpace"
+            backgroundColor={foreground}
             borderRadius="xs"
             padding="xs"
             position="absolute"
