@@ -11,8 +11,19 @@ const colors = {
 }
 
 export const Button = props => {
-  const { children = 'Label', style = 'primary', alt, altOffset = 0 } = props
-  const restProps = removeKeys(props, 'style', 'alt', 'children', 'altOffset')
+  const {
+    children = 'Label',
+    style = 'primary',
+    alt,
+    altOffset = 0,
+  } = props
+  const restProps = removeKeys(
+    props,
+    'style',
+    'alt',
+    'children',
+    'altOffset'
+  )
   const [tooltipOpen, setToolTipOpen] = useState(false)
   const { color, backgroundColor } = colors[style]
   return (

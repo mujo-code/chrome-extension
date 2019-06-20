@@ -19,8 +19,7 @@ const getPathAttributes = ({ angles, getInnerPoint, radius }) => {
   const startPoint = getInnerPoint(angles[0])
   const endPoint = getInnerPoint(angles[1])
   const largeArcFlag = angles[1] - angles[0] <= 180 ? '0' : '1'
-  const sweepFlag = angles[1] - angles[0] <= 180 ? '1' : '0'
-  console.log({ fullAngle: angles[1] - angles[0], angles })
+  const sweepFlag = angles[1] - angles[0] <= 0 ? '0' : '1'
   const d = `M ${startPoint.x} ${
     startPoint.y
   } A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${
@@ -71,6 +70,22 @@ const createSegmentAttributes = ({
   return { path, label: text, originalData }
 }
 
+const reduceAngles = spacingAngle => (angles, angle, i) => {
+  let startAngle
+  if (angle < 0 || angle < spacingAngle) {
+    // NOTE: these are tiny angles, ones that just will not render
+    angles.push([undefined, undefined, angle])
+    return angles
+  }
+  if (!i) {
+    startAngle = 0
+  } else {
+    startAngle = angles[angles.length - 1][1] + spacingAngle
+  }
+  angles.push([startAngle, startAngle + angle])
+  return angles
+}
+
 const defaultOptions = {
   radius: 70,
   center: [150, 150],
@@ -96,26 +111,44 @@ export const createGraphAttibutes = (passedOptions = {}) => {
   )
   const removeSpacing = angle => angle - spacingAngle
 
-  console.log(data)
+  let lastAggregated = false
 
-  return data
+  const sortedData = data.sort(
+    (next, prev) => prev.percent - next.percent
+  )
+
+  return sortedData
     .map(toPercents)
     .map(angleOfPercent)
     .map(removeSpacing)
-    .reduce((angles, angle, i) => {
-      let startAngle
-      if (!i) {
-        startAngle = 0
+    .reduce(reduceAngles(spacingAngle), [])
+    .map(zipData(sortedData))
+    .reduce((accum, segment, i, allSegments) => {
+      if (lastAggregated) return accum
+      if (segment.angles[1]) {
+        accum.push(segment)
       } else {
-        startAngle = angles[i - 1][1] + spacingAngle
+        const rest = allSegments.slice(i)
+        const last = allSegments[i - 1]
+        let startAngle = last.angles[1] + spacingAngle
+        let endAngle = 360 - spacingAngle
+        if (endAngle < startAngle) {
+          const middle = (360 - last.angles[1]) / 2
+          startAngle = 360 - middle - 0.5
+          endAngle = 360 - middle + 0.5
+        }
+        accum.push({
+          label: 'other',
+          angles: [startAngle, endAngle],
+          originalData: Object.assign(
+            {},
+            ...rest.map(r => r.originalData)
+          ),
+        })
+        lastAggregated = true
       }
-      if (startAngle > startAngle + angle) {
-        console.log({ startAngle, angle })
-      }
-      angles.push([startAngle, startAngle + angle])
-      return angles
+      return accum
     }, [])
-    .map(zipData(data))
     .map(
       createSegmentAttributes({
         getInnerPoint,

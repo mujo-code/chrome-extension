@@ -15,8 +15,12 @@ const onViewingStart = () => {
 
 const onViewingEnd = () => {
   performance.mark(VIEWING_END(count))
-  performance.measure(PAGE_MEASURES, VIEWING_START(count), VIEWING_END(count))
-  sendMSG(PAGE_MEASURES, { measure: performance.getEntriesByType('measure') })
+  performance.measure(
+    PAGE_MEASURES,
+    VIEWING_START(count),
+    VIEWING_END(count)
+  )
+  sendMSG(PAGE_MEASURES, {measure: performance.getEntriesByType('measure'),})
   performance.clearMarks()
   performance.clearMeasures()
 }
@@ -31,20 +35,15 @@ const onVisibilityChange = async () => {
       onViewingEnd()
       break
     default:
-      console.log('visibilitychange happened but not handled', visibilityState)
       break
   }
 }
-const pageVisibilityEvents = [
-  'visibilitychange',
-  'webkitvisibilitychange',
-  'blur',
-]
+const pageVisibilityEvents = ['visibilitychange']
 /* eslint-disable-next-line */
 ;(function() {
   onViewingStart()
   pageVisibilityEvents.forEach(event => {
-    window.addEventListener(event, onVisibilityChange, true)
+    window.document.addEventListener(event, onVisibilityChange, true)
   })
   window.addEventListener('beforeunload', onViewingEnd)
 })()

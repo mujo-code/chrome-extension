@@ -1,71 +1,65 @@
 import { Box } from '@jcblw/box'
 import React, { useState } from 'react'
+import { siteTimeToChartData } from '../../lib/aggregation'
+import { HeaderS } from '../fonts'
 import { Graph } from '../graph'
-
-const parseUrl = url =>
-  new URL(url).hostname
-    .split('.')
-    .slice(-2)
-    .join('.')
-
-const aggregateData = (data, amount = 5) => {
-  const iterable = Object.keys(data)
-  const totals = iterable
-    .map(key => data[key])
-    .reduce((total, value) => {
-      total += value
-      return total
-    }, 0)
-  return iterable
-    .map(key => {
-      const percent = data[key] / totals
-      return {
-        label: parseUrl(key),
-        percent,
-        originalData: { [key]: data[key] },
-      }
-    })
-    .sort((prev, next) => next.percent - prev.percent)
-    .reduce((accum, next, i, all) => {
-      const oneIndex = i + 1
-      if (oneIndex < amount) {
-        accum.push(next)
-      } else if (oneIndex === amount) {
-        const combinedTotal = all.slice(i).reduce((total, seg) => {
-          total += seg.percent
-          return total
-        }, 0)
-        accum.push({
-          label: 'other',
-          percent: combinedTotal,
-          originalData: all.slice(i),
-        })
-      }
-      return accum
-    }, [])
-}
+import { Time } from '../time'
 
 export const ScreenTime = ({ data }) => {
-  const graphData = aggregateData(data)
+  const graphData = siteTimeToChartData(data)
   const [selectedSegment, setSelectedSegment] = useState(null)
   return (
-    <Box flex="0">
+    <Box
+      flex="1"
+      display="flex"
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      textAlign="center"
+      position="relative"
+      layer="1"
+    >
+      <HeaderS color="outerSpace">Screen Time</HeaderS>
       <Graph
         data={graphData}
-        width={500}
-        height={500}
-        textFill="mischka"
+        width={600}
+        height={275}
+        strokeWidth={16}
+        textFill="outerSpace"
         stroke="saltBox"
-        onSegmentSelect={seg => {
-          // TODO: on click set segment into state,
-          // show time underneath graph
-          setSelectedSegment(seg.originalData)
-        }}
+        spacingAngle={16}
+        strokeLinecap="round"
+        radius={100}
+        selected={selectedSegment}
+        selectedStroke="outerSpace"
+        onSegmentClick={seg => setSelectedSegment(seg)}
       />
       {selectedSegment ? (
-        <Box>
-          {Object.keys(selectedSegment)[0]}:{' '}
-          {Object.values(selectedSegment)[0]}
+        <Box display="flex" direction="column">
+          {Object.keys(selectedSegment.originalData).map(url => (
+            <Box
+              display="flex"
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              key={url}
+            >
+              <HeaderS
+                color="outerSpace"
+                marginTop="xs"
+                marginBottom="xs"
+              >
+                {url}:
+              </HeaderS>
+              <Time
+                color="outerSpace"
+                marginTop="xs"
+                marginBottom="xs"
+              >
+                {selectedSegment.originalData[url]}
+              </Time>
+            </Box>
+          ))}
         </Box>
       ) : null}
     </Box>

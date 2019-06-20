@@ -1,6 +1,8 @@
 import { generateStyle } from '@jcblw/box/dist/styles/helpers'
 import { css } from 'glamor'
 
+css.global('body, html', { margin: 0 })
+
 const colorNames = {
   outerSpace: '#353D42',
   saltBox: '#756577',
@@ -10,7 +12,10 @@ const colorNames = {
 
 const keys = Object.keys(colorNames)
 
-const reduceBackgroundColor = generateStyle('backgroundColor', colorNames)
+const reduceBackgroundColor = generateStyle(
+  'backgroundColor',
+  colorNames
+)
 export const backgroundColor = keys.reduce(reduceBackgroundColor, {})
 const reduceColor = generateStyle('color', colorNames)
 export const color = keys.reduce(reduceColor, {})

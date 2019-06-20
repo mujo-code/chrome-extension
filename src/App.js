@@ -100,15 +100,6 @@ const Mujō = () => {
           <Button
             whiteSpace="nowrap"
             style="tertiary"
-            alt={'foo'}
-            marginRight="m"
-            altOffset={225}
-          >
-            Screen time stats
-          </Button>
-          <Button
-            whiteSpace="nowrap"
-            style="tertiary"
             onClick={toggleHandle(setAlarmEnabled, alarmEnabled)}
             alt="Reminders are notifications that remind you to take a break"
             marginRight="m"
@@ -121,7 +112,7 @@ const Mujō = () => {
             onClick={toggleHandle(updateShowTopSites, showTopSites)}
             alt="Toggle the view of the top sites section of this extension"
           >
-            {showTopSites ? 'Hide top sites' : 'Show top sites'}
+            {showTopSites ? 'Show screen time' : 'Show top sites'}
           </Button>
         </Box>
       </Box>
