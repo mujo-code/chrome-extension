@@ -7,7 +7,7 @@ export const usePersistantState = (key, options = {}) => {
   const storeValue = deserialize(localStorage.getItem(key))
   // TODO: not sure I should be doing this ||
   const [value, setState] = useState(
-    typeof storeValue === 'undefined' ? defaultValue : storeValue
+    storeValue === null ? defaultValue : storeValue
   )
   const updatePersistantState = (val, opts = {}) => {
     const { onlyMemory, refresh } = opts

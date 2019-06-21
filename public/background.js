@@ -18,7 +18,6 @@ const clearAlarm = () => {
 const setAlarm = () => {
   chrome.alarms.get(ALARM, alarm => {
     if (!alarm) {
-      console.log('Create Alarm')
       chrome.alarms.create(ALARM, { when: +Date.now() + THREE_HOURS })
     }
   })

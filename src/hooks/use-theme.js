@@ -7,11 +7,13 @@ const colors = {
     foreground: 'mischka',
     background: 'outerSpace',
     highlight: 'saltBox',
+    buttonStyle: 'primary',
   },
   light: {
     foreground: 'outerSpace',
     background: 'mischka',
     highlight: 'saltBox',
+    buttonStyle: 'tertiary',
   },
 }
 

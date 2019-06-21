@@ -1,4 +1,5 @@
 import { Box } from '@jcblw/box'
+import { css } from 'glamor'
 import React from 'react'
 import { createGraphAttibutes } from './attributes'
 
@@ -12,6 +13,8 @@ const sampleData = [
 
 const isSelected = selected => seg =>
   selected && selected.label.children === seg.label.children
+
+const transitions = css({ transition: 'all .2s ease-in' })
 
 export const Graph = React.memo(
   ({
@@ -41,7 +44,6 @@ export const Graph = React.memo(
       rotateGraph: rotation,
     })
     const isSelectedSegment = isSelected(selected)
-    console.log(selected)
     return (
       <Box
         Component="svg"
@@ -69,6 +71,7 @@ export const Graph = React.memo(
               cursor="pointer"
               ariaSelected={isSelectedSegment(seg)}
               {...seg.path}
+              {...transitions}
             />
           ))}
         </Box>

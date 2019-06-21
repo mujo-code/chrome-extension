@@ -1,27 +1,18 @@
 import { generateStyle } from '@jcblw/box/dist/styles/helpers'
 import { css } from 'glamor'
+import { colors } from './colors'
 
 css.global('body, html', { margin: 0 })
 
-const colorNames = {
-  outerSpace: '#353D42',
-  saltBox: '#756577',
-  mischka: '#EAE2EB',
-  transparent: 'transparent',
-}
+const keys = Object.keys(colors)
 
-const keys = Object.keys(colorNames)
-
-const reduceBackgroundColor = generateStyle(
-  'backgroundColor',
-  colorNames
-)
+const reduceBackgroundColor = generateStyle('backgroundColor', colors)
 export const backgroundColor = keys.reduce(reduceBackgroundColor, {})
-const reduceColor = generateStyle('color', colorNames)
+const reduceColor = generateStyle('color', colors)
 export const color = keys.reduce(reduceColor, {})
-const reduceFill = generateStyle('fill', colorNames)
+const reduceFill = generateStyle('fill', colors)
 export const fill = keys.reduce(reduceFill, {})
-const reduceStroke = generateStyle('stroke', colorNames)
+const reduceStroke = generateStyle('stroke', colors)
 export const stroke = keys.reduce(reduceStroke, {})
 
 export const maxWidth = {

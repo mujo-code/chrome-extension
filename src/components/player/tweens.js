@@ -35,14 +35,22 @@ export const createTween = inputOptions => {
   const renderLoop = loop(shouldLoop)
   const position = { scale: circleScale, scale2: circleInnerScale }
   const breathIn = new TWEEN.Tween(position)
-    .to({ scale: circleScaleExpanded, scale2: circleInnerExpanded }, breathTime)
+    .to(
+      { scale: circleScaleExpanded, scale2: circleInnerExpanded },
+      breathTime
+    )
     .easing(TWEEN.Easing.Back.InOut)
-  const update = updateTween({ tween: breathIn, shouldUpdate: shouldLoop })
+  const update = updateTween({
+    tween: breathIn,
+    shouldUpdate: shouldLoop,
+  })
   const breathOut = new TWEEN.Tween(position)
     .to({ scale: circleScale, scale2: circleInnerScale }, breathTime)
     .easing(TWEEN.Easing.Back.InOut)
     .onUpdate(update)
-    .onComplete(completeTween(Object.assign({ tween: breathIn }, options)))
+    .onComplete(
+      completeTween(Object.assign({ tween: breathIn }, options))
+    )
 
   breathIn.chain(breathOut).onUpdate(update)
 
@@ -71,7 +79,6 @@ export const createTween = inputOptions => {
       )
     },
     stop: () => {
-      console.log('STOP')
       setTween(null)
       clearTimeout(timer)
       breathIn.stop()
