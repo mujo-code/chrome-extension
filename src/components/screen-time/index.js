@@ -4,12 +4,13 @@ import { useTheme } from '../../hooks/use-theme'
 import { siteTimeToChartData } from '../../lib/aggregation'
 import { HeaderS } from '../fonts'
 import { Graph } from '../graph'
-import { Time } from '../time'
+import { ScreenTimeListModal } from './modal'
 
 export const ScreenTime = ({ data }) => {
   const graphData = siteTimeToChartData(data)
   const [selectedSegment, setSelectedSegment] = useState(null)
-  const { foreground, highlight } = useTheme()
+  const theme = useTheme()
+  const { foreground, highlight } = theme
   return (
     <Box
       flex="1"
@@ -37,32 +38,11 @@ export const ScreenTime = ({ data }) => {
         onSegmentClick={seg => setSelectedSegment(seg)}
       />
       {selectedSegment ? (
-        <Box display="flex" direction="column">
-          {Object.keys(selectedSegment.originalData).map(url => (
-            <Box
-              display="flex"
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              key={url}
-            >
-              <HeaderS
-                color={foreground}
-                marginTop="xs"
-                marginBottom="xs"
-              >
-                {url}:
-              </HeaderS>
-              <Time
-                color={highlight}
-                marginTop="xs"
-                marginBottom="xs"
-              >
-                {selectedSegment.originalData[url]}
-              </Time>
-            </Box>
-          ))}
-        </Box>
+        <ScreenTimeListModal
+          theme={theme}
+          setSelectedSegment={setSelectedSegment}
+          selectedSegment={selectedSegment}
+        />
       ) : null}
     </Box>
   )

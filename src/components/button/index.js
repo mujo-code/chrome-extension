@@ -5,9 +5,21 @@ import { headerS } from '../fonts/styles'
 import { ToolTip } from '../tool-tip'
 
 const colors = {
-  primary: { color: 'mischka', backgroundColor: 'outerSpace' },
-  secondary: { color: 'white', backgroundColor: 'saltBox' },
-  tertiary: { color: 'outerSpace', backgroundColor: 'mischka' },
+  primary: {
+    color: 'mischka',
+    backgroundColor: 'outerSpace',
+    highlight: 'saltBox',
+  },
+  secondary: {
+    color: 'white',
+    backgroundColor: 'saltBox',
+    highlight: 'gravel',
+  },
+  tertiary: {
+    color: 'outerSpace',
+    backgroundColor: 'mischka',
+    highlight: 'saltBox',
+  },
 }
 
 export const Button = props => {
@@ -25,9 +37,10 @@ export const Button = props => {
     'altOffset'
   )
   const [tooltipOpen, setToolTipOpen] = useState(false)
-  const { color, backgroundColor } = colors[style]
+  const { color, backgroundColor, highlight } = colors[style]
   return (
     <Box
+      outlineColor={highlight}
       color={color}
       backgroundColor={backgroundColor}
       display="inlineFlex"

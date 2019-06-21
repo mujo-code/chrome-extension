@@ -67,7 +67,7 @@ export const Graph = React.memo(
               }
               strokeLinecap={strokeLinecap}
               Component="path"
-              onMouseEnter={onSegmentClick.bind(null, seg)}
+              onClick={onSegmentClick.bind(null, seg)}
               cursor="pointer"
               ariaSelected={isSelectedSegment(seg)}
               {...seg.path}
@@ -80,7 +80,7 @@ export const Graph = React.memo(
             key={`label-${i}`}
             fill={textFill}
             Component="text"
-            onMouseEnter={onSegmentClick.bind(null, seg)}
+            onClick={onSegmentClick.bind(null, seg)}
             cursor="pointer"
             {...seg.label}
           />

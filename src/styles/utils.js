@@ -2,18 +2,29 @@ import { generateStyle } from '@jcblw/box/dist/styles/helpers'
 import { css } from 'glamor'
 import { colors } from './colors'
 
+const makeStyles = (key, values) => {
+  const reducer = generateStyle(key, values)
+  const keys = Object.keys(values)
+  return keys.reduce(reducer, {})
+}
+
 css.global('body, html', { margin: 0 })
 
-const keys = Object.keys(colors)
+const spacingValues = { zero: 0 }
 
-const reduceBackgroundColor = generateStyle('backgroundColor', colors)
-export const backgroundColor = keys.reduce(reduceBackgroundColor, {})
-const reduceColor = generateStyle('color', colors)
-export const color = keys.reduce(reduceColor, {})
-const reduceFill = generateStyle('fill', colors)
-export const fill = keys.reduce(reduceFill, {})
-const reduceStroke = generateStyle('stroke', colors)
-export const stroke = keys.reduce(reduceStroke, {})
+// Spacing Addons
+export const marginBottom = makeStyles('marginBottom', spacingValues)
+export const marginTop = makeStyles('marginTop', spacingValues)
+export const marginLeft = makeStyles('marginLeft', spacingValues)
+export const marginRight = makeStyles('marginRight', spacingValues)
+export const margin = makeStyles('margin', spacingValues)
+
+// Colors
+export const backgroundColor = makeStyles('backgroundColor', colors)
+export const color = makeStyles('color', colors)
+export const fill = makeStyles('fill', colors)
+export const stroke = makeStyles('stroke', colors)
+export const outlineColor = makeStyles('outlineColor', colors)
 
 export const maxWidth = {
   '100%': css({ maxWidth: '100%' }),

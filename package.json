@@ -1,6 +1,6 @@
 {
   "name": "Mujo",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@jcblw/box": "^2.0.0",
@@ -11,7 +11,7 @@
     "prettier": "^1.14.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-modal": "^3.1.7",
+    "react-modal": "^3.8.1",
     "react-scripts": "^3.0.1",
     "react-use-file-reader": "^1.0.0"
   },

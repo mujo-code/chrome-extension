@@ -5,13 +5,17 @@ const DEFAULT_COLOR_THEME = 'dark'
 const colors = {
   dark: {
     foreground: 'mischka',
+    foregroundSecondary: 'white',
     background: 'outerSpace',
+    backgroundSecondary: 'gravel',
     highlight: 'saltBox',
     buttonStyle: 'primary',
   },
   light: {
     foreground: 'outerSpace',
+    foregroundSecondary: 'gravel',
     background: 'mischka',
+    backgroundSecondary: 'white',
     highlight: 'saltBox',
     buttonStyle: 'tertiary',
   },
