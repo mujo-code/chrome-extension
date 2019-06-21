@@ -2,13 +2,14 @@ import { Box } from '@jcblw/box'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
 import { css } from 'glamor'
 import React from 'react'
+import { useTheme } from '../../hooks/use-theme'
 
 const toolTipWrapper = css({
   top: 0,
   left: '50%',
   height: '1px',
   width: '1px',
-  transition: 'all 0.3s ease-in-out',
+  transition: 'all 0s ease-in-out',
   transitionDelay: '0s',
   opacity: 0,
   transform: 'translateY(-32px) scale(0)',
@@ -22,16 +23,20 @@ const toolTipText = css({
 })
 
 const toolTipPositions = {
-  below: css({
-    transform: 'translateY(8px) scale(1)',
-    opacity: 1,
-    transitionDelay: '0.7s',
-  }),
-  above: css({
-    transform: 'translateY(-72px) scale(1)',
-    opacity: 1,
-    transitionDelay: '0.7s',
-  }),
+  below: (offset = 0) =>
+    css({
+      transform: `translateY(${8 + offset}px) scale(1)`,
+      opacity: 1,
+      transitionDelay: '0.5s',
+      transitionDuration: '0.2s',
+    }),
+  above: (offset = 0) =>
+    css({
+      transform: `translateY(-${72 + offset}px) scale(1)`,
+      opacity: 1,
+      transitionDelay: '0.5s',
+      transitionDuration: '0.2s',
+    }),
 }
 
 const trianglePositions = {
@@ -52,12 +57,21 @@ const trianglePositions = {
 }
 
 export const ToolTip = props => {
-  const { isOpen, below } = props
-  const styles = below ? toolTipPositions.below : toolTipPositions.above
+  const { isOpen, below, offset } = props
+  const { foreground, background } = useTheme()
+  const styles = below
+    ? toolTipPositions.below
+    : toolTipPositions.above
   const triangleStyles = below
     ? trianglePositions.below
     : trianglePositions.above
-  const otherProps = removeKeys(props, 'isOpen', 'children')
+  const otherProps = removeKeys(
+    props,
+    'isOpen',
+    'children',
+    'below',
+    'offset'
+  )
   return (
     <Box position="relative">
       <Box
@@ -66,7 +80,7 @@ export const ToolTip = props => {
         justifyContent="center"
         display="flex"
         {...toolTipWrapper}
-        {...(isOpen ? styles : {})}
+        {...(isOpen ? styles(offset) : {})}
       >
         <Box
           Component="span"
@@ -76,8 +90,8 @@ export const ToolTip = props => {
           paddingBottom="xs"
           paddingLeft="s"
           paddingRight="s"
-          backgroundColor="outerSpace"
-          color="mischka"
+          backgroundColor={foreground}
+          color={background}
           whiteSpace="nowrap"
           maxWidth="100px"
           position="relative"
@@ -85,7 +99,7 @@ export const ToolTip = props => {
         >
           <Box
             display="block"
-            backgroundColor="outerSpace"
+            backgroundColor={foreground}
             borderRadius="xs"
             padding="xs"
             position="absolute"

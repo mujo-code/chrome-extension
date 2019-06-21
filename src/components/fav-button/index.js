@@ -2,13 +2,8 @@ import { Box } from '@jcblw/box'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
 import { css } from 'glamor'
 import React, { useState } from 'react'
+import { useTheme } from '../../hooks/use-theme'
 import { ToolTip } from '../tool-tip'
-
-const colors = {
-  primary: { backgroundColor: 'outerSpace' },
-  secondary: { backgroundColor: 'saltBox' },
-  tertiary: { backgroundColor: 'mischka' },
-}
 
 const imageStyles = css({
   opacity: 0,
@@ -19,21 +14,30 @@ const loadedStyles = css({ opacity: 1 })
 
 export const FavButton = props => {
   const { style = 'primary', disabled } = props
-  const restProps = removeKeys(props, 'style', 'url', 'title', 'disabled')
-  const { backgroundColor } = colors[style]
+  const restProps = removeKeys(
+    props,
+    'style',
+    'url',
+    'title',
+    'disabled'
+  )
   const [tooltipOpen, setToolTipOpen] = useState(false)
   const [isServer, setIsServer] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
   const iconUrl = isServer
-    ? `https://mujō.com/api/icon?site=${encodeURIComponent(props.url)}`
+    ? `https://mujō.com/api/icon?site=${encodeURIComponent(
+        props.url
+      )}`
     : `chrome://favicon/${props.url}`
+  const { background } = useTheme()
+
   return (
     <Box
       Component="a"
       disabled
       href={disabled ? null : props.url}
       cursor="pointer"
-      backgroundColor={backgroundColor}
+      backgroundColor={background}
       display="flex"
       direction="column"
       padding="s"
@@ -60,7 +64,9 @@ export const FavButton = props => {
         {...(disabled ? css({ opacity: 0.5 }) : {})}
       />
       <ToolTip isOpen={tooltipOpen}>
-        {disabled ? 'Bring back this link by taking a break' : props.title}
+        {disabled
+          ? 'Bring back this link by taking a break'
+          : props.title}
       </ToolTip>
     </Box>
   )

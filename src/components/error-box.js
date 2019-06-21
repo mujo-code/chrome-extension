@@ -1,7 +1,15 @@
 import { Box } from '@jcblw/box'
+import { css } from 'glamor'
 import React from 'react'
 import { track } from '../tracker'
-import { HeaderS } from './fonts'
+import { HeaderL, HeaderS, BodyS } from './fonts'
+
+const EXTENSION_ID = 'gdoejfdomlmojgepjgijhlmnndokminf'
+
+const normalizePaths = stack => {
+  const path = `chrome-extension://${EXTENSION_ID}`
+  return stack.replace(new RegExp(path, 'gi'), '')
+}
 
 export class ErrorBox extends React.Component {
   constructor(props) {
@@ -23,17 +31,27 @@ export class ErrorBox extends React.Component {
   }
 
   render() {
-    const { hasError } = this.state
+    const { hasError, error } = this.state
     if (hasError) {
       return (
         <Box
-          backgroundColor="saltBox"
-          maxWidth="300px"
-          borderRadius="s"
-          paddingLeft="s"
-          paddingRight="s"
+          position="fixed"
+          backgroundColor="gravel"
+          padding="l"
+          {...css({
+            top: 0,
+            left: 0,
+            height: '100vh',
+            width: '100vw',
+          })}
         >
-          <HeaderS color="white">:| its broke</HeaderS>
+          <HeaderL color="mischka">
+            Just like everything, errors are impermanent
+          </HeaderL>
+          <HeaderS color="mischka">Try again later.</HeaderS>
+          <BodyS Component="pre" color="white">
+            <code>{normalizePaths(error.stack)}</code>
+          </BodyS>
         </Box>
       )
     }

@@ -1,14 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './app'
+import App from './App'
 import { ErrorBox } from './components/error-box'
+import { ColorThemeProvider } from './hooks/use-theme'
 
 import './tracker'
 
-ReactDOM.render(
+const Mujō = () => (
   <ErrorBox>
-    <App />
-  </ErrorBox>,
-  document.getElementById('root')
+    <ColorThemeProvider value="dark">
+      <App />
+    </ColorThemeProvider>
+  </ErrorBox>
 )
+
+ReactDOM.render(<Mujō />, document.getElementById('root'))

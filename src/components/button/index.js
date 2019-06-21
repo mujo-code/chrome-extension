@@ -5,18 +5,42 @@ import { headerS } from '../fonts/styles'
 import { ToolTip } from '../tool-tip'
 
 const colors = {
-  primary: { color: 'mischka', backgroundColor: 'outerSpace' },
-  secondary: { color: 'white', backgroundColor: 'saltBox' },
-  tertiary: { color: 'outerSpace', backgroundColor: 'mischka' },
+  primary: {
+    color: 'mischka',
+    backgroundColor: 'outerSpace',
+    highlight: 'saltBox',
+  },
+  secondary: {
+    color: 'white',
+    backgroundColor: 'saltBox',
+    highlight: 'gravel',
+  },
+  tertiary: {
+    color: 'outerSpace',
+    backgroundColor: 'mischka',
+    highlight: 'saltBox',
+  },
 }
 
 export const Button = props => {
-  const { children = 'Label', style = 'primary', alt } = props
-  const restProps = removeKeys(props, 'style', 'alt', 'children')
+  const {
+    children = 'Label',
+    style = 'primary',
+    alt,
+    altOffset = 0,
+  } = props
+  const restProps = removeKeys(
+    props,
+    'style',
+    'alt',
+    'children',
+    'altOffset'
+  )
   const [tooltipOpen, setToolTipOpen] = useState(false)
-  const { color, backgroundColor } = colors[style]
+  const { color, backgroundColor, highlight } = colors[style]
   return (
     <Box
+      outlineColor={highlight}
       color={color}
       backgroundColor={backgroundColor}
       display="inlineFlex"
@@ -36,7 +60,11 @@ export const Button = props => {
       {...restProps}
     >
       {children}
-      {alt ? <ToolTip isOpen={tooltipOpen}>{alt}</ToolTip> : null}
+      {alt ? (
+        <ToolTip isOpen={tooltipOpen} offset={altOffset}>
+          {alt}
+        </ToolTip>
+      ) : null}
     </Box>
   )
 }

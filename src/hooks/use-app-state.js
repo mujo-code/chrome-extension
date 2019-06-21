@@ -11,20 +11,27 @@ const LOCAL_STORAGE_ALARM_KEY = 'MINDFUL_ALARM'
 const LOCAL_STORAGE_TOP_SITES_KEY = 'TOP_SITES'
 const LOCAL_STORAGE_TOP_SITES_USAGE_KEY = 'TOP_SITES_USAGE'
 const PAGE_VIEWS_KEY = 'PAGE_VIEWS'
+const SHOW_TOP_SITES_KEY = 'SHOW_TOP_SITES'
+const SITE_TIME = 'SITE_TIME'
 // actions
 const NEW_TAB_CONNECTION = 'New Connection'
 const CLEAR_ALARM = 'Clear Alarm'
 const SET_ALARM = 'Set Alarm'
 
-const sendToBackground = event => chrome.runtime.sendMessage({ event })
+const sendToBackground = event =>
+  chrome.runtime.sendMessage({ event })
 
-export const onStorageChange = () => e => {
+export const onStorageChange = ({ setSiteTimes }) => e => {
   // potentially close tab
   switch (e.key) {
     case PAGE_VIEWS_KEY:
       chrome.tabs.getCurrent(tab => {
         chrome.tabs.remove(tab.id, () => {})
       })
+      break
+    case SITE_TIME:
+      // refresh will update value from localStorage
+      setSiteTimes(null, { refresh: true })
       break
     default:
   }
@@ -39,6 +46,10 @@ export const useAppState = () => {
     LOCAL_STORAGE_TOP_SITES_KEY,
     stampJSONOptions({ defaultValue: [] })
   )
+  const [siteTimes, setSiteTimes] = usePersistantState(
+    SITE_TIME,
+    stampJSONOptions({ defaultValue: {} })
+  )
   const [topSitesUsage, setTopSitesUsage] = usePersistantState(
     LOCAL_STORAGE_TOP_SITES_USAGE_KEY,
     stampJSONOptions({ defaultValue: [] })
@@ -47,13 +58,20 @@ export const useAppState = () => {
     PAGE_VIEWS_KEY,
     stampJSONOptions({ defaultValue: 0 })
   )
+  const [showTopSites, updateShowTopSites] = usePersistantState(
+    SHOW_TOP_SITES_KEY,
+    stampBooleanOptions({ defaultValue: true })
+  )
 
   // mount hook
   useEffect(
     () => {
       updatePageViews(pageViews + 1)
       chrome.topSites.get(setTopSites)
-      window.addEventListener('storage', onStorageChange())
+      window.addEventListener(
+        'storage',
+        onStorageChange({ setSiteTimes })
+      )
       sendToBackground(NEW_TAB_CONNECTION)
     },
     [] /* NOTE: stops useEffect from continuing firing */
@@ -86,12 +104,19 @@ export const useAppState = () => {
   })
 
   return [
-    { topSites: mappedTopSites, alarmEnabled, pageViews },
+    {
+      topSites: mappedTopSites,
+      alarmEnabled,
+      pageViews,
+      showTopSites,
+      siteTimes,
+    },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
       setTopSites,
       updateSitesUsed,
       resetUsage,
+      updateShowTopSites,
     },
   ]
 }

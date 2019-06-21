@@ -2,21 +2,23 @@ import { Box } from '@jcblw/box'
 import React from 'react'
 import { headerL, headerS, bodyL, bodyS } from './styles'
 
-export const HeaderL = props => (
+const FontBox = props => (
   <Box
-    Component="h2"
-    color="nevada"
-    marginTop="m"
-    marginBottom="m"
-    {...headerL}
+    Component={props.Component || 'p'}
+    color={props.color || 'color'}
+    marginTop={props.marginTop || 'm'}
+    marginBottom={props.marginBottom || 'm'}
     {...props}
   />
 )
 
+export const HeaderL = props => (
+  <FontBox Component="h2" {...headerL} {...props} />
+)
+
 export const HeaderS = props => (
-  <Box
+  <FontBox
     Component="h4"
-    color="nevada"
     marginTop="s"
     marginBottom="s"
     {...headerS}
@@ -24,30 +26,12 @@ export const HeaderS = props => (
   />
 )
 
-export const BodyL = props => (
-  <Box
-    Component="p"
-    color="nevada"
-    marginTop="m"
-    marginBottom="m"
-    {...bodyL}
-    {...props}
-  />
-)
+export const BodyL = props => <FontBox {...bodyL} {...props} />
 
-export const BodyS = props => (
-  <Box
-    Component="p"
-    color="nevada"
-    marginTop="m"
-    marginBottom="m"
-    {...bodyS}
-    {...props}
-  />
-)
+export const BodyS = props => <FontBox {...bodyS} {...props} />
 
 export const Link = props => (
-  <Box
+  <FontBox
     Component="a"
     color="danube"
     cursor="pointer"

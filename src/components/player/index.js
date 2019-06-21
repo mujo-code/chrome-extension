@@ -2,6 +2,7 @@ import { Box } from '@jcblw/box'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
 import { css } from 'glamor'
 import React from 'react'
+import { useTheme } from '../../hooks/use-theme'
 import { HeaderL, HeaderS } from '../fonts'
 import { useAnimations, transition } from './use-animations'
 
@@ -31,6 +32,7 @@ export const Player = props => {
     props,
     isOpen
   )
+  const { foreground, background, highlight } = useTheme()
   return (
     <Box
       paddingTop={isOpen ? 'none' : 'm'}
@@ -43,32 +45,50 @@ export const Player = props => {
         xmlns="http://www.w3.org/2000/svg"
         {...animationProps.svg}
       >
-        <Box Component="rect" fill="outerSpace" {...animationProps.rect} />
-        <Box Component="circle" fill="saltBox" {...animationProps.circle2} />
-        <Box Component="circle" fill="mischka" {...animationProps.circle} />
+        <Box
+          Component="rect"
+          fill={background}
+          {...animationProps.rect}
+        />
+        <Box
+          Component="circle"
+          fill={highlight}
+          {...animationProps.circle2}
+        />
+        <Box
+          Component="circle"
+          fill={foreground}
+          {...animationProps.circle}
+        />
         <Box Component="g" {...fadeInGroup}>
           {isOpen ? (
             <>
               <HeaderL
-                fill="outerSpace"
+                fill={background}
                 Component="text"
                 {...animationProps.text}
-                {...css(textTranistions, isBreathIn ? fadeInText : {})}
+                {...css(
+                  textTranistions,
+                  isBreathIn ? fadeInText : {}
+                )}
               >
                 Breathe in
               </HeaderL>
               <HeaderL
-                fill="outerSpace"
+                fill={background}
                 Component="text"
                 {...textTranistions}
                 {...animationProps.text}
-                {...css(textTranistions, !isBreathIn ? fadeInText : {})}
+                {...css(
+                  textTranistions,
+                  !isBreathIn ? fadeInText : {}
+                )}
               >
                 Breathe out
               </HeaderL>
               <HeaderS
                 Component="text"
-                fill="mischka"
+                fill={foreground}
                 {...textTranistions}
                 {...animationProps.count}
                 {...css(textTranistions, fadeInText)}

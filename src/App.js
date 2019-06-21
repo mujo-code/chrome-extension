@@ -2,53 +2,59 @@ import { Box, styleGuide } from '@jcblw/box'
 import { css } from 'glamor'
 import React, { useState } from 'react'
 import { Button } from './components/button'
-import { FavRows } from './components/fav-rows'
-import { HeaderS } from './components/fonts'
 import { Player } from './components/player'
+import { ScreenTime } from './components/screen-time'
 import { ToolTip } from './components/tool-tip'
+import { TopSites } from './components/top-sites'
 import { useAppState } from './hooks/use-app-state'
+import { useTheme } from './hooks/use-theme'
+import { colors } from './styles/colors'
 import * as utilStyles from './styles/utils'
 import { track } from './tracker'
 
 styleGuide.push(utilStyles)
 
-const lightGradient = 'radial-gradient(ellipse at center, #fff 0%,#EAE2EB 100%)'
-css.global('body', { background: lightGradient })
+const bodyBackgrounds = {
+  outerSpace: `radial-gradient(ellipse at center, ${
+    colors.gravel
+  } 0%,${colors.outerSpace} 100%)`,
+  mischka: `radial-gradient(ellipse at center, ${colors.white} 0%,${
+    colors.mischka
+  } 100%)`,
+}
 
 const appWrapper = css({ height: '100vh' })
-
-const siteWrapper = css({
-  transition: 'all 0.5s ease-in 0.2s',
-  opacity: 0,
-  transform: 'scale(0.9)',
-  ':not(:empty)': {
-    opacity: 1,
-    transform: 'scale(1)',
-  },
-})
 
 const DEFAULT_SIZE = 40
 const factor = x => x * 8
 const factorMin = size => Math.max(size, DEFAULT_SIZE)
 const getFactor = x => factorMin(factor(x))
 
-const Mujō = () => {
+const App = () => {
   const [
-    { alarmEnabled, topSites, pageViews },
-    { setAlarmEnabled, updateSitesUsed, resetUsage },
+    { alarmEnabled, topSites, pageViews, showTopSites, siteTimes },
+    {
+      setAlarmEnabled,
+      updateSitesUsed,
+      resetUsage,
+      updateShowTopSites,
+    },
   ] = useAppState()
+  const theme = useTheme()
   const [isOpen, setIsOpen] = useState(false)
   const [toolTipOpen, setToolTipOpen] = useState(false)
 
   const logoSize = getFactor(pageViews)
+  const toggleHandle = (fn, value) => () => fn(!value)
 
-  const onAlarmToggle = () => {
-    const enabled = !alarmEnabled
-    setAlarmEnabled(enabled)
-  }
+  css.global('body', {
+    background:
+      bodyBackgrounds[theme.background] || bodyBackgrounds.outerSpace,
+  })
+
   return (
     <Box
-      color="white"
+      color={theme.foreground}
       display="flex"
       direction="column"
       position="relative"
@@ -67,6 +73,7 @@ const Mujō = () => {
         onMouseLeave={() => setToolTipOpen(false)}
       >
         <Player
+          dark
           isOpen={isOpen}
           width={logoSize}
           height={logoSize}
@@ -83,22 +90,16 @@ const Mujō = () => {
           Take a break!
         </ToolTip>
       </Box>
-      <Box
-        display="flex"
-        flex={1}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        textAlign="center"
-        position="relative"
-        layer="1"
-        {...siteWrapper}
-      >
-        <HeaderS color="outerSpace">Top Sites</HeaderS>
-        {topSites.length ? (
-          <FavRows items={topSites} updateSitesUsed={updateSitesUsed} />
-        ) : null}
-      </Box>
+      <Box flex="1" />
+      {showTopSites ? (
+        <TopSites
+          topSites={topSites}
+          updateSitesUsed={updateSitesUsed}
+        />
+      ) : (
+        <ScreenTime data={siteTimes} />
+      )}
+      <Box flex="1" />
       <Box
         display="flex"
         flex={0}
@@ -106,16 +107,26 @@ const Mujō = () => {
         alignItems="center"
         textAlign="center"
         justifyContent="center"
+        layer="3"
+        position="relative"
       >
-        <Box flex={0} direction="row">
+        <Box flex={0} display="flex" direction="row" marginBottom="m">
           <Button
             whiteSpace="nowrap"
-            style="tertiary"
-            onClick={onAlarmToggle}
+            style={theme.buttonStyle}
+            onClick={toggleHandle(setAlarmEnabled, alarmEnabled)}
             alt="Reminders are notifications that remind you to take a break"
-            marginBottom="m"
+            marginRight="m"
           >
             Turn reminders {alarmEnabled ? 'off' : 'on'}
+          </Button>
+          <Button
+            whiteSpace="nowrap"
+            style={theme.buttonStyle}
+            onClick={toggleHandle(updateShowTopSites, showTopSites)}
+            alt="Toggle the view of the top sites section of this extension"
+          >
+            {showTopSites ? 'Show screen time' : 'Show top sites'}
           </Button>
         </Box>
       </Box>
@@ -123,4 +134,4 @@ const Mujō = () => {
   )
 }
 
-export default Mujō
+export default App
