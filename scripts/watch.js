@@ -7,6 +7,13 @@ const logger = label => str =>
 const log = logger()
 const gaze = new Gaze('{public,src}/**/*.{json,js,html}')
 
+const http = spawn('npm', ['run', 'serve'], { stdio: 'inherit' })
+
+http.on('error', error => {
+  console.log(error)
+  process.exit()
+})
+
 const createBuilder = () => {
   let isEnded = false
   const builder = spawn('npm', ['run', 'build'], {
