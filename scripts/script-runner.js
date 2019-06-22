@@ -8,15 +8,18 @@ const spawn = (cmd, args, output = 'pipe') =>
   })
 
 module.exports.runScript = (scriptName, output) => {
+  let hasExited = false
   const p = spawn('npm', ['run', scriptName], output)
   log(`script "${scriptName}" running`)
   p.on('close', code => {
+    hasExited = true
     const badCode = code === null
     const out = badCode ? 'was canceled' : 'has exited'
     const icon = code === 0 ? '👍' : '👎'
     log(`script "${scriptName}" ${out} ${icon}`)
   })
   return () => {
+    if (hasExited) return
     log(`script "${scriptName}" tearing down with pid of ${-p.pid}`)
     process.kill(-p.pid)
   }
