@@ -14,6 +14,5 @@ const toRGB = hex => {
 
 export const rgba = (hex, alpha) => {
   const rgb = toRGB(hex)
-  console.log(rgb)
   return `rgba(${rgb.join(',')},${alpha})`
 }

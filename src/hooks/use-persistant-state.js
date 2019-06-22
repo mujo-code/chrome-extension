@@ -36,7 +36,15 @@ export const stampJSONOptions = options =>
   Object.assign(
     {},
     {
-      deserialize: n => JSON.parse(n),
+      deserialize: n => {
+        let ret
+        try {
+          ret = JSON.parse(n)
+        } catch (e) {
+          ret = null
+        }
+        return ret
+      },
       serialize: n => JSON.stringify(n),
     },
     options
