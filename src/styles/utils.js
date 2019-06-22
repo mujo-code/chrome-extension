@@ -62,3 +62,5 @@ export const layer = {
   2: css({ zIndex: 100 }),
   3: css({ zIndex: 1000 }),
 }
+
+export const justifyContent = {flexEnd: css({ justifyContent: 'flex-end' }),}
