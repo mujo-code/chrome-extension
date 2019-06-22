@@ -1,5 +1,6 @@
 import { Box } from '@jcblw/box'
 import React from 'react'
+import { Button } from '../button'
 import { HeaderS, HeaderL, BodyS, BodyL } from '../fonts'
 import { Time } from '../time'
 
@@ -30,8 +31,17 @@ export const InfoModal = ({
         your viewing habits.
       </BodyS>
     </Box>
-    <Box>
-      <HeaderS>More Info</HeaderS>
+    <Box flex="1" display="flex" direction="column">
+      <Box flex="1" />
+      <Box flex="0" display="flex" justifyContent="flexEnd">
+        <Button
+          style="secondary"
+          Component="a"
+          href={`https://${label}`}
+        >
+          Visit site
+        </Button>
+      </Box>
     </Box>
   </Box>
 )
