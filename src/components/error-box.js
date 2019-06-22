@@ -6,7 +6,7 @@ import { mapStackTrace } from 'sourcemapped-stacktrace'
 import { track } from '../tracker'
 import { HeaderL, FixedS, FixedL } from './fonts'
 
-const FN_SIZE = 10
+const FN_SIZE = 25
 
 const makeNiceFilenames = filename => filename.split('/').pop()
 const makeNiceFunctionNames = fnName =>
