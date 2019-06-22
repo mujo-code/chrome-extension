@@ -14,5 +14,5 @@ import {
 notifications.onClicked.addListener(onNotificationClicked)
 alarms.onAlarm.addListener(createNotification)
 // NOTE: Most functionlity will probably stem from the reducer
-onMessage.addListener(reducer)
+onMessage(reducer)
 webNavigation.onCommitted.addListener(injectScript)
