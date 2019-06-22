@@ -4,7 +4,7 @@ import { useTheme } from '../../hooks/use-theme'
 import { siteTimeToChartData } from '../../lib/aggregation'
 import { HeaderS } from '../fonts'
 import { Graph } from '../graph'
-import { ScreenTimeListModal } from './modal'
+import { Modal } from './modal'
 
 export const ScreenTime = ({ data }) => {
   const graphData = siteTimeToChartData(data)
@@ -38,10 +38,11 @@ export const ScreenTime = ({ data }) => {
         onSegmentClick={seg => setSelectedSegment(seg)}
       />
       {selectedSegment ? (
-        <ScreenTimeListModal
+        <Modal
           theme={theme}
           setSelectedSegment={setSelectedSegment}
           selectedSegment={selectedSegment}
+          allSegments={graphData}
         />
       ) : null}
     </Box>

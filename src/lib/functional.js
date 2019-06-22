@@ -31,3 +31,7 @@ export const curry = (fn, ...args) => {
   }
   return curry.bind(null, fn, ...args)
 }
+
+// array helpers
+export const first = arr => arr[0]
+export const last = arr => arr[arr.length - 1]
