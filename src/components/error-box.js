@@ -1,15 +1,46 @@
 import { Box } from '@jcblw/box'
+import ErrorStackParser from 'error-stack-parser'
 import { css } from 'glamor'
 import React from 'react'
+import { mapStackTrace } from 'sourcemapped-stacktrace'
 import { track } from '../tracker'
-import { HeaderL, HeaderS, BodyS } from './fonts'
+import { HeaderL, FixedS, FixedL } from './fonts'
 
-const EXTENSION_ID = 'gdoejfdomlmojgepjgijhlmnndokminf'
+const FN_SIZE = 10
 
-const normalizePaths = stack => {
-  const path = `chrome-extension://${EXTENSION_ID}`
-  return stack.replace(new RegExp(path, 'gi'), '')
-}
+const makeNiceFilenames = filename => filename.split('/').pop()
+const makeNiceFunctionNames = fnName =>
+  `at ${fnName}`.padStart(FN_SIZE, ' ')
+
+const ErrorFrames = ({ frames, error }) => (
+  <>
+    <FixedL marginTop="xxs" marginBottom="xxs" color="white">
+      {error.message}
+    </FixedL>
+    {frames.map((f, index) => (
+      <Box
+        marginTop="xxs"
+        marginBottom="xxs"
+        key={index}
+        display="flex"
+        direction="row"
+      >
+        <FixedS
+          Component="pre"
+          marginTop="zero"
+          marginBottom="zero"
+          marginRight="m"
+          color="saltBox"
+        >
+          {makeNiceFunctionNames(f.functionName)}
+        </FixedS>
+        <FixedS marginTop="zero" marginBottom="zero" color="white">
+          ({makeNiceFilenames(f.fileName)}:{f.lineNumber})
+        </FixedS>
+      </Box>
+    ))}
+  </>
+)
 
 export class ErrorBox extends React.Component {
   constructor(props) {
@@ -17,13 +48,17 @@ export class ErrorBox extends React.Component {
     this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     // Update state so the next render will show the fallback UI.
-    return { hasError: true, error }
+    return { hasError: true }
   }
 
   /* eslint-disable-next-line */
   componentDidCatch(err) {
+    mapStackTrace(err.stack, stack => {
+      err.stack = stack.join('\n')
+      this.setState({ error: err })
+    })
     track('event', 'exception', {
       description: err,
       fatal: false, // set to true if the error is fatal
@@ -32,26 +67,35 @@ export class ErrorBox extends React.Component {
 
   render() {
     const { hasError, error } = this.state
+    let frames
+    if (error) {
+      try {
+        frames = ErrorStackParser.parse(error)
+      } catch (e) {
+        // do nothing
+        console.log(e)
+      }
+    }
+
     if (hasError) {
       return (
         <Box
           position="fixed"
-          backgroundColor="gravel"
-          padding="l"
+          backgroundColor="outerSpace"
+          padding="xl"
           {...css({
             top: 0,
             left: 0,
+            bottom: 0,
+            right: 0,
             height: '100vh',
             width: '100vw',
           })}
         >
-          <HeaderL color="mischka">
+          <FixedL Component="div" color="saltBox" marginBottom="xl">
             Just like everything, errors are impermanent
-          </HeaderL>
-          <HeaderS color="mischka">Try again later.</HeaderS>
-          <BodyS Component="pre" color="white">
-            <code>{normalizePaths(error.stack)}</code>
-          </BodyS>
+          </FixedL>
+          {frames && <ErrorFrames frames={frames} error={error} />}
         </Box>
       )
     }

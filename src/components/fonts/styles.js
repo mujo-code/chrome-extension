@@ -35,4 +35,16 @@ export const bodyS = css(extraLight, {
   lineHeight: '24px',
 })
 
+export const fixedL = css(medium, {
+  fontFamily: '"Monaco", monospace',
+  fontSize: 24,
+  lineHeight: '32px',
+})
+
+export const fixedS = css(medium, {
+  fontFamily: '"Monaco", monospace',
+  fontSize: 16,
+  lineHeight: '24px',
+})
+
 export const underline = css({ textDecoration: 'underline' })

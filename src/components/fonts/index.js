@@ -1,6 +1,13 @@
 import { Box } from '@jcblw/box'
 import React from 'react'
-import { headerL, headerS, bodyL, bodyS } from './styles'
+import {
+  headerL,
+  headerS,
+  bodyL,
+  bodyS,
+  fixedL,
+  fixedS,
+} from './styles'
 
 const FontBox = props => (
   <Box
@@ -38,4 +45,11 @@ export const Link = props => (
     textDecoration="underline"
     {...props}
   />
+)
+
+export const FixedL = props => (
+  <FontBox Component="span" {...fixedL} {...props} />
+)
+export const FixedS = props => (
+  <FontBox Component="span" {...fixedS} {...props} />
 )

@@ -5,6 +5,8 @@
   curry: https://gist.github.com/nathggns/fb97cd9018454bfa87c1
 */
 
+export const noop = () => {}
+
 export const compose = (...fns) =>
   fns.reduceRight(
     (prevFn, nextFn) => (...args) => nextFn(prevFn(...args)),
