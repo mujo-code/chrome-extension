@@ -47,6 +47,8 @@ const App = () => {
   const logoSize = getFactor(pageViews)
   const toggleHandle = (fn, value) => () => fn(!value)
 
+  throw new Error('Testing out error page and source maps')
+
   css.global('body', {
     background:
       bodyBackgrounds[theme.background] || bodyBackgrounds.outerSpace,
