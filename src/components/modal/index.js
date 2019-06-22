@@ -1,7 +1,7 @@
 import { styleGuide } from '@jcblw/box'
 import { propsToStyles } from '@jcblw/box/dist/lib/helpers'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
-import { css } from 'glamor'
+import { cssToStyle } from '@jcblw/box/dist/styles/helpers'
 import React from 'react'
 import ReactModal from 'react-modal'
 import { useTheme } from '../../hooks/use-theme'
@@ -9,7 +9,7 @@ import { colors, rgba } from '../../styles/colors'
 
 ReactModal.setAppElement('#root')
 
-const overlay = css({
+const overlay = cssToStyle({
   position: 'fixed',
   zIndex: 10000,
   top: 0,
@@ -21,13 +21,16 @@ const overlay = css({
   alignItems: 'center',
 })
 
-const modelContent = css({ maxHeight: '90vh', overflow: 'scroll' })
+const modelContent = cssToStyle({
+  maxHeight: '90vh',
+  overflow: 'scroll',
+})
 
 const getPropClasses = propsToStyles(styleGuide)
 const getOverlayClass = color =>
-  css(overlay, { background: rgba(colors[color], 0.3) }).toString()
+  cssToStyle(overlay, {background: rgba(colors[color], 0.3),}).toString()
 const getModalContent = ({ background, color }) =>
-  css(
+  cssToStyle(
     {
       background: colors[background],
       color: colors[color],
@@ -37,7 +40,10 @@ const getModalContent = ({ background, color }) =>
 
 export const Modal = props => {
   const theme = useTheme()
-  const results = getPropClasses(props)
+  const { css } = props
+  const results = getPropClasses(
+    Object.assign({}, props, cssToStyle(css))
+  )
   const otherProps = removeKeys(
     props,
     ...results.used,
