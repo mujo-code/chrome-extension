@@ -10,6 +10,5 @@ export const injectScript = tab => {
   if (isBlackListed || isSubFrame) {
     return
   }
-  console.log('Injecting script')
   tabs.executeScript(tab.tabId, { file: 'content.js' })
 }

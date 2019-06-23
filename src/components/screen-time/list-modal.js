@@ -1,20 +1,17 @@
 import { Box } from '@jcblw/box'
-import { css } from 'glamor'
 import React from 'react'
-import { HeaderS, HeaderL } from '../fonts'
-import { Time } from '../time'
+import { HeaderL } from '../fonts'
 
 export const ListModal = ({
-  theme: { backgroundSecondary, foregroundSecondary, foreground },
+  theme: { foregroundSecondary },
   selectedSegment,
+  setSelectedSegment,
 }) => (
   <>
-    <HeaderL color={foreground}>Screen Time</HeaderL>
     {Object.keys(selectedSegment.originalData).map(url => (
-      <Box key={url} display="flex" direction="row" marginBottom="xs">
-        <HeaderS
+      <Box key={url} display="flex" direction="row">
+        <HeaderL
           color={foregroundSecondary}
-          backgroundColor={backgroundSecondary}
           paddingTop="xs"
           paddingBottom="xs"
           marginTop="zero"
@@ -22,23 +19,19 @@ export const ListModal = ({
           whiteSpace="nowrap"
           overflow="hidden"
           textOverflow="ellipsis"
-          textAlign="right"
-          paddingLeft="m"
+          textAlign="left"
           paddingRight="s"
-          borderRadius="s"
-          {...css({ width: '35%' })}
+          cursor="pointer"
+          onClick={() => {
+            const timing = selectedSegment.originalData[url]
+            setSelectedSegment({
+              label: { children: url },
+              originalData: { [url]: timing },
+            })
+          }}
         >
           {url}
-        </HeaderS>
-        <Time
-          color={foreground}
-          marginTop="xs"
-          marginBottom="xs"
-          whiteSpace="nowrap"
-          marginLeft="s"
-        >
-          {selectedSegment.originalData[url]}
-        </Time>
+        </HeaderL>
       </Box>
     ))}
   </>
