@@ -3,34 +3,75 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "7.4.3",
     "@jcblw/box": "^2.1.0",
+    "@svgr/webpack": "4.1.0",
     "@tweenjs/tween.js": "^17.4.0",
+    "@typescript-eslint/eslint-plugin": "1.6.0",
+    "@typescript-eslint/parser": "1.6.0",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "8.0.5",
+    "babel-plugin-named-asset-import": "^0.3.2",
+    "babel-preset-react-app": "^9.0.0",
+    "camelcase": "^5.2.0",
+    "case-sensitive-paths-webpack-plugin": "2.2.0",
     "cra-append-sw": "^2.6.1",
+    "css-loader": "2.1.1",
+    "dotenv": "6.2.0",
+    "dotenv-expand": "4.2.0",
     "error-stack-parser": "^2.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-loader": "2.1.2",
+    "eslint-plugin-flowtype": "2.50.1",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "^1.5.0",
+    "file-loader": "3.0.1",
+    "filesize": "^4.1.2",
+    "fs-extra": "7.0.1",
     "glamor": "^2.20.40",
+    "html-webpack-plugin": "4.0.0-beta.5",
     "idb": "^4.0.3",
+    "identity-obj-proxy": "3.0.0",
+    "is-wsl": "^1.1.0",
+    "jest": "24.7.1",
+    "jest-environment-jsdom-fourteen": "0.1.0",
+    "jest-resolve": "24.7.1",
+    "jest-watch-typeahead": "0.3.0",
+    "mini-css-extract-plugin": "0.5.0",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "pnp-webpack-plugin": "1.2.1",
+    "postcss-flexbugs-fixes": "4.1.0",
     "prettier": "^1.14.3",
     "react": "^16.8.6",
+    "react-app-polyfill": "^1.0.1",
+    "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
     "react-modal": "^3.8.1",
-    "react-scripts": "^3.0.1",
     "react-use-file-reader": "^1.0.0",
-    "sourcemapped-stacktrace": "^1.1.9"
+    "resolve": "1.10.0",
+    "semver": "6.0.0",
+    "sourcemapped-stacktrace": "^1.1.9",
+    "style-loader": "0.23.1",
+    "terser-webpack-plugin": "1.2.3",
+    "url-loader": "1.1.2",
+    "webpack": "4.29.6",
+    "webpack-dev-server": "3.2.1",
+    "webpack-manifest-plugin": "2.0.4"
   },
   "scripts": {
     "serve": "serve",
     "start": "node scripts/watch.js",
-    "build": "PUBLIC_URL=./ react-scripts build && npm run append:sw && npm run append:sm && npm run bundle",
+    "build": "PUBLIC_URL=./ node scripts/build.js && npm run append:sw && npm run append:sm",
     "append:sw": "cra-append-sw --mode replace --skip-compile ./public/service-worker.js",
     "append:sm": "node scripts/modify-source-maps.js",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "test": "node scripts/test.js --env=jsdom",
     "fmt": "prettier '{src,public}/**/*.js' --write",
     "lint": "eslint '{src,public}/**/*.js'",
-    "dist": "./scripts/dist.sh",
-    "bundle:background": "rollup src/background.js --format iife --file build/background.js",
-    "bundle:content": "rollup src/content.js --format iife --file build/content.js",
-    "bundle": "npm run bundle:background && npm run bundle:content"
+    "dist": "./scripts/dist.sh"
   },
   "browserslist": [
     "last 3 Chrome versions"
@@ -40,7 +81,56 @@
     "eslint-plugin-import-order-alphabetical": "0.0.2",
     "eslint-plugin-prettier": "^3.1.0",
     "gaze": "^1.1.3",
-    "rollup": "^1.16.2",
     "serve": "^11.0.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }

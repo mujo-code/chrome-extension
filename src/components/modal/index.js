@@ -26,9 +26,10 @@ const modelContent = cssToStyle({
   overflow: 'scroll',
 })
 
+const overlayColor = color => rgba(colors[color], 0.3)
 const getPropClasses = propsToStyles(styleGuide)
 const getOverlayClass = color =>
-  cssToStyle(overlay, {background: rgba(colors[color], 0.3),}).toString()
+  cssToStyle(overlay, { background: overlayColor(color) }).toString()
 const getModalContent = ({ background, color }) =>
   cssToStyle(
     {

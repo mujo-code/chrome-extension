@@ -14,7 +14,7 @@ const runBuild = () => {
     teardown()
   }
   log('rebuilding')
-  teardown = runScript('build')
+  teardown = runScript('build', process.stdout)
 }
 
 let hasShutdown = false

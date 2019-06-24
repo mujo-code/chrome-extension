@@ -40,9 +40,10 @@ const getLabelAttributes = ({
   const labelPoint = getOuterPoint(
     angles[0] + fullAngle / 2 + rotateGraph
   )
-  const textAnchor = labelPoint.x > center[0] ? 'start' : 'end'
-  const alignmentBaseline =
-    labelPoint.y > center[1] ? 'hanging' : 'baseline'
+  const isBelowCenter = labelPoint.y > center[1]
+  const isRightOfCenter = labelPoint.x > center[0]
+  const textAnchor = isRightOfCenter ? 'start' : 'end'
+  const alignmentBaseline = isBelowCenter ? 'hanging' : 'baseline'
   return {
     children: label,
     x: labelPoint.x,

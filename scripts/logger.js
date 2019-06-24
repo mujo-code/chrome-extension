@@ -1,5 +1,5 @@
-const reset = '\x1b[0m'
-const cyan = '\x1b[36m'
+const chalk = require('react-dev-utils/chalk')
+
 const formatDate = date =>
   `${date.getHours()}h:${date.getMinutes()}m:${date.getSeconds()}s\x1b[0m`
 
@@ -10,10 +10,11 @@ const timeTaken = () => {
 }
 
 const logger = label => str => {
-  const prefix = `${label || formatDate(new Date())}:`.padEnd(15, ' ')
+  const prefix = `${label || formatDate(new Date())}`.padEnd(20, ' ')
   console.log(
-    `${cyan}${prefix}${reset} ${str} - ${cyan}${timeTaken()}${reset}`
+    `${chalk.cyan(prefix)} ${str} - ${chalk.cyan(timeTaken())}`
   )
 }
 
+module.exports.logger = logger
 module.exports.log = logger()
