@@ -11,7 +11,8 @@ import { createTween } from './tweens'
 export { transition } from './styles'
 
 const REPEAT = 5
-export const wait = fn => (...args) => setTimeout(() => fn(...args), 0)
+export const wait = fn => (...args) =>
+  setTimeout(() => fn(...args), 0)
 
 const animatingPropsFactory = () => ({
   rect: {},
@@ -28,7 +29,9 @@ const defaultsOptions = {
 export const useAnimations = (props, argOptions = {}) => {
   const options = Object.assign({}, defaultsOptions, argOptions)
   const { isOpen, onFinish } = props
-  const [animatingProps, setAnimatingProps] = useState(animatingPropsFactory())
+  const [animatingProps, setAnimatingProps] = useState(
+    animatingPropsFactory()
+  )
   const [isBreathIn, setIsBreathIn] = useState(true)
   const [tween, setTween] = useState(null)
   const delayedSetInBreath = wait(setIsBreathIn)
@@ -51,7 +54,10 @@ export const useAnimations = (props, argOptions = {}) => {
           transform: `scale(${scale2})`,
           transition: 'none',
         },
-        circle2: { transform: `scale(${scale})`, transition: 'all 0.1s' },
+        circle2: {
+          transform: `scale(${scale})`,
+          transition: 'all 0.1s',
+        },
       })
     )
   }

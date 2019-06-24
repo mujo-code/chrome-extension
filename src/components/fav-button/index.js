@@ -13,7 +13,7 @@ const imageStyles = css({
 const loadedStyles = css({ opacity: 1 })
 
 export const FavButton = props => {
-  const { style = 'primary', disabled } = props
+  const { disabled } = props
   const restProps = removeKeys(
     props,
     'style',
@@ -24,10 +24,9 @@ export const FavButton = props => {
   const [tooltipOpen, setToolTipOpen] = useState(false)
   const [isServer, setIsServer] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
+  const encodedURL = encodeURIComponent(props.url)
   const iconUrl = isServer
-    ? `https://mujō.com/api/icon?site=${encodeURIComponent(
-        props.url
-      )}`
+    ? `https://mujō.com/api/icon?site=${encodedURL}`
     : `chrome://favicon/${props.url}`
   const { background } = useTheme()
 

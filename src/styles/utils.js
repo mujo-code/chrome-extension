@@ -63,4 +63,6 @@ export const layer = {
   3: css({ zIndex: 1000 }),
 }
 
-export const justifyContent = {flexEnd: css({ justifyContent: 'flex-end' }),}
+const flexValues = { flexEnd: 'flex-end', flexStart: 'flex-start' }
+export const justifyContent = makeStyles('justifyContent', flexValues)
+export const alignItems = makeStyles('alignItems', flexValues)
