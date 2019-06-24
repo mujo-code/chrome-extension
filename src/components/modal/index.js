@@ -55,12 +55,15 @@ export const Modal = props => {
   )
   return (
     <ReactModal
+      data-mujo
       shouldCloseOnOverlayClick={true}
       className={`${results.styles.join(' ')} ${getModalContent({
         background: theme.background,
         color: theme.foreground,
       })}`}
-      overlayClassName={getOverlayClass(theme.backgroundSecondary)}
+      overlayClassName={`mujo-modal ${getOverlayClass(
+        theme.backgroundSecondary
+      )}`}
       {...otherProps}
     />
   )
