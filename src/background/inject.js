@@ -1,4 +1,4 @@
-import { tabs } from '../lib/extension'
+import { tabs, runtime } from '../lib/extension'
 
 const BLACK_LIST = ['about:blank', 'chrome']
 
@@ -10,5 +10,8 @@ export const injectScript = tab => {
   if (isBlackListed || isSubFrame) {
     return
   }
-  tabs.executeScript(tab.tabId, { file: 'content.js' })
+  tabs.executeScript(tab.tabId, { file: 'content.js' }, results => {
+    console.log(results)
+    console.log(runtime.lastError)
+  })
 }

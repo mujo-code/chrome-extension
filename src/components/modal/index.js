@@ -2,12 +2,11 @@ import { styleGuide } from '@jcblw/box'
 import { propsToStyles } from '@jcblw/box/dist/lib/helpers'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
 import { cssToStyle } from '@jcblw/box/dist/styles/helpers'
+import { css as glamor } from 'glamor'
 import React from 'react'
 import ReactModal from 'react-modal'
 import { useTheme } from '../../hooks/use-theme'
-import { colors, rgba } from '../../styles/colors'
-
-ReactModal.setAppElement('#root')
+import { rgba, getColor } from '../../styles/colors'
 
 const overlay = cssToStyle({
   position: 'fixed',
@@ -26,20 +25,23 @@ const modelContent = cssToStyle({
   overflow: 'scroll',
 })
 
-const overlayColor = color => rgba(colors[color], 0.3)
 const getPropClasses = propsToStyles(styleGuide)
-const getOverlayClass = color =>
-  cssToStyle(overlay, { background: overlayColor(color) }).toString()
-const getModalContent = ({ background, color }) =>
-  cssToStyle(
+const toString = fn => (...args) => `${fn(...args)}`
+const getOverlayClass = toString(c =>
+  glamor({ backgroundColor: rgba(c, 0.7) }, overlay)
+)
+const getModalContent = toString(({ background, color }) =>
+  glamor(
     {
-      background: colors[background],
-      color: colors[color],
+      background: getColor(background),
+      color: getColor(color),
     },
     modelContent
-  ).toString()
+  )
+)
 
 export const Modal = props => {
+  ReactModal.setAppElement('#mujo-extension')
   const theme = useTheme()
   const { css } = props
   const results = getPropClasses(

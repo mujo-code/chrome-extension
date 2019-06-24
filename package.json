@@ -65,7 +65,7 @@
   "scripts": {
     "serve": "serve",
     "start": "node scripts/watch.js",
-    "build": "PUBLIC_URL=./ node scripts/build.js && npm run append:sw && npm run append:sm",
+    "build": "PUBLIC_URL=./ node scripts/build.js && npm run append:sw",
     "append:sw": "cra-append-sw --mode replace --skip-compile ./public/service-worker.js",
     "append:sm": "node scripts/modify-source-maps.js",
     "test": "node scripts/test.js --env=jsdom",

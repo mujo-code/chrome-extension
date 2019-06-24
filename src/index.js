@@ -14,4 +14,4 @@ const Mujō = () => (
   </ErrorBox>
 )
 
-ReactDOM.render(<Mujō />, document.getElementById('root'))
+ReactDOM.render(<Mujō />, document.getElementById('mujo-extension'))
