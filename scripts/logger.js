@@ -10,10 +10,11 @@ const timeTaken = () => {
 }
 
 const logger = label => str => {
-  const prefix = `${label || formatDate(new Date())}:`.padEnd(15, ' ')
+  const prefix = `${label || formatDate(new Date())}`.padEnd(20, ' ')
   console.log(
     `${chalk.cyan(prefix)} ${str} - ${chalk.cyan(timeTaken())}`
   )
 }
 
+module.exports.logger = logger
 module.exports.log = logger()

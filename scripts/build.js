@@ -1,6 +1,7 @@
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production'
 process.env.NODE_ENV = 'production'
+process.env.WEBPACK_ENV = 'production'
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
@@ -13,130 +14,52 @@ process.on('unhandledRejection', err => {
 require('../config/env')
 
 const path = require('path')
+const filesize = require('filesize')
 const fs = require('fs-extra')
 const chalk = require('react-dev-utils/chalk')
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles')
-const FileSizeReporter = require('react-dev-utils/FileSizeReporter')
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')
-const printBuildError = require('react-dev-utils/printBuildError')
-const printHostingInstructions = require('react-dev-utils/printHostingInstructions')
 const webpack = require('webpack')
 const paths = require('../config/paths')
 const configFactory = require('../config/webpack.config')
+const staticConfigFactory = require('../config/webpack.static.config')
+const { logger } = require('./logger')
 
-const { measureFileSizesBeforeBuild } = FileSizeReporter
-const { printFileSizesAfterBuild } = FileSizeReporter
-const useYarn = fs.existsSync(paths.yarnLockFile)
-
-// These sizes are pretty large. We'll warn for bundles exceeding them.
-const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024
-const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024
-
-const isInteractive = process.stdout.isTTY
-
-// Warn and crash if required files are missing
-if (
-  !checkRequiredFiles([
-    paths.appHtml,
-    paths.appIndexJs,
-    paths.appBackgroundJs,
-    paths.appContentJs,
-  ])
-) {
-  process.exit(1)
+const copyPublicFolder = () => {
+  fs.copySync(paths.appPublic, paths.appBuild, {
+    dereference: true,
+    filter: file => file !== paths.appHtml,
+  })
 }
 
-// Generate configuration
-const config = configFactory('production')
-
-// We require that you explicitly set browsers and do not fall back to
-// browserslist defaults.
-const { checkBrowsers } = require('react-dev-utils/browsersHelper')
-
-checkBrowsers(paths.appPath, isInteractive)
-  .then(() =>
-    // First, read the current file sizes in build directory.
-    // This lets us display how much they changed later.
-    measureFileSizesBeforeBuild(paths.appBuild)
-  )
-  .then(previousFileSizes => {
-    // Remove all content but keep the directory so that
-    // if you're in it, you don't end up in Trash
-    fs.emptyDirSync(paths.appBuild)
-    // Merge with the public folder
-    copyPublicFolder()
-    // Start the webpack build
-    return build(previousFileSizes)
-  })
-  .then(
-    ({ stats, previousFileSizes, warnings }) => {
-      if (warnings.length) {
-        console.log(chalk.yellow('Compiled with warnings.\n'))
-        console.log(warnings.join('\n\n'))
-        console.log(
-          `\nSearch for the ${chalk.underline(
-            chalk.yellow('keywords')
-          )} to learn more about each warning.`
-        )
-        console.log(
-          `To ignore, add ${chalk.cyan(
-            '// eslint-disable-next-line'
-          )} to the line before.\n`
-        )
-      } else {
-        console.log(chalk.green('Compiled successfully.\n'))
-      }
-
-      console.log('File sizes after gzip:\n')
-      printFileSizesAfterBuild(
-        stats,
-        previousFileSizes,
-        paths.appBuild,
-        WARN_AFTER_BUNDLE_GZIP_SIZE,
-        WARN_AFTER_CHUNK_GZIP_SIZE
-      )
-      console.log()
-
-      const appPackage = require(paths.appPackageJson)
-      const { publicUrl } = paths
-      const { publicPath } = config.output
-      const buildFolder = path.relative(process.cwd(), paths.appBuild)
-      printHostingInstructions(
-        appPackage,
-        publicUrl,
-        publicPath,
-        buildFolder,
-        useYarn
-      )
-    },
-    err => {
-      console.log(chalk.red('Failed to compile.\n'))
-      printBuildError(err)
-      process.exit(1)
-    }
-  )
-  .catch(err => {
-    if (err && err.message) {
-      console.log(err.message)
-    }
-    process.exit(1)
-  })
-
-// Create the production build and print the deployment instructions.
-function build(previousFileSizes) {
-  // We used to support resolving modules according to `NODE_PATH`.
-  // This now has been deprecated in favor of jsconfig/tsconfig.json
-  // This lets you use absolute paths in imports inside large monorepos:
-  if (process.env.NODE_PATH) {
-    console.log(
-      chalk.yellow(
-        'Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app.'
-      )
+const logBuild = ({ stats, warnings }, log) => {
+  if (warnings.length) {
+    log(chalk.yellow('Compiled with warnings.'))
+    log(warnings.join('\n\n'))
+    log(
+      `\nSearch for the ${chalk.underline(
+        chalk.yellow('keywords')
+      )} to learn more about each warning.`
     )
-    console.log()
+    log(
+      `To ignore, add ${chalk.cyan(
+        '// eslint-disable-next-line'
+      )} to the line before.`
+    )
+  } else {
+    log(chalk.green('Compiled successfully.'))
   }
 
-  console.log('Creating an optimized production build...')
+  const { assets } = stats.toJson({ all: false, assets: true })
+  assets.forEach(asset => {
+    log(`${asset.name}: ${chalk.yellow(filesize(asset.size))}`)
+  })
+}
+
+const build = config => {
+  const pathSegments = path.parse(config.entry.toString())
+  const log = logger(`build:${pathSegments.base}`)
+  log('Starting build...')
 
   const compiler = webpack(config)
   return new Promise((resolve, reject) => {
@@ -163,33 +86,52 @@ function build(previousFileSizes) {
         }
         return reject(new Error(messages.errors.join('\n\n')))
       }
-      if (
-        process.env.CI &&
-        (typeof process.env.CI !== 'string' ||
-          process.env.CI.toLowerCase() !== 'false') &&
-        messages.warnings.length
-      ) {
-        console.log(
-          chalk.yellow(
-            '\nTreating warnings as errors because process.env.CI = true.\n' +
-              'Most CI servers set it automatically.\n'
-          )
-        )
-        return reject(new Error(messages.warnings.join('\n\n')))
-      }
+
+      logBuild({ stats, warnings: messages.warnings }, log)
 
       return resolve({
         stats,
-        previousFileSizes,
         warnings: messages.warnings,
       })
     })
   })
 }
 
-function copyPublicFolder() {
-  fs.copySync(paths.appPublic, paths.appBuild, {
-    dereference: true,
-    filter: file => file !== paths.appHtml,
-  })
+const makeBuilds = (configs, fileSizes) =>
+  configs.reduce(
+    (promise, config) => promise.then(() => build(config, fileSizes)),
+    Promise.resolve()
+  )
+
+const startBuild = async configs => {
+  fs.emptyDirSync(paths.appBuild)
+  // todo make async
+  copyPublicFolder()
+  await makeBuilds(configs)
 }
+
+// Warn and crash if required files are missing
+if (
+  !checkRequiredFiles([
+    paths.appHtml,
+    paths.appIndexJs,
+    paths.appBackgroundJs,
+    paths.appContentJs,
+  ])
+) {
+  process.exit(1)
+}
+
+startBuild([
+  configFactory(process.env.WEBPACK_ENV),
+  staticConfigFactory(
+    paths.appBackgroundJs,
+    'background.js',
+    process.env.WEBPACK_ENV
+  ),
+  staticConfigFactory(
+    paths.appContentJs,
+    'content.js',
+    process.env.WEBPACK_ENV
+  ),
+])

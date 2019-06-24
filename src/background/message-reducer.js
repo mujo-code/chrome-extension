@@ -14,6 +14,7 @@ import { updateScreenTime } from './screen-time'
 export const reducer = (request, sender, sendResponse) => {
   const isNewTab = sender.tab.url === 'chrome://newtab/'
   const { event } = request
+  console.log(`new ${event}`)
   if (isNewTab) {
     switch (event) {
       case NEW_TAB_CONNECTION:

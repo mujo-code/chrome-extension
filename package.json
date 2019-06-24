@@ -30,6 +30,7 @@
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-react-hooks": "^1.5.0",
     "file-loader": "3.0.1",
+    "filesize": "^4.1.2",
     "fs-extra": "7.0.1",
     "glamor": "^2.20.40",
     "html-webpack-plugin": "4.0.0-beta.5",
@@ -71,16 +72,13 @@
   "scripts": {
     "serve": "serve",
     "start": "node scripts/watch.js",
-    "build": "PUBLIC_URL=./ node scripts/build.js && npm run append:sw && npm run append:sm && npm run bundle",
+    "build": "PUBLIC_URL=./ node scripts/build.js && npm run append:sw && npm run append:sm",
     "append:sw": "cra-append-sw --mode replace --skip-compile ./public/service-worker.js",
     "append:sm": "node scripts/modify-source-maps.js",
     "test": "node scripts/test.js --env=jsdom",
     "fmt": "prettier '{src,public}/**/*.js' --write",
     "lint": "eslint '{src,public}/**/*.js'",
-    "dist": "./scripts/dist.sh",
-    "bundle:background": "rollup src/background.js --format iife --file build/background.js",
-    "bundle:content": "rollup src/content.js --format iife --file build/content.js",
-    "bundle": "npm run bundle:background && npm run bundle:content"
+    "dist": "./scripts/dist.sh"
   },
   "browserslist": [
     "last 3 Chrome versions"
