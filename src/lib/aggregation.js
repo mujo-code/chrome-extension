@@ -5,10 +5,11 @@ const combineUrlTimes = data => {
   const keys = Object.keys(data)
   return keys.reduce((accum, key) => {
     const shortKey = shortURL(key)
+    const lastTime = (accum[shortKey] && accum[shortKey].time) || 0
     set(accum, shortKey, {
-      time: data[key].time + (accum[shortKey] || 0),
+      time: data[key].time + lastTime,
       breakTimer: data[key].breakTimer,
-      originalKey: key,
+      originalURL: key,
     })
     return accum
   }, {})

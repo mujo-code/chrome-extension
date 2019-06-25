@@ -12,6 +12,7 @@ import {
   BREAK_TIMERS_KEY,
 } from '../constants'
 import { message, topSites as topSitesApi } from '../lib/extension'
+import { first } from '../lib/functional'
 import { set, create } from '../lib/util'
 import { useStorage } from './use-storage'
 
@@ -28,6 +29,7 @@ export const onStorageChange = ({ setSiteTimes }) => e => {
 
 export const useExtension = () => {
   const [appReady, setAppReady] = useState(false)
+  const [selectedSegment, setSelectedSegment] = useState(null)
   const [alarmEnabled, setAlarmEnabled] = useStorage(ALARM_KEY)
   const [topSites, setTopSites] = useStorage(TOP_SITES_KEY)
   const [siteTimes, setSiteTimes] = useStorage(SITE_TIME_KEY)
@@ -119,6 +121,21 @@ export const useExtension = () => {
     {}
   )
 
+  // TODO: selected segments needs a refactor
+  // remove all extra ui stuff and make it purely urls
+  if (selectedSegment) {
+    const shortURL = selectedSegment.label
+    if (shortURL !== 'other') {
+      const originalURL = first(selectedSegment.urls)
+      const { breakTimer, time } = siteTimesAndTimers[originalURL]
+      set(selectedSegment, 'data', {
+        breakTimer,
+        time,
+        originalURL,
+      })
+    }
+  }
+
   return [
     {
       topSites: mappedTopSites,
@@ -129,6 +146,7 @@ export const useExtension = () => {
       siteTimesAndTimers,
       appReady,
       breakTimers,
+      selectedSegment,
     },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
@@ -137,6 +155,7 @@ export const useExtension = () => {
       resetUsage,
       updateShowTopSites,
       setBreakTimer,
+      setSelectedSegment,
     },
   ]
 }

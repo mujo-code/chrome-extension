@@ -1,14 +1,19 @@
 import { Box } from '@jcblw/box'
-import React, { useState } from 'react'
+import React from 'react'
 import { useTheme } from '../../hooks/use-theme'
 import { siteTimeToChartData } from '../../lib/aggregation'
 import { HeaderS } from '../fonts'
 import { Graph } from '../graph'
 import { Modal } from './modal'
+import { reduceSegmentToUrls } from './reducer'
 
-export const ScreenTime = ({ data }) => {
+export const ScreenTime = ({
+  data,
+  setBreakTimer,
+  selectedSegment,
+  setSelectedSegment,
+}) => {
   const graphData = siteTimeToChartData(data)
-  const [selectedSegment, setSelectedSegment] = useState(null)
   const theme = useTheme()
   const { foreground, highlight } = theme
   return (
@@ -35,7 +40,9 @@ export const ScreenTime = ({ data }) => {
         radius={100}
         selected={selectedSegment}
         selectedStroke={foreground}
-        onSegmentClick={seg => setSelectedSegment(seg)}
+        onSegmentClick={seg =>
+          setSelectedSegment(reduceSegmentToUrls(seg))
+        }
       />
       {selectedSegment ? (
         <Modal
@@ -43,6 +50,7 @@ export const ScreenTime = ({ data }) => {
           setSelectedSegment={setSelectedSegment}
           selectedSegment={selectedSegment}
           allSegments={graphData}
+          setBreakTimer={setBreakTimer}
         />
       ) : null}
     </Box>

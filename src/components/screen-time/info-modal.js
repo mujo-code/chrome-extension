@@ -1,13 +1,15 @@
 import { Box } from '@jcblw/box'
 import React from 'react'
+import { FOURTY_FIVE_MINUTES } from '../../constants'
 import { Button } from '../button'
-import { HeaderL, BodyS, BodyL } from '../fonts'
+import { HeaderL, BodyS, BodyL, HeaderS } from '../fonts'
 import { Time } from '../time'
 import { BarGraph } from './bar-graph'
 
 export const InfoModal = ({
   theme: { foreground, highlight },
-  segment: { label, time, percent },
+  segment: { label, time, percent, breakTimer, originalURL },
+  setBreakTimer,
 }) => (
   <Box display="flex" direction="column" flex="1">
     <HeaderL marginBottom="s" marginTop="zero" color={foreground}>
@@ -17,6 +19,7 @@ export const InfoModal = ({
       percent={percent}
       backgroundColor={highlight}
       barColor={foreground}
+      height={16}
     />
     <BodyL marginTop="s" marginBottom="s">
       The site {label} was actively viewed for{' '}
@@ -29,7 +32,29 @@ export const InfoModal = ({
       These times are not aways going to represent a 100% view of your
       viewing habits.
     </BodyS>
-    <Box flex="1" />
+    <Box display="flex" direction="row" alignItems="center">
+      <Box
+        id="break-timer"
+        Component="input"
+        type="checkbox"
+        marginRight="s"
+        checked={breakTimer.enabled}
+        onChange={() =>
+          setBreakTimer(
+            originalURL,
+            FOURTY_FIVE_MINUTES,
+            !breakTimer.enabled
+          )
+        }
+      />
+      <HeaderS
+        marginTop="xs"
+        marginBottom="xs"
+        labelFor="break-timer"
+      >
+        Break Timer
+      </HeaderS>
+    </Box>
     <Box
       flex="0"
       display="flex"

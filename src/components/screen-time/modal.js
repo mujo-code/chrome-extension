@@ -48,7 +48,7 @@ export const Modal = props => {
         display="flex"
         direction="column"
       >
-        {Object.keys(selectedSegment.originalData).length > 1 ? (
+        {selectedSegment.urls.length > 1 ? (
           <ListModal {...props} />
         ) : (
           <InfoModal
