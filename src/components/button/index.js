@@ -25,19 +25,19 @@ const colors = {
 export const Button = props => {
   const {
     children = 'Label',
-    style = 'primary',
+    design = 'primary',
     alt,
     altOffset = 0,
   } = props
   const restProps = removeKeys(
     props,
-    'style',
+    'design',
     'alt',
     'children',
     'altOffset'
   )
   const [tooltipOpen, setToolTipOpen] = useState(false)
-  const { color, backgroundColor, highlight } = colors[style]
+  const { color, backgroundColor, highlight } = colors[design]
   return (
     <Box
       outlineColor={highlight}

@@ -1,5 +1,5 @@
-import { set } from './etters'
 import { shortURL } from './url'
+import { set } from './util'
 
 const combineUrlTimes = data => {
   const keys = Object.keys(data)

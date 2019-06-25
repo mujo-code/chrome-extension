@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import {
   toSvgProps,
   toCircleProps,
@@ -36,64 +36,70 @@ export const useAnimations = (props, argOptions = {}) => {
   const [tween, setTween] = useState(null)
   const delayedSetInBreath = wait(setIsBreathIn)
   const delayedSetAnimatingProps = wait(setAnimatingProps)
-  const updateTween = ({ tween: currentTween, shouldUpdate }) => ({
-    scale,
-    scale2,
-  }) => {
-    /* eslint-disable-next-line no-underscore-dangle */
-    const isPlaying = currentTween._isPlaying
-    if (isBreathIn !== isPlaying) {
-      delayedSetInBreath(isPlaying)
-    }
-    if (!shouldUpdate()) {
-      return
-    }
-    setAnimatingProps(
-      Object.assign({}, animatingProps, {
-        circle: {
-          transform: `scale(${scale2})`,
-          transition: 'none',
-        },
-        circle2: {
-          transform: `scale(${scale})`,
-          transition: 'all 0.1s',
-        },
-      })
-    )
-  }
-  // TODO: update to be able to hot swappable like update
-  const completeTween = ({
-    repeat: iteration,
-    breathTime,
-    circleScaleExpanded,
-    circleInnerExpanded,
-  }) => () => {
-    if (iteration > 1) {
-      const {
-        breathTimeIncrease,
-        circleScaleExpandedIncrease,
-        circleInnerExpandedIncrease,
-      } = options
-      setTween(
-        createTween({
-          updateTween,
-          completeTween,
-          startDelay: 0,
-          repeat: iteration - 1,
-          shouldLoop: () => isOpen,
-          breathTime: breathTime + breathTimeIncrease,
-          circleScaleExpanded:
-            circleScaleExpanded + circleScaleExpandedIncrease,
-          circleInnerExpanded:
-            circleInnerExpanded + circleInnerExpandedIncrease,
-          setTween,
+  const updateTween = useCallback(
+    ({ tween: currentTween, shouldUpdate }) => ({
+      scale,
+      scale2,
+    }) => {
+      /* eslint-disable-next-line no-underscore-dangle */
+      const isPlaying = currentTween._isPlaying
+      if (isBreathIn !== isPlaying) {
+        delayedSetInBreath(isPlaying)
+      }
+      if (!shouldUpdate()) {
+        return
+      }
+      setAnimatingProps(
+        Object.assign({}, animatingProps, {
+          circle: {
+            transform: `scale(${scale2})`,
+            transition: 'none',
+          },
+          circle2: {
+            transform: `scale(${scale})`,
+            transition: 'all 0.1s',
+          },
         })
       )
-      return
-    }
-    setAnimatingProps(animatingPropsFactory())
-    onFinish()
-  }
+    },
+    [animatingProps, delayedSetInBreath, isBreathIn]
+  )
+  // TODO: update to be able to hot swappable like update
+  const completeTween = useCallback(
+    ({
+      repeat: iteration,
+      breathTime,
+      circleScaleExpanded,
+      circleInnerExpanded,
+    }) => () => {
+      if (iteration > 1) {
+        const {
+          breathTimeIncrease,
+          circleScaleExpandedIncrease,
+          circleInnerExpandedIncrease,
+        } = options
+        setTween(
+          createTween({
+            updateTween,
+            completeTween,
+            startDelay: 0,
+            repeat: iteration - 1,
+            shouldLoop: () => isOpen,
+            breathTime: breathTime + breathTimeIncrease,
+            circleScaleExpanded:
+              circleScaleExpanded + circleScaleExpandedIncrease,
+            circleInnerExpanded:
+              circleInnerExpanded + circleInnerExpandedIncrease,
+            setTween,
+          })
+        )
+        return
+      }
+      setAnimatingProps(animatingPropsFactory())
+      onFinish()
+    },
+    [isOpen, onFinish, options, updateTween]
+  )
   useEffect(() => {
     if (isOpen && !tween) {
       setTween(
@@ -120,7 +126,15 @@ export const useAnimations = (props, argOptions = {}) => {
         completeTween,
       })
     }
-  }, [isOpen, animatingProps, isBreathIn, tween])
+  }, [
+    isOpen,
+    animatingProps,
+    isBreathIn,
+    tween,
+    updateTween,
+    completeTween,
+    delayedSetAnimatingProps,
+  ])
   const animationProps = {
     svg: toSvgProps(props),
     rect: toRectProps(props, animatingProps.rect),

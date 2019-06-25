@@ -3,6 +3,8 @@ import {
   CLEAR_ALARM,
   SET_ALARM,
   PAGE_VIEWING_TIME,
+  GET_STORAGE,
+  SET_STORAGE,
 } from '../constants'
 import {
   updateUserActivity,
@@ -10,30 +12,29 @@ import {
   clearActivityTimeout,
 } from './alarm'
 import { updateScreenTime } from './screen-time'
+import { onGetStorage, onSetStorage } from './storage'
 
 export const reducer = (request, sender, sendResponse) => {
-  const isNewTab = sender.tab.url === 'chrome://newtab/'
   const { event } = request
-  console.log(`new ${event}`)
-  if (isNewTab) {
-    switch (event) {
-      case NEW_TAB_CONNECTION:
-      case SET_ALARM:
-        updateUserActivity()
-        break
-      case CLEAR_ALARM:
-        clearAlarm()
-        clearActivityTimeout()
-        break
-      default:
-    }
-  } else {
-    switch (event) {
-      case PAGE_VIEWING_TIME:
-        updateScreenTime(sender.url, request.measure)
-        break
-      default:
-    }
+  console.log({ event })
+  switch (event) {
+    case NEW_TAB_CONNECTION:
+    case SET_ALARM:
+      updateUserActivity()
+      break
+    case CLEAR_ALARM:
+      clearAlarm()
+      clearActivityTimeout()
+      break
+    case PAGE_VIEWING_TIME:
+      updateScreenTime(sender.url, request.measure)
+      break
+    case GET_STORAGE:
+      onGetStorage(request.key, sendResponse)
+      break
+    case SET_STORAGE:
+      onSetStorage(request.key, request.value, sendResponse)
+      break
+    default:
   }
-  sendResponse({ success: true })
 }

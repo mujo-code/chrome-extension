@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import App from './app'
 import { ErrorBox } from './components/error-box'
 import { ColorThemeProvider } from './hooks/use-theme'
 
 import './tracker'
 
-const Mujō = () => (
+const NewHomePage = () => (
   <ErrorBox>
     <ColorThemeProvider value="dark">
       <App />
@@ -14,4 +14,7 @@ const Mujō = () => (
   </ErrorBox>
 )
 
-ReactDOM.render(<Mujō />, document.getElementById('mujo-extension'))
+ReactDOM.render(
+  <NewHomePage />,
+  document.getElementById('mujo-extension')
+)

@@ -37,7 +37,7 @@ export const InfoModal = ({
       paddingBottom="m"
     >
       <Button
-        style="secondary"
+        design="secondary"
         Component="a"
         href={`https://${label}`}
       >

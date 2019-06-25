@@ -14,13 +14,7 @@ const loadedStyles = css({ opacity: 1 })
 
 export const FavButton = props => {
   const { disabled } = props
-  const restProps = removeKeys(
-    props,
-    'style',
-    'url',
-    'title',
-    'disabled'
-  )
+  const restProps = removeKeys(props, 'url', 'title', 'disabled')
   const [tooltipOpen, setToolTipOpen] = useState(false)
   const [isServer, setIsServer] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
