@@ -18,4 +18,7 @@ action "Test Code" {
   needs = "Lint Code"
   uses = "actions/npm@master"
   args = "test"
+  env = {
+    CI = "true"
+  }
 }
