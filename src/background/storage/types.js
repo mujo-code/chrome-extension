@@ -4,7 +4,7 @@ import { toString } from '../../lib/util'
 export const types = ['object', 'string', 'boolean', 'number']
 
 export const serializers = {
-  object: x => JSON.stringify(x),
+  object: x => JSON.stringify(x) || 'null',
   string: identity,
   boolean: toString,
   number: toString,
