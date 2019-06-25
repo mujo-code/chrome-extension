@@ -2,8 +2,8 @@ import { css } from 'glamor'
 
 css.global('#mujo-extension *, .mujo-modal *', {
   fontFamily: "'IBM Plex Sans', sans-serif",
-  '-webkit-font-smoothing': 'antialiased',
-  '-moz-osx-font-smoothing': 'grayscale',
+  WebkitFontSmoothing: 'antialiased',
+  MozOsxFontSmoothing: 'grayscale',
 })
 
 const medium = { fontWeight: 700 }

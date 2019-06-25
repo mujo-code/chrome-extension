@@ -1,3 +1,4 @@
+import { GET_STORAGE, SET_STORAGE } from '../constants'
 /*
   Extension Lib
   -----
@@ -5,8 +6,27 @@
   to eventually allow for bits like firefox without large refactors
 */
 
-export const message = (event, data) =>
-  chrome.runtime.sendMessage(Object.assign({ event }, data || {}))
+export const message = async (event, data) =>
+  new Promise((resolve, reject) => {
+    const payload = Object.assign({ event }, data || {})
+    chrome.runtime.sendMessage(payload, (response = {}) => {
+      if (response.error) {
+        reject(response.error)
+        return
+      }
+      resolve(response)
+    })
+  })
+
+export const getStorage = async key => {
+  const response = await message(GET_STORAGE, { key })
+  return response.value
+}
+
+export const setStorage = async (key, value) => {
+  const response = await message(SET_STORAGE, { key, value })
+  return response.value
+}
 
 export const onMessage = (...args) => {
   chrome.runtime.onMessage.addListener(...args)
@@ -18,4 +38,5 @@ export const {
   tabs,
   webNavigation,
   runtime,
+  topSites,
 } = chrome

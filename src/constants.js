@@ -15,3 +15,6 @@ export const NEW_TAB_CONNECTION = 'New Connection'
 export const CLEAR_ALARM = 'Clear Alarm'
 export const SET_ALARM = 'Set Alarm'
 export const PAGE_VIEWING_TIME = 'Page Viewing Time'
+// Getter, Setters for storage
+export const GET_STORAGE = 'GET_STORAGE'
+export const SET_STORAGE = 'SET_STORAGE'

@@ -1,6 +1,6 @@
 import { SITE_TIME_KEY } from '../constants'
-import { create } from '../lib/etters'
 import { compose } from '../lib/functional'
+import { create } from '../lib/util'
 
 const getOrigin = url => new URL(url).origin
 const getJSONItem = compose(

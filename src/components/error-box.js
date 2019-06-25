@@ -3,7 +3,7 @@ import ErrorStackParser from 'error-stack-parser'
 import { css } from 'glamor'
 import React from 'react'
 import { mapStackTrace } from 'sourcemapped-stacktrace'
-import { set } from '../lib/etters'
+import { set } from '../lib/util'
 import { track } from '../tracker'
 import { FixedS, FixedL } from './fonts'
 

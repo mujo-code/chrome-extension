@@ -15,7 +15,7 @@ export const compose = (...fns) =>
 // compose(a,b,c)(value)
 // a(b(c(value)))
 
-export const pipe = (...args) => compose(args.reverse())
+export const pipe = (...args) => compose(...args.reverse())
 // pipe(a,b,c)(value)
 // c(b(a(value)))
 
