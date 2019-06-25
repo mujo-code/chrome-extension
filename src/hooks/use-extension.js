@@ -9,8 +9,10 @@ import {
   NEW_TAB_CONNECTION,
   CLEAR_ALARM,
   SET_ALARM,
+  BREAK_TIMERS_KEY,
 } from '../constants'
 import { message, topSites as topSitesApi } from '../lib/extension'
+import { set, create } from '../lib/util'
 import { useStorage } from './use-storage'
 
 export const onStorageChange = ({ setSiteTimes }) => e => {
@@ -37,6 +39,9 @@ export const useExtension = () => {
   )
   const [showTopSites, updateShowTopSites] = useStorage(
     SHOW_TOP_SITES_KEY
+  )
+  const [breakTimers, updateBreakTimers] = useStorage(
+    BREAK_TIMERS_KEY
   )
 
   // mount hook
@@ -73,6 +78,17 @@ export const useExtension = () => {
     }
   }
 
+  const setBreakTimer = (url, time, enabled) => {
+    const lastBreakTimer = breakTimers[url] || {}
+    const nextBreakTimer = Object.assign({}, lastBreakTimer, {
+      url,
+      time,
+      enabled,
+    })
+    const nextBreakTimers = create(breakTimers, url, nextBreakTimer)
+    updateBreakTimers(nextBreakTimers)
+  }
+
   const updateSitesUsed = site => {
     setTopSitesUsage([...topSitesUsage, site])
   }
@@ -88,6 +104,21 @@ export const useExtension = () => {
     return Object.assign({ isUsed }, topSite)
   })
 
+  const siteTimesAndTimers = Object.keys(siteTimes).reduce(
+    (accum, url) => {
+      if (!accum) {
+        /* eslint-disable-next-line */
+        accum = {}
+      }
+      set(accum, url, accum[url] || {})
+      set(accum[url], 'time', siteTimes[url])
+      // TODO: stamp new break timer
+      set(accum[url], 'breakTimer', breakTimers[url] || {})
+      return accum
+    },
+    {}
+  )
+
   return [
     {
       topSites: mappedTopSites,
@@ -95,7 +126,9 @@ export const useExtension = () => {
       pageViews,
       showTopSites,
       siteTimes,
+      siteTimesAndTimers,
       appReady,
+      breakTimers,
     },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
@@ -103,6 +136,7 @@ export const useExtension = () => {
       updateSitesUsed,
       resetUsage,
       updateShowTopSites,
+      setBreakTimer,
     },
   ]
 }

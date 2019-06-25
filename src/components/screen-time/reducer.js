@@ -15,7 +15,7 @@ export const reduceSelectedSegment = (
 ) => {
   const label = selectedSegment.label.children
   const { percent } = find({ label })(allSegments)
-  const time = selectedSegment.originalData[label]
+  const { time } = selectedSegment.originalData[label]
   return {
     label,
     time,

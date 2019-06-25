@@ -41,7 +41,7 @@ const App = () => {
       topSites,
       pageViews,
       showTopSites,
-      siteTimes,
+      siteTimesAndTimers,
       appReady,
     },
     {
@@ -110,7 +110,7 @@ const App = () => {
               updateSitesUsed={updateSitesUsed}
             />
           ) : (
-            <ScreenTime data={siteTimes} />
+            <ScreenTime data={siteTimesAndTimers} />
           )}
           <Box flex="1" />
           <Box
