@@ -12,4 +12,10 @@ export const onMessage = (...args) => {
   chrome.runtime.onMessage.addListener(...args)
 }
 
-export const { alarms, notifications, tabs, webNavigation } = chrome
+export const {
+  alarms,
+  notifications,
+  tabs,
+  webNavigation,
+  runtime,
+} = chrome

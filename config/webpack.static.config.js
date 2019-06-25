@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const paths = require('./paths')
 const createWebpackConfig = require('./webpack.config')
 
@@ -11,14 +12,12 @@ module.exports = function webpackConfig(entry, filename, webpackEnv) {
       filename,
     },
     optimization: {
-      minimize: true,
-      splitChunks: {
-        chunks: 'initial',
-        name: false,
-      },
       runtimeChunk: false,
+      splitChunks: { chunks: 'initial' },
     },
     // remove plugins to avoid html injection
-    plugins: [],
+    plugins: [
+      new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
+    ],
   })
 }

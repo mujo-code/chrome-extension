@@ -13,6 +13,7 @@ import * as utilStyles from './styles/utils'
 import { track } from './tracker'
 
 styleGuide.push(utilStyles)
+css.global('body, html', { margin: 0 })
 
 const bodyBackgrounds = {
   outerSpace: `radial-gradient(ellipse at center, ${

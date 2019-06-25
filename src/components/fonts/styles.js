@@ -1,6 +1,6 @@
 import { css } from 'glamor'
 
-css.global('*', {
+css.global('#mujo-extension *, .mujo-modal *', {
   fontFamily: "'IBM Plex Sans', sans-serif",
   '-webkit-font-smoothing': 'antialiased',
   '-moz-osx-font-smoothing': 'grayscale',

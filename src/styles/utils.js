@@ -8,8 +8,6 @@ const makeStyles = (key, values) => {
   return keys.reduce(reducer, {})
 }
 
-css.global('body, html', { margin: 0 })
-
 const spacingValues = { zero: 0 }
 
 // Spacing Addons
