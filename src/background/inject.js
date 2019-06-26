@@ -1,5 +1,5 @@
 import { SCREEN_TIME_FEATURE } from '../constants'
-import { tabs, runtime } from '../lib/extension'
+import { tabs } from '../lib/extension'
 
 const BLACK_LIST = ['about:blank', 'chrome']
 
