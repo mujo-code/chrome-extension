@@ -108,21 +108,14 @@ export const useExtension = () => {
 
   const siteTimesAndTimers = Object.keys(siteTimes).reduce(
     (accum, url) => {
-      if (!accum) {
-        /* eslint-disable-next-line */
-        accum = {}
-      }
       set(accum, url, accum[url] || {})
       set(accum[url], 'time', siteTimes[url])
-      // TODO: stamp new break timer
       set(accum[url], 'breakTimer', breakTimers[url] || {})
       return accum
     },
     {}
   )
 
-  // TODO: selected segments needs a refactor
-  // remove all extra ui stuff and make it purely urls
   if (selectedSegment) {
     const { urls } = selectedSegment
     if (urls.length === 1) {

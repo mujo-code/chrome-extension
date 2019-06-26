@@ -1,5 +1,6 @@
 import { Box } from '@jcblw/box'
 import React from 'react'
+import { shortURL } from '../../lib/url'
 import { HeaderL } from '../fonts'
 
 export const ListModal = ({
@@ -8,7 +9,7 @@ export const ListModal = ({
   setSelectedSegment,
 }) => (
   <>
-    {Object.keys(selectedSegment.originalData).map(url => (
+    {selectedSegment.urls.map(url => (
       <Box
         key={url}
         display="flex"
@@ -29,14 +30,13 @@ export const ListModal = ({
           paddingRight="s"
           cursor="pointer"
           onClick={() => {
-            const timing = selectedSegment.originalData[url]
             setSelectedSegment({
-              label: { children: url },
-              originalData: { [url]: timing },
+              label: shortURL(url),
+              urls: [url],
             })
           }}
         >
-          {url}
+          {shortURL(url)}
         </HeaderL>
       </Box>
     ))}
