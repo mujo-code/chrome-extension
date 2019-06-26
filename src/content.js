@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ContentApp from './components/content-app'
+import { BREAK_TIMER_FEATURE } from './constants'
 
 import {
   onVisibilityChange,
@@ -17,7 +18,7 @@ window.document.addEventListener(
 
 window.addEventListener('beforeunload', onViewingEnd)
 
-if (process.env.CONTENT_MODAL) {
+if (BREAK_TIMER_FEATURE) {
   // React app in content script
   const el = document.createElement('div')
   el.id = 'mujo-extension'

@@ -13,12 +13,25 @@ export const reduceSelectedSegment = (
   selectedSegment,
   allSegments
 ) => {
-  const label = selectedSegment.label.children
+  const { label, data } = selectedSegment
   const { percent } = find({ label })(allSegments)
-  const time = selectedSegment.originalData[label]
+  const { time, breakTimer, originalURL } = data
   return {
     label,
     time,
     percent: makeNicePercent(percent),
+    breakTimer,
+    originalURL,
+  }
+}
+
+export const reduceSegmentToUrls = segment => {
+  const label = segment.label.children
+  const urls = Object.keys(segment.originalData).map(
+    url => segment.originalData[url].originalURL
+  )
+  return {
+    label,
+    urls,
   }
 }

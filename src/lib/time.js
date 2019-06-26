@@ -13,6 +13,9 @@ export const getTime = ms => {
   }
 }
 
+export const minutesToMS = minutes => minutes * 60 * 1000
+export const msToMinutes = ms => factor(factor(ms, 1000), 60)
+
 export const readableTime = num => {
   if (typeof num !== 'number') {
     throw new Error(

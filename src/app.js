@@ -41,14 +41,17 @@ const App = () => {
       topSites,
       pageViews,
       showTopSites,
-      siteTimes,
+      siteTimesAndTimers,
       appReady,
+      selectedSegment,
     },
     {
       setAlarmEnabled,
       updateSitesUsed,
       resetUsage,
       updateShowTopSites,
+      setBreakTimer,
+      setSelectedSegment,
     },
   ] = useExtension()
   const theme = useTheme()
@@ -86,7 +89,6 @@ const App = () => {
             onMouseLeave={() => setToolTipOpen(false)}
           >
             <Player
-              dark
               isOpen={isOpen}
               width={logoSize}
               height={logoSize}
@@ -110,7 +112,12 @@ const App = () => {
               updateSitesUsed={updateSitesUsed}
             />
           ) : (
-            <ScreenTime data={siteTimes} />
+            <ScreenTime
+              data={siteTimesAndTimers}
+              setBreakTimer={setBreakTimer}
+              selectedSegment={selectedSegment}
+              setSelectedSegment={setSelectedSegment}
+            />
           )}
           <Box flex="1" />
           <Box

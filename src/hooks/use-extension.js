@@ -9,8 +9,11 @@ import {
   NEW_TAB_CONNECTION,
   CLEAR_ALARM,
   SET_ALARM,
+  BREAK_TIMERS_KEY,
 } from '../constants'
 import { message, topSites as topSitesApi } from '../lib/extension'
+import { first } from '../lib/functional'
+import { set, create } from '../lib/util'
 import { useStorage } from './use-storage'
 
 export const onStorageChange = ({ setSiteTimes }) => e => {
@@ -26,6 +29,7 @@ export const onStorageChange = ({ setSiteTimes }) => e => {
 
 export const useExtension = () => {
   const [appReady, setAppReady] = useState(false)
+  const [selectedSegment, setSelectedSegment] = useState(null)
   const [alarmEnabled, setAlarmEnabled] = useStorage(ALARM_KEY)
   const [topSites, setTopSites] = useStorage(TOP_SITES_KEY)
   const [siteTimes, setSiteTimes] = useStorage(SITE_TIME_KEY)
@@ -37,6 +41,9 @@ export const useExtension = () => {
   )
   const [showTopSites, updateShowTopSites] = useStorage(
     SHOW_TOP_SITES_KEY
+  )
+  const [breakTimers, updateBreakTimers] = useStorage(
+    BREAK_TIMERS_KEY
   )
 
   // mount hook
@@ -73,6 +80,17 @@ export const useExtension = () => {
     }
   }
 
+  const setBreakTimer = (url, time, enabled) => {
+    const lastBreakTimer = breakTimers[url] || {}
+    const nextBreakTimer = Object.assign({}, lastBreakTimer, {
+      url,
+      time,
+      enabled,
+    })
+    const nextBreakTimers = create(breakTimers, url, nextBreakTimer)
+    updateBreakTimers(nextBreakTimers)
+  }
+
   const updateSitesUsed = site => {
     setTopSitesUsage([...topSitesUsage, site])
   }
@@ -88,6 +106,29 @@ export const useExtension = () => {
     return Object.assign({ isUsed }, topSite)
   })
 
+  const siteTimesAndTimers = Object.keys(siteTimes).reduce(
+    (accum, url) => {
+      set(accum, url, accum[url] || {})
+      set(accum[url], 'time', siteTimes[url])
+      set(accum[url], 'breakTimer', breakTimers[url] || {})
+      return accum
+    },
+    {}
+  )
+
+  if (selectedSegment) {
+    const { urls } = selectedSegment
+    if (urls.length === 1) {
+      const originalURL = first(selectedSegment.urls)
+      const { breakTimer, time } = siteTimesAndTimers[originalURL]
+      set(selectedSegment, 'data', {
+        breakTimer,
+        time,
+        originalURL,
+      })
+    }
+  }
+
   return [
     {
       topSites: mappedTopSites,
@@ -95,7 +136,10 @@ export const useExtension = () => {
       pageViews,
       showTopSites,
       siteTimes,
+      siteTimesAndTimers,
       appReady,
+      breakTimers,
+      selectedSegment,
     },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
@@ -103,6 +147,8 @@ export const useExtension = () => {
       updateSitesUsed,
       resetUsage,
       updateShowTopSites,
+      setBreakTimer,
+      setSelectedSegment,
     },
   ]
 }

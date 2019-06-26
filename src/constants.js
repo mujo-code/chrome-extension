@@ -1,5 +1,6 @@
 // Config values
 export const THREE_HOURS = 1000 * 60 * 60 * 3
+export const FOURTY_FIVE_MINUTES = 1000 * 60 * 45
 export const ALARM_DEFAULT_VALUE = true
 
 // Storage keys
@@ -9,6 +10,7 @@ export const TOP_SITES_USAGE_KEY = 'TOP_SITES_USAGE'
 export const PAGE_VIEWS_KEY = 'PAGE_VIEWS'
 export const SHOW_TOP_SITES_KEY = 'SHOW_TOP_SITES'
 export const SITE_TIME_KEY = 'SITE_TIME'
+export const BREAK_TIMERS_KEY = 'BREAK_TIMERS'
 
 // Actions
 export const NEW_TAB_CONNECTION = 'New Connection'
@@ -20,4 +22,5 @@ export const GET_STORAGE = 'GET_STORAGE'
 export const SET_STORAGE = 'SET_STORAGE'
 
 // Feature Flags
-export const SCREEN_TIME_FEATURE = false
+export const SCREEN_TIME_FEATURE = true
+export const BREAK_TIMER_FEATURE = false

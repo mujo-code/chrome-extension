@@ -27,7 +27,13 @@ const fadeInText = css({
 
 export const Player = props => {
   const { isOpen } = props
-  const otherProps = removeKeys(props, 'width', 'height', 'isOpen')
+  const otherProps = removeKeys(
+    props,
+    'width',
+    'height',
+    'isOpen',
+    'onFinish'
+  )
   const [{ animationProps, isBreathIn, iteration }] = useAnimations(
     props,
     isOpen

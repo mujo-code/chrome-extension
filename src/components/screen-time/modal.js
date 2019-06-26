@@ -20,10 +20,6 @@ export const Modal = props => {
       outlineColor={highlight}
       isOpen={true}
       padding="zero"
-      paddingTop="m"
-      paddingLeft="m"
-      paddingRight="m"
-      paddingBottom="zero"
       onRequestClose={() => setSelectedSegment(null)}
       css={{
         width: '35vw',
@@ -33,7 +29,13 @@ export const Modal = props => {
         transition: 'all .5s',
       }}
     >
-      <Box flex="0" paddingBottom="s">
+      <Box
+        flex="0"
+        paddingBottom="s"
+        paddingTop="m"
+        paddingLeft="m"
+        paddingRight="m"
+      >
         <HeaderS
           marginBottom="zero"
           marginTop="zero"
@@ -48,7 +50,7 @@ export const Modal = props => {
         display="flex"
         direction="column"
       >
-        {Object.keys(selectedSegment.originalData).length > 1 ? (
+        {selectedSegment.urls.length > 1 ? (
           <ListModal {...props} />
         ) : (
           <InfoModal

@@ -2,17 +2,18 @@
   Extension Lib Mock
 */
 import model from '../../model'
-import { noop } from '../functional'
 
-export const message = async () => ({})
+export const getStorageFn = async key => model[key].defaultValue
+export const setStorageFn = async (key, value) => value
 
-export const getStorage = async key => model[key].defaultValue
-export const setStorage = async key => model[key].defaultValue
-export const onMessage = noop
+export const message = jest.fn().mockResolvedValue({})
+export const getStorage = jest.fn().mockImplementation(getStorageFn)
+export const setStorage = jest.fn().mockImplementation(setStorageFn)
+export const onMessage = jest.fn()
 
 export const alarms = {}
 export const notifications = {}
 export const tabs = {}
 export const webNavigation = {}
 export const runtime = {}
-export const topSites = {}
+export const topSites = { get: jest.fn() }

@@ -28,7 +28,7 @@ const modelContent = cssToStyle({
 const getPropClasses = propsToStyles(styleGuide)
 const toString = fn => (...args) => `${fn(...args)}`
 const getOverlayClass = toString(c =>
-  glamor({ backgroundColor: rgba(c, 0.7) }, overlay)
+  glamor({ backgroundColor: rgba(c, 0.3) }, overlay)
 )
 const getModalContent = toString(({ background, color }) =>
   glamor(

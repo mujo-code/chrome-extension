@@ -51,6 +51,7 @@
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
     "react-modal": "^3.8.1",
+    "react-test-renderer": "^16.8.6",
     "react-use-file-reader": "^1.0.0",
     "resolve": "1.10.0",
     "semver": "6.0.0",
@@ -84,15 +85,24 @@
     "serve": "^11.0.2"
   },
   "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statments": 60,
+        "branches": 35,
+        "functions": 50,
+        "lines": 60
+      }
+    },
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts"
     ],
     "setupFiles": [
-      "react-app-polyfill/jsdom",
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
       "./jest.setup.js"
     ],
-    "setupFilesAfterEnv": [],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
