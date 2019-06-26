@@ -28,7 +28,7 @@ const modelContent = cssToStyle({
 const getPropClasses = propsToStyles(styleGuide)
 const toString = fn => (...args) => `${fn(...args)}`
 const getOverlayClass = toString(c =>
-  glamor({ backgroundColor: rgba(c, 0.1) }, overlay)
+  glamor({ backgroundColor: rgba(c, 0.3) }, overlay)
 )
 const getModalContent = toString(({ background, color }) =>
   glamor(
@@ -62,7 +62,7 @@ export const Modal = props => {
         color: theme.foreground,
       })}`}
       overlayClassName={`mujo-modal ${getOverlayClass(
-        theme.foreground
+        theme.backgroundSecondary
       )}`}
       {...otherProps}
     />

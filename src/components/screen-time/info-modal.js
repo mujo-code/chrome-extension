@@ -1,5 +1,6 @@
 import { Box } from '@jcblw/box'
 import React from 'react'
+import { BREAK_TIMER_FEATURE } from '../../constants'
 import { Button } from '../button'
 import { HeaderL, BodyS, BodyL } from '../fonts'
 import { Time } from '../time'
@@ -52,11 +53,13 @@ export const InfoModal = ({
       backgroundColor={backgroundSecondary}
     >
       <Box flex="1" display="flex">
-        <BreakTimerForm
-          {...breakTimer}
-          originalURL={originalURL}
-          setBreakTimer={setBreakTimer}
-        />
+        {BREAK_TIMER_FEATURE && (
+          <BreakTimerForm
+            {...breakTimer}
+            originalURL={originalURL}
+            setBreakTimer={setBreakTimer}
+          />
+        )}
       </Box>
       <Box flex="0" alignItems="flexEnd" display="flex">
         <Button
