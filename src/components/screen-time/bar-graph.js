@@ -14,7 +14,6 @@ export const BarGraph = props => {
   )
   return (
     <Box
-      display="flex"
       Component="progress"
       max="100"
       value={percent}

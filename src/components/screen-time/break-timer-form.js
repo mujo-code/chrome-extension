@@ -3,14 +3,21 @@ import React from 'react'
 import { FOURTY_FIVE_MINUTES } from '../../constants'
 import { msToMinutes, minutesToMS } from '../../lib/time'
 import { HeaderS } from '../fonts'
+import { Input } from '../input'
 
 export const BreakTimerForm = props => {
   const { time, enabled, originalURL, setBreakTimer } = props
   const minutes = msToMinutes(time)
   const suffix = minutes === 1 ? '' : 's'
   return (
-    <>
-      <Box display="flex" direction="row" alignItems="center">
+    <Box display="flex" direction="column">
+      <Box
+        display="flex"
+        direction="row"
+        alignItems="center"
+        marginRight="s"
+        flex="1"
+      >
         <Box
           id="break-timer"
           Component="input"
@@ -26,20 +33,25 @@ export const BreakTimerForm = props => {
           }
         />
         <HeaderS
-          marginTop="xs"
-          marginBottom="xs"
+          marginTop="zero"
+          marginBottom="zero"
           labelFor="break-timer"
         >
-          Break Timer{' '}
-          {enabled
-            ? `(show in ${minutes} minute${suffix} of usage)`
-            : null}
+          Break Timer
         </HeaderS>
       </Box>
       {enabled ? (
-        <Box display="flex" direction="column">
-          <Box
-            Component="input"
+        <Box
+          display="flex"
+          direction="column"
+          marginRight="s"
+          alignItems="flexStart"
+        >
+          <Input
+            marginTop="zero"
+            marginBottom="zero"
+            id="break-timer-time"
+            label={`Shown in ${minutes} minute${suffix} of usage`}
             type="number"
             value={minutes}
             onChange={e =>
@@ -52,6 +64,6 @@ export const BreakTimerForm = props => {
           />
         </Box>
       ) : null}
-    </>
+    </Box>
   )
 }

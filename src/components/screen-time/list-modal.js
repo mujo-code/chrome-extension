@@ -9,7 +9,13 @@ export const ListModal = ({
 }) => (
   <>
     {Object.keys(selectedSegment.originalData).map(url => (
-      <Box key={url} display="flex" direction="row">
+      <Box
+        key={url}
+        display="flex"
+        direction="row"
+        paddingLeft="m"
+        paddingRight="m"
+      >
         <HeaderL
           color={foregroundSecondary}
           paddingTop="xs"
