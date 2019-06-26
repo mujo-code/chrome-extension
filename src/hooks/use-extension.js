@@ -124,8 +124,8 @@ export const useExtension = () => {
   // TODO: selected segments needs a refactor
   // remove all extra ui stuff and make it purely urls
   if (selectedSegment) {
-    const shortURL = selectedSegment.label
-    if (shortURL !== 'other') {
+    const { urls } = selectedSegment
+    if (urls.length === 1) {
       const originalURL = first(selectedSegment.urls)
       const { breakTimer, time } = siteTimesAndTimers[originalURL]
       set(selectedSegment, 'data', {

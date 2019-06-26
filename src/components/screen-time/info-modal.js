@@ -1,10 +1,10 @@
 import { Box } from '@jcblw/box'
 import React from 'react'
-import { FOURTY_FIVE_MINUTES } from '../../constants'
 import { Button } from '../button'
-import { HeaderL, BodyS, BodyL, HeaderS } from '../fonts'
+import { HeaderL, BodyS, BodyL } from '../fonts'
 import { Time } from '../time'
 import { BarGraph } from './bar-graph'
+import { BreakTimerForm } from './break-timer-form'
 
 export const InfoModal = ({
   theme: { foreground, highlight },
@@ -32,29 +32,11 @@ export const InfoModal = ({
       These times are not aways going to represent a 100% view of your
       viewing habits.
     </BodyS>
-    <Box display="flex" direction="row" alignItems="center">
-      <Box
-        id="break-timer"
-        Component="input"
-        type="checkbox"
-        marginRight="s"
-        checked={breakTimer.enabled}
-        onChange={() =>
-          setBreakTimer(
-            originalURL,
-            FOURTY_FIVE_MINUTES,
-            !breakTimer.enabled
-          )
-        }
-      />
-      <HeaderS
-        marginTop="xs"
-        marginBottom="xs"
-        labelFor="break-timer"
-      >
-        Break Timer
-      </HeaderS>
-    </Box>
+    <BreakTimerForm
+      {...breakTimer}
+      originalURL={originalURL}
+      setBreakTimer={setBreakTimer}
+    />
     <Box
       flex="0"
       display="flex"

@@ -11,8 +11,5 @@ export const injectScript = tab => {
   if (isBlackListed || isSubFrame || !SCREEN_TIME_FEATURE) {
     return
   }
-  tabs.executeScript(tab.tabId, { file: 'content.js' }, results => {
-    console.log(results)
-    console.log(runtime.lastError)
-  })
+  tabs.executeScript(tab.tabId, { file: 'content.js' })
 }
