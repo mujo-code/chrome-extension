@@ -85,6 +85,14 @@
     "serve": "^11.0.2"
   },
   "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statments": 60,
+        "branches": 35,
+        "functions": 50,
+        "lines": 60
+      }
+    },
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts"
