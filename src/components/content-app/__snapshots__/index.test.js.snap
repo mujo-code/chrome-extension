@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Async ContentApp ContentApp should match snapshot 1`] = `
+<div
+  className="css-1yv2jt6 css-1sirlct css-16qvk6d css-1l8jel css-bki6i5"
+  css={
+    Object {
+      "minWidth": "30vw",
+    }
+  }
+  data-mujo={true}
+  isOpen={true}
+  onRequestClose={[Function]}
+  overlayClassName="mujo-modal css-1m3lehq"
+  shouldCloseOnOverlayClick={true}
+>
+  <div
+    className="css-1klwfzq css-tk92wv"
+    onClick={[Function]}
+  >
+    <svg
+      className="css-memgi1"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        className="css-c901fj css-mazaat"
+      />
+      <circle
+        className="css-1xu6mku css-1t07ceu"
+      />
+      <circle
+        className="css-lv59v1 css-1t07ceu"
+      />
+      <g
+        className="css-1tb56z6"
+      />
+    </svg>
+  </div>
+  <p
+    className="css-h3zoee css-c1fjig css-1ypmooz css-1cvncsg"
+  >
+    The site 
+    localhost
+     was actively viewed for
+     
+    <span
+      className="css-hukeue"
+    >
+      2 milliseconds
+    </span>
+     
+    since your last break.
+  </p>
+</div>
+`;
+
+exports[`ContentApp should match snapshot 1`] = `null`;

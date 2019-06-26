@@ -89,7 +89,6 @@ const App = () => {
             onMouseLeave={() => setToolTipOpen(false)}
           >
             <Player
-              dark
               isOpen={isOpen}
               width={logoSize}
               height={logoSize}

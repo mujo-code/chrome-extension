@@ -26,8 +26,6 @@ const ContentApp = () => {
   const { foreground } = useTheme()
   const shouldShow = shouldDisplayModal(breakTimer, time)
 
-  console.log({ shouldShow, isModalOpen })
-
   return (
     <Modal
       isOpen={shouldShow && isModalOpen}
