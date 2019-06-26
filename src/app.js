@@ -6,6 +6,7 @@ import { Player } from './components/player'
 import { ScreenTime } from './components/screen-time'
 import { ToolTip } from './components/tool-tip'
 import { TopSites } from './components/top-sites'
+import { SCREEN_TIME_FEATURE } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
 import { colors } from './styles/colors'
@@ -103,7 +104,7 @@ const App = () => {
             </ToolTip>
           </Box>
           <Box flex="1" />
-          {showTopSites ? (
+          {!SCREEN_TIME_FEATURE || showTopSites ? (
             <TopSites
               topSites={topSites}
               updateSitesUsed={updateSitesUsed}
@@ -133,21 +134,25 @@ const App = () => {
                 design={theme.buttonStyle}
                 onClick={toggleHandle(setAlarmEnabled, alarmEnabled)}
                 alt={REMINDER_ALT}
-                marginRight="m"
+                marginRight={SCREEN_TIME_FEATURE ? 'm' : 'zero'}
               >
                 Turn reminders {alarmEnabled ? 'off' : 'on'}
               </Button>
-              <Button
-                whiteSpace="nowrap"
-                design={theme.buttonStyle}
-                onClick={toggleHandle(
-                  updateShowTopSites,
-                  showTopSites
-                )}
-                alt="Toggle the view of the top sites section of this extension"
-              >
-                {showTopSites ? 'Show screen time' : 'Show top sites'}
-              </Button>
+              {SCREEN_TIME_FEATURE && (
+                <Button
+                  whiteSpace="nowrap"
+                  design={theme.buttonStyle}
+                  onClick={toggleHandle(
+                    updateShowTopSites,
+                    showTopSites
+                  )}
+                  alt="Toggle view between screen time and top sites"
+                >
+                  {showTopSites
+                    ? 'Show screen time'
+                    : 'Show top sites'}
+                </Button>
+              )}
             </Box>
           </Box>
         </>

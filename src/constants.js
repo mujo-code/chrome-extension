@@ -18,3 +18,6 @@ export const PAGE_VIEWING_TIME = 'Page Viewing Time'
 // Getter, Setters for storage
 export const GET_STORAGE = 'GET_STORAGE'
 export const SET_STORAGE = 'SET_STORAGE'
+
+// Feature Flags
+export const SCREEN_TIME_FEATURE = false
