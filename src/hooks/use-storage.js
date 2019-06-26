@@ -14,6 +14,7 @@ export const useStorage = key => {
 
   const updateFromStore = useCallback(async () => {
     const storageValue = await getStorage(key)
+    if (storageValue === null) return
     setState(storageValue)
   }, [key])
 
