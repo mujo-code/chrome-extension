@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreakTimerForm should match snapshot 1`] = `
+<div
+  className="css-1cqgl9p css-5uyuv6"
+>
+  <div
+    className="css-1cqgl9p css-1owbun0 css-1k8tu3j css-1iirspq css-mfy564"
+  >
+    <input
+      className="css-1iirspq"
+      id="break-timer"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <h4
+      className="css-1kvvogt"
+      color="color"
+      labelFor="break-timer"
+    >
+      Break Timer
+    </h4>
+  </div>
+</div>
+`;
+
+exports[`BreakTimerForm should match snapshot when enabled 1`] = `
+<div
+  className="css-1cqgl9p css-5uyuv6"
+>
+  <div
+    className="css-1cqgl9p css-1owbun0 css-1k8tu3j css-1iirspq css-mfy564"
+  >
+    <input
+      checked={true}
+      className="css-1iirspq"
+      id="break-timer"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <h4
+      className="css-1kvvogt"
+      color="color"
+      labelFor="break-timer"
+    >
+      Break Timer
+    </h4>
+  </div>
+  <div
+    className="css-1cqgl9p css-5uyuv6 css-1iirspq"
+  >
+    <div
+      className="css-1cqgl9p css-5uyuv6"
+    >
+      <label
+        className="css-1kvvogt"
+        color="mischka"
+        htmlFor="break-timer-time"
+      >
+        <small
+          className=""
+        >
+          Shown in NaN minutes of usage
+        </small>
+      </label>
+      <input
+        backgroundColor="mischka"
+        className="css-b9abf0 css-prcfqy css-h8iwlx css-10o9fv1 css-1okiobr css-1pev02g css-16qvk6d"
+        color="outerSpace"
+        id="break-timer-time"
+        onChange={[Function]}
+        type="number"
+        value={NaN}
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,430 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScreenTime should match snapshot 1`] = `
+<div
+  className="css-mfy564 css-1cqgl9p css-5uyuv6 css-1ivoip3 css-1k8tu3j css-1yv2jt6"
+  layer="1"
+  position="relative"
+>
+  <h4
+    className="css-h3zoee css-c1fjig css-1kvvogt"
+    color="mischka"
+  >
+    Screen Time
+  </h4>
+  <svg
+    className=""
+    height="275px"
+    style={
+      Object {
+        "height": 275,
+        "width": 600,
+      }
+    }
+    width="600px"
+  >
+    <g
+      className=""
+      transform="rotate(-89, 300, 137.5)"
+    >
+      <path
+        className="css-dw3c54 css-c5mv14"
+        d="M 400 137.5 A 100 100 0 0 1 254.78696143925166 226.69518565541688
+  "
+        fill="transparent"
+        onClick={[Function]}
+        stroke="saltBox"
+        strokeLinecap="round"
+        strokeWidth={16}
+      />
+      <path
+        className="css-dw3c54 css-c5mv14"
+        d="M 231.95291274890502 210.77751303532256 A 100 100 0 0 1 243.56355381395008 54.947425588967306
+  "
+        fill="transparent"
+        onClick={[Function]}
+        stroke="saltBox"
+        strokeLinecap="round"
+        strokeWidth={16}
+      />
+      <path
+        className="css-dw3c54 css-c5mv14"
+        d="M 268.50437935300914 42.58937951914527 A 100 100 0 0 1 383.37096071317376 82.27968752567193
+  "
+        fill="transparent"
+        onClick={[Function]}
+        stroke="saltBox"
+        strokeLinecap="round"
+        strokeWidth={16}
+      />
+      <path
+        className="css-dw3c54 css-c5mv14"
+        d="M 395.36209200496467 107.39897994358567 A 100 100 0 0 1 396.1261695938319 109.93626441830011
+  "
+        fill="transparent"
+        onClick={[Function]}
+        stroke="saltBox"
+        strokeLinecap="round"
+        strokeWidth={16}
+      />
+    </g>
+    <text
+      alignmentBaseline="baseline"
+      className="css-dw3c54"
+      fill="mischka"
+      onClick={[Function]}
+      textAnchor="start"
+      x={403.3319028289867}
+      y={76.48755981161841}
+    >
+      www.bar.com
+    </text>
+    <text
+      alignmentBaseline="hanging"
+      className="css-dw3c54"
+      fill="mischka"
+      onClick={[Function]}
+      textAnchor="end"
+      x={288.99657269198025}
+      y={256.9944542122233}
+    >
+      foo.com
+    </text>
+    <text
+      alignmentBaseline="baseline"
+      className="css-dw3c54"
+      fill="mischka"
+      onClick={[Function]}
+      textAnchor="end"
+      x={187.2811990722431}
+      y={96.3360361795817}
+    >
+      web.baz.com
+    </text>
+    <text
+      alignmentBaseline="baseline"
+      className="css-dw3c54"
+      fill="mischka"
+      onClick={[Function]}
+      textAnchor="end"
+      x={267.4087140979822}
+      y={22.01057155196871}
+    >
+      other
+    </text>
+  </svg>
+</div>
+`;
+
+exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = `
+<div
+  className="css-mfy564 css-1cqgl9p css-5uyuv6 css-1ivoip3 css-1k8tu3j css-1yv2jt6"
+  layer="1"
+  position="relative"
+>
+  <h4
+    className="css-h3zoee css-c1fjig css-1kvvogt"
+    color="mischka"
+  >
+    Screen Time
+  </h4>
+  <svg
+    className=""
+    height="275px"
+    style={
+      Object {
+        "height": 275,
+        "width": 600,
+      }
+    }
+    width="600px"
+  >
+    <g
+      className=""
+      transform="rotate(-89, 300, 137.5)"
+    >
+      <path
+        ariaSelected={false}
+        className="css-dw3c54 css-c5mv14"
+        d="M 400 137.5 A 100 100 0 1 1 230.45154089497316 65.64589896104461
+  "
+        fill="transparent"
+        onClick={[Function]}
+        stroke="saltBox"
+        strokeLinecap="round"
+        strokeWidth={16}
+      />
+      <path
+        ariaSelected={false}
+        className="css-dw3c54 css-c5mv14"
+        d="M 252.95140466579025 49.25925160631412 A 100 100 0 0 1 396.1261695938319 109.93626441830011
+  "
+        fill="transparent"
+        onClick={[Function]}
+        stroke="saltBox"
+        strokeLinecap="round"
+        strokeWidth={16}
+      />
+    </g>
+    <text
+      alignmentBaseline="hanging"
+      className="css-dw3c54"
+      fill="mischka"
+      onClick={[Function]}
+      textAnchor="start"
+      x={409.6534826042641}
+      y={186.24539724688213}
+    >
+      foo.com
+    </text>
+    <text
+      alignmentBaseline="baseline"
+      className="css-dw3c54"
+      fill="mischka"
+      onClick={[Function]}
+      textAnchor="end"
+      x={190.34651739573584}
+      y={88.75460275311792}
+    >
+      mail.bar.com
+    </text>
+  </svg>
+  <div
+    className="css-1cqgl9p css-5uyuv6 css-16qvk6d css-z86ji4 css-bki6i5"
+    css={
+      Object {
+        "height": "60vh",
+        "maxHeight": "60vh",
+        "maxWidth": "35vw",
+        "transition": "all .5s",
+        "width": "35vw",
+      }
+    }
+    data-mujo={true}
+    isOpen={true}
+    onRequestClose={[Function]}
+    outlineColor="saltBox"
+    overlayClassName="mujo-modal css-1m3lehq"
+    shouldCloseOnOverlayClick={true}
+  >
+    <div
+      className="css-mg5526 css-1ssqu81 css-1klwfzq css-h8iwlx css-10o9fv1"
+    >
+      <h4
+        className="css-1kvvogt"
+        color="mischka"
+      >
+        Screen Time for:
+      </h4>
+    </div>
+    <div
+      className="css-mfy564 css-1cqgl9p css-5uyuv6"
+      overflow="scroll"
+    >
+      <div
+        className="css-1cqgl9p css-1owbun0 css-h8iwlx css-10o9fv1"
+      >
+        <h2
+          className="css-bsai6x css-1okiobr css-1pev02g css-xm5bud css-2zzudi css-fxshz5 css-dw3c54"
+          color="white"
+          onClick={[Function]}
+          overflow="hidden"
+          textOverflow="ellipsis"
+        >
+          foo.com
+        </h2>
+      </div>
+      <div
+        className="css-1cqgl9p css-1owbun0 css-h8iwlx css-10o9fv1"
+      >
+        <h2
+          className="css-bsai6x css-1okiobr css-1pev02g css-xm5bud css-2zzudi css-fxshz5 css-dw3c54"
+          color="white"
+          onClick={[Function]}
+          overflow="hidden"
+          textOverflow="ellipsis"
+        >
+          main.bar.com
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ScreenTime should match snapshot with a selected segment 1`] = `
+<div
+  className="css-mfy564 css-1cqgl9p css-5uyuv6 css-1ivoip3 css-1k8tu3j css-1yv2jt6"
+  layer="1"
+  position="relative"
+>
+  <h4
+    className="css-h3zoee css-c1fjig css-1kvvogt"
+    color="mischka"
+  >
+    Screen Time
+  </h4>
+  <svg
+    className=""
+    height="275px"
+    style={
+      Object {
+        "height": 275,
+        "width": 600,
+      }
+    }
+    width="600px"
+  >
+    <g
+      className=""
+      transform="rotate(-89, 300, 137.5)"
+    >
+      <path
+        ariaSelected={false}
+        className="css-dw3c54 css-c5mv14"
+        d="M 400 137.5 A 100 100 0 1 1 230.45154089497316 65.64589896104461
+  "
+        fill="transparent"
+        onClick={[Function]}
+        stroke="saltBox"
+        strokeLinecap="round"
+        strokeWidth={16}
+      />
+      <path
+        ariaSelected={false}
+        className="css-dw3c54 css-c5mv14"
+        d="M 252.95140466579025 49.25925160631412 A 100 100 0 0 1 396.1261695938319 109.93626441830011
+  "
+        fill="transparent"
+        onClick={[Function]}
+        stroke="saltBox"
+        strokeLinecap="round"
+        strokeWidth={16}
+      />
+    </g>
+    <text
+      alignmentBaseline="hanging"
+      className="css-dw3c54"
+      fill="mischka"
+      onClick={[Function]}
+      textAnchor="start"
+      x={409.6534826042641}
+      y={186.24539724688213}
+    >
+      foo.com
+    </text>
+    <text
+      alignmentBaseline="baseline"
+      className="css-dw3c54"
+      fill="mischka"
+      onClick={[Function]}
+      textAnchor="end"
+      x={190.34651739573584}
+      y={88.75460275311792}
+    >
+      mail.bar.com
+    </text>
+  </svg>
+  <div
+    className="css-1cqgl9p css-5uyuv6 css-16qvk6d css-z86ji4 css-bki6i5"
+    css={
+      Object {
+        "height": "60vh",
+        "maxHeight": "60vh",
+        "maxWidth": "35vw",
+        "transition": "all .5s",
+        "width": "35vw",
+      }
+    }
+    data-mujo={true}
+    isOpen={true}
+    onRequestClose={[Function]}
+    outlineColor="saltBox"
+    overlayClassName="mujo-modal css-1m3lehq"
+    shouldCloseOnOverlayClick={true}
+  >
+    <div
+      className="css-mg5526 css-1ssqu81 css-1klwfzq css-h8iwlx css-10o9fv1"
+    >
+      <h4
+        className="css-1kvvogt"
+        color="mischka"
+      >
+        Screen Time for:
+      </h4>
+    </div>
+    <div
+      className="css-mfy564 css-1cqgl9p css-5uyuv6"
+      overflow="scroll"
+    >
+      <div
+        className="css-1cqgl9p css-5uyuv6 css-mfy564 css-h8iwlx css-10o9fv1"
+        overflow="scroll"
+      >
+        <h2
+          className="css-c1fjig css-bsai6x"
+          color="mischka"
+        >
+          foo.com
+        </h2>
+        <progress
+          className="css-ejnfd2"
+          max="100"
+          value={67}
+        >
+          67
+          %
+        </progress>
+        <p
+          className="css-h3zoee css-c1fjig css-1ypmooz"
+          color="color"
+        >
+          The site 
+          foo.com
+           was actively viewed for
+           
+          <span
+            className=""
+            color="mischka"
+          >
+            6 seconds
+          </span>
+           
+          since your last break. That is 
+          67
+          % of your web viewing.
+        </p>
+        <p
+          className="css-h3zoee css-ou8fjb css-1p3cmt4"
+          color="color"
+        >
+          These times are not aways going to represent a 100% view of your viewing habits.
+        </p>
+      </div>
+      <div
+        backgroundColor="gravel"
+        className="css-mg5526 css-1cqgl9p css-1owbun0 css-h8iwlx css-10o9fv1 css-cmwu1c css-1ssqu81"
+      >
+        <div
+          className="css-mfy564 css-1cqgl9p"
+        />
+        <div
+          className="css-mg5526 css-1cqgl9p"
+        >
+          <a
+            backgroundColor="saltBox"
+            className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt css-xm5bud"
+            color="white"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            outlineColor="gravel"
+            position="relative"
+          >
+            Visit site
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
