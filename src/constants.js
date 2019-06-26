@@ -20,4 +20,4 @@ export const GET_STORAGE = 'GET_STORAGE'
 export const SET_STORAGE = 'SET_STORAGE'
 
 // Feature Flags
-export const SCREEN_TIME_FEATURE = true
+export const SCREEN_TIME_FEATURE = false
