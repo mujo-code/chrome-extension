@@ -13,7 +13,7 @@ export const reduceSelectedSegment = (
   selectedSegment,
   allSegments
 ) => {
-  const { label, data } = selectedSegment
+  const { label, data, link } = selectedSegment
   const { percent } = find({ label })(allSegments)
   const { time, breakTimer, originalURL } = data
   return {
@@ -22,6 +22,7 @@ export const reduceSelectedSegment = (
     percent: makeNicePercent(percent),
     breakTimer,
     originalURL,
+    link,
   }
 }
 

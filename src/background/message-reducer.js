@@ -5,7 +5,9 @@ import {
   PAGE_VIEWING_TIME,
   GET_STORAGE,
   SET_STORAGE,
+  DEEP_LINK_NEWTAB,
 } from '../constants'
+import { tabs } from '../lib/extension'
 import {
   updateUserActivity,
   clearAlarm,
@@ -16,7 +18,6 @@ import { onGetStorage, onSetStorage } from './storage'
 
 export const reducer = (request, sender, sendResponse) => {
   const { event } = request
-  console.log({ event })
   switch (event) {
     case NEW_TAB_CONNECTION:
     case SET_ALARM:
@@ -35,6 +36,11 @@ export const reducer = (request, sender, sendResponse) => {
     case SET_STORAGE:
       onSetStorage(request.key, request.value, sendResponse)
       break
+    case DEEP_LINK_NEWTAB: {
+      const { url, tab } = sender
+      tabs.update(tab.id, { url: `chrome://newtab?site=${url}` })
+      break
+    }
     default:
   }
 }

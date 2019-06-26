@@ -9,7 +9,7 @@ import { BreakTimerForm } from './break-timer-form'
 
 export const InfoModal = ({
   theme: { foreground, highlight, backgroundSecondary },
-  segment: { label, time, percent, breakTimer, originalURL },
+  segment: { label, time, percent, breakTimer, originalURL, link },
   setBreakTimer,
 }) => (
   <>
@@ -66,9 +66,9 @@ export const InfoModal = ({
           whiteSpace="nowrap"
           design="secondary"
           Component="a"
-          href={originalURL}
+          href={link || originalURL}
         >
-          Visit site
+          {link ? 'Back to site' : 'Visit site'}
         </Button>
       </Box>
     </Box>

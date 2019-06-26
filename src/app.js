@@ -44,6 +44,7 @@ const App = () => {
       siteTimesAndTimers,
       appReady,
       selectedSegment,
+      playerIsOpen,
     },
     {
       setAlarmEnabled,
@@ -52,10 +53,10 @@ const App = () => {
       updateShowTopSites,
       setBreakTimer,
       setSelectedSegment,
+      setPlayerIsOpen,
     },
   ] = useExtension()
   const theme = useTheme()
-  const [isOpen, setIsOpen] = useState(false)
   const [toolTipOpen, setToolTipOpen] = useState(false)
 
   const logoSize = getFactor(pageViews)
@@ -89,19 +90,17 @@ const App = () => {
             onMouseLeave={() => setToolTipOpen(false)}
           >
             <Player
-              isOpen={isOpen}
+              isOpen={playerIsOpen}
               width={logoSize}
               height={logoSize}
               onFinish={() => {
-                setIsOpen(false)
+                setPlayerIsOpen(false)
                 resetUsage()
                 track('event', 'finish', { event_category: 'player' })
               }}
-              onClick={() => {
-                setIsOpen(true)
-              }}
+              onClick={() => setPlayerIsOpen(true)}
             />
-            <ToolTip isOpen={toolTipOpen && !isOpen} below>
+            <ToolTip isOpen={toolTipOpen && !playerIsOpen} below>
               Take a break!
             </ToolTip>
           </Box>

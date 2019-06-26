@@ -17,10 +17,11 @@ export const NEW_TAB_CONNECTION = 'New Connection'
 export const CLEAR_ALARM = 'Clear Alarm'
 export const SET_ALARM = 'Set Alarm'
 export const PAGE_VIEWING_TIME = 'Page Viewing Time'
+export const DEEP_LINK_NEWTAB = 'Deep Link New Tab'
 // Getter, Setters for storage
 export const GET_STORAGE = 'GET_STORAGE'
 export const SET_STORAGE = 'SET_STORAGE'
 
 // Feature Flags
 export const SCREEN_TIME_FEATURE = true
-export const BREAK_TIMER_FEATURE = false
+export const BREAK_TIMER_FEATURE = true

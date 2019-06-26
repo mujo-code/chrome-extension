@@ -12,7 +12,7 @@ export const createNotification = () => {
 }
 
 export const onNotificationClicked = event => {
-  const url = 'chrome://newtab'
+  const url = 'chrome://newtab?play=true'
   notifications.clear(event)
   tabs.create({ url })
 }

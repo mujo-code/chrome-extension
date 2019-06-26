@@ -13,6 +13,7 @@ import {
 } from '../constants'
 import { message, topSites as topSitesApi } from '../lib/extension'
 import { first } from '../lib/functional'
+import { queryParams, shortURL, origin } from '../lib/url'
 import { set, create } from '../lib/util'
 import { useStorage } from './use-storage'
 
@@ -29,6 +30,7 @@ export const onStorageChange = ({ setSiteTimes }) => e => {
 
 export const useExtension = () => {
   const [appReady, setAppReady] = useState(false)
+  const [playerIsOpen, setPlayerIsOpen] = useState(false)
   const [selectedSegment, setSelectedSegment] = useState(null)
   const [alarmEnabled, setAlarmEnabled] = useStorage(ALARM_KEY)
   const [topSites, setTopSites] = useStorage(TOP_SITES_KEY)
@@ -58,6 +60,17 @@ export const useExtension = () => {
         )
         message(NEW_TAB_CONNECTION)
         setAppReady(true)
+        const url = window.location.href
+        const { site, play } = queryParams(url)
+        if (play) {
+          setPlayerIsOpen(true)
+        } else if (site) {
+          setSelectedSegment({
+            label: shortURL(site),
+            urls: [origin(site)],
+            link: site,
+          })
+        }
       }
     },
     [
@@ -140,6 +153,7 @@ export const useExtension = () => {
       appReady,
       breakTimers,
       selectedSegment,
+      playerIsOpen,
     },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
@@ -149,6 +163,7 @@ export const useExtension = () => {
       updateShowTopSites,
       setBreakTimer,
       setSelectedSegment,
+      setPlayerIsOpen,
     },
   ]
 }
