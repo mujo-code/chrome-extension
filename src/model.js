@@ -1,7 +1,9 @@
 import {
+  ACTIVITY_NUMBER_KEY,
   ALARM_DEFAULT_VALUE,
   ALARM_KEY,
   BREAK_TIMERS_KEY,
+  LAST_ACTIVE_KEY,
   PAGE_VIEWS_KEY,
   SHOW_TOP_SITES_KEY,
   SITE_TIME_KEY,
@@ -17,4 +19,6 @@ export default {
   [SHOW_TOP_SITES_KEY]: { type: Boolean, defaultValue: false },
   [SITE_TIME_KEY]: { type: Object, defaultValue: {} },
   [BREAK_TIMERS_KEY]: { type: Object, defaultValue: {} },
+  [LAST_ACTIVE_KEY]: { type: Number, defaultValue: 0 },
+  [ACTIVITY_NUMBER_KEY]: { type: Number, defaultValue: 0 },
 }
