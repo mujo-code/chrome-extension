@@ -21,7 +21,6 @@ import { useStorage } from './use-storage'
 export const onStorageChange = updateFns => e => {
   const { key } = e
   const fn = updateFns[key]
-  console.log({ key, fn, message: 'Storage Changed' })
   if (typeof fn === 'function') {
     fn(null, { refresh: true })
   }

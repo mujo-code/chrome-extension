@@ -47,12 +47,12 @@ export const resetUsage = async () =>
     )
   )
 
-export const setLastActive = async (ts = new Date()) => {
+export const setLastActive = async date => {
   const wasActive = await isActive()
   if (!wasActive) {
     // means user probably took a break from their computer
     // reset activity before setting last active
     await resetUsage()
   }
-  return storage.set(LAST_ACTIVE_KEY, +ts)
+  return storage.set(LAST_ACTIVE_KEY, +date)
 }
