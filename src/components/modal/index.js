@@ -7,6 +7,7 @@ import React from 'react'
 import ReactModal from 'react-modal'
 import { useTheme } from '../../hooks/use-theme'
 import { rgba, getColor } from '../../styles/colors'
+import { Close } from './close'
 
 const overlay = cssToStyle({
   position: 'fixed',
@@ -20,30 +21,33 @@ const overlay = cssToStyle({
   alignItems: 'center',
 })
 
-const modelContent = cssToStyle({
-  maxHeight: '90vh',
-  overflow: 'scroll',
-})
+const modelContent = modalMaxHeight =>
+  cssToStyle({
+    maxHeight: modalMaxHeight,
+    overflow: 'scroll',
+    position: 'relative',
+  })
 
 const getPropClasses = propsToStyles(styleGuide)
 const toString = fn => (...args) => `${fn(...args)}`
 const getOverlayClass = toString(c =>
   glamor({ backgroundColor: rgba(c, 0.3) }, overlay)
 )
-const getModalContent = toString(({ background, color }) =>
-  glamor(
-    {
-      background: getColor(background),
-      color: getColor(color),
-    },
-    modelContent
-  )
+const getModalContent = toString(
+  ({ background, color, modalMaxHeight }) =>
+    glamor(
+      {
+        background: getColor(background),
+        color: getColor(color),
+      },
+      modelContent(modalMaxHeight)
+    )
 )
 
 export const Modal = props => {
   ReactModal.setAppElement('#mujo-extension')
   const theme = useTheme()
-  const { css } = props
+  const { css, modalMaxHeight } = props
   const results = getPropClasses(
     Object.assign({}, props, cssToStyle(css))
   )
@@ -51,7 +55,9 @@ export const Modal = props => {
     props,
     ...results.used,
     'Component',
-    'getStyles'
+    'getStyles',
+    'modalMaxHeight',
+    'children'
   )
   return (
     <ReactModal
@@ -60,16 +66,26 @@ export const Modal = props => {
       className={`${results.styles.join(' ')} ${getModalContent({
         background: theme.background,
         color: theme.foreground,
+        modalMaxHeight,
       })}`}
       overlayClassName={`mujo-modal ${getOverlayClass(
         theme.backgroundSecondary
       )}`}
       {...otherProps}
-    />
+    >
+      <Close
+        position="absolute"
+        css={{ top: 24, right: 24 }}
+        fill={theme.foreground}
+        onClick={props.onRequestClose}
+      />
+      {props.children}
+    </ReactModal>
   )
 }
 
 Modal.defaultProps = {
   padding: 'm',
   borderRadius: 's',
+  modalMaxHeight: '90vh',
 }

@@ -26,13 +26,15 @@ const fadeInText = css({
 })
 
 export const Player = props => {
-  const { isOpen } = props
+  const { isOpen, label } = props
   const otherProps = removeKeys(
     props,
     'width',
     'height',
     'isOpen',
-    'onFinish'
+    'circleRatio',
+    'onFinish',
+    'label'
   )
   const [{ animationProps, isBreathIn, iteration }] = useAnimations(
     props,
@@ -50,6 +52,7 @@ export const Player = props => {
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         {...animationProps.svg}
+        css={{ pointerEvents: 'none' }}
       >
         <Box
           Component="rect"
@@ -103,8 +106,19 @@ export const Player = props => {
               </HeaderS>
             </>
           ) : null}
+          <HeaderL
+            fill={background}
+            Component="text"
+            {...textTranistions}
+            {...animationProps.text}
+            {...css(textTranistions, !isOpen ? fadeInText : {})}
+          >
+            {label}
+          </HeaderL>
         </Box>
       </Box>
     </Box>
   )
 }
+
+Player.defaultProps = { circleRatio: 0.2 }

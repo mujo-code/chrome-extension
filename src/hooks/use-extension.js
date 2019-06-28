@@ -7,28 +7,28 @@ import {
   SITE_TIME_KEY,
   SHOW_TOP_SITES_KEY,
   NEW_TAB_CONNECTION,
-  CLEAR_ALARM,
-  SET_ALARM,
   BREAK_TIMERS_KEY,
+  RESET_USAGE,
+  ACTIVITY_NUMBER_KEY,
 } from '../constants'
+import { toSiteInfo } from '../lib/aggregation'
 import { message, topSites as topSitesApi } from '../lib/extension'
 import { first } from '../lib/functional'
+import { queryParams, shortURL, origin } from '../lib/url'
 import { set, create } from '../lib/util'
 import { useStorage } from './use-storage'
 
-export const onStorageChange = ({ setSiteTimes }) => e => {
-  // TODO: make this refrersh all keys, need better way to access refresh
-  switch (e.key) {
-    case SITE_TIME_KEY:
-      // refresh will update value from localStorage
-      setSiteTimes(null, { refresh: true })
-      break
-    default:
+export const onStorageChange = updateFns => e => {
+  const { key } = e
+  const fn = updateFns[key]
+  if (typeof fn === 'function') {
+    fn(null, { refresh: true })
   }
 }
 
 export const useExtension = () => {
   const [appReady, setAppReady] = useState(false)
+  const [playerIsOpen, setPlayerIsOpen] = useState(false)
   const [selectedSegment, setSelectedSegment] = useState(null)
   const [alarmEnabled, setAlarmEnabled] = useStorage(ALARM_KEY)
   const [topSites, setTopSites] = useStorage(TOP_SITES_KEY)
@@ -45,39 +45,54 @@ export const useExtension = () => {
   const [breakTimers, updateBreakTimers] = useStorage(
     BREAK_TIMERS_KEY
   )
+  const [activityNumber, updateActivityNumber] = useStorage(
+    ACTIVITY_NUMBER_KEY
+  )
+
+  const updateFns = {
+    [ALARM_KEY]: setAlarmEnabled,
+    [TOP_SITES_KEY]: setTopSites,
+    [SITE_TIME_KEY]: setSiteTimes,
+    [TOP_SITES_USAGE_KEY]: setTopSitesUsage,
+    [PAGE_VIEWS_KEY]: updatePageViews,
+    [SHOW_TOP_SITES_KEY]: updateShowTopSites,
+    [BREAK_TIMERS_KEY]: updateBreakTimers,
+    [ACTIVITY_NUMBER_KEY]: updateActivityNumber,
+  }
 
   // mount hook
-  useEffect(
-    () => {
-      if (!pending && !appReady) {
-        updatePageViews(pageViews + 1)
-        topSitesApi.get(setTopSites)
-        window.addEventListener(
-          'storage',
-          onStorageChange({ setSiteTimes })
-        )
-        message(NEW_TAB_CONNECTION)
-        setAppReady(true)
+  useEffect(() => {
+    if (!pending && !appReady) {
+      updatePageViews(pageViews + 1)
+      topSitesApi.get(setTopSites)
+      window.addEventListener('storage', onStorageChange(updateFns))
+      message(NEW_TAB_CONNECTION)
+      setAppReady(true)
+      const url = window.location.href
+      const { site, play } = queryParams(url)
+      if (play) {
+        setPlayerIsOpen(true)
+      } else if (site) {
+        setSelectedSegment({
+          label: shortURL(site),
+          urls: [origin(site)],
+          link: site,
+        })
       }
-    },
-    [
-      pageViews,
-      pending,
-      setSiteTimes,
-      setTopSites,
-      updatePageViews,
-      appReady,
-    ] /* NOTE: stops useEffect from continuing firing */
-  )
+    }
+  }, [
+    pageViews,
+    pending,
+    setSiteTimes,
+    setTopSites,
+    updatePageViews,
+    appReady,
+    updateFns,
+  ])
 
   const setAlarmEnabledProxy = () => {
     const enabled = !alarmEnabled
     setAlarmEnabled(enabled)
-    if (enabled) {
-      message(SET_ALARM)
-    } else {
-      message(CLEAR_ALARM)
-    }
   }
 
   const setBreakTimer = (url, time, enabled) => {
@@ -96,8 +111,7 @@ export const useExtension = () => {
   }
 
   const resetUsage = () => {
-    updatePageViews(0)
-    setTopSitesUsage([])
+    message(RESET_USAGE)
   }
 
   const mappedTopSites = topSites.map(topSite => {
@@ -106,15 +120,7 @@ export const useExtension = () => {
     return Object.assign({ isUsed }, topSite)
   })
 
-  const siteTimesAndTimers = Object.keys(siteTimes).reduce(
-    (accum, url) => {
-      set(accum, url, accum[url] || {})
-      set(accum[url], 'time', siteTimes[url])
-      set(accum[url], 'breakTimer', breakTimers[url] || {})
-      return accum
-    },
-    {}
-  )
+  const siteTimesAndTimers = toSiteInfo(siteTimes, breakTimers)
 
   if (selectedSegment) {
     const { urls } = selectedSegment
@@ -140,6 +146,8 @@ export const useExtension = () => {
       appReady,
       breakTimers,
       selectedSegment,
+      playerIsOpen,
+      activityNumber,
     },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
@@ -149,6 +157,7 @@ export const useExtension = () => {
       updateShowTopSites,
       setBreakTimer,
       setSelectedSegment,
+      setPlayerIsOpen,
     },
   ]
 }

@@ -26,13 +26,18 @@ export const toRectProps = ({ width, height, isOpen }, animating) =>
     animating
   )
 
-export const toCircleProps = ({ width, height, isOpen }, animating) =>
+export const toCircleProps = (
+  { width, height, isOpen, circleRatio },
+  animating
+) =>
   css(
     {
       cx: isOpen ? '50vw' : width / 2,
       cy: isOpen ? '50vh' : height / 2,
-      r: isOpen ? window.innerHeight / 4.8 : height / 4.8,
-      transform: 'scale(1)',
+      r: isOpen
+        ? window.innerHeight * 0.2 // only use ratio for icon
+        : height * circleRatio,
+      transform: 'scale(1) translateZ(0)',
       transformOrigin: 'center',
     },
     transition({ width, height, isOpen }),

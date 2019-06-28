@@ -2,56 +2,95 @@
 
 exports[`Async ContentApp ContentApp should match snapshot 1`] = `
 <div
-  className="css-1yv2jt6 css-1sirlct css-16qvk6d css-1l8jel css-bki6i5"
-  css={
-    Object {
-      "minWidth": "30vw",
-    }
-  }
+  className="css-1yv2jt6 css-16qvk6d css-83d5g6"
   data-mujo={true}
   isOpen={true}
   onRequestClose={[Function]}
   overlayClassName="mujo-modal css-1m3lehq"
   shouldCloseOnOverlayClick={true}
 >
+  <svg
+    className="css-1qcxu9b css-1ouy01g"
+    height={20}
+    onClick={[Function]}
+    width={19}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      className="css-lv59v1"
+      d="
+        M9.778 6.864
+        l5.754-6.1
+        a2 2 0 1 1 2.91 2.746
+        l-5.914 6.268 5.913 6.269
+        a2 2 0 1 1-2.91 2.744
+        l-5.753-6.098-5.753 6.098
+        a2 2 0 1 1-2.91-2.744
+        l5.914-6.269L1.115 3.51
+        A2 2 0 1 1 4.025.765l5.753 6.099z
+        "
+      fillRule="nonzero"
+    />
+  </svg>
   <div
     className="css-1klwfzq css-tk92wv"
     onClick={[Function]}
   >
     <svg
-      className="css-memgi1"
+      className="css-1f61c8m css-8a9gku"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
-        className="css-c901fj css-mazaat"
+        className="css-c901fj css-6xifmd"
       />
       <circle
-        className="css-1xu6mku css-1t07ceu"
+        className="css-1xu6mku css-1yq83d0"
       />
       <circle
-        className="css-lv59v1 css-1t07ceu"
+        className="css-lv59v1 css-1yq83d0"
       />
       <g
         className="css-1tb56z6"
-      />
+      >
+        <text
+          className="css-1d0qo6a css-ou8fjb css-bsai6x css-c901fj css-kezvte css-f02zlw css-16uyi9m"
+          textAnchor="middle"
+          x={120}
+          y={128}
+        >
+          Take a break
+        </text>
+      </g>
     </svg>
   </div>
-  <p
-    className="css-h3zoee css-c1fjig css-1ypmooz css-1cvncsg"
+  <div
+    className="css-vqh3cg"
   >
-    The site 
-    localhost
-     was actively viewed for
-     
-    <span
-      className="css-hukeue"
+    <p
+      className="css-qpwegv css-6xdpdk css-1ypmooz css-h89647 css-nxjalj css-2zzudi"
     >
-      2 milliseconds
-    </span>
-     
-    since your last break.
-  </p>
+      The site 
+      localhost
+       was actively viewed for
+       
+      <span
+        className="css-hukeue"
+      >
+        2 milliseconds
+      </span>
+       
+      since your last break. Right now is a good time to take a break
+    </p>
+    <button
+      className="css-1vu1all css-1lkqdt0 css-1udh8mm css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-13azwyo css-1kvvogt css-ou8fjb"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      Edit site timer
+    </button>
+  </div>
 </div>
 `;
 

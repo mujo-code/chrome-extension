@@ -28,7 +28,7 @@ const bodyBackgrounds = {
 const appWrapper = css({ height: '100vh' })
 
 const DEFAULT_SIZE = 40
-const factor = x => x * 8
+const factor = x => x * 0.0025
 const factorMin = size => Math.max(size, DEFAULT_SIZE)
 const getFactor = x => factorMin(factor(x))
 
@@ -39,11 +39,12 @@ const App = () => {
     {
       alarmEnabled,
       topSites,
-      pageViews,
+      activityNumber,
       showTopSites,
       siteTimesAndTimers,
       appReady,
       selectedSegment,
+      playerIsOpen,
     },
     {
       setAlarmEnabled,
@@ -52,13 +53,13 @@ const App = () => {
       updateShowTopSites,
       setBreakTimer,
       setSelectedSegment,
+      setPlayerIsOpen,
     },
   ] = useExtension()
   const theme = useTheme()
-  const [isOpen, setIsOpen] = useState(false)
   const [toolTipOpen, setToolTipOpen] = useState(false)
 
-  const logoSize = getFactor(pageViews)
+  const logoSize = getFactor(activityNumber)
   const toggleHandle = (fn, value) => () => fn(!value)
 
   css.global('body', {
@@ -89,19 +90,17 @@ const App = () => {
             onMouseLeave={() => setToolTipOpen(false)}
           >
             <Player
-              isOpen={isOpen}
+              isOpen={playerIsOpen}
               width={logoSize}
               height={logoSize}
               onFinish={() => {
-                setIsOpen(false)
+                setPlayerIsOpen(false)
                 resetUsage()
                 track('event', 'finish', { event_category: 'player' })
               }}
-              onClick={() => {
-                setIsOpen(true)
-              }}
+              onClick={() => setPlayerIsOpen(true)}
             />
-            <ToolTip isOpen={toolTipOpen && !isOpen} below>
+            <ToolTip isOpen={toolTipOpen && !playerIsOpen} below>
               Take a break!
             </ToolTip>
           </Box>

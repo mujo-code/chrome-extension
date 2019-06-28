@@ -11,7 +11,11 @@ export const getStorage = jest.fn().mockImplementation(getStorageFn)
 export const setStorage = jest.fn().mockImplementation(setStorageFn)
 export const onMessage = jest.fn()
 
-export const alarms = {}
+export const alarms = {
+  get: jest.fn(),
+  create: jest.fn(),
+  clear: jest.fn(),
+}
 export const notifications = {}
 export const tabs = {}
 export const webNavigation = {}

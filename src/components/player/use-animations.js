@@ -52,12 +52,12 @@ export const useAnimations = (props, argOptions = {}) => {
       setAnimatingProps(
         Object.assign({}, animatingProps, {
           circle: {
-            transform: `scale(${scale2})`,
+            transform: `scale(${scale2}) translateZ(0)`,
             transition: 'none',
           },
           circle2: {
-            transform: `scale(${scale})`,
-            transition: 'all 0.1s',
+            transform: `scale(${scale}) translateZ(0)`,
+            transition: 'none',
           },
         })
       )
