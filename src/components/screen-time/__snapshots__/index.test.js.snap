@@ -457,29 +457,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       >
         <div
           className="css-mfy564 css-1cqgl9p"
-        >
-          <div
-            className="css-1cqgl9p css-5uyuv6"
-          >
-            <div
-              className="css-1cqgl9p css-1owbun0 css-1k8tu3j css-1iirspq css-mfy564"
-            >
-              <input
-                className="css-1iirspq"
-                id="break-timer"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <h4
-                className="css-1kvvogt"
-                color="color"
-                labelFor="break-timer"
-              >
-                Break Timer
-              </h4>
-            </div>
-          </div>
-        </div>
+        />
         <div
           className="css-mg5526 css-1cqgl9p"
         >
