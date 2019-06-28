@@ -1,21 +1,30 @@
-const angleToRadian = angle => angle * (Math.PI / 180)
+import { first } from '../../lib/functional'
 
-const getCirclePoint = (center, radius) => angle => {
+const FULL_CIRCLE = 360
+const HALF_CIRCLE = 180
+
+export const angleToRadian = angle => angle * (Math.PI / HALF_CIRCLE)
+
+export const getCirclePoint = (center, radius) => angle => {
   const radian = angleToRadian(angle)
   const x = center[0] + radius * Math.cos(radian)
   const y = center[1] + radius * Math.sin(radian)
   return { x, y }
 }
 
-const angleOfPercent = percent => 360 * percent
-const toPercents = segment => segment.percent
-const zipData = originalData => (angles, i) => ({
+export const angleOfPercent = percent => FULL_CIRCLE * percent
+export const toPercents = segment => segment.percent
+export const zipData = originalData => (angles, i) => ({
   angles,
   label: originalData[i].label,
   originalData: originalData[i].originalData,
 })
 
-const getPathAttributes = ({ angles, getInnerPoint, radius }) => {
+export const getPathAttributes = ({
+  angles,
+  getInnerPoint,
+  radius,
+}) => {
   const startPoint = getInnerPoint(angles[0])
   const endPoint = getInnerPoint(angles[1])
   const largeArcFlag = angles[1] - angles[0] <= 180 ? '0' : '1'
@@ -24,12 +33,11 @@ const getPathAttributes = ({ angles, getInnerPoint, radius }) => {
     startPoint.y
   } A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${
     endPoint.x
-  } ${endPoint.y}
-  `
+  } ${endPoint.y}`
   return { d }
 }
 
-const getLabelAttributes = ({
+export const getLabelAttributes = ({
   label,
   angles,
   center,
@@ -53,7 +61,7 @@ const getLabelAttributes = ({
   }
 }
 
-const createSegmentAttributes = ({
+export const createSegmentAttributes = ({
   getInnerPoint,
   getOuterPoint,
   radius,
@@ -71,7 +79,7 @@ const createSegmentAttributes = ({
   return { path, label: text, originalData }
 }
 
-const reduceAngles = spacingAngle => (angles, angle, i) => {
+export const reduceAngles = spacingAngle => (angles, angle, i) => {
   let startAngle
   if (angle < 0 || angle < spacingAngle) {
     // NOTE: these are tiny angles, ones that just will not render
@@ -130,21 +138,30 @@ export const createGraphAttibutes = (passedOptions = {}) => {
         accum.push(segment)
       } else {
         const rest = allSegments.slice(i)
-        const last = allSegments[i - 1]
-        let startAngle = last.angles[1] + spacingAngle
-        let endAngle = 360 - spacingAngle
+        const previousSegment = allSegments[i - 1]
+        const originalData = Object.assign(
+          {},
+          ...rest.map(r => r.originalData)
+        )
+        const urls = Object.keys(originalData)
+
+        let startAngle = previousSegment.angles[1] + spacingAngle
+        let label = 'other'
+        let endAngle = FULL_CIRCLE - spacingAngle
+
         if (endAngle < startAngle) {
-          const middle = (360 - last.angles[1]) / 2
-          startAngle = 360 - middle - 0.5
-          endAngle = 360 - middle + 0.5
+          const middle = (FULL_CIRCLE - previousSegment.angles[1]) / 2
+          startAngle = FULL_CIRCLE - middle - 0.5
+          endAngle = FULL_CIRCLE - middle + 0.5
+        }
+        if (urls.length === 1) {
+          // just use normal label if only one url
+          label = first(urls)
         }
         accum.push({
-          label: 'other',
+          label,
           angles: [startAngle, endAngle],
-          originalData: Object.assign(
-            {},
-            ...rest.map(r => r.originalData)
-          ),
+          originalData,
         })
         lastAggregated = true
       }
