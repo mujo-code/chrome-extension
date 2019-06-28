@@ -31,4 +31,4 @@ export const SET_STORAGE = 'SET_STORAGE'
 
 // Feature Flags
 export const SCREEN_TIME_FEATURE = true
-export const BREAK_TIMER_FEATURE = true
+export const BREAK_TIMER_FEATURE = false
