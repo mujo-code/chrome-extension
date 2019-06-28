@@ -16,3 +16,7 @@ beforeAll(() => {
 afterAll(() => {
   console.error = originalError
 })
+
+beforeEach(() => {
+  jest.resetAllMocks()
+})

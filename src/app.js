@@ -28,7 +28,7 @@ const bodyBackgrounds = {
 const appWrapper = css({ height: '100vh' })
 
 const DEFAULT_SIZE = 40
-const factor = x => x * 8
+const factor = x => x * 0.0025
 const factorMin = size => Math.max(size, DEFAULT_SIZE)
 const getFactor = x => factorMin(factor(x))
 
@@ -39,7 +39,7 @@ const App = () => {
     {
       alarmEnabled,
       topSites,
-      pageViews,
+      activityNumber,
       showTopSites,
       siteTimesAndTimers,
       appReady,
@@ -59,7 +59,7 @@ const App = () => {
   const theme = useTheme()
   const [toolTipOpen, setToolTipOpen] = useState(false)
 
-  const logoSize = getFactor(pageViews)
+  const logoSize = getFactor(activityNumber)
   const toggleHandle = (fn, value) => () => fn(!value)
 
   css.global('body', {

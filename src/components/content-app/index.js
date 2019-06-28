@@ -4,6 +4,7 @@ import {
   BREAK_TIMERS_KEY,
   SITE_TIME_KEY,
   DEEP_LINK_NEWTAB,
+  RESET_USAGE,
 } from '../../constants'
 import { useStorage } from '../../hooks/use-storage'
 import { useTheme } from '../../hooks/use-theme'
@@ -49,6 +50,7 @@ const ContentApp = () => {
         onFinish={() => {
           setPlayerIsOpen(false)
           defer(setModalIsOpen, 700, false)
+          defer(message, 800, RESET_USAGE)
         }}
         onClick={() => {
           setPlayerIsOpen(true)

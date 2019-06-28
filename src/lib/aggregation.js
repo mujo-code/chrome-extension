@@ -15,7 +15,7 @@ const combineUrlTimes = data => {
   }, {})
 }
 
-const getTotalTime = data => {
+export const getTotalTime = data => {
   const iterable = Object.keys(data)
   return iterable
     .map(key => data[key].time)
@@ -25,6 +25,14 @@ const getTotalTime = data => {
       return total
     }, 0)
 }
+
+export const toSiteInfo = (times, timers) =>
+  Object.keys(times).reduce((accum, url) => {
+    set(accum, url, accum[url] || {})
+    set(accum[url], 'time', times[url])
+    set(accum[url], 'breakTimer', timers[url] || {})
+    return accum
+  }, {})
 
 export const siteTimeToChartData = rawData => {
   const data = combineUrlTimes(rawData)
