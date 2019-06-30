@@ -199,7 +199,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       className="css-1d0qo6a css-ou8fjb css-1p3cmt4"
       color="color"
     >
-      Hold tight, there is not enough data to show you anything yet.
+      Explore more, there is not enough data to show you anything yet.
     </p>
   </div>
   <div
@@ -377,7 +377,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       className="css-1d0qo6a css-ou8fjb css-1p3cmt4"
       color="color"
     >
-      Hold tight, there is not enough data to show you anything yet.
+      Explore more, there is not enough data to show you anything yet.
     </p>
   </div>
   <div

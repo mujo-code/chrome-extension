@@ -81,7 +81,8 @@ export const NotEnoughData = props => {
         />
       </Box>
       <BodyS>
-        Hold tight, there is not enough data to show you anything yet.
+        Explore more, there is not enough data to show you anything
+        yet.
       </BodyS>
     </Box>
   )
