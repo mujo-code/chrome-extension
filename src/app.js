@@ -97,9 +97,22 @@ const App = () => {
               onFinish={() => {
                 setPlayerIsOpen(false)
                 resetUsage()
-                track('event', 'finish', { event_category: 'player' })
+                track({
+                  category: 'break',
+                  action: 'finish',
+                  label: 'activity_number',
+                  value: activityNumber,
+                })
               }}
-              onClick={() => setPlayerIsOpen(true)}
+              onClick={() => {
+                setPlayerIsOpen(true)
+                track({
+                  category: 'break',
+                  action: 'start',
+                  label: 'activity_number',
+                  value: activityNumber,
+                })
+              }}
             />
             <ToolTip isOpen={toolTipOpen && !playerIsOpen} below>
               Take a break!

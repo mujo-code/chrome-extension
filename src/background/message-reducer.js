@@ -20,6 +20,7 @@ import { onGetStorage, onSetStorage } from './storage'
 
 export const reducer = (request, sender, sendResponse) => {
   const { event } = request
+  let hasResponse = false
   switch (event) {
     case NEW_TAB_CONNECTION:
       addBreakAlarm()
@@ -29,9 +30,11 @@ export const reducer = (request, sender, sendResponse) => {
       updateActivityNumber()
       break
     case GET_STORAGE:
+      hasResponse = true
       onGetStorage(request.key, sendResponse)
       break
     case SET_STORAGE:
+      hasResponse = true
       onSetStorage(request.key, request.value, sendResponse)
       // toggle break alarms
       if (request.key === ALARM_KEY) {
@@ -50,6 +53,9 @@ export const reducer = (request, sender, sendResponse) => {
       break
     }
     default:
+  }
+  if (!hasResponse) {
+    sendResponse({ success: true })
   }
   // set last active time to indicate user is currently active
   setLastActive()

@@ -1,9 +1,17 @@
 /* global dataLayer */
 window.dataLayer = window.dataLayer || []
-// commonly known as gtag = track
-export function track(...args) {
-  dataLayer.push(args)
-}
-track('js', new Date())
 
-track('config', 'UA-141601619-1')
+export function track(options = {}, overrides = {}) {
+  const { event = 'event' } = overrides
+  const {
+    category = null,
+    action = null,
+    label = null,
+    value = null,
+  } = options
+  const payload = { category, action, label, value, event }
+  dataLayer.push(payload)
+}
+
+dataLayer.push('js', new Date())
+dataLayer.push('config', 'UA-141601619-1')

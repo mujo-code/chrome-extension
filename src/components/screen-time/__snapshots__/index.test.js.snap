@@ -270,7 +270,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       />
     </svg>
     <p
-      className="css-1d0qo6a css-ou8fjb css-1p3cmt4"
+      className="css-1d0qo6a css-ou8fjb css-1p3cmt4 css-mhk3h4"
       color="color"
     >
       Explore more, there is not enough data to show you anything yet.
@@ -485,7 +485,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       />
     </svg>
     <p
-      className="css-1d0qo6a css-ou8fjb css-1p3cmt4"
+      className="css-1d0qo6a css-ou8fjb css-1p3cmt4 css-mhk3h4"
       color="color"
     >
       Explore more, there is not enough data to show you anything yet.
@@ -606,6 +606,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
             backgroundColor="saltBox"
             className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt css-xm5bud"
             color="white"
+            onClick={[Function]}
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
             outlineColor="gravel"
