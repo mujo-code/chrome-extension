@@ -198,65 +198,84 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       </div>
     </div>
   </h4>
-  <svg
+  <div
     className=""
-    height="275px"
-    style={
-      Object {
-        "height": 275,
-        "width": 600,
-      }
-    }
-    width="600px"
   >
-    <g
+    <svg
       className=""
-      transform="rotate(-89, 300, 137.5)"
+      height="250"
+      width="600"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        ariaSelected={false}
-        className="css-dw3c54 css-c5mv14"
-        d="M 400 137.5 A 100 100 0 1 1 230.45154089497316 65.64589896104461"
-        fill="transparent"
-        onClick={[Function]}
-        stroke="saltBox"
+        className=""
+        d="M19 125.5h566"
+        stroke="outerSpace"
         strokeLinecap="round"
-        strokeWidth={16}
+        strokeWidth="8"
       />
-      <path
-        ariaSelected={false}
-        className="css-dw3c54 css-c5mv14"
-        d="M 252.95140466579025 49.25925160631412 A 100 100 0 0 1 396.1261695938319 109.93626441830011"
-        fill="transparent"
-        onClick={[Function]}
-        stroke="saltBox"
-        strokeLinecap="round"
-        strokeWidth={16}
+      <circle
+        className=""
+        cx="235.5"
+        cy="125.5"
+        fill="gravel"
+        fillRule="nonzero"
+        r="102.5"
+        stroke="outerSpace"
+        strokeWidth="8"
       />
-    </g>
-    <text
-      alignmentBaseline="hanging"
-      className="css-dw3c54"
-      fill="mischka"
-      onClick={[Function]}
-      textAnchor="start"
-      x={409.6534826042641}
-      y={186.24539724688213}
+      <circle
+        className=""
+        cx="521.5"
+        cy="125.5"
+        fill="gravel"
+        fillRule="nonzero"
+        r="33.5"
+        stroke="outerSpace"
+        strokeWidth="8"
+      />
+      <circle
+        className=""
+        cx="64.5"
+        cy="125.5"
+        fill="gravel"
+        fillRule="nonzero"
+        r="26.5"
+        stroke="outerSpace"
+        strokeWidth="8"
+      />
+      <circle
+        className=""
+        cx="364.5"
+        cy="39.5"
+        fill="outerSpace"
+        fillRule="nonzero"
+        r="26.5"
+      />
+      <circle
+        className=""
+        cx="456"
+        cy="126"
+        fill="outerSpace"
+        fillRule="nonzero"
+        r="15"
+      />
+      <circle
+        className=""
+        cx="419"
+        cy="126"
+        fill="outerSpace"
+        fillRule="nonzero"
+        r="15"
+      />
+    </svg>
+    <p
+      className="css-1d0qo6a css-ou8fjb css-1p3cmt4"
+      color="color"
     >
-      foo.com
-    </text>
-    <text
-      alignmentBaseline="baseline"
-      className="css-dw3c54"
-      fill="mischka"
-      onClick={[Function]}
-      textAnchor="end"
-      x={190.34651739573584}
-      y={88.75460275311792}
-    >
-      mail.bar.com
-    </text>
-  </svg>
+      Explore more, there is not enough data to show you anything yet.
+    </p>
+  </div>
   <div
     className="css-1cqgl9p css-5uyuv6 css-16qvk6d css-z86ji4 css-1xnhsiz"
     css={
@@ -394,65 +413,84 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       </div>
     </div>
   </h4>
-  <svg
+  <div
     className=""
-    height="275px"
-    style={
-      Object {
-        "height": 275,
-        "width": 600,
-      }
-    }
-    width="600px"
   >
-    <g
+    <svg
       className=""
-      transform="rotate(-89, 300, 137.5)"
+      height="250"
+      width="600"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        ariaSelected={false}
-        className="css-dw3c54 css-c5mv14"
-        d="M 400 137.5 A 100 100 0 1 1 230.45154089497316 65.64589896104461"
-        fill="transparent"
-        onClick={[Function]}
-        stroke="saltBox"
+        className=""
+        d="M19 125.5h566"
+        stroke="outerSpace"
         strokeLinecap="round"
-        strokeWidth={16}
+        strokeWidth="8"
       />
-      <path
-        ariaSelected={false}
-        className="css-dw3c54 css-c5mv14"
-        d="M 252.95140466579025 49.25925160631412 A 100 100 0 0 1 396.1261695938319 109.93626441830011"
-        fill="transparent"
-        onClick={[Function]}
-        stroke="saltBox"
-        strokeLinecap="round"
-        strokeWidth={16}
+      <circle
+        className=""
+        cx="235.5"
+        cy="125.5"
+        fill="gravel"
+        fillRule="nonzero"
+        r="102.5"
+        stroke="outerSpace"
+        strokeWidth="8"
       />
-    </g>
-    <text
-      alignmentBaseline="hanging"
-      className="css-dw3c54"
-      fill="mischka"
-      onClick={[Function]}
-      textAnchor="start"
-      x={409.6534826042641}
-      y={186.24539724688213}
+      <circle
+        className=""
+        cx="521.5"
+        cy="125.5"
+        fill="gravel"
+        fillRule="nonzero"
+        r="33.5"
+        stroke="outerSpace"
+        strokeWidth="8"
+      />
+      <circle
+        className=""
+        cx="64.5"
+        cy="125.5"
+        fill="gravel"
+        fillRule="nonzero"
+        r="26.5"
+        stroke="outerSpace"
+        strokeWidth="8"
+      />
+      <circle
+        className=""
+        cx="364.5"
+        cy="39.5"
+        fill="outerSpace"
+        fillRule="nonzero"
+        r="26.5"
+      />
+      <circle
+        className=""
+        cx="456"
+        cy="126"
+        fill="outerSpace"
+        fillRule="nonzero"
+        r="15"
+      />
+      <circle
+        className=""
+        cx="419"
+        cy="126"
+        fill="outerSpace"
+        fillRule="nonzero"
+        r="15"
+      />
+    </svg>
+    <p
+      className="css-1d0qo6a css-ou8fjb css-1p3cmt4"
+      color="color"
     >
-      foo.com
-    </text>
-    <text
-      alignmentBaseline="baseline"
-      className="css-dw3c54"
-      fill="mischka"
-      onClick={[Function]}
-      textAnchor="end"
-      x={190.34651739573584}
-      y={88.75460275311792}
-    >
-      mail.bar.com
-    </text>
-  </svg>
+      Explore more, there is not enough data to show you anything yet.
+    </p>
+  </div>
   <div
     className="css-1cqgl9p css-5uyuv6 css-16qvk6d css-z86ji4 css-1xnhsiz"
     css={

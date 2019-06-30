@@ -6,6 +6,7 @@ import { HeaderS, Sup } from '../fonts'
 import { Graph } from '../graph'
 import { ToolTip } from '../tool-tip'
 import { Modal } from './modal'
+import { NotEnoughData, hasEnoughData } from './not-enough-data'
 import { reduceSegmentToUrls } from './reducer'
 
 export const ScreenTime = ({
@@ -18,6 +19,7 @@ export const ScreenTime = ({
   const graphData = siteTimeToChartData(data)
   const theme = useTheme()
   const { foreground, highlight } = theme
+  const showGraph = hasEnoughData(graphData, data)
   return (
     <Box
       flex="1"
@@ -41,22 +43,26 @@ export const ScreenTime = ({
           Screen time is the time viewing sites between your breaks
         </ToolTip>
       </HeaderS>
-      <Graph
-        data={graphData}
-        width={600}
-        height={275}
-        strokeWidth={16}
-        textFill={foreground}
-        stroke={highlight}
-        spacingAngle={16}
-        strokeLinecap="round"
-        radius={100}
-        selected={selectedSegment}
-        selectedStroke={foreground}
-        onSegmentClick={seg =>
-          setSelectedSegment(reduceSegmentToUrls(seg))
-        }
-      />
+      {showGraph ? (
+        <Graph
+          data={graphData}
+          width={600}
+          height={275}
+          strokeWidth={16}
+          textFill={foreground}
+          stroke={highlight}
+          spacingAngle={16}
+          strokeLinecap="round"
+          radius={100}
+          selected={selectedSegment}
+          selectedStroke={foreground}
+          onSegmentClick={seg =>
+            setSelectedSegment(reduceSegmentToUrls(seg))
+          }
+        />
+      ) : (
+        <NotEnoughData />
+      )}
       {selectedSegment ? (
         <Modal
           theme={theme}
