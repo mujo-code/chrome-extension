@@ -1,7 +1,7 @@
 import { Box } from '@jcblw/box'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
 import React, { useState } from 'react'
-import { track } from '../../tracker'
+import { track } from '../../lib/tracker'
 import { headerS } from '../fonts/styles'
 import { ToolTip } from '../tool-tip'
 

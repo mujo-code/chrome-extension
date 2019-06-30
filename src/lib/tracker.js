@@ -1,7 +1,7 @@
 /* global dataLayer */
 window.dataLayer = window.dataLayer || []
 
-export function track(options = {}, overrides = {}) {
+export const track = (options = {}, overrides = {}) => {
   const { event = 'event' } = overrides
   const {
     category = null,
@@ -10,6 +10,14 @@ export function track(options = {}, overrides = {}) {
     value = null,
   } = options
   const payload = { category, action, label, value, event }
+  dataLayer.push(payload)
+}
+
+export const exception = (err, overrides = {}) => {
+  const { event = 'exception' } = overrides
+  const errorStack = err.stack
+  const errorMessage = err.message
+  const payload = { errorStack, errorMessage, event }
   dataLayer.push(payload)
 }
 

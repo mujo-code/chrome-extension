@@ -3,8 +3,8 @@ import ErrorStackParser from 'error-stack-parser'
 import { css } from 'glamor'
 import React from 'react'
 import { mapStackTrace } from 'sourcemapped-stacktrace'
+import { exception } from '../lib/tracker'
 import { set } from '../lib/util'
-import { track } from '../tracker'
 import { FixedS, FixedL } from './fonts'
 
 const FN_SIZE = 25
@@ -58,10 +58,7 @@ export class ErrorBox extends React.Component {
     mapStackTrace(error.stack, stack => {
       set(error, 'stack', stack.join('\n'))
       this.setState({ error })
-    })
-    track('event', 'exception', {
-      description: error,
-      fatal: false, // set to true if the error is fatal
+      exception(error)
     })
   }
 

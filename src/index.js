@@ -5,7 +5,7 @@ import App from './app'
 import { ErrorBox } from './components/error-box'
 import { ColorThemeProvider } from './hooks/use-theme'
 
-import './tracker'
+import './lib/tracker'
 
 const NewHomePage = () => {
   const { scheme } = useColorScheme()

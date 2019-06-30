@@ -10,9 +10,9 @@ import { TopSites } from './components/top-sites'
 import { SCREEN_TIME_FEATURE } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
+import { track } from './lib/tracker'
 import { colors } from './styles/colors'
 import * as utilStyles from './styles/utils'
-import { track } from './tracker'
 
 styleGuide.push(utilStyles)
 css.global('body, html', { margin: 0 })
