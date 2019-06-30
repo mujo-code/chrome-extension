@@ -2,6 +2,7 @@ import { Box, styleGuide } from '@jcblw/box'
 import { css } from 'glamor'
 import React, { useState } from 'react'
 import { Button } from './components/button'
+import { Span, Sup } from './components/fonts'
 import { Player } from './components/player'
 import { ScreenTime } from './components/screen-time'
 import { ToolTip } from './components/tool-tip'
@@ -152,10 +153,15 @@ const App = () => {
                     updateShowTopSites,
                     showTopSites
                   )}
-                  alt="Toggle view between screen time and top sites"
+                  alt={
+                    <Span>
+                      Toggle view between Screen Time <Sup>BETA</Sup>{' '}
+                      and top sites
+                    </Span>
+                  }
                 >
                   {showTopSites
-                    ? 'Show screen time'
+                    ? 'Show Screen Time'
                     : 'Show top sites'}
                 </Button>
               )}
