@@ -34,9 +34,8 @@ test(`
 
 test('onNotificationClicked should open a tab if clicked', () => {
   const id = 'foo'
+  const newTab = { url: 'chrome://newtab?play=true' }
   onNotificationClicked(id)
   expect(notifications.clear).toBeCalledWith(id)
-  expect(tabs.create).toBeCalledWith({
-    url: 'chrome://newtab?play=true',
-  })
+  expect(tabs.create).toBeCalledWith(newTab)
 })
