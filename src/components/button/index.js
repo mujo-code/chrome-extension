@@ -1,6 +1,7 @@
 import { Box } from '@jcblw/box'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
 import React, { useState } from 'react'
+import { track } from '../../lib/tracker'
 import { headerS } from '../fonts/styles'
 import { ToolTip } from '../tool-tip'
 
@@ -34,7 +35,8 @@ export const Button = props => {
     'design',
     'alt',
     'children',
-    'altOffset'
+    'altOffset',
+    'onClick'
   )
   const [tooltipOpen, setToolTipOpen] = useState(false)
   const { color, backgroundColor, highlight } = colors[design]
@@ -54,6 +56,17 @@ export const Button = props => {
       borderRadius="l"
       textDecoration="none"
       position="relative"
+      onClick={(e, ...args) => {
+        props.onClick && props.onClick(e, ...args)
+        track({
+          category: 'button',
+          action: 'click',
+          label:
+            typeof children === 'string'
+              ? children
+              : e.target.textContent,
+        })
+      }}
       onMouseLeave={() => setToolTipOpen(false)}
       onMouseEnter={() => setToolTipOpen(true)}
       {...headerS}

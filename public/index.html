@@ -10,11 +10,6 @@
       href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap"
       rel="stylesheet"
     />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-141601619-1"
-    ></script>
     <!-- <link rel="manifest" href="/manifest.json"> -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -32,6 +27,21 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="mujo-extension"></div>
+    <script async>
+      ;(function(w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-P5PFGSF')
+    </script>
     <script nonce>
       navigator.serviceWorker.register('service-worker.js')
     </script>

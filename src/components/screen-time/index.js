@@ -1,9 +1,10 @@
 import { Box } from '@jcblw/box'
-import React from 'react'
+import React, { useState } from 'react'
 import { useTheme } from '../../hooks/use-theme'
 import { siteTimeToChartData } from '../../lib/aggregation'
-import { HeaderS } from '../fonts'
+import { HeaderS, Sup } from '../fonts'
 import { Graph } from '../graph'
+import { ToolTip } from '../tool-tip'
 import { Modal } from './modal'
 import { NotEnoughData, hasEnoughData } from './not-enough-data'
 import { reduceSegmentToUrls } from './reducer'
@@ -14,6 +15,7 @@ export const ScreenTime = ({
   selectedSegment,
   setSelectedSegment,
 }) => {
+  const [toolTipOpen, setToolTipOpen] = useState(false)
   const graphData = siteTimeToChartData(data)
   const theme = useTheme()
   const { foreground, highlight } = theme
@@ -29,7 +31,18 @@ export const ScreenTime = ({
       position="relative"
       layer="1"
     >
-      <HeaderS color={foreground}>Screen Time</HeaderS>
+      <HeaderS
+        position="relative"
+        cursor="pointer"
+        color={foreground}
+        onMouseLeave={() => setToolTipOpen(false)}
+        onMouseEnter={() => setToolTipOpen(true)}
+      >
+        Screen Time <Sup>BETA</Sup>
+        <ToolTip isOpen={toolTipOpen}>
+          Screen time is the time viewing sites between your breaks
+        </ToolTip>
+      </HeaderS>
       {showGraph ? (
         <Graph
           data={graphData}

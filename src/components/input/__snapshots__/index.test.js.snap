@@ -5,7 +5,7 @@ exports[`Input should match snapshot 1`] = `
   className="css-1cqgl9p css-5uyuv6"
 >
   <label
-    className="css-1d0qo6a css-1kvvogt"
+    className="css-1d0qo6a css-1kvvogt css-mhk3h4"
     color="mischka"
     htmlFor="label-is-required"
   >

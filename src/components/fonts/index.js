@@ -9,12 +9,15 @@ import {
   fixedS,
 } from './styles'
 
+const additionalStyles = { ' sup': { fontSize: '0.6em' } }
+
 const FontBox = props => (
   <Box
     Component={props.Component || 'p'}
     color={props.color || 'color'}
     marginTop={props.marginTop || 'm'}
     marginBottom={props.marginBottom || 'm'}
+    css={additionalStyles}
     {...props}
   />
 )
@@ -52,4 +55,22 @@ export const FixedL = props => (
 )
 export const FixedS = props => (
   <FontBox Component="span" {...fixedS} {...props} />
+)
+
+export const Span = props => (
+  <FontBox
+    Component="span"
+    marginTop={props.marginTop || 'zero'}
+    marginBottom={props.marginTop || 'zero'}
+    {...props}
+  />
+)
+
+export const Sup = props => (
+  <FontBox
+    Component="sup"
+    marginTop={props.marginTop || 'zero'}
+    marginBottom={props.marginTop || 'zero'}
+    {...props}
+  />
 )

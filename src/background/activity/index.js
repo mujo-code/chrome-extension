@@ -48,11 +48,12 @@ export const resetUsage = async () =>
   )
 
 export const setLastActive = async date => {
+  const now = date || new Date()
   const wasActive = await isActive()
   if (!wasActive) {
     // means user probably took a break from their computer
     // reset activity before setting last active
     await resetUsage()
   }
-  return storage.set(LAST_ACTIVE_KEY, +date)
+  return storage.set(LAST_ACTIVE_KEY, +now)
 }

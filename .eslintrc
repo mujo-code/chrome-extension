@@ -35,6 +35,7 @@
     "react/prop-types": 0,
     "import-order-alphabetical/order": "error",
     "prettier/prettier": "error",
+    "import/no-unresolved": ["error", { "caseSensitive": false }],
     "semi": ["error", "never"]
   },
   "globals": {

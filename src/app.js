@@ -2,6 +2,7 @@ import { Box, styleGuide } from '@jcblw/box'
 import { css } from 'glamor'
 import React, { useState } from 'react'
 import { Button } from './components/button'
+import { Span, Sup } from './components/fonts'
 import { Player } from './components/player'
 import { ScreenTime } from './components/screen-time'
 import { ToolTip } from './components/tool-tip'
@@ -9,9 +10,9 @@ import { TopSites } from './components/top-sites'
 import { SCREEN_TIME_FEATURE } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
+import { track } from './lib/tracker'
 import { colors } from './styles/colors'
 import * as utilStyles from './styles/utils'
-import { track } from './tracker'
 
 styleGuide.push(utilStyles)
 css.global('body, html', { margin: 0 })
@@ -96,9 +97,22 @@ const App = () => {
               onFinish={() => {
                 setPlayerIsOpen(false)
                 resetUsage()
-                track('event', 'finish', { event_category: 'player' })
+                track({
+                  category: 'break',
+                  action: 'finish',
+                  label: 'activity_number',
+                  value: activityNumber,
+                })
               }}
-              onClick={() => setPlayerIsOpen(true)}
+              onClick={() => {
+                setPlayerIsOpen(true)
+                track({
+                  category: 'break',
+                  action: 'start',
+                  label: 'activity_number',
+                  value: activityNumber,
+                })
+              }}
             />
             <ToolTip isOpen={toolTipOpen && !playerIsOpen} below>
               Take a break!
@@ -152,10 +166,15 @@ const App = () => {
                     updateShowTopSites,
                     showTopSites
                   )}
-                  alt="Toggle view between screen time and top sites"
+                  alt={
+                    <Span>
+                      Toggle view between Screen Time <Sup>BETA</Sup>{' '}
+                      and top sites
+                    </Span>
+                  }
                 >
                   {showTopSites
-                    ? 'Show screen time'
+                    ? 'Show Screen Time'
                     : 'Show top sites'}
                 </Button>
               )}

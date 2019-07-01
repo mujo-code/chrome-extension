@@ -7,10 +7,47 @@ exports[`ScreenTime should match snapshot 1`] = `
   position="relative"
 >
   <h4
-    className="css-h3zoee css-c1fjig css-1kvvogt"
+    className="css-h3zoee css-c1fjig css-1kvvogt css-dw3c54 css-mhk3h4"
     color="mischka"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    position="relative"
   >
-    Screen Time
+    Screen Time 
+    <sup
+      className="css-mhk3h4"
+      color="color"
+    >
+      BETA
+    </sup>
+    <div
+      className=""
+      position="relative"
+    >
+      <div
+        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        position="absolute"
+      >
+        <span
+          backgroundColor="mischka"
+          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          color="outerSpace"
+          position="relative"
+        >
+          <div
+            backgroundColor="mischka"
+            className="css-1tdptiz css-1ijci28"
+            position="absolute"
+          />
+          <div
+            className="css-4ptacf"
+            position="relative"
+          >
+            Screen time is the time viewing sites between your breaks
+          </div>
+        </span>
+      </div>
+    </div>
   </h4>
   <svg
     className=""
@@ -119,10 +156,47 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
   position="relative"
 >
   <h4
-    className="css-h3zoee css-c1fjig css-1kvvogt"
+    className="css-h3zoee css-c1fjig css-1kvvogt css-dw3c54 css-mhk3h4"
     color="mischka"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    position="relative"
   >
-    Screen Time
+    Screen Time 
+    <sup
+      className="css-mhk3h4"
+      color="color"
+    >
+      BETA
+    </sup>
+    <div
+      className=""
+      position="relative"
+    >
+      <div
+        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        position="absolute"
+      >
+        <span
+          backgroundColor="mischka"
+          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          color="outerSpace"
+          position="relative"
+        >
+          <div
+            backgroundColor="mischka"
+            className="css-1tdptiz css-1ijci28"
+            position="absolute"
+          />
+          <div
+            className="css-4ptacf"
+            position="relative"
+          >
+            Screen time is the time viewing sites between your breaks
+          </div>
+        </span>
+      </div>
+    </div>
   </h4>
   <div
     className=""
@@ -196,7 +270,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       />
     </svg>
     <p
-      className="css-1d0qo6a css-ou8fjb css-1p3cmt4"
+      className="css-1d0qo6a css-ou8fjb css-1p3cmt4 css-mhk3h4"
       color="color"
     >
       Explore more, there is not enough data to show you anything yet.
@@ -249,7 +323,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       className="css-mg5526 css-1ssqu81 css-1klwfzq css-h8iwlx css-10o9fv1"
     >
       <h4
-        className="css-1kvvogt"
+        className="css-1kvvogt css-mhk3h4"
         color="mischka"
       >
         Screen Time for:
@@ -263,7 +337,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         className="css-1cqgl9p css-1owbun0 css-h8iwlx css-10o9fv1"
       >
         <h2
-          className="css-bsai6x css-1okiobr css-1pev02g css-xm5bud css-2zzudi css-fxshz5 css-dw3c54"
+          className="css-bsai6x css-1okiobr css-1pev02g css-xm5bud css-2zzudi css-fxshz5 css-dw3c54 css-mhk3h4"
           color="white"
           onClick={[Function]}
           overflow="hidden"
@@ -276,7 +350,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         className="css-1cqgl9p css-1owbun0 css-h8iwlx css-10o9fv1"
       >
         <h2
-          className="css-bsai6x css-1okiobr css-1pev02g css-xm5bud css-2zzudi css-fxshz5 css-dw3c54"
+          className="css-bsai6x css-1okiobr css-1pev02g css-xm5bud css-2zzudi css-fxshz5 css-dw3c54 css-mhk3h4"
           color="white"
           onClick={[Function]}
           overflow="hidden"
@@ -297,10 +371,47 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
   position="relative"
 >
   <h4
-    className="css-h3zoee css-c1fjig css-1kvvogt"
+    className="css-h3zoee css-c1fjig css-1kvvogt css-dw3c54 css-mhk3h4"
     color="mischka"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    position="relative"
   >
-    Screen Time
+    Screen Time 
+    <sup
+      className="css-mhk3h4"
+      color="color"
+    >
+      BETA
+    </sup>
+    <div
+      className=""
+      position="relative"
+    >
+      <div
+        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        position="absolute"
+      >
+        <span
+          backgroundColor="mischka"
+          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          color="outerSpace"
+          position="relative"
+        >
+          <div
+            backgroundColor="mischka"
+            className="css-1tdptiz css-1ijci28"
+            position="absolute"
+          />
+          <div
+            className="css-4ptacf"
+            position="relative"
+          >
+            Screen time is the time viewing sites between your breaks
+          </div>
+        </span>
+      </div>
+    </div>
   </h4>
   <div
     className=""
@@ -374,7 +485,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       />
     </svg>
     <p
-      className="css-1d0qo6a css-ou8fjb css-1p3cmt4"
+      className="css-1d0qo6a css-ou8fjb css-1p3cmt4 css-mhk3h4"
       color="color"
     >
       Explore more, there is not enough data to show you anything yet.
@@ -427,7 +538,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       className="css-mg5526 css-1ssqu81 css-1klwfzq css-h8iwlx css-10o9fv1"
     >
       <h4
-        className="css-1kvvogt"
+        className="css-1kvvogt css-mhk3h4"
         color="mischka"
       >
         Screen Time for:
@@ -442,7 +553,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
         overflow="scroll"
       >
         <h2
-          className="css-c1fjig css-bsai6x"
+          className="css-c1fjig css-bsai6x css-mhk3h4"
           color="mischka"
         >
           foo.com
@@ -456,7 +567,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
           %
         </progress>
         <p
-          className="css-h3zoee css-c1fjig css-1ypmooz"
+          className="css-h3zoee css-c1fjig css-1ypmooz css-mhk3h4"
           color="color"
         >
           The site 
@@ -475,7 +586,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
           % of your web viewing.
         </p>
         <p
-          className="css-h3zoee css-ou8fjb css-1p3cmt4"
+          className="css-h3zoee css-ou8fjb css-1p3cmt4 css-mhk3h4"
           color="color"
         >
           These times are not aways going to represent a 100% view of your viewing habits.
@@ -495,6 +606,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
             backgroundColor="saltBox"
             className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt css-xm5bud"
             color="white"
+            onClick={[Function]}
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
             outlineColor="gravel"
