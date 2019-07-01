@@ -16,8 +16,8 @@ export const alarms = {
   create: jest.fn(),
   clear: jest.fn(),
 }
-export const notifications = {}
-export const tabs = {}
+export const notifications = { create: jest.fn(), clear: jest.fn() }
+export const tabs = { create: jest.fn() }
 export const webNavigation = {}
 export const runtime = {}
 export const topSites = { get: jest.fn() }
