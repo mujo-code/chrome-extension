@@ -1,5 +1,5 @@
-/* global dataLayer */
-window.dataLayer = window.dataLayer || []
+import { TRACK } from '../constants'
+import { message } from './extension'
 
 export const track = (options = {}, overrides = {}) => {
   const { event = 'event' } = overrides
@@ -10,7 +10,7 @@ export const track = (options = {}, overrides = {}) => {
     value = null,
   } = options
   const payload = { category, action, label, value, event }
-  dataLayer.push(payload)
+  return message(TRACK, { payload })
 }
 
 export const exception = (err, overrides = {}) => {
@@ -18,8 +18,5 @@ export const exception = (err, overrides = {}) => {
   const errorStack = err.stack
   const errorMessage = err.message
   const payload = { errorStack, errorMessage, event }
-  dataLayer.push(payload)
+  return message(TRACK, { payload })
 }
-
-dataLayer.push('js', new Date())
-dataLayer.push('config', 'UA-141601619-1')

@@ -25,6 +25,7 @@ export const NEW_TAB_CONNECTION = 'New Connection'
 export const PAGE_VIEWING_TIME = 'Page Viewing Time'
 export const DEEP_LINK_NEWTAB = 'Deep Link New Tab'
 export const RESET_USAGE = 'Reset Usage Stats'
+export const TRACK = 'Track'
 // Getter, Setters for storage
 export const GET_STORAGE = 'GET_STORAGE'
 export const SET_STORAGE = 'SET_STORAGE'

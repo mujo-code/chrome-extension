@@ -2,6 +2,7 @@ import { alarmReducer, addHeartBeat } from './background/alarm'
 import { injectScript } from './background/inject'
 import { reducer } from './background/message-reducer'
 import { onNotificationClicked } from './background/notifications'
+import { injectTracking } from './background/tracking'
 import {
   onMessage,
   alarms,
@@ -16,3 +17,4 @@ onMessage(reducer)
 webNavigation.onCommitted.addListener(injectScript)
 
 addHeartBeat()
+injectTracking('GTM-P5PFGSF', window.document)
