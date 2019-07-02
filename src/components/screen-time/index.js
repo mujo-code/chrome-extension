@@ -74,18 +74,28 @@ export const ScreenTime = ({
       {!hasPermission ? (
         <Button
           onClick={requestPermissions}
-          alt="We need more permissions"
+          alt={
+            <Box Component="span">
+              Screen time will need to ask for some elevated
+              permissions to track viewing times.
+            </Box>
+          }
           design={theme.buttonStyle}
         >
-          Enable Screen Time
+          Enable
         </Button>
       ) : (
         <Button
           onClick={removePermissions}
-          alt="Revoke access to permissions"
+          alt={
+            <Box Component="span">
+              This will remove the permissions that are needed for
+              Screen Time to function.
+            </Box>
+          }
           design={theme.buttonStyle}
         >
-          Disable Screen Time
+          Disable
         </Button>
       )}
       {selectedSegment ? (
