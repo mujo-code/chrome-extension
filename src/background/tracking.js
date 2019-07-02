@@ -1,6 +1,6 @@
 import { set } from '../lib/util'
 
-const GTM_JS = 'https://www.googletagmanager.com/gtm.js'
+export const GTM_JS = 'https://www.googletagmanager.com/gtm.js'
 
 export const createDataLayer = win => {
   const layer = 'dataLayer'
@@ -13,6 +13,18 @@ export const addToDataLayer = dataLayer => payload =>
   dataLayer.push(payload)
 
 export const addData = addToDataLayer(createDataLayer(window))
+
+export const track = (options = {}, overrides = {}) => {
+  const { event = 'event' } = overrides
+  const {
+    category = null,
+    action = null,
+    label = null,
+    value = null,
+  } = options
+  const payload = { category, action, label, value, event }
+  return addData(payload)
+}
 
 export const injectTracking = (id, doc) => {
   const now = new Date()
