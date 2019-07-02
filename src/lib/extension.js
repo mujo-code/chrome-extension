@@ -1,4 +1,5 @@
 import { GET_STORAGE, SET_STORAGE } from '../constants'
+import { promisifyObject } from './promisify'
 /*
   Extension Lib
   -----
@@ -31,6 +32,8 @@ export const setStorage = async (key, value) => {
 export const onMessage = (...args) => {
   chrome.runtime.onMessage.addListener(...args)
 }
+
+export const permissions = promisifyObject(chrome.permissions)
 
 export const {
   alarms,

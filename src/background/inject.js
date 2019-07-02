@@ -1,9 +1,12 @@
-import { SCREEN_TIME_FEATURE } from '../constants'
-import { tabs } from '../lib/extension'
+import {
+  SCREEN_TIME_FEATURE,
+  SCREEN_TIME_PERMISSIONS,
+} from '../constants'
+import { tabs, permissions } from '../lib/extension'
 
 const BLACK_LIST = ['about:blank', 'chrome']
 
-export const injectScript = tab => {
+export const injectScript = async tab => {
   const isBlackListed = BLACK_LIST.some(url =>
     tab.url.startsWith(url)
   )
@@ -11,5 +14,9 @@ export const injectScript = tab => {
   if (isBlackListed || isSubFrame || !SCREEN_TIME_FEATURE) {
     return
   }
+  const hasPermission = await permissions.contains(
+    SCREEN_TIME_PERMISSIONS
+  )
+  if (!hasPermission) return
   tabs.executeScript(tab.tabId, { file: 'content.js' })
 }
