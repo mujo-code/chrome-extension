@@ -14,7 +14,7 @@ import { types } from './types'
 
 export const open = async () =>
   openDB(DATABASE_NAME, DATABASE_VERSION, {
-    upgrade(db, lastVersion, currentVersion, transaction) {
+    upgrade: async (db, lastVersion, currentVersion, transaction) => {
       // initial setup
       db.createObjectStore(DATABASE_STORE)
       const activityStore = db.createObjectStore(
@@ -26,8 +26,10 @@ export const open = async () =>
       )
       activityStore.createIndex('date', 'date')
 
-      // migrations
-      return migrate(lastVersion, currentVersion, transaction)
+      // migrations - not ran in test unless directly
+      if (process.env.NODE_ENV !== 'test') {
+        await migrate(lastVersion, currentVersion, transaction)
+      }
     },
   })
 

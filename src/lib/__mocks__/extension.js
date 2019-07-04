@@ -31,7 +31,9 @@ export const tabs = {
   create: jest.fn(),
   onRemoved: stampEvent(),
   sendMessage: jest.fn(),
+  executeScript: jest.fn(),
 }
-export const webNavigation = { onCommited: stampEvent() }
+export const permissions = { contains: jest.fn() }
+export const webNavigation = { onCommitted: stampEvent() }
 export const runtime = {}
 export const topSites = { get: jest.fn() }

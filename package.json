@@ -90,15 +90,16 @@
   "jest": {
     "coverageThreshold": {
       "global": {
-        "statments": 65,
-        "branches": 40,
-        "functions": 55,
-        "lines": 65
+        "statments": 70,
+        "branches": 45,
+        "functions": 60,
+        "lines": 70
       }
     },
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
+      "!src/**/*.d.ts",
+      "!src/background/storage/migrations/*.js"
     ],
     "setupFiles": [
       "react-app-polyfill/jsdom"

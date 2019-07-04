@@ -3,7 +3,7 @@ import { set } from '../../../lib/util'
 import model from '../../../model'
 import localStorageInterface from '../local-storage'
 
-export const version1Migration = async (db, log) => {
+export const version1Migration = async (transaction, log) => {
   log('Attempting to migrate from local storage to indexDB')
   const keys = Object.keys(model)
   const localStorageData = (await Promise.all(
@@ -28,7 +28,9 @@ export const version1Migration = async (db, log) => {
     await localStorageKeys.reduce(
       (promise, key) =>
         promise.then(() =>
-          db.put(DATABASE_STORE, localStorageData[key], key)
+          transaction
+            .objectStore(DATABASE_STORE)
+            .put(localStorageData[key], key)
         ),
       Promise.resolve()
     )
@@ -39,4 +41,5 @@ export const version1Migration = async (db, log) => {
   }
   log('Success removing old data')
   localStorage.clear()
+  await transaction.done
 }
