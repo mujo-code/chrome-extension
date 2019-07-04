@@ -5,8 +5,10 @@ import {
   DATABASE_STORE,
   LAST_ACTIVITY_TABLE,
   ACTIVITY_NUMBER_KEY,
+  VALUE_CHANGED,
 } from '../../constants'
 import { set } from '../../lib/util'
+import { broadcaster } from './broadcast'
 import { types } from './types'
 
 export const open = async () =>
@@ -30,8 +32,10 @@ export const createMethods = (db, store) => ({
   async get(key) {
     return (await db).get(store, key)
   },
-  async set(key, val) {
-    return (await db).put(store, val, key)
+  async set(key, value) {
+    const ret = await (await db).put(store, value, key)
+    broadcaster.broadcast({ key, value, event: VALUE_CHANGED })
+    return ret
   },
   async delete(key) {
     return (await db).delete(store, key)

@@ -32,6 +32,10 @@ export const PAGE_VIEWING_TIME = 'Page Viewing Time'
 export const DEEP_LINK_NEWTAB = 'Deep Link New Tab'
 export const RESET_USAGE = 'Reset Usage Stats'
 export const TRACK = 'Track'
+export const ADD_BROADCAST_TAB = 'Add Broadcast Tab'
+export const REMOVE_BROADCAST_TAB = 'Remove Broadcast Tab'
+export const VALUE_CHANGED = 'Value changed'
+
 // Getter, Setters for storage
 export const GET_STORAGE = 'GET_STORAGE'
 export const SET_STORAGE = 'SET_STORAGE'
