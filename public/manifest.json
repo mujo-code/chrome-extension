@@ -4,6 +4,7 @@
   "short_name": "Mujo",
   "name": "Mujō - Be mindful of your time",
   "description": "Mujō is a extension that reminds you not to over work yourself.",
+  "offline_enabled": true,
   "background": {
     "scripts": ["background.js"],
     "persistent": true
