@@ -146,6 +146,50 @@ exports[`ScreenTime should match snapshot 1`] = `
       other
     </text>
   </svg>
+  <button
+    backgroundColor="outerSpace"
+    className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt"
+    color="mischka"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    outlineColor="saltBox"
+    position="relative"
+  >
+    Enable
+    <div
+      className=""
+      position="relative"
+    >
+      <div
+        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        position="absolute"
+      >
+        <span
+          backgroundColor="mischka"
+          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          color="outerSpace"
+          position="relative"
+        >
+          <div
+            backgroundColor="mischka"
+            className="css-1tdptiz css-1ijci28"
+            position="absolute"
+          />
+          <div
+            className="css-4ptacf"
+            position="relative"
+          >
+            <span
+              className=""
+            >
+              Screen time will need to ask for some elevated permissions to track viewing times.
+            </span>
+          </div>
+        </span>
+      </div>
+    </div>
+  </button>
 </div>
 `;
 
@@ -276,6 +320,50 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       Explore more, there is not enough data to show you anything yet.
     </p>
   </div>
+  <button
+    backgroundColor="outerSpace"
+    className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt"
+    color="mischka"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    outlineColor="saltBox"
+    position="relative"
+  >
+    Enable
+    <div
+      className=""
+      position="relative"
+    >
+      <div
+        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        position="absolute"
+      >
+        <span
+          backgroundColor="mischka"
+          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          color="outerSpace"
+          position="relative"
+        >
+          <div
+            backgroundColor="mischka"
+            className="css-1tdptiz css-1ijci28"
+            position="absolute"
+          />
+          <div
+            className="css-4ptacf"
+            position="relative"
+          >
+            <span
+              className=""
+            >
+              Screen time will need to ask for some elevated permissions to track viewing times.
+            </span>
+          </div>
+        </span>
+      </div>
+    </div>
+  </button>
   <div
     className="css-1cqgl9p css-5uyuv6 css-16qvk6d css-z86ji4 css-1xnhsiz"
     css={
@@ -491,6 +579,50 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       Explore more, there is not enough data to show you anything yet.
     </p>
   </div>
+  <button
+    backgroundColor="outerSpace"
+    className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt"
+    color="mischka"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    outlineColor="saltBox"
+    position="relative"
+  >
+    Enable
+    <div
+      className=""
+      position="relative"
+    >
+      <div
+        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        position="absolute"
+      >
+        <span
+          backgroundColor="mischka"
+          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          color="outerSpace"
+          position="relative"
+        >
+          <div
+            backgroundColor="mischka"
+            className="css-1tdptiz css-1ijci28"
+            position="absolute"
+          />
+          <div
+            className="css-4ptacf"
+            position="relative"
+          >
+            <span
+              className=""
+            >
+              Screen time will need to ask for some elevated permissions to track viewing times.
+            </span>
+          </div>
+        </span>
+      </div>
+    </div>
+  </button>
   <div
     className="css-1cqgl9p css-5uyuv6 css-16qvk6d css-z86ji4 css-1xnhsiz"
     css={

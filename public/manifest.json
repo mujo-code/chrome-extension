@@ -10,16 +10,14 @@
   },
   "permissions": [
     "tabs",
-    "activeTab",
     "webNavigation",
     "notifications",
     "alarms",
     "background",
     "topSites",
-    "chrome://favicon/",
-    "https://*/*",
-    "http://*/*"
+    "chrome://favicon/"
   ],
+  "optional_permissions": ["activeTab", "https://*/*", "http://*/*"],
   "icons": {
     "16": "favicon.png",
     "32": "favicon.png",

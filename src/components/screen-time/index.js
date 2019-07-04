@@ -1,7 +1,10 @@
 import { Box } from '@jcblw/box'
 import React, { useState } from 'react'
+import { SCREEN_TIME_PERMISSIONS } from '../../constants'
+import { usePermissions } from '../../hooks/use-permissions'
 import { useTheme } from '../../hooks/use-theme'
 import { siteTimeToChartData } from '../../lib/aggregation'
+import { Button } from '../button'
 import { HeaderS, Sup } from '../fonts'
 import { Graph } from '../graph'
 import { ToolTip } from '../tool-tip'
@@ -16,6 +19,11 @@ export const ScreenTime = ({
   setSelectedSegment,
 }) => {
   const [toolTipOpen, setToolTipOpen] = useState(false)
+  const {
+    hasPermission,
+    requestPermissions,
+    removePermissions,
+  } = usePermissions(SCREEN_TIME_PERMISSIONS)
   const graphData = siteTimeToChartData(data)
   const theme = useTheme()
   const { foreground, highlight } = theme
@@ -62,6 +70,33 @@ export const ScreenTime = ({
         />
       ) : (
         <NotEnoughData />
+      )}
+      {!hasPermission ? (
+        <Button
+          onClick={requestPermissions}
+          alt={
+            <Box Component="span">
+              Screen time will need to ask for some elevated
+              permissions to track viewing times.
+            </Box>
+          }
+          design={theme.buttonStyle}
+        >
+          Enable
+        </Button>
+      ) : (
+        <Button
+          onClick={removePermissions}
+          alt={
+            <Box Component="span">
+              This will remove the permissions that are needed for
+              Screen Time to function.
+            </Box>
+          }
+          design={theme.buttonStyle}
+        >
+          Disable
+        </Button>
       )}
       {selectedSegment ? (
         <Modal
