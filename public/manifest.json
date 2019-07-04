@@ -1,9 +1,10 @@
 {
   "manifest_version": 2,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "short_name": "Mujo",
   "name": "Mujō - Be mindful of your time",
   "description": "Mujō is a extension that reminds you not to over work yourself.",
+  "offline_enabled": true,
   "background": {
     "scripts": ["background.js"],
     "persistent": true
