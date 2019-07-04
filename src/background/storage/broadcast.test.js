@@ -10,6 +10,7 @@ import {
 } from './broadcast'
 
 jest.mock('../tracking')
+/* eslint-disable-next-line import-order-alphabetical/order */
 const { addData } = require('../tracking')
 
 test('createBroadcaster should create a broadcaster interface', () => {

@@ -9,11 +9,13 @@ import {
 } from '../../constants'
 import { set } from '../../lib/util'
 import { broadcaster } from './broadcast'
+import { migrate } from './migrations'
 import { types } from './types'
 
 export const open = async () =>
   openDB(DATABASE_NAME, DATABASE_VERSION, {
-    upgrade(db) {
+    upgrade(db, lastVersion, currentVersion, transaction) {
+      // initial setup
       db.createObjectStore(DATABASE_STORE)
       const activityStore = db.createObjectStore(
         LAST_ACTIVITY_TABLE,
@@ -23,6 +25,9 @@ export const open = async () =>
         }
       )
       activityStore.createIndex('date', 'date')
+
+      // migrations
+      return migrate(lastVersion, currentVersion, transaction)
     },
   })
 
