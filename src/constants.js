@@ -10,6 +10,12 @@ export const ALARM_DEFAULT_VALUE = true
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
 export const HEARTBEAT = 'HEARTBEAT'
 
+// DB Keys
+export const DATABASE_NAME = 'MUJO'
+export const DATABASE_STORE = 'STATS'
+export const DATABASE_VERSION = 1
+export const LAST_ACTIVITY_TABLE = 'LAST_ACTIVITY'
+
 // Storage keys
 export const TOP_SITES_KEY = 'TOP_SITES'
 export const TOP_SITES_USAGE_KEY = 'TOP_SITES_USAGE'

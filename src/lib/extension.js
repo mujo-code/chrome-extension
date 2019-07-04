@@ -10,7 +10,8 @@ import { promisifyObject } from './promisify'
 export const message = async (event, data) =>
   new Promise((resolve, reject) => {
     const payload = Object.assign({ event }, data || {})
-    chrome.runtime.sendMessage(payload, (response = {}) => {
+    chrome.runtime.sendMessage(payload, (response = {}, ...args) => {
+      console.log([response], args)
       if (response.error) {
         reject(response.error)
         return

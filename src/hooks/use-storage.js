@@ -14,7 +14,11 @@ export const useStorage = key => {
 
   const updateFromStore = useCallback(async () => {
     const storageValue = await getStorage(key)
-    if (storageValue === null) return
+    const isUndefined = typeof storageValue === 'undefined'
+    const isNull = storageValue === null
+    if (isNull || isUndefined) {
+      return
+    }
     setState(storageValue)
   }, [key])
 

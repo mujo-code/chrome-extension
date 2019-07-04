@@ -65,4 +65,5 @@ export const reducer = (request, sender, sendResponse) => {
   }
   // set last active time to indicate user is currently active
   setLastActive()
+  return true // must return true if there is a reponse
 }

@@ -10,6 +10,7 @@ import {
 import { toSiteInfo, getTotalTime } from '../../lib/aggregation'
 import statsModel from '../../model'
 import { storage } from '../storage'
+import { addLatestActivity } from '../storage/index-db'
 
 export const activityStatKeys = [
   PAGE_VIEWS_KEY,
@@ -55,5 +56,6 @@ export const setLastActive = async date => {
     // reset activity before setting last active
     await resetUsage()
   }
+  await addLatestActivity(now)
   return storage.set(LAST_ACTIVE_KEY, +now)
 }
