@@ -3,6 +3,11 @@
 */
 import model from '../../model'
 
+const stampEvent = () => ({
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+})
+
 export const getStorageFn = async key => model[key].defaultValue
 export const setStorageFn = async (key, value) => value
 
@@ -15,9 +20,20 @@ export const alarms = {
   get: jest.fn(),
   create: jest.fn(),
   clear: jest.fn(),
+  onAlarm: stampEvent(),
 }
-export const notifications = { create: jest.fn(), clear: jest.fn() }
-export const tabs = { create: jest.fn() }
-export const webNavigation = {}
+export const notifications = {
+  create: jest.fn(),
+  clear: jest.fn(),
+  onClicked: stampEvent(),
+}
+export const tabs = {
+  create: jest.fn(),
+  onRemoved: stampEvent(),
+  sendMessage: jest.fn(),
+  executeScript: jest.fn(),
+}
+export const permissions = { contains: jest.fn() }
+export const webNavigation = { onCommitted: stampEvent() }
 export const runtime = {}
 export const topSites = { get: jest.fn() }

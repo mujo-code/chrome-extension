@@ -10,6 +10,12 @@ export const ALARM_DEFAULT_VALUE = true
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
 export const HEARTBEAT = 'HEARTBEAT'
 
+// DB Keys
+export const DATABASE_NAME = 'MUJO'
+export const DATABASE_STORE = 'STATS'
+export const DATABASE_VERSION = 1
+export const LAST_ACTIVITY_TABLE = 'LAST_ACTIVITY'
+
 // Storage keys
 export const TOP_SITES_KEY = 'TOP_SITES'
 export const TOP_SITES_USAGE_KEY = 'TOP_SITES_USAGE'
@@ -26,6 +32,10 @@ export const PAGE_VIEWING_TIME = 'Page Viewing Time'
 export const DEEP_LINK_NEWTAB = 'Deep Link New Tab'
 export const RESET_USAGE = 'Reset Usage Stats'
 export const TRACK = 'Track'
+export const ADD_BROADCAST_TAB = 'Add Broadcast Tab'
+export const REMOVE_BROADCAST_TAB = 'Remove Broadcast Tab'
+export const VALUE_CHANGED = 'Value changed'
+
 // Getter, Setters for storage
 export const GET_STORAGE = 'GET_STORAGE'
 export const SET_STORAGE = 'SET_STORAGE'

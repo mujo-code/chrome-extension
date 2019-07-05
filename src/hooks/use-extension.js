@@ -10,16 +10,23 @@ import {
   BREAK_TIMERS_KEY,
   RESET_USAGE,
   ACTIVITY_NUMBER_KEY,
+  ADD_BROADCAST_TAB,
+  VALUE_CHANGED,
 } from '../constants'
 import { toSiteInfo } from '../lib/aggregation'
-import { message, topSites as topSitesApi } from '../lib/extension'
+import {
+  message,
+  topSites as topSitesApi,
+  onMessage,
+} from '../lib/extension'
 import { first } from '../lib/functional'
 import { queryParams, shortURL, origin } from '../lib/url'
 import { set, create } from '../lib/util'
 import { useStorage } from './use-storage'
 
-export const onStorageChange = updateFns => e => {
-  const { key } = e
+export const onBackgroundMessage = updateFns => payload => {
+  const { key, event } = payload
+  if (event !== VALUE_CHANGED) return
   const fn = updateFns[key]
   if (typeof fn === 'function') {
     fn(null, { refresh: true })
@@ -65,11 +72,11 @@ export const useExtension = () => {
     if (!pending && !appReady) {
       updatePageViews(pageViews + 1)
       topSitesApi.get(setTopSites)
-      window.addEventListener('storage', onStorageChange(updateFns))
+      onMessage(onBackgroundMessage(updateFns))
       message(NEW_TAB_CONNECTION)
+      message(ADD_BROADCAST_TAB)
       setAppReady(true)
-      const url = window.location.href
-      const { site, play } = queryParams(url)
+      const { site, play } = queryParams(window.location.href)
       if (play) {
         setPlayerIsOpen(true)
       } else if (site) {

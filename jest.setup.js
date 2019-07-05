@@ -1,3 +1,5 @@
+import 'fake-indexeddb/auto'
+
 jest.mock('./src/lib/extension')
 
 // this is just a little hack to silence a warning that we'll get until react
