@@ -1,6 +1,6 @@
+import { css } from '@emotion/core'
 import { Box } from '@jcblw/box'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
-import { css } from 'glamor'
 import React from 'react'
 import { useTheme } from '../../hooks/use-theme'
 import { HeaderL, HeaderS } from '../fonts'

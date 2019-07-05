@@ -1,5 +1,5 @@
+import { css } from '@emotion/core'
 import { generateStyle } from '@jcblw/box/dist/styles/helpers'
-import { css } from 'glamor'
 import { colors } from './colors'
 
 const makeStyles = (key, values) => {

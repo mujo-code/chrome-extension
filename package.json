@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.4.3",
-    "@jcblw/box": "^2.1.0",
+    "@emotion/core": "^10.0.14",
+    "@jcblw/box": "^3.0.0",
     "@svgr/webpack": "4.1.0",
     "@tweenjs/tween.js": "^17.4.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",

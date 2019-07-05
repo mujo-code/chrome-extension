@@ -1,3 +1,4 @@
+import { Global, css } from '@emotion/core'
 import { Box } from '@jcblw/box'
 import React from 'react'
 import {
@@ -10,6 +11,19 @@ import {
 } from './styles'
 
 const additionalStyles = { ' sup': { fontSize: '0.6em' } }
+
+export const Font = props => (
+  <Global
+    styles={css`
+      #mujo-extension *,
+      .mujo-modal * {
+        font-family: 'IBM Plex Sans', sans-serif;
+        --webkit-font-smoothing: antialiased;
+        --moz-osx-font-smoothing: grayscale;
+      }
+    `}
+  />
+)
 
 const FontBox = props => (
   <Box

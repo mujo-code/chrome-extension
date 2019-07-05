@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { useColorScheme } from 'use-color-scheme'
 import ContentApp from './components/content-app'
+import { Font } from './components/fonts'
 import {
   onVisibilityChange,
   onViewingStart,
@@ -31,6 +32,7 @@ const renderContentApp = () => {
     const { scheme } = useColorScheme()
     return (
       <ColorThemeProvider value={scheme}>
+        <Font />
         <ContentApp />
       </ColorThemeProvider>
     )
