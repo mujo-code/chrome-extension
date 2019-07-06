@@ -14,7 +14,7 @@ exports[`BreakTimerForm should match snapshot 1`] = `
       type="checkbox"
     />
     <h4
-      className="css-11ejjzl"
+      className="css-30v94s"
       color="color"
       labelFor="break-timer"
     >
@@ -39,7 +39,7 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
       type="checkbox"
     />
     <h4
-      className="css-11ejjzl"
+      className="css-30v94s"
       color="color"
       labelFor="break-timer"
     >
@@ -53,7 +53,7 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
       className="css-j7qwjs"
     >
       <label
-        className="css-11ejjzl"
+        className="css-30v94s"
         color="mischka"
         htmlFor="break-timer-time"
       >

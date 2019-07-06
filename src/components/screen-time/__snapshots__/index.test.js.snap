@@ -7,7 +7,7 @@ exports[`ScreenTime should match snapshot 1`] = `
   position="relative"
 >
   <h4
-    className="css-12ztw3g"
+    className="css-1khq1ir"
     color="mischka"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -200,7 +200,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
   position="relative"
 >
   <h4
-    className="css-12ztw3g"
+    className="css-1khq1ir"
     color="mischka"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -314,7 +314,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       />
     </svg>
     <p
-      className="css-p82y7t"
+      className="css-1hhdzfd"
       color="color"
     >
       Explore more, there is not enough data to show you anything yet.
@@ -402,7 +402,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       className="css-yzx775"
     >
       <h4
-        className="css-11ejjzl"
+        className="css-30v94s"
         color="mischka"
       >
         Screen Time for:
@@ -416,7 +416,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         className="css-187idct"
       >
         <h2
-          className="css-13na1j4"
+          className="css-1f6bnk1"
           color="white"
           onClick={[Function]}
           overflow="hidden"
@@ -429,7 +429,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         className="css-187idct"
       >
         <h2
-          className="css-13na1j4"
+          className="css-1f6bnk1"
           color="white"
           onClick={[Function]}
           overflow="hidden"
@@ -450,7 +450,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
   position="relative"
 >
   <h4
-    className="css-12ztw3g"
+    className="css-1khq1ir"
     color="mischka"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -564,7 +564,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       />
     </svg>
     <p
-      className="css-p82y7t"
+      className="css-1hhdzfd"
       color="color"
     >
       Explore more, there is not enough data to show you anything yet.
@@ -652,7 +652,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       className="css-yzx775"
     >
       <h4
-        className="css-11ejjzl"
+        className="css-30v94s"
         color="mischka"
       >
         Screen Time for:
@@ -667,7 +667,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
         overflow="scroll"
       >
         <h2
-          className="css-106vlpq"
+          className="css-132p4b7"
           color="mischka"
         >
           foo.com
@@ -681,7 +681,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
           %
         </progress>
         <p
-          className="css-l0e847"
+          className="css-1p1wrjs"
           color="color"
         >
           The site 
@@ -700,7 +700,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
           % of your web viewing.
         </p>
         <p
-          className="css-171m4zc"
+          className="css-tmwlom"
           color="color"
         >
           These times are not aways going to represent a 100% view of your viewing habits.

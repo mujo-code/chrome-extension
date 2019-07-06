@@ -75,11 +75,8 @@ export const Player = props => {
               <HeaderL
                 fill={background}
                 Component="text"
+                css={[textTranistions, isBreathIn ? fadeInText : {}]}
                 {...animationProps.text}
-                {...css(
-                  textTranistions,
-                  isBreathIn ? fadeInText : {}
-                )}
               >
                 Breathe in
               </HeaderL>
@@ -88,19 +85,15 @@ export const Player = props => {
                 Component="text"
                 {...textTranistions}
                 {...animationProps.text}
-                {...css(
-                  textTranistions,
-                  !isBreathIn ? fadeInText : {}
-                )}
+                css={[textTranistions, !isBreathIn ? fadeInText : {}]}
               >
                 Breathe out
               </HeaderL>
               <HeaderS
                 Component="text"
                 fill={foreground}
-                {...textTranistions}
+                css={[textTranistions, fadeInText]}
                 {...animationProps.count}
-                {...css(textTranistions, fadeInText)}
               >
                 {iteration}
               </HeaderS>

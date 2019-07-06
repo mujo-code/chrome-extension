@@ -54,7 +54,7 @@ exports[`Async ContentApp ContentApp should match snapshot 1`] = `
         className="css-1itd6tp"
       >
         <text
-          className="css-sj3ou3"
+          className="css-dywesz"
           textAnchor="middle"
           x={120}
           y={128}
@@ -68,7 +68,7 @@ exports[`Async ContentApp ContentApp should match snapshot 1`] = `
     className="css-ct62jg"
   >
     <p
-      className="css-flbz4r"
+      className="css-n7s5ks"
     >
       The site 
       localhost
