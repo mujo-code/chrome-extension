@@ -2,19 +2,19 @@
 
 exports[`BreakTimerForm should match snapshot 1`] = `
 <div
-  className="css-1cqgl9p css-5uyuv6"
+  className="css-j7qwjs"
 >
   <div
-    className="css-1cqgl9p css-1owbun0 css-1k8tu3j css-1iirspq css-mfy564"
+    className="css-102g4jn"
   >
     <input
-      className="css-1iirspq"
+      className="css-1ay9vb9"
       id="break-timer"
       onChange={[Function]}
       type="checkbox"
     />
     <h4
-      className="css-1kvvogt css-mhk3h4"
+      className="css-11ejjzl"
       color="color"
       labelFor="break-timer"
     >
@@ -26,20 +26,20 @@ exports[`BreakTimerForm should match snapshot 1`] = `
 
 exports[`BreakTimerForm should match snapshot when enabled 1`] = `
 <div
-  className="css-1cqgl9p css-5uyuv6"
+  className="css-j7qwjs"
 >
   <div
-    className="css-1cqgl9p css-1owbun0 css-1k8tu3j css-1iirspq css-mfy564"
+    className="css-102g4jn"
   >
     <input
       checked={true}
-      className="css-1iirspq"
+      className="css-1ay9vb9"
       id="break-timer"
       onChange={[Function]}
       type="checkbox"
     />
     <h4
-      className="css-1kvvogt css-mhk3h4"
+      className="css-11ejjzl"
       color="color"
       labelFor="break-timer"
     >
@@ -47,25 +47,25 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
     </h4>
   </div>
   <div
-    className="css-1cqgl9p css-5uyuv6 css-1iirspq"
+    className="css-1lqrh8c"
   >
     <div
-      className="css-1cqgl9p css-5uyuv6"
+      className="css-j7qwjs"
     >
       <label
-        className="css-1kvvogt css-mhk3h4"
+        className="css-11ejjzl"
         color="mischka"
         htmlFor="break-timer-time"
       >
         <small
-          className=""
+          className="css-0"
         >
           Shown in NaN minutes of usage
         </small>
       </label>
       <input
         backgroundColor="mischka"
-        className="css-b9abf0 css-prcfqy css-h8iwlx css-10o9fv1 css-1okiobr css-1pev02g css-16qvk6d"
+        className="css-1hi28e2"
         color="outerSpace"
         id="break-timer-time"
         onChange={[Function]}

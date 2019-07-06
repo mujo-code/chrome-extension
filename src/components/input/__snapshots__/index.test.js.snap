@@ -2,22 +2,22 @@
 
 exports[`Input should match snapshot 1`] = `
 <div
-  className="css-1cqgl9p css-5uyuv6"
+  className="css-j7qwjs"
 >
   <label
-    className="css-1d0qo6a css-1kvvogt css-mhk3h4"
+    className="css-1w1bss4"
     color="mischka"
     htmlFor="label-is-required"
   >
     <small
-      className=""
+      className="css-0"
     >
       Label is Required
     </small>
   </label>
   <input
     backgroundColor="mischka"
-    className="css-b9abf0 css-prcfqy css-h8iwlx css-10o9fv1 css-1okiobr css-1pev02g css-ou8fjb css-16qvk6d"
+    className="css-yd3hjj"
     color="outerSpace"
     id="label-is-required"
     type="text"

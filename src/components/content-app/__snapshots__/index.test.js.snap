@@ -2,22 +2,22 @@
 
 exports[`Async ContentApp ContentApp should match snapshot 1`] = `
 <div
-  className="css-1yv2jt6 css-16qvk6d css-83d5g6"
+  className="css-2222b7"
   data-mujo={true}
   isOpen={true}
   onRequestClose={[Function]}
-  overlayClassName="mujo-modal css-1m3lehq"
+  overlayClassName="mujo-modal css-qcfpiy"
   shouldCloseOnOverlayClick={true}
 >
   <svg
-    className="css-1qcxu9b css-1ouy01g"
+    className="css-1gam40h"
     height={20}
     onClick={[Function]}
     width={19}
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      className="css-lv59v1"
+      className="css-ktq6xt"
       d="
         M9.778 6.864
         l5.754-6.1
@@ -33,28 +33,28 @@ exports[`Async ContentApp ContentApp should match snapshot 1`] = `
     />
   </svg>
   <div
-    className="css-1klwfzq css-tk92wv"
+    className="css-pjuhn5"
     onClick={[Function]}
   >
     <svg
-      className="css-1f61c8m css-8a9gku"
+      className="css-itofk0"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
-        className="css-c901fj css-6xifmd"
+        className="css-1pbyw96"
       />
       <circle
-        className="css-1xu6mku css-1yq83d0"
+        className="css-ppsveg"
       />
       <circle
-        className="css-lv59v1 css-1yq83d0"
+        className="css-1011nqc"
       />
       <g
-        className="css-1tb56z6"
+        className="css-1itd6tp"
       >
         <text
-          className="css-1d0qo6a css-ou8fjb css-bsai6x css-c901fj css-kezvte css-f02zlw css-16uyi9m css-mhk3h4"
+          className="css-sj3ou3"
           textAnchor="middle"
           x={120}
           y={128}
@@ -65,17 +65,17 @@ exports[`Async ContentApp ContentApp should match snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-vqh3cg"
+    className="css-ct62jg"
   >
     <p
-      className="css-qpwegv css-6xdpdk css-1ypmooz css-h89647 css-nxjalj css-2zzudi css-mhk3h4"
+      className="css-flbz4r"
     >
       The site 
       localhost
        was actively viewed for
        
       <span
-        className="css-hukeue"
+        className="css-1fyhpnh"
       >
         2 milliseconds
       </span>
@@ -83,7 +83,7 @@ exports[`Async ContentApp ContentApp should match snapshot 1`] = `
       since your last break. Right now is a good time to take a break
     </p>
     <button
-      className="css-1vu1all css-1lkqdt0 css-1udh8mm css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-13azwyo css-1kvvogt css-ou8fjb"
+      className="css-1so2x5b"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
