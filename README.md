@@ -6,7 +6,7 @@ Mujō is a Chrome Extension built in React. It slow gets rid of items that you u
 
 - [React](https://github.com/facebook/react)
 - [Create React App](https://github.com/facebook/create-react-app)
-- [Glamor](https://github.com/jcblw/box)
+- [EmotionJS](https://emotion.sh/docs/)
 - [Box](https://github.com/jcblw/box)
 
 ## Setup
