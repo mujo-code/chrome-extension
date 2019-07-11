@@ -37,6 +37,7 @@ export const useExtension = () => {
   const [appReady, setAppReady] = useState(false)
   const [playerIsOpen, setPlayerIsOpen] = useState(false)
   const [selectedSegment, setSelectedSegment] = useState(null)
+  const [upsellModal, setUpsellModal] = useState(null)
   const [alarmEnabled, setAlarmEnabled] = useStorage(ALARM_KEY)
   const [topSites, setTopSites] = useStorage(TOP_SITES_KEY)
   const [siteTimes, setSiteTimes] = useStorage(SITE_TIME_KEY)
@@ -110,6 +111,17 @@ export const useExtension = () => {
       enabled,
     })
     const nextBreakTimers = create(breakTimers, url, nextBreakTimer)
+    const enabledTimers = Object.keys(nextBreakTimers).filter(
+      key => nextBreakTimers[key].enabled
+    )
+    if (enabledTimers.length > 5) {
+      setUpsellModal({
+        name: 'breakTimerMax',
+        url: shortURL(url),
+        onClick: () => setUpsellModal(null),
+      })
+      return
+    }
     updateBreakTimers(nextBreakTimers)
   }
 
@@ -155,6 +167,7 @@ export const useExtension = () => {
       selectedSegment,
       playerIsOpen,
       activityNumber,
+      upsellModal,
     },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
@@ -165,6 +178,7 @@ export const useExtension = () => {
       setBreakTimer,
       setSelectedSegment,
       setPlayerIsOpen,
+      setUpsellModal,
     },
   ]
 }

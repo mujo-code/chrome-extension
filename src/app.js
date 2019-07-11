@@ -7,6 +7,7 @@ import { Player } from './components/player'
 import { ScreenTime } from './components/screen-time'
 import { ToolTip } from './components/tool-tip'
 import { TopSites } from './components/top-sites'
+import { UpsellModal } from './components/upsell-modal'
 import { SCREEN_TIME_FEATURE } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
@@ -45,6 +46,7 @@ const App = () => {
       appReady,
       selectedSegment,
       playerIsOpen,
+      upsellModal,
     },
     {
       setAlarmEnabled,
@@ -54,6 +56,7 @@ const App = () => {
       setBreakTimer,
       setSelectedSegment,
       setPlayerIsOpen,
+      setUpsellModal,
     },
   ] = useExtension()
   const theme = useTheme()
@@ -189,6 +192,15 @@ const App = () => {
           </Box>
         </>
       ) : null}
+      {upsellModal && (
+        <UpsellModal
+          context={upsellModal}
+          isOpen={true}
+          onRequestClose={() => {
+            setUpsellModal(null)
+          }}
+        />
+      )}
     </Box>
   )
 }
