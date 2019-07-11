@@ -1,5 +1,5 @@
+import { css } from '@emotion/core'
 import { Box } from '@jcblw/box'
-import { css } from 'glamor'
 import React from 'react'
 import { createGraphAttibutes } from './attributes'
 

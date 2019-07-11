@@ -2,12 +2,12 @@
 
 exports[`ScreenTime should match snapshot 1`] = `
 <div
-  className="css-mfy564 css-1cqgl9p css-5uyuv6 css-1ivoip3 css-1k8tu3j css-1yv2jt6"
+  className="css-1yoh2yd"
   layer="1"
   position="relative"
 >
   <h4
-    className="css-h3zoee css-c1fjig css-1kvvogt css-dw3c54 css-mhk3h4"
+    className="css-1khq1ir"
     color="mischka"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -15,32 +15,32 @@ exports[`ScreenTime should match snapshot 1`] = `
   >
     Screen Time 
     <sup
-      className="css-mhk3h4"
+      className="css-xonfx3"
       color="color"
     >
       BETA
     </sup>
     <div
-      className=""
+      className="css-0"
       position="relative"
     >
       <div
-        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        className="css-1cncp8y"
         position="absolute"
       >
         <span
           backgroundColor="mischka"
-          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          className="css-1bxc77d"
           color="outerSpace"
           position="relative"
         >
           <div
             backgroundColor="mischka"
-            className="css-1tdptiz css-1ijci28"
+            className="css-12ece8u"
             position="absolute"
           />
           <div
-            className="css-4ptacf"
+            className="css-4obz46"
             position="relative"
           >
             Screen time is the time viewing sites between your breaks
@@ -50,7 +50,7 @@ exports[`ScreenTime should match snapshot 1`] = `
     </div>
   </h4>
   <svg
-    className=""
+    className="css-0"
     height="275px"
     style={
       Object {
@@ -61,11 +61,11 @@ exports[`ScreenTime should match snapshot 1`] = `
     width="600px"
   >
     <g
-      className=""
+      className="css-0"
       transform="rotate(-89, 300, 137.5)"
     >
       <path
-        className="css-dw3c54 css-c5mv14"
+        className="css-e5mitn"
         d="M 400 137.5 A 100 100 0 0 1 254.78696143925166 226.69518565541688"
         fill="transparent"
         onClick={[Function]}
@@ -74,7 +74,7 @@ exports[`ScreenTime should match snapshot 1`] = `
         strokeWidth={16}
       />
       <path
-        className="css-dw3c54 css-c5mv14"
+        className="css-e5mitn"
         d="M 231.95291274890502 210.77751303532256 A 100 100 0 0 1 243.56355381395008 54.947425588967306"
         fill="transparent"
         onClick={[Function]}
@@ -83,7 +83,7 @@ exports[`ScreenTime should match snapshot 1`] = `
         strokeWidth={16}
       />
       <path
-        className="css-dw3c54 css-c5mv14"
+        className="css-e5mitn"
         d="M 268.50437935300914 42.58937951914527 A 100 100 0 0 1 383.37096071317376 82.27968752567193"
         fill="transparent"
         onClick={[Function]}
@@ -92,7 +92,7 @@ exports[`ScreenTime should match snapshot 1`] = `
         strokeWidth={16}
       />
       <path
-        className="css-dw3c54 css-c5mv14"
+        className="css-e5mitn"
         d="M 395.36209200496467 107.39897994358567 A 100 100 0 0 1 396.1261695938319 109.93626441830011"
         fill="transparent"
         onClick={[Function]}
@@ -103,7 +103,7 @@ exports[`ScreenTime should match snapshot 1`] = `
     </g>
     <text
       alignmentBaseline="baseline"
-      className="css-dw3c54"
+      className="css-4g6ai3"
       fill="mischka"
       onClick={[Function]}
       textAnchor="start"
@@ -114,7 +114,7 @@ exports[`ScreenTime should match snapshot 1`] = `
     </text>
     <text
       alignmentBaseline="hanging"
-      className="css-dw3c54"
+      className="css-4g6ai3"
       fill="mischka"
       onClick={[Function]}
       textAnchor="end"
@@ -125,7 +125,7 @@ exports[`ScreenTime should match snapshot 1`] = `
     </text>
     <text
       alignmentBaseline="baseline"
-      className="css-dw3c54"
+      className="css-4g6ai3"
       fill="mischka"
       onClick={[Function]}
       textAnchor="end"
@@ -136,7 +136,7 @@ exports[`ScreenTime should match snapshot 1`] = `
     </text>
     <text
       alignmentBaseline="baseline"
-      className="css-dw3c54"
+      className="css-4g6ai3"
       fill="mischka"
       onClick={[Function]}
       textAnchor="end"
@@ -148,7 +148,7 @@ exports[`ScreenTime should match snapshot 1`] = `
   </svg>
   <button
     backgroundColor="outerSpace"
-    className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt"
+    className="css-15foh21"
     color="mischka"
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -158,30 +158,30 @@ exports[`ScreenTime should match snapshot 1`] = `
   >
     Enable
     <div
-      className=""
+      className="css-0"
       position="relative"
     >
       <div
-        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        className="css-1cncp8y"
         position="absolute"
       >
         <span
           backgroundColor="mischka"
-          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          className="css-1bxc77d"
           color="outerSpace"
           position="relative"
         >
           <div
             backgroundColor="mischka"
-            className="css-1tdptiz css-1ijci28"
+            className="css-12ece8u"
             position="absolute"
           />
           <div
-            className="css-4ptacf"
+            className="css-4obz46"
             position="relative"
           >
             <span
-              className=""
+              className="css-0"
             >
               Screen time will need to ask for some elevated permissions to track viewing times.
             </span>
@@ -195,12 +195,12 @@ exports[`ScreenTime should match snapshot 1`] = `
 
 exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = `
 <div
-  className="css-mfy564 css-1cqgl9p css-5uyuv6 css-1ivoip3 css-1k8tu3j css-1yv2jt6"
+  className="css-1yoh2yd"
   layer="1"
   position="relative"
 >
   <h4
-    className="css-h3zoee css-c1fjig css-1kvvogt css-dw3c54 css-mhk3h4"
+    className="css-1khq1ir"
     color="mischka"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -208,32 +208,32 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
   >
     Screen Time 
     <sup
-      className="css-mhk3h4"
+      className="css-xonfx3"
       color="color"
     >
       BETA
     </sup>
     <div
-      className=""
+      className="css-0"
       position="relative"
     >
       <div
-        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        className="css-1cncp8y"
         position="absolute"
       >
         <span
           backgroundColor="mischka"
-          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          className="css-1bxc77d"
           color="outerSpace"
           position="relative"
         >
           <div
             backgroundColor="mischka"
-            className="css-1tdptiz css-1ijci28"
+            className="css-12ece8u"
             position="absolute"
           />
           <div
-            className="css-4ptacf"
+            className="css-4obz46"
             position="relative"
           >
             Screen time is the time viewing sites between your breaks
@@ -243,23 +243,23 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
     </div>
   </h4>
   <div
-    className=""
+    className="css-0"
   >
     <svg
-      className=""
+      className="css-0"
       height="250"
       width="600"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        className=""
+        className="css-0"
         d="M19 125.5h566"
         stroke="outerSpace"
         strokeLinecap="round"
         strokeWidth="8"
       />
       <circle
-        className=""
+        className="css-0"
         cx="235.5"
         cy="125.5"
         fill="gravel"
@@ -269,7 +269,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         strokeWidth="8"
       />
       <circle
-        className=""
+        className="css-0"
         cx="521.5"
         cy="125.5"
         fill="gravel"
@@ -279,7 +279,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         strokeWidth="8"
       />
       <circle
-        className=""
+        className="css-0"
         cx="64.5"
         cy="125.5"
         fill="gravel"
@@ -289,7 +289,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         strokeWidth="8"
       />
       <circle
-        className=""
+        className="css-0"
         cx="364.5"
         cy="39.5"
         fill="outerSpace"
@@ -297,7 +297,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         r="26.5"
       />
       <circle
-        className=""
+        className="css-0"
         cx="456"
         cy="126"
         fill="outerSpace"
@@ -305,7 +305,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         r="15"
       />
       <circle
-        className=""
+        className="css-0"
         cx="419"
         cy="126"
         fill="outerSpace"
@@ -314,7 +314,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       />
     </svg>
     <p
-      className="css-1d0qo6a css-ou8fjb css-1p3cmt4 css-mhk3h4"
+      className="css-1hhdzfd"
       color="color"
     >
       Explore more, there is not enough data to show you anything yet.
@@ -322,7 +322,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
   </div>
   <button
     backgroundColor="outerSpace"
-    className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt"
+    className="css-15foh21"
     color="mischka"
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -332,30 +332,30 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
   >
     Enable
     <div
-      className=""
+      className="css-0"
       position="relative"
     >
       <div
-        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        className="css-1cncp8y"
         position="absolute"
       >
         <span
           backgroundColor="mischka"
-          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          className="css-1bxc77d"
           color="outerSpace"
           position="relative"
         >
           <div
             backgroundColor="mischka"
-            className="css-1tdptiz css-1ijci28"
+            className="css-12ece8u"
             position="absolute"
           />
           <div
-            className="css-4ptacf"
+            className="css-4obz46"
             position="relative"
           >
             <span
-              className=""
+              className="css-0"
             >
               Screen time will need to ask for some elevated permissions to track viewing times.
             </span>
@@ -365,25 +365,16 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
     </div>
   </button>
   <div
-    className="css-1cqgl9p css-5uyuv6 css-16qvk6d css-z86ji4 css-1xnhsiz"
-    css={
-      Object {
-        "height": "60vh",
-        "maxHeight": "60vh",
-        "maxWidth": "35vw",
-        "transition": "all .5s",
-        "width": "35vw",
-      }
-    }
+    className="css-17ah7x5"
     data-mujo={true}
     isOpen={true}
     onRequestClose={[Function]}
     outlineColor="saltBox"
-    overlayClassName="mujo-modal css-1m3lehq"
+    overlayClassName="mujo-modal css-qcfpiy"
     shouldCloseOnOverlayClick={true}
   >
     <svg
-      className="css-1ouy01g"
+      className="css-1mv301s"
       height={20}
       onClick={[Function]}
       position="absolute"
@@ -391,7 +382,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        className=""
+        className="css-0"
         d="
         M9.778 6.864
         l5.754-6.1
@@ -408,24 +399,24 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       />
     </svg>
     <div
-      className="css-mg5526 css-1ssqu81 css-1klwfzq css-h8iwlx css-10o9fv1"
+      className="css-yzx775"
     >
       <h4
-        className="css-1kvvogt css-mhk3h4"
+        className="css-30v94s"
         color="mischka"
       >
         Screen Time for:
       </h4>
     </div>
     <div
-      className="css-mfy564 css-1cqgl9p css-5uyuv6"
+      className="css-k0sogd"
       overflow="scroll"
     >
       <div
-        className="css-1cqgl9p css-1owbun0 css-h8iwlx css-10o9fv1"
+        className="css-187idct"
       >
         <h2
-          className="css-bsai6x css-1okiobr css-1pev02g css-xm5bud css-2zzudi css-fxshz5 css-dw3c54 css-mhk3h4"
+          className="css-1f6bnk1"
           color="white"
           onClick={[Function]}
           overflow="hidden"
@@ -435,10 +426,10 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
         </h2>
       </div>
       <div
-        className="css-1cqgl9p css-1owbun0 css-h8iwlx css-10o9fv1"
+        className="css-187idct"
       >
         <h2
-          className="css-bsai6x css-1okiobr css-1pev02g css-xm5bud css-2zzudi css-fxshz5 css-dw3c54 css-mhk3h4"
+          className="css-1f6bnk1"
           color="white"
           onClick={[Function]}
           overflow="hidden"
@@ -454,12 +445,12 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
 
 exports[`ScreenTime should match snapshot with a selected segment 1`] = `
 <div
-  className="css-mfy564 css-1cqgl9p css-5uyuv6 css-1ivoip3 css-1k8tu3j css-1yv2jt6"
+  className="css-1yoh2yd"
   layer="1"
   position="relative"
 >
   <h4
-    className="css-h3zoee css-c1fjig css-1kvvogt css-dw3c54 css-mhk3h4"
+    className="css-1khq1ir"
     color="mischka"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -467,32 +458,32 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
   >
     Screen Time 
     <sup
-      className="css-mhk3h4"
+      className="css-xonfx3"
       color="color"
     >
       BETA
     </sup>
     <div
-      className=""
+      className="css-0"
       position="relative"
     >
       <div
-        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        className="css-1cncp8y"
         position="absolute"
       >
         <span
           backgroundColor="mischka"
-          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          className="css-1bxc77d"
           color="outerSpace"
           position="relative"
         >
           <div
             backgroundColor="mischka"
-            className="css-1tdptiz css-1ijci28"
+            className="css-12ece8u"
             position="absolute"
           />
           <div
-            className="css-4ptacf"
+            className="css-4obz46"
             position="relative"
           >
             Screen time is the time viewing sites between your breaks
@@ -502,23 +493,23 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
     </div>
   </h4>
   <div
-    className=""
+    className="css-0"
   >
     <svg
-      className=""
+      className="css-0"
       height="250"
       width="600"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        className=""
+        className="css-0"
         d="M19 125.5h566"
         stroke="outerSpace"
         strokeLinecap="round"
         strokeWidth="8"
       />
       <circle
-        className=""
+        className="css-0"
         cx="235.5"
         cy="125.5"
         fill="gravel"
@@ -528,7 +519,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
         strokeWidth="8"
       />
       <circle
-        className=""
+        className="css-0"
         cx="521.5"
         cy="125.5"
         fill="gravel"
@@ -538,7 +529,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
         strokeWidth="8"
       />
       <circle
-        className=""
+        className="css-0"
         cx="64.5"
         cy="125.5"
         fill="gravel"
@@ -548,7 +539,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
         strokeWidth="8"
       />
       <circle
-        className=""
+        className="css-0"
         cx="364.5"
         cy="39.5"
         fill="outerSpace"
@@ -556,7 +547,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
         r="26.5"
       />
       <circle
-        className=""
+        className="css-0"
         cx="456"
         cy="126"
         fill="outerSpace"
@@ -564,7 +555,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
         r="15"
       />
       <circle
-        className=""
+        className="css-0"
         cx="419"
         cy="126"
         fill="outerSpace"
@@ -573,7 +564,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       />
     </svg>
     <p
-      className="css-1d0qo6a css-ou8fjb css-1p3cmt4 css-mhk3h4"
+      className="css-1hhdzfd"
       color="color"
     >
       Explore more, there is not enough data to show you anything yet.
@@ -581,7 +572,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
   </div>
   <button
     backgroundColor="outerSpace"
-    className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt"
+    className="css-15foh21"
     color="mischka"
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -591,30 +582,30 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
   >
     Enable
     <div
-      className=""
+      className="css-0"
       position="relative"
     >
       <div
-        className="css-1yv2jt6 css-1ivoip3 css-1cqgl9p css-1vwvlri"
+        className="css-1cncp8y"
         position="absolute"
       >
         <span
           backgroundColor="mischka"
-          className="css-1xg3sco css-1okiobr css-1pev02g css-1jw2j5g css-fxshz5 css-xm5bud"
+          className="css-1bxc77d"
           color="outerSpace"
           position="relative"
         >
           <div
             backgroundColor="mischka"
-            className="css-1tdptiz css-1ijci28"
+            className="css-12ece8u"
             position="absolute"
           />
           <div
-            className="css-4ptacf"
+            className="css-4obz46"
             position="relative"
           >
             <span
-              className=""
+              className="css-0"
             >
               Screen time will need to ask for some elevated permissions to track viewing times.
             </span>
@@ -624,25 +615,16 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
     </div>
   </button>
   <div
-    className="css-1cqgl9p css-5uyuv6 css-16qvk6d css-z86ji4 css-1xnhsiz"
-    css={
-      Object {
-        "height": "60vh",
-        "maxHeight": "60vh",
-        "maxWidth": "35vw",
-        "transition": "all .5s",
-        "width": "35vw",
-      }
-    }
+    className="css-17ah7x5"
     data-mujo={true}
     isOpen={true}
     onRequestClose={[Function]}
     outlineColor="saltBox"
-    overlayClassName="mujo-modal css-1m3lehq"
+    overlayClassName="mujo-modal css-qcfpiy"
     shouldCloseOnOverlayClick={true}
   >
     <svg
-      className="css-1ouy01g"
+      className="css-1mv301s"
       height={20}
       onClick={[Function]}
       position="absolute"
@@ -650,7 +632,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        className=""
+        className="css-0"
         d="
         M9.778 6.864
         l5.754-6.1
@@ -667,31 +649,31 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       />
     </svg>
     <div
-      className="css-mg5526 css-1ssqu81 css-1klwfzq css-h8iwlx css-10o9fv1"
+      className="css-yzx775"
     >
       <h4
-        className="css-1kvvogt css-mhk3h4"
+        className="css-30v94s"
         color="mischka"
       >
         Screen Time for:
       </h4>
     </div>
     <div
-      className="css-mfy564 css-1cqgl9p css-5uyuv6"
+      className="css-k0sogd"
       overflow="scroll"
     >
       <div
-        className="css-1cqgl9p css-5uyuv6 css-mfy564 css-h8iwlx css-10o9fv1"
+        className="css-dalpef"
         overflow="scroll"
       >
         <h2
-          className="css-c1fjig css-bsai6x css-mhk3h4"
+          className="css-132p4b7"
           color="mischka"
         >
           foo.com
         </h2>
         <progress
-          className="css-ejnfd2"
+          className="css-mlu9c0"
           max="100"
           value={67}
         >
@@ -699,7 +681,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
           %
         </progress>
         <p
-          className="css-h3zoee css-c1fjig css-1ypmooz css-mhk3h4"
+          className="css-1p1wrjs"
           color="color"
         >
           The site 
@@ -707,7 +689,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
            was actively viewed for
            
           <span
-            className=""
+            className="css-0"
             color="mischka"
           >
             6 seconds
@@ -718,7 +700,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
           % of your web viewing.
         </p>
         <p
-          className="css-h3zoee css-ou8fjb css-1p3cmt4 css-mhk3h4"
+          className="css-tmwlom"
           color="color"
         >
           These times are not aways going to represent a 100% view of your viewing habits.
@@ -726,17 +708,17 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       </div>
       <div
         backgroundColor="gravel"
-        className="css-mg5526 css-1cqgl9p css-1owbun0 css-h8iwlx css-10o9fv1 css-cmwu1c css-1ssqu81"
+        className="css-1yqdfgl"
       >
         <div
-          className="css-mfy564 css-1cqgl9p"
+          className="css-i3jcei"
         />
         <div
-          className="css-mg5526 css-1cqgl9p"
+          className="css-wjp2bi"
         >
           <a
             backgroundColor="saltBox"
-            className="css-h0biv2 css-5uyuv6 css-1k8tu3j css-1okiobr css-yxn9bq css-1pev02g css-7ep5t css-b9abf0 css-1xg3sco css-1dnwvu3 css-1kvvogt css-xm5bud"
+            className="css-1akodnm"
             color="white"
             onClick={[Function]}
             onMouseEnter={[Function]}

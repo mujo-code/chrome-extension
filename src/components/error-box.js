@@ -1,6 +1,6 @@
+import { css } from '@emotion/core'
 import { Box } from '@jcblw/box'
 import ErrorStackParser from 'error-stack-parser'
-import { css } from 'glamor'
 import React from 'react'
 import { mapStackTrace } from 'sourcemapped-stacktrace'
 import { exception } from '../lib/tracker'

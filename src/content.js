@@ -1,7 +1,10 @@
+import createCache from '@emotion/cache'
+import { CacheProvider } from '@emotion/core'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useColorScheme } from 'use-color-scheme'
 import ContentApp from './components/content-app'
+import { Font } from './components/fonts'
 import {
   onVisibilityChange,
   onViewingStart,
@@ -22,17 +25,23 @@ const startTimer = () => {
 
 const renderContentApp = () => {
   // React app in content script
+  const id = 'mujo-extension'
   const el = document.createElement('div')
-  el.id = 'mujo-extension'
+  // ensures we do not collide with other css
+  const cache = createCache({ key: id })
+  el.id = id
 
   document.body.appendChild(el)
 
   const App = () => {
     const { scheme } = useColorScheme()
     return (
-      <ColorThemeProvider value={scheme}>
-        <ContentApp />
-      </ColorThemeProvider>
+      <CacheProvider value={cache}>
+        <ColorThemeProvider value={scheme}>
+          <Font />
+          <ContentApp />
+        </ColorThemeProvider>
+      </CacheProvider>
     )
   }
 

@@ -1,5 +1,5 @@
+import { css, Global } from '@emotion/core'
 import { Box, styleGuide } from '@jcblw/box'
-import { css } from 'glamor'
 import React, { useState } from 'react'
 import { Button } from './components/button'
 import { Span, Sup } from './components/fonts'
@@ -15,7 +15,6 @@ import { colors } from './styles/colors'
 import * as utilStyles from './styles/utils'
 
 styleGuide.push(utilStyles)
-css.global('body, html', { margin: 0 })
 
 const bodyBackgrounds = {
   outerSpace: `radial-gradient(ellipse at center, ${
@@ -58,15 +57,12 @@ const App = () => {
     },
   ] = useExtension()
   const theme = useTheme()
+  const { background } = theme
   const [toolTipOpen, setToolTipOpen] = useState(false)
 
   const logoSize = getFactor(activityNumber)
   const toggleHandle = (fn, value) => () => fn(!value)
-
-  css.global('body', {
-    background:
-      bodyBackgrounds[theme.background] || bodyBackgrounds.outerSpace,
-  })
+  const bg = bodyBackgrounds[background] || bodyBackgrounds.outerSpace
 
   return (
     <Box
@@ -76,6 +72,17 @@ const App = () => {
       position="relative"
       {...appWrapper}
     >
+      <Global
+        styles={css`
+          body,
+          html {
+            margin: 0;
+          }
+          body {
+            background: ${bg};
+          }
+        `}
+      />
       {appReady ? (
         <>
           <Box

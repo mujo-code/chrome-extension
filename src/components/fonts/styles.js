@@ -1,10 +1,4 @@
-import { css } from 'glamor'
-
-css.global('#mujo-extension *, .mujo-modal *', {
-  fontFamily: "'IBM Plex Sans', sans-serif",
-  WebkitFontSmoothing: 'antialiased',
-  MozOsxFontSmoothing: 'grayscale',
-})
+import { css } from '@emotion/core'
 
 const medium = { fontWeight: 700 }
 

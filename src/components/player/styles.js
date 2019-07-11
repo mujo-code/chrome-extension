@@ -1,4 +1,4 @@
-import { css } from 'glamor'
+import { css } from '@emotion/core'
 
 export const transition = () => css({ transition: 'all 0.7s' })
 

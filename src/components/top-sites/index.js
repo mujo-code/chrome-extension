@@ -1,5 +1,5 @@
+import { css } from '@emotion/core'
 import { Box } from '@jcblw/box'
-import { css } from 'glamor'
 import React, { useState } from 'react'
 import { useTheme } from '../../hooks/use-theme'
 import { FavRows } from '../fav-rows'

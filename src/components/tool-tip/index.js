@@ -1,10 +1,9 @@
 import { Box } from '@jcblw/box'
 import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
-import { css } from 'glamor'
 import React from 'react'
 import { useTheme } from '../../hooks/use-theme'
 
-const toolTipWrapper = css({
+const toolTipWrapper = {
   top: 0,
   left: '50%',
   height: '1px',
@@ -13,47 +12,45 @@ const toolTipWrapper = css({
   transitionDelay: '0s',
   opacity: 0,
   transform: 'translateY(-32px) scale(0)',
-})
+}
 
-const toolTipText = css({
+const toolTipText = {
   zIndex: '1',
   fontSize: '12px',
   fontWeight: 'normal',
   lineHeight: 'initial',
-})
+}
 
 const toolTipPositions = {
-  below: (offset = 0) =>
-    css({
-      transform: `translateY(${8 + offset}px) scale(1)`,
-      opacity: 1,
-      transitionDelay: '0.5s',
-      transitionDuration: '0.2s',
-    }),
-  above: (offset = 0) =>
-    css({
-      transform: `translateY(-${72 + offset}px) scale(1)`,
-      opacity: 1,
-      transitionDelay: '0.5s',
-      transitionDuration: '0.2s',
-    }),
+  below: (offset = 0) => ({
+    transform: `translateY(${8 + offset}px) scale(1)`,
+    opacity: 1,
+    transitionDelay: '0.5s',
+    transitionDuration: '0.2s',
+  }),
+  above: (offset = 0) => ({
+    transform: `translateY(-${72 + offset}px) scale(1)`,
+    opacity: 1,
+    transitionDelay: '0.5s',
+    transitionDuration: '0.2s',
+  }),
 }
 
 const trianglePositions = {
-  above: css({
+  above: {
     transform: 'rotate(45deg)',
     top: '56%',
     left: '50%',
     marginLeft: '-9px',
     zIndex: '0',
-  }),
-  below: css({
+  },
+  below: {
     transform: 'rotate(45deg)',
     top: '-8%',
     left: '50%',
     marginLeft: '-9px',
     zIndex: '0',
-  }),
+  },
 }
 
 export const ToolTip = props => {
@@ -79,8 +76,7 @@ export const ToolTip = props => {
         textAlign="center"
         justifyContent="center"
         display="flex"
-        {...toolTipWrapper}
-        {...(isOpen ? styles(offset) : {})}
+        css={[toolTipWrapper, isOpen ? styles(offset) : {}]}
       >
         <Box
           Component="span"
@@ -103,9 +99,9 @@ export const ToolTip = props => {
             borderRadius="xs"
             padding="xs"
             position="absolute"
-            {...triangleStyles}
+            css={triangleStyles}
           />
-          <Box position="relative" {...toolTipText}>
+          <Box position="relative" css={toolTipText}>
             {props.children}
           </Box>
         </Box>
