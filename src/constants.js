@@ -5,6 +5,7 @@ export const FOURTY_FIVE_MINUTES = MINUTE * 45
 export const HOUR = MINUTE * 60
 export const THREE_HOURS = HOUR * 3
 export const ALARM_DEFAULT_VALUE = true
+export const MAX_BREAKTIMERS = 5
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
@@ -44,6 +45,9 @@ export const SET_STORAGE = 'SET_STORAGE'
 export const SCREEN_TIME_FEATURE = true
 export const BREAK_TIMER_FEATURE = true
 export const SUBSCRIBE_FEATURE = false
+
+// Upsell modals
+export const MAX_BREAKTIMER_MODAL = 'breakTimerMax'
 
 // OPTIONAL permissions requested
 export const SCREEN_TIME_PERMISSIONS = {

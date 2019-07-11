@@ -12,6 +12,8 @@ import {
   ACTIVITY_NUMBER_KEY,
   ADD_BROADCAST_TAB,
   VALUE_CHANGED,
+  MAX_BREAKTIMER_MODAL,
+  MAX_BREAKTIMERS,
 } from '../constants'
 import { toSiteInfo } from '../lib/aggregation'
 import {
@@ -114,9 +116,9 @@ export const useExtension = () => {
     const enabledTimers = Object.keys(nextBreakTimers).filter(
       key => nextBreakTimers[key].enabled
     )
-    if (enabledTimers.length > 5) {
+    if (enabledTimers.length > MAX_BREAKTIMERS) {
       setUpsellModal({
-        name: 'breakTimerMax',
+        name: MAX_BREAKTIMER_MODAL,
         url: shortURL(url),
         onClick: () => setUpsellModal(null),
       })
@@ -179,6 +181,7 @@ export const useExtension = () => {
       setSelectedSegment,
       setPlayerIsOpen,
       setUpsellModal,
+      updateBreakTimers,
     },
   ]
 }
