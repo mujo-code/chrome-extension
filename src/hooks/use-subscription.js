@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { compose } from '../lib/functional'
+import { compose, first } from '../lib/functional'
 import {
   buy as buyProduct,
   getPurchases,
@@ -41,6 +41,11 @@ export const useSubscription = () => {
     [setPurchaseError, setUser, setProducts]
   )
 
+  const getProduct = useCallback(
+    sku => first(products.filter(product => product.sku === sku)),
+    [products]
+  )
+
   useEffect(() => {
     if (!isInitialized) {
       setIsInitialized(true)
@@ -53,5 +58,6 @@ export const useSubscription = () => {
     products,
     buy,
     purchaseError,
+    getProduct,
   }
 }

@@ -14,6 +14,8 @@ import {
   VALUE_CHANGED,
   MAX_BREAKTIMER_MODAL,
   MAX_BREAKTIMERS,
+  SUB_DETAILS_MODAL,
+  CURRENT_SUB_SKU,
 } from '../constants'
 import { toSiteInfo } from '../lib/aggregation'
 import {
@@ -120,7 +122,11 @@ export const useExtension = () => {
       setUpsellModal({
         name: MAX_BREAKTIMER_MODAL,
         url: shortURL(url),
-        onClick: () => setUpsellModal(null),
+        onClick: () =>
+          setUpsellModal({
+            name: SUB_DETAILS_MODAL,
+            sku: CURRENT_SUB_SKU,
+          }),
       })
       return
     }

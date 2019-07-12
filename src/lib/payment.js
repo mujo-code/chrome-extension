@@ -3,7 +3,6 @@ import { promisifyOptions } from './promisify'
 const env = process.env.PRODUCT_ENV || 'prod'
 // TODO make this less scarey
 export const paymentsAPI = () => window.google.payments.inapp
-
 export const getProducts = async () => {
   const options = { parameters: { env } }
   const response = await promisifyOptions(
