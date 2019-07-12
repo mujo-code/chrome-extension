@@ -15,7 +15,7 @@ action "Lint Code" {
 }
 
 action "Test Code" {
-  uses = "./puppeteer-headful"
+  uses = "./puppeteer-headful/"
   needs = "Lint Code"
   runs = "npm"
   args = "test",

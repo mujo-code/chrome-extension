@@ -5,8 +5,8 @@ LABEL "com.github.actions.description"="A GitHub Action / Docker image for Puppe
 LABEL "com.github.actions.icon"="globe"
 LABEL "com.github.actions.color"="green"
 
-LABEL "repository"="http://github.com/jcble/puppeteer-headful"
-LABEL "homepage"="http://github.com/jcblw/puppeteer-headful"
+LABEL "repository"="https://github.com/jcblw/puppeteer-headful"
+LABEL "homepage"="https://github.com/jcblw/puppeteer-headful"
 LABEL "maintainer"="Jacob Lowe"
 
 RUN  apt-get update \
