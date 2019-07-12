@@ -3,13 +3,6 @@ workflow "Test Workflow" {
   resolves = ["Test Code"]
 }
 
-action "Test" {
-  uses = "ianwalter/puppeteer@v2.0.0"
-  needs = ["Install"]
-  runs = "yarn"
-  args = "test"
-}
-
 action "Install Dependencies" {
   uses = "actions/npm@master"
   args = "install"
