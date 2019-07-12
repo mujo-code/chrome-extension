@@ -57,7 +57,10 @@ export const Modal = props => {
     'getStyles',
     'modalMaxHeight',
     'children',
-    'css'
+    'css',
+    'closeColor',
+    'color',
+    'background'
   )
   return (
     <ClassNames>
@@ -68,11 +71,11 @@ export const Modal = props => {
           className={css([
             ...results.styles,
             getModalContent({
-              background: theme.background,
-              color: theme.foreground,
+              background: props.background || theme.background,
+              color: props.color || theme.foreground,
               modalMaxHeight,
             }),
-            otherProps.css,
+            props.css,
           ])}
           overlayClassName={`mujo-modal ${css(
             getOverlayClass(theme.backgroundSecondary)
@@ -82,7 +85,7 @@ export const Modal = props => {
           <Close
             position="absolute"
             css={{ top: 24, right: 24 }}
-            fill={theme.foreground}
+            fill={props.closeColor || theme.foreground}
             onClick={props.onRequestClose}
           />
           {props.children}
