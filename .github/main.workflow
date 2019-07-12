@@ -3,6 +3,13 @@ workflow "Test Workflow" {
   resolves = ["Test Code"]
 }
 
+action "Test" {
+  uses = "ianwalter/puppeteer@v2.0.0"
+  needs = ["Install"]
+  runs = "yarn"
+  args = "test"
+}
+
 action "Install Dependencies" {
   uses = "actions/npm@master"
   args = "install"
@@ -15,9 +22,10 @@ action "Lint Code" {
 }
 
 action "Test Code" {
+  uses = "./puppeteer-headful"
   needs = "Lint Code"
-  uses = "actions/npm@master"
-  args = "test"
+  runs = "npm"
+  args = "test",
   env = {
     CI = "true"
   }

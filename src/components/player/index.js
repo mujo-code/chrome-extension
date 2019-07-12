@@ -43,6 +43,7 @@ export const Player = props => {
   const { foreground, background, highlight } = useTheme()
   return (
     <Box
+      data-testid="player"
       paddingTop={isOpen ? 'none' : 'm'}
       {...transition(props)}
       {...otherProps}
