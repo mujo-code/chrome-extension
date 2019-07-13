@@ -12,20 +12,26 @@ const ARTIFACTS_PATH = path.resolve(__dirname, '../artifacts')
 
 const artifact = filename => path.resolve(ARTIFACTS_PATH, filename)
 
+console.log({ ENV: process.env })
+
 beforeAll(async () => {
   await mkdir(ARTIFACTS_PATH)
   browser = await puppeteer.launch({
+    executablePath: 'google-chrome-unstable',
     headless: false,
     args: [
       `--disable-extensions-except=${BUILD_PATH}`,
       `--load-extension=${BUILD_PATH}`,
+      '--no-sandbox',
     ],
   })
   page = await browser.newPage()
 })
 
 afterAll(async () => {
-  await browser.close()
+  if (browser) {
+    await browser.close()
+  }
 })
 
 test('screenshot should be good', async () => {
