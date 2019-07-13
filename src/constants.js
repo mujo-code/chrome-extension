@@ -6,6 +6,7 @@ export const HOUR = MINUTE * 60
 export const THREE_HOURS = HOUR * 3
 export const ALARM_DEFAULT_VALUE = true
 export const MAX_BREAKTIMERS = 5
+export const APP_READY_KEY = '__mujo_ready__'
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key

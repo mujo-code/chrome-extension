@@ -14,6 +14,7 @@ import {
   VALUE_CHANGED,
   MAX_BREAKTIMER_MODAL,
   MAX_BREAKTIMERS,
+  APP_READY_KEY,
 } from '../constants'
 import { toSiteInfo } from '../lib/aggregation'
 import {
@@ -79,6 +80,10 @@ export const useExtension = () => {
       message(NEW_TAB_CONNECTION)
       message(ADD_BROADCAST_TAB)
       setAppReady(true)
+      if (typeof window[APP_READY_KEY] === 'function') {
+        window[APP_READY_KEY]()
+      }
+      window[APP_READY_KEY] = true
       const { site, play } = queryParams(window.location.href)
       if (play) {
         setPlayerIsOpen(true)
