@@ -23,6 +23,5 @@ action "Test Code" {
   args = ["test"],
   env = {
     CI = "true"
-    DISPLAY = ":99.0"
   }
 }
