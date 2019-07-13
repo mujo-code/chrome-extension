@@ -1,6 +1,4 @@
 import path from 'path'
-import { promisify } from 'util'
-import mkdirp from 'mkdirp'
 import puppeteer from 'puppeteer'
 import {
   SET_STORAGE,
@@ -11,17 +9,11 @@ import { wait } from './lib/async-helpers'
 
 const TEST_TIMEOUT = 10000 // extend test timeout sinces its E2E
 
-const mkdir = promisify(mkdirp)
-
 let browser
 let page
 const BUILD_PATH = path.resolve(__dirname, '../build')
-const ARTIFACTS_PATH = path.resolve(__dirname, '../artifacts')
-
-const artifact = filename => path.resolve(ARTIFACTS_PATH, filename)
 
 beforeAll(async () => {
-  await mkdir(ARTIFACTS_PATH)
   browser = await puppeteer.launch({
     executablePath: process.env.PUPPETEER_EXEC_PATH,
     headless: false,
@@ -71,8 +63,8 @@ test(
   async () => {
     await page.goto('chrome://newtab')
     await waitDOMLoaded()
-    await page.screenshot({ path: artifact('newtab-initial.png') })
-    expect(true).toBe(true)
+    const screenshot = await page.screenshot()
+    expect(screenshot).toMatchImageSnapshot()
   },
   TEST_TIMEOUT
 )
@@ -121,7 +113,8 @@ test(
     await wait(500)
     const el = await page.$('[data-testid="graph"]')
     expect(el).not.toBe(null)
-    await page.screenshot({ path: artifact('charts.png') })
+    const screenshot = await page.screenshot()
+    expect(screenshot).toMatchImageSnapshot()
   },
   TEST_TIMEOUT
 )
