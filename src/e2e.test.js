@@ -1,7 +1,15 @@
-const path = require('path')
-const { promisify } = require('util')
-const mkdirp = require('mkdirp')
-const puppeteer = require('puppeteer')
+import path from 'path'
+import { promisify } from 'util'
+import mkdirp from 'mkdirp'
+import puppeteer from 'puppeteer'
+import {
+  SET_STORAGE,
+  SITE_TIME_KEY,
+  APP_READY_KEY,
+} from './constants'
+import { wait } from './lib/async-helpers'
+
+const TEST_TIMEOUT = 10000 // extend test timeout sinces its E2E
 
 const mkdir = promisify(mkdirp)
 
@@ -12,20 +20,21 @@ const ARTIFACTS_PATH = path.resolve(__dirname, '../artifacts')
 
 const artifact = filename => path.resolve(ARTIFACTS_PATH, filename)
 
-console.log({ ENV: process.env })
-
 beforeAll(async () => {
   await mkdir(ARTIFACTS_PATH)
   browser = await puppeteer.launch({
-    executablePath: 'google-chrome-unstable',
+    executablePath: process.env.PUPPETEER_EXEC_PATH,
     headless: false,
     args: [
       `--disable-extensions-except=${BUILD_PATH}`,
       `--load-extension=${BUILD_PATH}`,
       '--no-sandbox',
     ],
+    defaultViewport: {
+      width: 1280,
+      height: 800,
+    },
   })
-  page = await browser.newPage()
 })
 
 afterAll(async () => {
@@ -34,15 +43,85 @@ afterAll(async () => {
   }
 })
 
-test('screenshot should be good', async () => {
-  const newpage = await browser.newPage()
-  await newpage.goto('chrome://newtab')
-  await newpage.screenshot({ path: artifact('newtab-initial.png') })
-  expect(true).toBe(true)
+beforeEach(async () => {
+  page = await browser.newPage()
 })
 
-test('newtab page should have a player', async () => {
-  await page.goto('chrome://newtab')
-  const el = await page.$$('[data-testid="player"]')
-  expect(el).not.toBe(null)
+afterEach(async () => {
+  if (page) {
+    await page.close()
+  }
 })
+
+const waitDOMLoaded = async () =>
+  page.evaluate(
+    readyKey =>
+      new Promise(resolve => {
+        if (window[readyKey]) {
+          resolve()
+          return
+        }
+        window[readyKey] = resolve
+      }),
+    APP_READY_KEY
+  )
+
+test(
+  'screenshot should be good',
+  async () => {
+    await page.goto('chrome://newtab')
+    await waitDOMLoaded()
+    await page.screenshot({ path: artifact('newtab-initial.png') })
+    expect(true).toBe(true)
+  },
+  TEST_TIMEOUT
+)
+
+test(
+  'newtab page should have a player',
+  async () => {
+    await page.goto('chrome://newtab')
+    await waitDOMLoaded()
+    const el = await page.$('[data-testid="player"]')
+    expect(el).not.toBe(null)
+  },
+  TEST_TIMEOUT
+)
+
+const screenTimeMock = {
+  'https://foo.com': 1000000,
+  'https://www.bar.com': 200000,
+  'https://qux.org': 65000,
+}
+
+test(
+  'newtab should display screen time chart',
+  async () => {
+    await page.goto('chrome://newtab')
+    await waitDOMLoaded()
+    await page.evaluate(
+      async (event, key, value) => {
+        await new Promise(resolve => {
+          chrome.runtime.sendMessage(
+            chrome.runtime.id,
+            {
+              event,
+              key,
+              value,
+            },
+            resolve
+          )
+        })
+        return [window.chrome.runtime.id, event, key, value]
+      },
+      SET_STORAGE,
+      SITE_TIME_KEY,
+      screenTimeMock
+    )
+    await wait(500)
+    const el = await page.$('[data-testid="graph"]')
+    expect(el).not.toBe(null)
+    await page.screenshot({ path: artifact('charts.png') })
+  },
+  TEST_TIMEOUT
+)

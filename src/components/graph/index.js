@@ -46,6 +46,7 @@ export const Graph = React.memo(
     const isSelectedSegment = isSelected(selected)
     return (
       <Box
+        data-testid="graph"
         Component="svg"
         width={`${width}px`}
         height={`${height}px`}
@@ -59,6 +60,7 @@ export const Graph = React.memo(
         >
           {segments.map((seg, i) => (
             <Box
+              data-testid="graph-segment"
               key={`path-${i}`}
               fill="transparent"
               strokeWidth={strokeWidth}
