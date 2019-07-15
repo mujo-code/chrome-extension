@@ -1,4 +1,5 @@
 import { promisifyOptions } from './promisify'
+import { exception } from './tracker'
 
 const env = process.env.PRODUCT_ENV || 'prod'
 // TODO make this less scarey
@@ -27,5 +28,13 @@ export const buy = sku => {
     parameters,
     sku,
   }
-  return promisifyOptions(paymentsAPI().buy, options)
+  try {
+    return promisifyOptions(paymentsAPI().buy, options)
+  } catch (e) {
+    // Logging error
+    const paymentError = new Error('Failed to purchase payment')
+    Object.assign(paymentError, e)
+    exception(paymentError)
+    throw paymentError
+  }
 }
