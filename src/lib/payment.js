@@ -1,5 +1,5 @@
 import { promisifyOptions } from './promisify'
-import { exception } from './tracker'
+import { exception, track } from './tracker'
 import { set } from './util'
 
 const env = process.env.PRODUCT_ENV || 'prod'
@@ -33,6 +33,11 @@ export const buy = async sku => {
   const { stack } = new Error()
   try {
     const ret = await promisifyOptions(paymentsAPI().buy, options)
+    track({
+      category: 'payment',
+      action: 'success',
+      label: sku,
+    })
     return ret
   } catch (e) {
     // Logging error
@@ -42,6 +47,11 @@ export const buy = async sku => {
     )
     set(paymentError, 'stack', stack)
     exception(paymentError)
+    track({
+      category: 'payment',
+      action: 'error',
+      label: paymentError.message,
+    })
     throw paymentError
   }
 }
