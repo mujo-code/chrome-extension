@@ -1,5 +1,6 @@
 import { promisifyOptions } from './promisify'
 import { exception } from './tracker'
+import { set } from './util'
 
 const env = process.env.PRODUCT_ENV || 'prod'
 // TODO make this less scarey
@@ -22,18 +23,22 @@ export const getPurchases = async () => {
   return response.response.details
 }
 
-export const buy = sku => {
+export const buy = async sku => {
   const parameters = { env }
   const options = {
     parameters,
     sku,
   }
   try {
-    return promisifyOptions(paymentsAPI().buy, options)
+    const ret = await promisifyOptions(paymentsAPI().buy, options)
+    return ret
   } catch (e) {
     // Logging error
-    const paymentError = new Error('Failed to purchase payment')
-    Object.assign(paymentError, e)
+    const type = e.response.errorType
+    const paymentError = new Error(
+      `Failed to purchase subscription [${type})]`
+    )
+    set(paymentError, 'stack', e.stack)
     exception(paymentError)
     throw paymentError
   }
