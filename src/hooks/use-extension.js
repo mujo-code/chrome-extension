@@ -27,6 +27,7 @@ import { first } from '../lib/functional'
 import { queryParams, shortURL, origin } from '../lib/url'
 import { set, create } from '../lib/util'
 import { useStorage } from './use-storage'
+import { useSubscription } from './use-subscription'
 
 export const onBackgroundMessage = updateFns => payload => {
   const { key, event } = payload
@@ -60,6 +61,7 @@ export const useExtension = () => {
   const [activityNumber, updateActivityNumber] = useStorage(
     ACTIVITY_NUMBER_KEY
   )
+  const { user } = useSubscription()
 
   const updateFns = {
     [ALARM_KEY]: setAlarmEnabled,
@@ -118,7 +120,8 @@ export const useExtension = () => {
     const enabledTimers = Object.keys(nextBreakTimers).filter(
       key => nextBreakTimers[key].enabled
     )
-    if (enabledTimers.length > MAX_BREAKTIMERS) {
+    const overLimit = enabledTimers.length > MAX_BREAKTIMERS
+    if (overLimit && !user.isSubscribed) {
       setUpsellModal({
         name: MAX_BREAKTIMER_MODAL,
         url: shortURL(url),
