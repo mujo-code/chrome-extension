@@ -7,6 +7,7 @@ export const THREE_HOURS = HOUR * 3
 export const ALARM_DEFAULT_VALUE = true
 export const MAX_BREAKTIMERS = 5
 export const CURRENT_SUB_SKU = 'discounted_early'
+export const APP_READY_KEY = '__mujo_ready__'
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
@@ -45,7 +46,7 @@ export const SET_STORAGE = 'SET_STORAGE'
 // Feature Flags
 export const SCREEN_TIME_FEATURE = true
 export const BREAK_TIMER_FEATURE = true
-export const SUBSCRIBE_FEATURE = true
+export const SUBSCRIBE_FEATURE = false
 
 // Upsell modals
 export const MAX_BREAKTIMER_MODAL = 'breakTimerMax'

@@ -34,6 +34,7 @@ exports[`Async ContentApp ContentApp should match snapshot 1`] = `
   </svg>
   <div
     className="css-pjuhn5"
+    data-testid="player"
     onClick={[Function]}
   >
     <svg
