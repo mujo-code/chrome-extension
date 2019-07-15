@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UpsellModal should match snapshot 1`] = `
+exports[`InfoModal should match snapshot 1`] = `
 <div
   className="css-1t7sqgn"
   data-mujo={true}
@@ -34,8 +34,7 @@ exports[`UpsellModal should match snapshot 1`] = `
     />
   </svg>
   <div
-    className="css-ek4z02"
-    overflow="scroll"
+    className="css-rczwh0"
   >
     <h2
       className="css-1lzekp8"
@@ -43,15 +42,17 @@ exports[`UpsellModal should match snapshot 1`] = `
     >
       Mindful to the max
     </h2>
+  </div>
+  <div
+    className="css-1yhq37y"
+    overflow="scroll"
+  >
     <p
-      className="css-120ftwk"
+      className="css-1x9rsfv"
       color="color"
     >
       You have set the max number of break timers.
     </p>
   </div>
-  <div
-    className="css-qjrave"
-  />
 </div>
 `;

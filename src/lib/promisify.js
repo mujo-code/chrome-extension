@@ -22,3 +22,13 @@ export const promisifyNode = fn => (...args) =>
       return resolve(results)
     }) // chrome passes results as first object
   })
+
+export const promisifyOptions = (fn, options) =>
+  new Promise((resolve, reject) => {
+    fn(
+      Object.assign({}, options, {
+        success: resolve,
+        failure: reject,
+      })
+    )
+  })

@@ -3,31 +3,31 @@ import { CURRENT_SUB_SKU } from '../../constants'
 import { first } from '../../lib/functional'
 import { PurchaseError } from './purchase-error'
 
-const mockProduct = {
-  kind: 'chromewebstore#inAppProduct',
-  sku: 'discounted_early',
-  item_id: 'plfnagfpjiockpgaancnaimfomjjlfkl',
-  type: 'inapp',
-  state: 'ACTIVE',
-  prices: [
-    {
-      valueMicros: '990000',
-      currencyCode: 'USD',
-      regionCode: 'US',
-    },
-  ],
-  localeData: [
-    {
-      title: 'Discounted Earlybird Subscription',
-      description: 'Discounted',
-      languageCode: 'en-US',
-    },
-  ],
-}
+// const mockProduct = {
+//   kind: 'chromewebstore#inAppProduct',
+//   sku: 'foo',
+//   item_id: 'foo',
+//   type: 'inapp',
+//   state: 'ACTIVE',
+//   prices: [
+//     {
+//       valueMicros: '990000',
+//       currencyCode: 'USD',
+//       regionCode: 'US',
+//     },
+//   ],
+//   localeData: [
+//     {
+//       title: 'Foo',
+//       description: 'Foo bar baz',
+//       languageCode: 'all',
+//     },
+//   ],
+// }
 
 export const subscriptionDetails = (context, subDetails) => {
   const sku = context.sku || CURRENT_SUB_SKU
-  const product = subDetails.getProduct(sku) || mockProduct
+  const product = subDetails.getProduct(sku)
 
   if (!product) {
     // TODO: logging monitoring
