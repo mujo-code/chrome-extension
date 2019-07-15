@@ -80,7 +80,9 @@
     "test": "npm run build && node scripts/test.js --env=jsdom",
     "fmt": "prettier '{src,public}/**/*.js' --write",
     "lint": "eslint '{src,public}/**/*.js'",
-    "dist": "./scripts/dist.sh"
+    "dist": "npm run build && ./scripts/dist.sh",
+    "dist:beta": "npm run build && npm run beta && ./scripts/dist.sh",
+    "beta": "node scripts/beta-decorate.js"
   },
   "browserslist": [
     "last 3 Chrome versions"
