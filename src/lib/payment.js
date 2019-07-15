@@ -29,6 +29,8 @@ export const buy = async sku => {
     parameters,
     sku,
   }
+  // create callstack outside catch
+  const { stack } = new Error()
   try {
     const ret = await promisifyOptions(paymentsAPI().buy, options)
     return ret
@@ -38,7 +40,7 @@ export const buy = async sku => {
     const paymentError = new Error(
       `Failed to purchase subscription [${type})]`
     )
-    set(paymentError, 'stack', e.stack)
+    set(paymentError, 'stack', stack)
     exception(paymentError)
     throw paymentError
   }
