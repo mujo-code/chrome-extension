@@ -1,6 +1,6 @@
 import React from 'react'
-import { CURRENT_SUB_SKU } from '../../constants'
-import { first } from '../../lib/functional'
+import { CURRENT_SUB_SKU, SUB_SUCCESS_MODAL } from '../../constants'
+import { first, noop } from '../../lib/functional'
 import { PurchaseError } from './purchase-error'
 
 // const mockProduct = {
@@ -25,15 +25,22 @@ import { PurchaseError } from './purchase-error'
 //   ],
 // }
 
-export const subscriptionDetails = (context, subDetails) => {
+export const subscriptionDetails = (
+  context,
+  subDetails,
+  { changeModal }
+) => {
   const sku = context.sku || CURRENT_SUB_SKU
+  const callback = context.callback || noop
   const product = subDetails.getProduct(sku)
 
   if (!product) {
     // TODO: logging monitoring
     return {
       title: 'Unable to subscribe at this time',
-      description: ['Please contact support'],
+      description: [
+        'Please contact support at jacoblowe2.0@gmail.com',
+      ],
     }
   }
 
@@ -68,8 +75,10 @@ export const subscriptionDetails = (context, subDetails) => {
       children: `Subscribe at ${formatter.format(
         price.valueMicros / 1000 / 1000
       )}/mo`,
-      onClick: () => {
-        subDetails.buy(sku)
+      onClick: async () => {
+        await subDetails.buy(sku)
+        changeModal({ name: SUB_SUCCESS_MODAL })
+        callback() // set initial action
       },
     },
   }

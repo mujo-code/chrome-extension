@@ -27,6 +27,11 @@ export const useSubscription = () => {
   const [user, setUser] = useState(userFactory())
   const [purchaseError, setPurchaseError] = useState(null)
 
+  const getProduct = useCallback(
+    sku => first(products.filter(product => product.sku === sku)),
+    [products]
+  )
+
   const buy = useCallback(
     async sku => {
       setPurchaseError(null) // reset error
@@ -35,15 +40,14 @@ export const useSubscription = () => {
       } catch (e) {
         return setPurchaseError(e)
       }
+      // eager update user
+      setUser(
+        Object.assign({}, user, { products: [getProduct(sku)] })
+      )
       // rehydrate user
       return hydrate({ setProducts, setUser })
     },
-    [setPurchaseError, setUser, setProducts]
-  )
-
-  const getProduct = useCallback(
-    sku => first(products.filter(product => product.sku === sku)),
-    [products]
+    [user, getProduct]
   )
 
   useEffect(() => {

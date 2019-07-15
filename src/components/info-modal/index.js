@@ -8,12 +8,18 @@ import { Modal } from '../modal'
 import { Description } from './description'
 import { getModalData } from './modal-data'
 
-export const InfoModal = ({ isOpen, onRequestClose, context }) => {
+export const InfoModal = ({
+  isOpen,
+  onRequestClose,
+  context,
+  changeModal,
+}) => {
   const { highlight, backgroundSecondary } = useTheme()
   const subDetails = useSubscription()
   const { title, description, button } = getModalData(
     context,
-    subDetails
+    subDetails,
+    { changeModal }
   )
   return (
     <Modal

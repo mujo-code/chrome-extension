@@ -194,6 +194,7 @@ const App = () => {
       ) : null}
       {upsellModal && (
         <InfoModal
+          changeModal={setUpsellModal}
           context={upsellModal}
           isOpen={true}
           onRequestClose={() => {

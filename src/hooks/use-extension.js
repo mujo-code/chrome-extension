@@ -134,6 +134,7 @@ export const useExtension = () => {
           setUpsellModal({
             name: SUB_DETAILS_MODAL,
             sku: CURRENT_SUB_SKU,
+            callback: () => setBreakTimer(url, time, enabled),
           }),
       })
       return
