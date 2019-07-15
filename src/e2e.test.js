@@ -58,16 +58,16 @@ const waitDOMLoaded = async () =>
     APP_READY_KEY
   )
 
-test(
-  'screenshot should be good',
-  async () => {
-    await page.goto('chrome://newtab')
-    await waitDOMLoaded()
-    const screenshot = await page.screenshot()
-    expect(screenshot).toMatchImageSnapshot()
-  },
-  TEST_TIMEOUT
-)
+// test(
+//   'screenshot should be good',
+//   async () => {
+//     await page.goto('chrome://newtab')
+//     await waitDOMLoaded()
+//     const screenshot = await page.screenshot()
+//     expect(screenshot).toMatchImageSnapshot()
+//   },
+//   TEST_TIMEOUT
+// )
 
 test(
   'newtab page should have a player',
@@ -113,8 +113,8 @@ test(
     await wait(500)
     const el = await page.$('[data-testid="graph"]')
     expect(el).not.toBe(null)
-    const screenshot = await page.screenshot()
-    expect(screenshot).toMatchImageSnapshot()
+    // const screenshot = await page.screenshot()
+    // expect(screenshot).toMatchImageSnapshot()
   },
   TEST_TIMEOUT
 )
