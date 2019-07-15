@@ -51,6 +51,7 @@ exports[`ScreenTime should match snapshot 1`] = `
   </h4>
   <svg
     className="css-0"
+    data-testid="graph"
     height="275px"
     style={
       Object {
@@ -67,6 +68,7 @@ exports[`ScreenTime should match snapshot 1`] = `
       <path
         className="css-e5mitn"
         d="M 400 137.5 A 100 100 0 0 1 254.78696143925166 226.69518565541688"
+        data-testid="graph-segment"
         fill="transparent"
         onClick={[Function]}
         stroke="saltBox"
@@ -76,6 +78,7 @@ exports[`ScreenTime should match snapshot 1`] = `
       <path
         className="css-e5mitn"
         d="M 231.95291274890502 210.77751303532256 A 100 100 0 0 1 243.56355381395008 54.947425588967306"
+        data-testid="graph-segment"
         fill="transparent"
         onClick={[Function]}
         stroke="saltBox"
@@ -85,6 +88,7 @@ exports[`ScreenTime should match snapshot 1`] = `
       <path
         className="css-e5mitn"
         d="M 268.50437935300914 42.58937951914527 A 100 100 0 0 1 383.37096071317376 82.27968752567193"
+        data-testid="graph-segment"
         fill="transparent"
         onClick={[Function]}
         stroke="saltBox"
@@ -94,6 +98,7 @@ exports[`ScreenTime should match snapshot 1`] = `
       <path
         className="css-e5mitn"
         d="M 395.36209200496467 107.39897994358567 A 100 100 0 0 1 396.1261695938319 109.93626441830011"
+        data-testid="graph-segment"
         fill="transparent"
         onClick={[Function]}
         stroke="saltBox"
@@ -712,29 +717,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       >
         <div
           className="css-i3jcei"
-        >
-          <div
-            className="css-j7qwjs"
-          >
-            <div
-              className="css-102g4jn"
-            >
-              <input
-                className="css-1ay9vb9"
-                id="break-timer"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <h4
-                className="css-30v94s"
-                color="color"
-                labelFor="break-timer"
-              >
-                Break Timer
-              </h4>
-            </div>
-          </div>
-        </div>
+        />
         <div
           className="css-wjp2bi"
         >

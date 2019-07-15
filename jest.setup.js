@@ -1,5 +1,9 @@
 import 'fake-indexeddb/auto'
 
+import { toMatchImageSnapshot } from 'jest-image-snapshot'
+
+expect.extend({ toMatchImageSnapshot })
+
 jest.mock('./src/lib/extension')
 
 // this is just a little hack to silence a warning that we'll get until react

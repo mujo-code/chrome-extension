@@ -1,4 +1,4 @@
-import { DATABASE_STORE } from '../../../constants'
+import { DATABASE_STORE, PAGE_VIEWS_KEY } from '../../../constants'
 import { set } from '../../../lib/util'
 import model from '../../../model'
 import localStorageInterface from '../local-storage'
@@ -19,7 +19,8 @@ export const version1Migration = async (transaction, log) => {
   }, {})
   const localStorageKeys = Object.keys(localStorageData)
   const hasData = Object.keys(localStorageData).length
-  if (!hasData) {
+  const isInvalidData = isNaN(localStorageData[PAGE_VIEWS_KEY])
+  if (!hasData || isInvalidData) {
     log('No data found migration complete')
     return
   }
