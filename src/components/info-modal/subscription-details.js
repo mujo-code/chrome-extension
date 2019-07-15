@@ -66,7 +66,7 @@ export const subscriptionDetails = (context, subDetails) => {
     ],
     button: {
       children: `Subscribe at ${formatter.format(
-        price.valueMicros / 1000 / 100
+        price.valueMicros / 1000 / 1000
       )}/mo`,
       onClick: () => {
         subDetails.buy(sku)
