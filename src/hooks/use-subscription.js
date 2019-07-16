@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { ACTIVE_PRODUCT } from '../constants'
 import { compose, first } from '../lib/functional'
 import {
   buy as buyProduct,
@@ -6,8 +7,11 @@ import {
   getProducts,
 } from '../lib/payment'
 
+export const activeProducts = products =>
+  products.filter(product => product.state === ACTIVE_PRODUCT)
+
 export const userFactory = (products = []) => ({
-  isSubscribed: !!products.length,
+  isSubscribed: !!activeProducts(products).length,
   products,
   has: product => products.includes(product),
 })
@@ -27,6 +31,11 @@ export const useSubscription = () => {
   const [user, setUser] = useState(userFactory())
   const [purchaseError, setPurchaseError] = useState(null)
 
+  const getProduct = useCallback(
+    sku => first(products.filter(product => product.sku === sku)),
+    [products]
+  )
+
   const buy = useCallback(
     async sku => {
       setPurchaseError(null) // reset error
@@ -35,15 +44,14 @@ export const useSubscription = () => {
       } catch (e) {
         return setPurchaseError(e)
       }
+      // eager update user
+      setUser(
+        Object.assign({}, user, { products: [getProduct(sku)] })
+      )
       // rehydrate user
       return hydrate({ setProducts, setUser })
     },
-    [setPurchaseError, setUser, setProducts]
-  )
-
-  const getProduct = useCallback(
-    sku => first(products.filter(product => product.sku === sku)),
-    [products]
+    [user, getProduct]
   )
 
   useEffect(() => {

@@ -51,6 +51,11 @@ export const SUBSCRIBE_FEATURE = false
 // Upsell modals
 export const MAX_BREAKTIMER_MODAL = 'breakTimerMax'
 export const SUB_DETAILS_MODAL = 'subscriptionDetails'
+export const SUB_SUCCESS_MODAL = 'subSuccess'
+
+// Product States
+export const ACTIVE_PRODUCT = 'ACTIVE'
+export const CANCELLED_PRODUCT = 'CANCELLED'
 
 // OPTIONAL permissions requested
 export const SCREEN_TIME_PERMISSIONS = {
