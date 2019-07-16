@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { ACTIVE_PRODUCT } from '../constants'
 import { compose, first } from '../lib/functional'
 import {
   buy as buyProduct,
@@ -6,8 +7,11 @@ import {
   getProducts,
 } from '../lib/payment'
 
+export const activeProducts = products =>
+  products.filter(product => product.state === ACTIVE_PRODUCT)
+
 export const userFactory = (products = []) => ({
-  isSubscribed: !!products.length,
+  isSubscribed: !!activeProducts(products).length,
   products,
   has: product => products.includes(product),
 })

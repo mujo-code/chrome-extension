@@ -26,6 +26,7 @@ beforeAll(async () => {
       width: 1280,
       height: 800,
     },
+    slowMo: 100,
   })
 })
 
@@ -110,7 +111,7 @@ test(
       SITE_TIME_KEY,
       screenTimeMock
     )
-    await wait(500)
+    // await wait(500)
     const el = await page.$('[data-testid="graph"]')
     expect(el).not.toBe(null)
     // const screenshot = await page.screenshot()
