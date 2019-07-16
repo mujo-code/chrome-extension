@@ -5,7 +5,6 @@ import {
   SITE_TIME_KEY,
   APP_READY_KEY,
 } from './constants'
-import { wait } from './lib/async-helpers'
 
 const TEST_TIMEOUT = 10000 // extend test timeout sinces its E2E
 
