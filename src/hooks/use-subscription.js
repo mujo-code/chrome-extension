@@ -1,4 +1,9 @@
-import { useState, useEffect, useCallback } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useContext,
+} from 'react'
 import { ACTIVE_PRODUCT } from '../constants'
 import { compose, first } from '../lib/functional'
 import {
@@ -25,7 +30,8 @@ export const hydrate = async ({ setProducts, setUser }) => {
   setProducts(await getProducts())
 }
 
-export const useSubscription = () => {
+const context = React.createContext({ user: userFactory([]) })
+export const SubscriptionProvider = props => {
   const [isInitialized, setIsInitialized] = useState(false)
   const [products, setProducts] = useState([])
   const [user, setUser] = useState(userFactory())
@@ -51,7 +57,7 @@ export const useSubscription = () => {
       // rehydrate user
       return hydrate({ setProducts, setUser })
     },
-    [user, getProduct]
+    [getProduct, user]
   )
 
   useEffect(() => {
@@ -61,11 +67,19 @@ export const useSubscription = () => {
     }
   }, [setProducts, setUser, isInitialized, setIsInitialized])
 
-  return {
-    user,
-    products,
+  const { Provider } = context
+
+  const value = {
     buy,
-    purchaseError,
     getProduct,
+    isInitialized,
+    products,
+    purchaseError,
+    user,
   }
+  // eslint-disable-next-line no-underscore-dangle
+  window.__MUJO_SUBSCRIPTION__ = value
+  return <Provider {...props} value={value} />
 }
+
+export const useSubscription = () => useContext(context)

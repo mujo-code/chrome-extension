@@ -14,7 +14,7 @@ const modals = {
   [SUB_SUCCESS_MODAL]: subscriptionSuccess,
 }
 
-export const getModalData = (context, subDetails) => {
+export const getModalData = (context, subDetails, options) => {
   const modalData = modals[context.name] || identity
-  return modalData(context, subDetails)
+  return modalData(context, subDetails, options)
 }
