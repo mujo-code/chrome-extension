@@ -1,7 +1,8 @@
 {
   "name": "Mujo",
-  "version": "1.2.0",
+  "version": "1.2.4",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@babel/core": "7.4.3",
     "@emotion/cache": "^10.0.14",
@@ -74,15 +75,17 @@
   "scripts": {
     "serve": "serve",
     "start": "node scripts/watch.js",
-    "build": "PUBLIC_URL=./ node scripts/build.js && npm run append:sw && npm run append:sm",
+    "build:beta": "BETA='true' node scripts/build.js && npm run build:post && npm run append:beta",
+    "build:post": "npm run append:sw && npm run append:sm",
+    "build": "PUBLIC_URL=./ node scripts/build.js && npm run build:post",
     "append:sw": "cra-append-sw --mode replace --skip-compile ./public/service-worker.js",
     "append:sm": "node scripts/modify-source-maps.js",
     "test": "npm run build && node scripts/test.js --env=jsdom",
     "fmt": "prettier '{src,public}/**/*.js' --write",
     "lint": "eslint '{src,public}/**/*.js'",
     "dist": "npm run build && ./scripts/dist.sh",
-    "dist:beta": "npm run build && npm run beta && ./scripts/dist.sh",
-    "beta": "node scripts/beta-decorate.js"
+    "dist:beta": "npm run build:beta && ./scripts/dist.sh",
+    "append:beta": "node scripts/beta-decorate.js"
   },
   "browserslist": [
     "last 3 Chrome versions"

@@ -46,7 +46,7 @@ export const SET_STORAGE = 'SET_STORAGE'
 // Feature Flags
 export const SCREEN_TIME_FEATURE = true
 export const BREAK_TIMER_FEATURE = true
-export const SUBSCRIBE_FEATURE = false
+export const SUBSCRIBE_FEATURE = true
 
 // Upsell modals
 export const MAX_BREAKTIMER_MODAL = 'breakTimerMax'
