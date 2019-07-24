@@ -48,14 +48,16 @@ export const SubscriptionProvider = props => {
       try {
         await buyProduct(sku)
       } catch (e) {
-        return setPurchaseError(e)
+        setPurchaseError(e)
+        return
       }
       // eager update user
       setUser(
-        Object.assign({}, user, { products: [getProduct(sku)] })
+        Object.assign({}, user, {
+          products: [getProduct(sku)],
+          isSubscriber: true,
+        })
       )
-      // rehydrate user
-      return hydrate({ setProducts, setUser })
     },
     [getProduct, user]
   )
