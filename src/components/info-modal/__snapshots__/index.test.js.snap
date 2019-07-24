@@ -53,6 +53,29 @@ exports[`InfoModal should match snapshot 1`] = `
     >
       You have set the max number of break timers.
     </p>
+    <p
+      className="css-120ftwk"
+      color="color"
+    >
+      To get access to unlimited break timers and add a break timer for foo subscribe to Mujō.
+    </p>
+  </div>
+  <div
+    backgroundColor="gravel"
+    className="css-1yqdfgl"
+  >
+    <button
+      backgroundColor="saltBox"
+      className="css-15foh21"
+      color="white"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      outlineColor="gravel"
+      position="relative"
+    >
+      Subscription Details
+    </button>
   </div>
 </div>
 `;

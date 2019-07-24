@@ -56,36 +56,6 @@ test('useSubscription should be unsubbed if not active product', async () => {
   expect(result.current.user.isSubscribed).toBe(false)
 })
 
-test('useSubscription should get purchases after calling buy', async () => {
-  getPurchases.mockResolvedValue([])
-  getProducts.mockResolvedValue(['foo', 'bar'])
-  buy.mockResolvedValue(true)
-  const { result, waitForNextUpdate } = renderHook(
-    () => useSubscription(),
-    hookOptions
-  )
-  // Init calls
-  await waitForNextUpdate()
-  await waitForNextUpdate()
-  expect(result.current.user.isSubscribed).toBe(false)
-  expect(result.current.user.products).toEqual([])
-  // mock purchase again with purchased value
-  getPurchases
-    .mockReset()
-    .mockResolvedValue([{ state: ACTIVE_PRODUCT }])
-  act(() => {
-    result.current.buy('foo')
-  })
-  // Update calls
-  await waitForNextUpdate()
-  await waitForNextUpdate()
-  expect(result.current.user.isSubscribed).toBe(true)
-  expect(result.current.user.products).toEqual([
-    { state: ACTIVE_PRODUCT },
-  ])
-  expect(result.current.products).toEqual(['foo', 'bar'])
-})
-
 test('useSubscription a failure to buy should set purchaseError', async () => {
   getPurchases.mockResolvedValue([])
   getProducts.mockResolvedValue([])
