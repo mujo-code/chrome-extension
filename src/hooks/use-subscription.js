@@ -55,7 +55,7 @@ export const SubscriptionProvider = props => {
       setUser(
         Object.assign({}, user, {
           products: [getProduct(sku)],
-          isSubscriber: true,
+          isSubscribed: true,
         })
       )
     },

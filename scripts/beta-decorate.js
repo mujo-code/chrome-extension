@@ -13,6 +13,7 @@ const readJSON = async dir => JSON.parse(await read(dir))
 const serialize = json => JSON.stringify(json, null, '\t')
 
 const decorateBETA = async () => {
+  const secondsInWeek = `${Math.floor(+new Date() / 1000)}`.slice(-4)
   const manifest = await readJSON(MANIFEST_PATH)
   const betaManifest = Object.assign({}, manifest, {
     name: beta(manifest.name),
@@ -26,7 +27,7 @@ const decorateBETA = async () => {
       128: BETA_ICON,
       512: BETA_ICON,
     },
-    version: `${manifest.version}.${`${+new Date()}`.slice(0, 4)}`,
+    version: `${manifest.version}.${secondsInWeek}`,
     version_name: `${manifest.version} BETA`,
   })
   return write(MANIFEST_PATH, serialize(betaManifest))

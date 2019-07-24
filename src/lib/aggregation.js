@@ -1,3 +1,4 @@
+import { FOURTY_FIVE_MINUTES } from '../constants'
 import { shortURL } from './url'
 import { set } from './util'
 
@@ -30,7 +31,15 @@ export const toSiteInfo = (times, timers) =>
   Object.keys(times).reduce((accum, url) => {
     set(accum, url, accum[url] || {})
     set(accum[url], 'time', times[url])
-    set(accum[url], 'breakTimer', timers[url] || {})
+    set(
+      accum[url],
+      'breakTimer',
+      timers[url] || {
+        enabled: false,
+        time: FOURTY_FIVE_MINUTES,
+        url,
+      }
+    )
     return accum
   }, {})
 
