@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup component matches snapshot 1`] = `
+<div
+  className="css-1xhj18k"
+>
+  <button
+    backgroundColor="outerSpace"
+    borderBottomLeftRadius="l"
+    borderBottomRightRadius="none"
+    borderTopLeftRadius="l"
+    borderTopRightRadius="none"
+    className="css-9nurzw"
+    color="mischka"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    outlineColor="saltBox"
+    position="relative"
+  >
+    Foo
+  </button>
+  <div
+    className="css-1yljtvz"
+  />
+  <button
+    backgroundColor="outerSpace"
+    borderBottomLeftRadius="none"
+    borderBottomRightRadius="l"
+    borderTopLeftRadius="none"
+    borderTopRightRadius="l"
+    className="css-9nurzw"
+    color="mischka"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    outlineColor="saltBox"
+    position="relative"
+  >
+    Bar
+  </button>
+</div>
+`;
