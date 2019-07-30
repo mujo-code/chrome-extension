@@ -52,7 +52,30 @@ export const position = {
 
 export const display = { table: css({ display: 'table' }) }
 
-export const borderRadius = { xs: css({ borderRadius: '4px' }) }
+const radius = {
+  xs: '4px',
+  s: '8px',
+  m: '16px',
+  l: '24px',
+}
+
+export const borderRadius = makeStyles('borderRadius', radius)
+export const borderTopLeftRadius = makeStyles(
+  'borderTopLeftRadius',
+  radius
+)
+export const borderBottomLeftRadius = makeStyles(
+  'borderBottomLeftRadius',
+  radius
+)
+export const borderTopRightRadius = makeStyles(
+  'borderTopRightRadius',
+  radius
+)
+export const borderBottomRightRadius = makeStyles(
+  'borderBottomRightRadius',
+  radius
+)
 
 export const layer = {
   0: css({ zIndex: 0 }),
