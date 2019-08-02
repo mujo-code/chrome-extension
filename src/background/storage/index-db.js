@@ -66,6 +66,16 @@ export const addLatestActivity = async date => {
   })
 }
 
+export const logLastActivityTable = async db => {
+  const table = await (await db).getAllFromIndex(
+    LAST_ACTIVITY_TABLE,
+    'date'
+  )
+  console.log(JSON.stringify(table))
+}
+
+logLastActivityTable(database)
+
 export default {
   getters: types.reduce((accum, type) => {
     set(accum, type, store.get)
