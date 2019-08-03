@@ -7,7 +7,7 @@ import React from 'react'
 import ReactModal from 'react-modal'
 import { useTheme } from '../../hooks/use-theme'
 import { rgba, getColor } from '../../styles/colors'
-import { Icon } from '../Icon'
+import { Icon } from '../icon'
 
 const overlay = emotion({
   position: 'fixed',
