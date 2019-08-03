@@ -11,18 +11,21 @@ import { getModalData } from './modal-data'
 export const InfoModal = ({
   isOpen,
   onRequestClose,
-  context,
+  context = {},
   changeModal,
+  settings,
 }) => {
-  const { highlight, backgroundSecondary } = useTheme()
+  const theme = useTheme()
+  const { highlight, backgroundSecondary } = theme
   const subDetails = useSubscription()
-  const { title, description, button } = getModalData(
+  const { title, description, button, children } = getModalData(
     context,
     subDetails,
-    { changeModal }
+    { changeModal, settings, theme }
   )
   return (
     <Modal
+      zIndex="10000"
       display="flex"
       direction="column"
       outlineColor={highlight}
@@ -58,6 +61,7 @@ export const InfoModal = ({
         {description && (
           <Description hasTitle={!!title}>{description}</Description>
         )}
+        {children}
       </Box>
       {button && (
         <Box

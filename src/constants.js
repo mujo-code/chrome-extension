@@ -52,6 +52,7 @@ export const SUBSCRIBE_FEATURE = true
 export const MAX_BREAKTIMER_MODAL = 'breakTimerMax'
 export const SUB_DETAILS_MODAL = 'subscriptionDetails'
 export const SUB_SUCCESS_MODAL = 'subSuccess'
+export const SETTINGS_MODAL = 'settingsModal'
 
 // Product States
 export const ACTIVE_PRODUCT = 'ACTIVE'

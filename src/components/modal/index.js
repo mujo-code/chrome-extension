@@ -7,7 +7,7 @@ import React from 'react'
 import ReactModal from 'react-modal'
 import { useTheme } from '../../hooks/use-theme'
 import { rgba, getColor } from '../../styles/colors'
-import { Close } from './close'
+import { Icon } from '../Icon'
 
 const overlay = emotion({
   position: 'fixed',
@@ -37,6 +37,17 @@ const getModalContent = ({ background, color, modalMaxHeight }) =>
     {
       background: getColor(background),
       color: getColor(color),
+      transition: 'all 0.3s',
+      opacity: 0,
+      transform: 'scale(0.7)',
+      '&.ReactModal__Content--after-open': {
+        opacity: 1,
+        transform: 'scale(1)',
+      },
+      '&.ReactModal__Content--before-close': {
+        opacity: 0,
+        transform: 'scale(0.7)',
+      },
     },
     modelContent(modalMaxHeight)
   )
@@ -44,7 +55,7 @@ const getModalContent = ({ background, color, modalMaxHeight }) =>
 export const Modal = props => {
   ReactModal.setAppElement('#mujo-extension')
   const theme = useTheme()
-  const { css: addedCSS, modalMaxHeight } = props
+  const { css: addedCSS, modalMaxHeight, zIndex = '1000' } = props
   const customStyles = cssToStyle(addedCSS)
   const results = getPropClasses(Object.assign({}, props))
   if (customStyles) {
@@ -60,14 +71,22 @@ export const Modal = props => {
     'css',
     'closeColor',
     'color',
-    'background'
+    'background',
+    'zIndex'
   )
   return (
     <ClassNames>
       {({ css }) => (
         <ReactModal
           data-mujo
+          closeTimeoutMS={200}
           shouldCloseOnOverlayClick={true}
+          portalClassName={css(
+            emotion({
+              position: 'relative',
+              zIndex,
+            })
+          )}
           className={css([
             ...results.styles,
             getModalContent({
@@ -75,17 +94,18 @@ export const Modal = props => {
               color: props.color || theme.foreground,
               modalMaxHeight,
             }),
-            props.css,
           ])}
           overlayClassName={`mujo-modal ${css(
             getOverlayClass(theme.backgroundSecondary)
           )}`}
           {...otherProps}
         >
-          <Close
+          <Icon
+            icon="close"
+            size="l"
             position="absolute"
             css={{ top: 24, right: 24 }}
-            fill={props.closeColor || theme.foreground}
+            color={props.closeColor || theme.foreground}
             onClick={props.onRequestClose}
           />
           {props.children}

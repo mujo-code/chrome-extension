@@ -17,6 +17,7 @@ import {
   SUB_DETAILS_MODAL,
   CURRENT_SUB_SKU,
   APP_READY_KEY,
+  SCREEN_TIME_PERMISSIONS,
 } from '../constants'
 import { toSiteInfo } from '../lib/aggregation'
 import {
@@ -27,8 +28,11 @@ import {
 import { first } from '../lib/functional'
 import { queryParams, shortURL, origin } from '../lib/url'
 import { set, create } from '../lib/util'
+import { usePermissions } from './use-permissions'
 import { useStorage } from './use-storage'
 import { useSubscription } from './use-subscription'
+
+const REMINDER_ALT = 'Notifications that remind you to take a break'
 
 export const onBackgroundMessage = updateFns => payload => {
   const { key, event } = payload
@@ -63,6 +67,11 @@ export const useExtension = () => {
     ACTIVITY_NUMBER_KEY
   )
   const { user } = useSubscription()
+  const {
+    hasPermission,
+    requestPermissions,
+    removePermissions,
+  } = usePermissions(SCREEN_TIME_PERMISSIONS)
 
   const updateFns = {
     [ALARM_KEY]: setAlarmEnabled,
@@ -158,6 +167,53 @@ export const useExtension = () => {
 
   const siteTimesAndTimers = toSiteInfo(siteTimes, breakTimers)
 
+  const settings = [
+    {
+      label: 'Subscriber',
+      type: 'button',
+      button: { label: 'More Info' },
+      alt: user.isSubscribed
+        ? 'Thanks you for your support ❤️!'
+        : 'Get access to more Mujō',
+      setter: value => {
+        if (!user.isSubscribed) {
+          setUpsellModal({
+            name: SUB_DETAILS_MODAL,
+            sku: CURRENT_SUB_SKU,
+            callback: () => {},
+          })
+        } else {
+          setUpsellModal({
+            title: 'Contact Support',
+            description:
+              'We currently do not have this functionality',
+          })
+        }
+      },
+      value: user.isSubscribed,
+    },
+    {
+      label: 'Reminder',
+      type: 'boolean',
+      alt: REMINDER_ALT,
+      setter: enabled => setAlarmEnabled(enabled),
+      value: alarmEnabled,
+    },
+    {
+      label: 'Screen Time Enabled',
+      type: 'boolean',
+      alt: 'Screen Time requires some additional permissions',
+      setter: () => {
+        if (hasPermission) {
+          removePermissions()
+        } else {
+          requestPermissions()
+        }
+      },
+      value: hasPermission,
+    },
+  ]
+
   if (selectedSegment) {
     const { urls } = selectedSegment
     if (urls.length === 1) {
@@ -185,6 +241,12 @@ export const useExtension = () => {
       playerIsOpen,
       activityNumber,
       upsellModal,
+      settings,
+      screenTime: {
+        hasPermission,
+        requestPermissions,
+        removePermissions,
+      },
     },
     {
       setAlarmEnabled: setAlarmEnabledProxy,
