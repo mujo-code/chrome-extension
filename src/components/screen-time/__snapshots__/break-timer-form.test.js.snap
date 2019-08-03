@@ -7,12 +7,17 @@ exports[`BreakTimerForm should match snapshot 1`] = `
   <div
     className="css-102g4jn"
   >
-    <input
-      className="css-1ay9vb9"
+    <div
+      backgroundColor="saltBox"
+      className="css-b6lj8k"
       id="break-timer"
-      onChange={[Function]}
-      type="checkbox"
-    />
+      onClick={[Function]}
+    >
+      <div
+        backgroundColor="outerSpace"
+        className="css-dx4x1i"
+      />
+    </div>
     <h4
       className="css-30v94s"
       color="color"
@@ -28,24 +33,6 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
 <div
   className="css-j7qwjs"
 >
-  <div
-    className="css-102g4jn"
-  >
-    <input
-      checked={true}
-      className="css-1ay9vb9"
-      id="break-timer"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <h4
-      className="css-30v94s"
-      color="color"
-      labelFor="break-timer"
-    >
-      Break Timer
-    </h4>
-  </div>
   <div
     className="css-1lqrh8c"
   >
@@ -65,7 +52,7 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
       </label>
       <input
         backgroundColor="mischka"
-        className="css-1hi28e2"
+        className="css-50o2oe"
         color="outerSpace"
         id="break-timer-time"
         onChange={[Function]}
@@ -73,6 +60,28 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
         value={NaN}
       />
     </div>
+  </div>
+  <div
+    className="css-102g4jn"
+  >
+    <div
+      backgroundColor="saltBox"
+      className="css-b6lj8k"
+      id="break-timer"
+      onClick={[Function]}
+    >
+      <div
+        backgroundColor="mischka"
+        className="css-4zx0ao"
+      />
+    </div>
+    <h4
+      className="css-30v94s"
+      color="color"
+      labelFor="break-timer"
+    >
+      Break Timer
+    </h4>
   </div>
 </div>
 `;

@@ -15,7 +15,7 @@ export const ScreenTime = ({
   setBreakTimer,
   selectedSegment,
   setSelectedSegment,
-  permissions,
+  permissions = {},
 }) => {
   const [toolTipOpen, setToolTipOpen] = useState(false)
   const {
