@@ -10,6 +10,7 @@ export const toSvgProps = ({ width, height, isOpen }, animating) =>
       viewBox: `0 0 ${width} ${height}`,
     },
     transition({ width, height, isOpen }),
+    { willChange: 'width, height' },
     animating
   )
 
@@ -23,6 +24,7 @@ export const toRectProps = ({ width, height, isOpen }, animating) =>
       rx: isOpen ? 0 : height / 11,
     },
     transition({ width, height, isOpen }),
+    { willChange: 'width, height, rx' },
     animating
   )
 
@@ -41,6 +43,7 @@ export const toCircleProps = (
       transformOrigin: 'center',
     },
     transition({ width, height, isOpen }),
+    { willChange: 'transform' },
     animating
   )
 
