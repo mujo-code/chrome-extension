@@ -171,11 +171,11 @@ export const useExtension = () => {
     {
       label: 'Subscriber',
       type: 'button',
-      button: { label: 'More Info' },
+      value: 'More Info',
       alt: user.isSubscribed
         ? 'Thanks you for your support ❤️!'
         : 'Get access to more Mujō',
-      setter: value => {
+      setter: () => {
         if (!user.isSubscribed) {
           setUpsellModal({
             name: SUB_DETAILS_MODAL,
@@ -190,7 +190,6 @@ export const useExtension = () => {
           })
         }
       },
-      value: user.isSubscribed,
     },
     {
       label: 'Reminder',

@@ -1,5 +1,6 @@
 import { Box } from '@jcblw/box'
 import React from 'react'
+import { Button } from '../button'
 import { HeaderS, BodyS } from '../fonts'
 import { Switch } from '../switch'
 
@@ -11,11 +12,27 @@ export const Boolean = ({
   highlight,
 }) => {
   const change = e => onChange(e.target.value)
-  return (
-    <Box alignItems="flexStart" display="flex">
-      <Switch value={value} onChange={change} />
-    </Box>
-  )
+  return <Switch value={value} onChange={change} />
+}
+
+export const SettingsInput = props => {
+  const { type, onChange, value } = props
+  switch (type) {
+    case 'button':
+      return (
+        <Button
+          whiteSpace="nowrap"
+          backgroundColor={props.highlight}
+          color={props.foreground}
+          onClick={onChange}
+        >
+          {value}
+        </Button>
+      )
+    case 'boolean':
+    default:
+      return <Boolean {...props} />
+  }
 }
 
 export const SettingItem = ({
@@ -58,13 +75,19 @@ export const SettingItem = ({
         </BodyS>
       )}
     </Box>
-    <Boolean
-      highlight={theme.highlight}
-      color={theme.foreground}
-      background={theme.background}
-      value={value}
-      onChange={setter}
-    />
+    <Box
+      flex="0"
+      display="flex"
+      direction="column"
+      alignItems={type === 'button' ? 'center' : 'flexStart'}
+    >
+      <SettingsInput
+        type={type}
+        value={value}
+        onChange={setter}
+        {...theme}
+      />
+    </Box>
   </Box>
 )
 
@@ -73,9 +96,7 @@ export const settingsModal = (_, __, { settings, theme }) => ({
   children: (
     <>
       {settings.map((setting, i, arr) => (
-        <React.Fragment key={setting.label}>
-          <SettingItem {...setting} theme={theme} />
-        </React.Fragment>
+        <SettingItem key={setting.label} {...setting} theme={theme} />
       ))}
     </>
   ),
