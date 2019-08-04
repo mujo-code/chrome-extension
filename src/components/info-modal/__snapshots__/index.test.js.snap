@@ -2,7 +2,7 @@
 
 exports[`InfoModal should match snapshot 1`] = `
 <div
-  className="css-pqb7fc"
+  className="css-ehyxbj"
   closeTimeoutMS={200}
   data-mujo={true}
   isOpen={true}

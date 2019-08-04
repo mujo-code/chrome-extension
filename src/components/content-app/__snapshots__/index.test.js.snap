@@ -2,7 +2,7 @@
 
 exports[`Async ContentApp ContentApp should match snapshot 1`] = `
 <div
-  className="css-1cj1k5z"
+  className="css-73stva"
   closeTimeoutMS={200}
   data-mujo={true}
   isOpen={true}

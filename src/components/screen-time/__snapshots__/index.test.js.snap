@@ -332,7 +332,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
     </p>
   </div>
   <div
-    className="css-1shrb0j"
+    className="css-1acr6v9"
     closeTimeoutMS={200}
     data-mujo={true}
     isOpen={true}
@@ -571,7 +571,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
     </p>
   </div>
   <div
-    className="css-1shrb0j"
+    className="css-1acr6v9"
     closeTimeoutMS={200}
     data-mujo={true}
     isOpen={true}
