@@ -32,13 +32,7 @@ const getPropClasses = propsToStyles(styleGuide)
 const getOverlayClass = c =>
   emotion({ backgroundColor: rgba(c, 0.3) }, overlay)
 
-const getModalContent = ({
-  background,
-  color,
-  modalMaxHeight,
-  x,
-  y,
-}) =>
+const getModalContent = ({ background, color, modalMaxHeight }) =>
   emotion(
     {
       background: getColor(background),
@@ -64,8 +58,6 @@ export const Modal = props => {
   ReactModal.setAppElement('#mujo-extension')
   const theme = useTheme()
   const { css: addedCSS, modalMaxHeight, zIndex = '1000' } = props
-  const x = 0
-  const y = 0
   const customStyles = cssToStyle(addedCSS)
   const results = getPropClasses(Object.assign({}, props))
   if (customStyles) {
@@ -103,8 +95,6 @@ export const Modal = props => {
               background: props.background || theme.background,
               color: props.color || theme.foreground,
               modalMaxHeight,
-              x,
-              y,
             }),
           ])}
           overlayClassName={`mujo-modal ${css(
