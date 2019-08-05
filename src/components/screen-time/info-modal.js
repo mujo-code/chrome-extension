@@ -1,4 +1,4 @@
-import { Box } from '@jcblw/box'
+import { Box } from '@mujo/box'
 import React from 'react'
 import { BREAK_TIMER_FEATURE } from '../../constants'
 import { Button } from '../button'

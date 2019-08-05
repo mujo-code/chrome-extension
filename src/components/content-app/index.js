@@ -1,4 +1,4 @@
-import { styleGuide, Box } from '@jcblw/box'
+import { styleGuide, Box } from '@mujo/box'
 import React, { useState } from 'react'
 import {
   BREAK_TIMERS_KEY,

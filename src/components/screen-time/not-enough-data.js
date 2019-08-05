@@ -1,4 +1,4 @@
-import { Box } from '@jcblw/box'
+import { Box } from '@mujo/box'
 import React from 'react'
 import { MINUTE } from '../../constants'
 import { useTheme } from '../../hooks/use-theme'
