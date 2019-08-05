@@ -1,4 +1,4 @@
-import { Box } from '@jcblw/box'
+import { Box } from '@mujo/box'
 import React from 'react'
 import { shortURL } from '../../lib/url'
 import { HeaderL } from '../fonts'
