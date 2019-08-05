@@ -18,6 +18,7 @@ import {
   CURRENT_SUB_SKU,
   APP_READY_KEY,
   SCREEN_TIME_PERMISSIONS,
+  SUPPORT_URL,
 } from '../constants'
 import { toSiteInfo } from '../lib/aggregation'
 import {
@@ -210,6 +211,15 @@ export const useExtension = () => {
         }
       },
       value: hasPermission,
+    },
+    {
+      label: 'Help',
+      alt: 'Need help or got feedback? Talk to us on Spectrum.chat',
+      type: 'button',
+      value: 'Get support',
+      setter: () => {
+        window.location.href = SUPPORT_URL
+      },
     },
   ]
 
