@@ -1,17 +1,15 @@
 import { css, Global } from '@emotion/core'
 import { Box, styleGuide } from '@mujo/box'
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from './components/button'
 import { Span, Sup } from './components/fonts'
+import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
-import { Player } from './components/player'
 import { ScreenTime } from './components/screen-time'
-import { ToolTip } from './components/tool-tip'
 import { TopSites } from './components/top-sites'
 import { SCREEN_TIME_FEATURE } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
-import { track } from './lib/tracker'
 import { colors } from './styles/colors'
 import * as utilStyles from './styles/utils'
 
@@ -33,12 +31,9 @@ const factor = x => x * 0.0025
 const factorMin = size => Math.max(size, DEFAULT_SIZE)
 const getFactor = x => factorMin(factor(x))
 
-const REMINDER_ALT = 'Notifications that remind you to take a break'
-
 const App = () => {
   const [
     {
-      alarmEnabled,
       topSites,
       activityNumber,
       showTopSites,
@@ -47,9 +42,10 @@ const App = () => {
       selectedSegment,
       playerIsOpen,
       upsellModal,
+      settings,
+      screenTime,
     },
     {
-      setAlarmEnabled,
       updateSitesUsed,
       resetUsage,
       updateShowTopSites,
@@ -61,8 +57,6 @@ const App = () => {
   ] = useExtension()
   const theme = useTheme()
   const { background } = theme
-  const [toolTipOpen, setToolTipOpen] = useState(false)
-
   const logoSize = getFactor(activityNumber)
   const toggleHandle = (fn, value) => () => fn(!value)
   const bg = bodyBackgrounds[background] || bodyBackgrounds.outerSpace
@@ -88,46 +82,14 @@ const App = () => {
       />
       {appReady ? (
         <>
-          <Box
-            display="flex"
-            direction="column"
-            flex={0}
-            alignItems="center"
-            textAlign="center"
-            justifyContent="center"
-            position="relative"
-            layer="2"
-            onMouseEnter={() => setToolTipOpen(true)}
-            onMouseLeave={() => setToolTipOpen(false)}
-          >
-            <Player
-              isOpen={playerIsOpen}
-              width={logoSize}
-              height={logoSize}
-              onFinish={() => {
-                setPlayerIsOpen(false)
-                resetUsage()
-                track({
-                  category: 'break',
-                  action: 'finish',
-                  label: 'activity_number',
-                  value: activityNumber,
-                })
-              }}
-              onClick={() => {
-                setPlayerIsOpen(true)
-                track({
-                  category: 'break',
-                  action: 'start',
-                  label: 'activity_number',
-                  value: activityNumber,
-                })
-              }}
-            />
-            <ToolTip isOpen={toolTipOpen && !playerIsOpen} below>
-              Take a break!
-            </ToolTip>
-          </Box>
+          <Header
+            playerIsOpen={playerIsOpen}
+            logoSize={logoSize}
+            resetUsage={resetUsage}
+            setPlayerIsOpen={setPlayerIsOpen}
+            activityNumber={activityNumber}
+            setUpsellModal={setUpsellModal}
+          />
           <Box flex="1" />
           {!SCREEN_TIME_FEATURE || showTopSites ? (
             <TopSites
@@ -140,6 +102,7 @@ const App = () => {
               setBreakTimer={setBreakTimer}
               selectedSegment={selectedSegment}
               setSelectedSegment={setSelectedSegment}
+              permissions={screenTime}
             />
           )}
           <Box flex="1" />
@@ -159,15 +122,6 @@ const App = () => {
               direction="row"
               marginBottom="m"
             >
-              <Button
-                whiteSpace="nowrap"
-                design={theme.buttonStyle}
-                onClick={toggleHandle(setAlarmEnabled, alarmEnabled)}
-                alt={REMINDER_ALT}
-                marginRight={SCREEN_TIME_FEATURE ? 'm' : 'zero'}
-              >
-                Turn reminders {alarmEnabled ? 'off' : 'on'}
-              </Button>
               {SCREEN_TIME_FEATURE && (
                 <Button
                   whiteSpace="nowrap"
@@ -192,16 +146,17 @@ const App = () => {
           </Box>
         </>
       ) : null}
-      {upsellModal && (
-        <InfoModal
-          changeModal={setUpsellModal}
-          context={upsellModal}
-          isOpen={true}
-          onRequestClose={() => {
-            setUpsellModal(null)
-          }}
-        />
-      )}
+
+      <InfoModal
+        zIndex="1000"
+        changeModal={setUpsellModal}
+        context={upsellModal || undefined}
+        isOpen={!!upsellModal}
+        onRequestClose={() => {
+          setUpsellModal(null)
+        }}
+        settings={settings}
+      />
     </Box>
   )
 }

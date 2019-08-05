@@ -6,6 +6,19 @@ import { InfoModal } from './info-modal'
 import { ListModal } from './list-modal'
 import { reduceSelectedSegment } from './reducer'
 
+const ModalContent = ({ selectedSegment, allSegments, props }) => (
+  <>
+    {selectedSegment.urls.length > 1 ? (
+      <ListModal {...props} />
+    ) : (
+      <InfoModal
+        {...props}
+        segment={reduceSelectedSegment(selectedSegment, allSegments)}
+      />
+    )}
+  </>
+)
+
 export const Modal = props => {
   const {
     theme: { highlight, foreground },
@@ -18,7 +31,7 @@ export const Modal = props => {
       display="flex"
       direction="column"
       outlineColor={highlight}
-      isOpen={true}
+      isOpen={!!selectedSegment}
       padding="zero"
       onRequestClose={() => setSelectedSegment(null)}
       css={{
@@ -50,17 +63,13 @@ export const Modal = props => {
         display="flex"
         direction="column"
       >
-        {selectedSegment.urls.length > 1 ? (
-          <ListModal {...props} />
-        ) : (
-          <InfoModal
-            {...props}
-            segment={reduceSelectedSegment(
-              selectedSegment,
-              allSegments
-            )}
+        {selectedSegment ? (
+          <ModalContent
+            selectedSegment={selectedSegment}
+            allSegments={allSegments}
+            props={props}
           />
-        )}
+        ) : null}
       </Box>
     </BaseModal>
   )

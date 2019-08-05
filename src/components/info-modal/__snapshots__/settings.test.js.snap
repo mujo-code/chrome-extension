@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsItem boolean type should match snapshot 1`] = `
+<div
+  borderBottom="s"
+  className="css-12jtym5"
+>
+  <div
+    className="css-p1yvl5"
+  />
+  <div
+    className="css-kjj7d4"
+  >
+    <h4
+      className="css-ddfbvk"
+      color="color"
+    >
+      foo
+    </h4>
+    <p
+      className="css-xkhwk8"
+      color="color"
+    >
+      bar
+    </p>
+  </div>
+  <div
+    className="css-5hlt78"
+  >
+    <div
+      backgroundColor="saltBox"
+      className="css-163c4dr"
+      onClick={[Function]}
+    >
+      <div
+        backgroundColor="mischka"
+        className="css-4zx0ao"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SettingsItem button type should match snapshot 1`] = `
+<div
+  borderBottom="s"
+  className="css-12jtym5"
+>
+  <div
+    className="css-p1yvl5"
+  />
+  <div
+    className="css-kjj7d4"
+  >
+    <h4
+      className="css-ddfbvk"
+      color="color"
+    >
+      foo
+    </h4>
+    <p
+      className="css-xkhwk8"
+      color="color"
+    >
+      bar
+    </p>
+  </div>
+  <div
+    className="css-180tdcr"
+  >
+    <button
+      className="css-1akodnm"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      outlineColor="saltBox"
+      position="relative"
+    >
+      baz
+    </button>
+  </div>
+</div>
+`;
+
+exports[`SettingsItem should match snapshot 1`] = `
+<div
+  borderBottom="s"
+  className="css-12jtym5"
+>
+  <div
+    className="css-p1yvl5"
+  />
+  <div
+    className="css-kjj7d4"
+  >
+    <h4
+      className="css-ddfbvk"
+      color="color"
+    >
+      foo
+    </h4>
+    <p
+      className="css-xkhwk8"
+      color="color"
+    >
+      bar
+    </p>
+  </div>
+  <div
+    className="css-5hlt78"
+  >
+    <div
+      backgroundColor="saltBox"
+      className="css-163c4dr"
+      onClick={[Function]}
+    >
+      <div
+        backgroundColor="outerSpace"
+        className="css-dx4x1i"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -8,6 +8,8 @@ export const ALARM_DEFAULT_VALUE = true
 export const MAX_BREAKTIMERS = 5
 export const CURRENT_SUB_SKU = 'early_subscription'
 export const APP_READY_KEY = '__mujo_ready__'
+export const SPECTRUM_CHAT = 'https://spectrum.chat/mujo'
+export const SUPPORT_URL = `${SPECTRUM_CHAT}/general?tab=posts`
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
@@ -52,6 +54,7 @@ export const SUBSCRIBE_FEATURE = true
 export const MAX_BREAKTIMER_MODAL = 'breakTimerMax'
 export const SUB_DETAILS_MODAL = 'subscriptionDetails'
 export const SUB_SUCCESS_MODAL = 'subSuccess'
+export const SETTINGS_MODAL = 'settingsModal'
 
 // Product States
 export const ACTIVE_PRODUCT = 'ACTIVE'

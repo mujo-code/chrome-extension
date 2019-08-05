@@ -1,12 +1,10 @@
 import { Box } from '@mujo/box'
 import React, { useState } from 'react'
-import { SCREEN_TIME_PERMISSIONS } from '../../constants'
-import { usePermissions } from '../../hooks/use-permissions'
 import { useTheme } from '../../hooks/use-theme'
 import { siteTimeToChartData } from '../../lib/aggregation'
-import { Button } from '../button'
-import { HeaderS, Sup } from '../fonts'
+import { HeaderS, Sup, BodyS } from '../fonts'
 import { Graph } from '../graph'
+import { Switch } from '../switch'
 import { ToolTip } from '../tool-tip'
 import { Modal } from './modal'
 import { NotEnoughData, hasEnoughData } from './not-enough-data'
@@ -17,13 +15,14 @@ export const ScreenTime = ({
   setBreakTimer,
   selectedSegment,
   setSelectedSegment,
+  permissions = {},
 }) => {
   const [toolTipOpen, setToolTipOpen] = useState(false)
   const {
     hasPermission,
     requestPermissions,
     removePermissions,
-  } = usePermissions(SCREEN_TIME_PERMISSIONS)
+  } = permissions
   const graphData = siteTimeToChartData(data)
   const theme = useTheme()
   const { foreground, highlight } = theme
@@ -71,42 +70,36 @@ export const ScreenTime = ({
       ) : (
         <NotEnoughData />
       )}
-      {!hasPermission ? (
-        <Button
-          onClick={requestPermissions}
-          alt={
-            <Box Component="span">
-              Screen time will need to ask for some elevated
-              permissions to track viewing times.
-            </Box>
-          }
-          design={theme.buttonStyle}
+      <Box display="flex" direction="row">
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
         >
-          Enable
-        </Button>
-      ) : (
-        <Button
-          onClick={removePermissions}
-          alt={
-            <Box Component="span">
-              This will remove the permissions that are needed for
-              Screen Time to function.
-            </Box>
-          }
-          design={theme.buttonStyle}
-        >
-          Disable
-        </Button>
-      )}
-      {selectedSegment ? (
-        <Modal
-          theme={theme}
-          setSelectedSegment={setSelectedSegment}
-          selectedSegment={selectedSegment}
-          allSegments={graphData}
-          setBreakTimer={setBreakTimer}
-        />
-      ) : null}
+          <Switch
+            onChange={() => {
+              if (hasPermission) {
+                removePermissions()
+              } else {
+                requestPermissions()
+              }
+            }}
+            value={hasPermission}
+          />
+        </Box>
+        <BodyS flex="1" paddingLeft="m">
+          Screen Time is {!hasPermission ? 'disabled' : 'enabled'}
+        </BodyS>
+      </Box>
+
+      <Modal
+        isOpen={!!selectedSegment}
+        theme={theme}
+        setSelectedSegment={setSelectedSegment}
+        selectedSegment={selectedSegment}
+        allSegments={graphData}
+        setBreakTimer={setBreakTimer}
+      />
     </Box>
   )
 }
