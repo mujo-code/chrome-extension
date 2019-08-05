@@ -1,4 +1,4 @@
-import { Box } from '@jcblw/box'
+import { Box } from '@mujo/box'
 import React, { useState } from 'react'
 import { SCREEN_TIME_PERMISSIONS } from '../../constants'
 import { usePermissions } from '../../hooks/use-permissions'

@@ -1,6 +1,6 @@
 import { Global, css } from '@emotion/core'
-import { Box } from '@jcblw/box'
-import { removeKeys } from '@jcblw/box/dist/lib/remove-keys'
+import { Box } from '@mujo/box'
+import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
 import React from 'react'
 import {
   headerL,

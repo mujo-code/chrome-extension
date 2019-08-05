@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { Box } from '@jcblw/box'
+import { Box } from '@mujo/box'
 import ErrorStackParser from 'error-stack-parser'
 import React from 'react'
 import { mapStackTrace } from 'sourcemapped-stacktrace'

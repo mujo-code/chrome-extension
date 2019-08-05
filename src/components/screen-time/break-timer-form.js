@@ -1,4 +1,4 @@
-import { Box } from '@jcblw/box'
+import { Box } from '@mujo/box'
 import React from 'react'
 import { FOURTY_FIVE_MINUTES } from '../../constants'
 import { msToMinutes, minutesToMS } from '../../lib/time'
