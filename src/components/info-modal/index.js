@@ -1,4 +1,4 @@
-import { Box } from '@jcblw/box'
+import { Box } from '@mujo/box'
 import React from 'react'
 import { useSubscription } from '../../hooks/use-subscription'
 import { useTheme } from '../../hooks/use-theme'

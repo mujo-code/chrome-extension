@@ -1,5 +1,5 @@
 import { css, Global } from '@emotion/core'
-import { Box, styleGuide } from '@jcblw/box'
+import { Box, styleGuide } from '@mujo/box'
 import React, { useState } from 'react'
 import { Button } from './components/button'
 import { Span, Sup } from './components/fonts'

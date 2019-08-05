@@ -38,18 +38,18 @@ exports[`Async ContentApp ContentApp should match snapshot 1`] = `
     onClick={[Function]}
   >
     <svg
-      className="css-itofk0"
+      className="css-1fzcj7p"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
-        className="css-1pbyw96"
+        className="css-11rzsnv"
       />
       <circle
-        className="css-ppsveg"
+        className="css-ib9x3a"
       />
       <circle
-        className="css-1011nqc"
+        className="css-3kz0sg"
       />
       <g
         className="css-1itd6tp"
