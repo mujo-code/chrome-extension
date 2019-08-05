@@ -1,4 +1,4 @@
-import { Box } from '@jcblw/box'
+import { Box } from '@mujo/box'
 import React, { useState } from 'react'
 import { SETTINGS_MODAL } from '../../constants'
 import { useTheme } from '../../hooks/use-theme'
