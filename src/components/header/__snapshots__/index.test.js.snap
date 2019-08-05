@@ -51,20 +51,20 @@ exports[`Header component matches open snapshot 1`] = `
     onMouseLeave={[Function]}
   >
     <svg
-      className="css-1p43vq6"
+      className="css-ui4khd"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
-        className="css-wxygbb"
+        className="css-1j7or71"
         fill="outerSpace"
       />
       <circle
-        className="css-1132avx"
+        className="css-glnwju"
         fill="saltBox"
       />
       <circle
-        className="css-1132avx"
+        className="css-glnwju"
         fill="mischka"
       />
       <g
@@ -193,20 +193,20 @@ exports[`Header component matches snapshot 1`] = `
     onMouseLeave={[Function]}
   >
     <svg
-      className="css-1gqwwu"
+      className="css-63egd1"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
-        className="css-4zl4od"
+        className="css-15od96u"
         fill="outerSpace"
       />
       <circle
-        className="css-eq50ml"
+        className="css-1ijalb3"
         fill="saltBox"
       />
       <circle
-        className="css-eq50ml"
+        className="css-1ijalb3"
         fill="mischka"
       />
       <g
