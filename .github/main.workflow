@@ -18,7 +18,7 @@ action "Lint Code" {
 }
 
 action "Test Code" {
-  uses = "jcblw/puppeteer-headful@master"
+  uses = "mujo-code/puppeteer-headful@master"
   needs = "Install Dependencies"
   args = ["test"],
   env = {
