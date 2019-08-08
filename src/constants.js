@@ -9,11 +9,15 @@ export const MAX_BREAKTIMERS = 5
 export const CURRENT_SUB_SKU = 'early_subscription'
 export const APP_READY_KEY = '__mujo_ready__'
 export const SPECTRUM_CHAT = 'https://spectrum.chat/mujo'
+export const API_HOST = 'https://getmujo.com/'
 export const SUPPORT_URL = `${SPECTRUM_CHAT}/general?tab=posts`
+export const VERSION = '1.3.0' // TODO make dyanmic
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
 export const HEARTBEAT = 'HEARTBEAT'
+export const P_ALARM = 'PREDICTIVE_ALARM' // is only part of the key
+// ex. PREDICTIVE_ALARM_2019-08-07T22:17:13.246Z
 
 // DB Keys
 export const DATABASE_NAME = 'MUJO'
@@ -22,6 +26,7 @@ export const DATABASE_VERSION = 1
 export const LAST_ACTIVITY_TABLE = 'LAST_ACTIVITY'
 
 // Storage keys
+export const ID_KEY = 'MUJO_IDENTITY'
 export const TOP_SITES_KEY = 'TOP_SITES'
 export const TOP_SITES_USAGE_KEY = 'TOP_SITES_USAGE'
 export const PAGE_VIEWS_KEY = 'PAGE_VIEWS'
@@ -30,6 +35,7 @@ export const SITE_TIME_KEY = 'SITE_TIME'
 export const BREAK_TIMERS_KEY = 'BREAK_TIMERS'
 export const LAST_ACTIVE_KEY = 'LAST_ACTIVE_KEY'
 export const ACTIVITY_NUMBER_KEY = 'ACTIVITY_NUMBER_KEY'
+export const PREDICTED_BREAK_TIMES = 'PREDICTED_BREAK_TIMES'
 
 // Actions
 export const NEW_TAB_CONNECTION = 'New Connection'
