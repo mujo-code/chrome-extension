@@ -8,11 +8,10 @@ export const defer = async (fn, amount, ...args) => {
   return fn(...args)
 }
 
-export const composePromises = (...fns) => value => {
-  fns.reduce((promise, fn) => {
-    promise.then(resolve => console.log(resolve) || fn(resolve))
-    return promise
-  }, Promise.resolve(value))
-}
+export const composePromises = (...fns) => value =>
+  fns.reduceRight(
+    (promise, fn) => promise.then(resolve => fn(resolve)),
+    Promise.resolve(value)
+  )
 
 export const pipePromises = (...fns) => composePromises(fns.reverse())

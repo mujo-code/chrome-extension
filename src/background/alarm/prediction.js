@@ -1,8 +1,13 @@
 import { isAfter, isSameDay } from 'date-fns'
-import { PREDICTED_BREAK_TIMES, P_ALARM } from '../../constants'
+import {
+  PREDICTED_BREAK_TIMES,
+  P_ALARM,
+  MAX_ACTIVITY_ROWS,
+} from '../../constants'
 import { last } from '../../lib/functional'
 import { api } from '../../lib/mujo-sdk'
-import { storage, getActivity } from '../storage'
+import { storage, getActivity, resetActivity } from '../storage'
+import { exception } from '../tracking'
 import { upsertAlarm } from './util'
 
 export const alarmKey = date => `${P_ALARM}_${date}`
@@ -18,19 +23,28 @@ export const isOutDated = (predictions = []) => {
 export const checkPredictions = async () => {
   let predictions = await storage.get(PREDICTED_BREAK_TIMES)
   if (isOutDated(predictions) || !predictions) {
+    const activity = await getActivity()
+    if (activity.length) {
+      try {
+        // sync up new activties
+        await api.postActivity(activity.slice(MAX_ACTIVITY_ROWS * -1))
+        await resetActivity()
+      } catch (e) {
+        exception(e)
+      }
+    }
     try {
-      predictions = await api.todaysBreaks(await getActivity())
+      // get predictions
+      predictions = await api.getBreaks()
       await storage.set(PREDICTED_BREAK_TIMES, predictions)
-      // TODO clear table after it has been synced with the server
     } catch (e) {
-      console.error(e)
-      // TODO track error
+      exception(e)
       predictions = []
     }
   }
   const upcomingPredictions = predictions.filter(currentAlarms)
   upcomingPredictions.forEach(prediction => {
-    const when = prediction.date
+    const when = new Date(prediction.date)
     upsertAlarm(alarmKey(prediction.originalDate), { when })
   })
 }

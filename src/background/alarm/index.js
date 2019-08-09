@@ -9,7 +9,7 @@ export {
   handleAlarmToggle,
 } from './break-alarm'
 
-export const initAlarms = () => {
+export const initAlarms = async (...args) => {
   checkPredictions()
   addHeartBeat()
 }

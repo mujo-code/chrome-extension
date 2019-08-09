@@ -8,6 +8,5 @@ export const initIdentity = async () => {
     id = uuid()
     await storage.set(ID_KEY, uuid())
   }
-  console.log({ id })
   return id
 }

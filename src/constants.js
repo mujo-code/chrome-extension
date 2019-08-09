@@ -9,9 +9,10 @@ export const MAX_BREAKTIMERS = 5
 export const CURRENT_SUB_SKU = 'early_subscription'
 export const APP_READY_KEY = '__mujo_ready__'
 export const SPECTRUM_CHAT = 'https://spectrum.chat/mujo'
-export const API_HOST = 'https://getmujo.com/'
+export const API_HOST = 'https://getmujo.com'
 export const SUPPORT_URL = `${SPECTRUM_CHAT}/general?tab=posts`
 export const VERSION = '1.3.0' // TODO make dyanmic
+export const MAX_ACTIVITY_ROWS = 40000
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key

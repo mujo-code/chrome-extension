@@ -40,5 +40,5 @@
     "*.js.map",
     "*"
   ],
-  "content_security_policy": "script-src 'self' https://storage.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com http://localhost:5000 'sha256-Hh68uPWQF960rB8rb9c+clat9HNoP1DpxpruDkr5esY='; font-src https://fonts.gstatic.com; object-src 'self'; img-src 'self' https://www.google-analytics.com chrome://favicon https://xn--muj-sxa.com https://getmujo.com; connect-src https://getmujo.com"
+  "content_security_policy": "script-src 'self' https://storage.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com http://localhost:5000 'sha256-Hh68uPWQF960rB8rb9c+clat9HNoP1DpxpruDkr5esY='; font-src https://fonts.gstatic.com; object-src 'self'; img-src 'self' https://www.google-analytics.com chrome://favicon https://xn--muj-sxa.com https://getmujo.com; connect-src https://getmujo.com http://localhost:3000"
 }
