@@ -2,7 +2,7 @@ on: push
 name: Test Workflow
 jobs:
   installDependencies:
-    name: Install Dependencies
+    name: Lint & Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
