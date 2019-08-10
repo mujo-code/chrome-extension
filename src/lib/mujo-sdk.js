@@ -1,7 +1,34 @@
-import { http } from './http'
+import ky from 'ky-universal'
+import { API_HOST, VERSION } from '../constants'
+
+let identity
+
+export const getOptions = ({ method, json, searchParams }) => ({
+  method,
+  json,
+  searchParams,
+  prefixUrl: `${API_HOST}/api`,
+  headers: {
+    'request-origin': `Mujo Chrome Extension - ${VERSION}`,
+    'mujo-identity': identity,
+  },
+})
+
+export const http = async ({
+  endpoint,
+  method,
+  searchParams,
+  json,
+}) => {
+  const resp = await ky(
+    endpoint,
+    getOptions({ method, searchParams, json })
+  )
+  return resp.json()
+}
 
 export const identify = async id => {
-  http.identify(id)
+  identity = id
 }
 
 export const availableAPIs = [
@@ -10,8 +37,9 @@ export const availableAPIs = [
 ]
 
 const types = {
-  post: endpoint => body => http.post(`/api/${endpoint}`, { body }),
-  get: endpoint => body => http.get(`/api/${endpoint}`, { body }),
+  post: endpoint => json => http({ endpoint, method: 'post', json }),
+  get: endpoint => searchParams =>
+    http({ endpoint, method: 'get', searchParams }),
 }
 
 export const api = availableAPIs.reduce(

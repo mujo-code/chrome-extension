@@ -47,6 +47,8 @@
     "jest-image-snapshot": "^2.9.0",
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "^0.3.1",
+    "ky": "^0.11.2",
+    "ky-universal": "^0.2.2",
     "mini-css-extract-plugin": "0.5.0",
     "mkdirp": "^0.5.1",
     "optimize-css-assets-webpack-plugin": "5.0.1",

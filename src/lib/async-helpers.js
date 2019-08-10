@@ -14,4 +14,5 @@ export const composePromises = (...fns) => value =>
     Promise.resolve(value)
   )
 
-export const pipePromises = (...fns) => composePromises(fns.reverse())
+export const pipePromises = (...fns) =>
+  composePromises(...fns.reverse())

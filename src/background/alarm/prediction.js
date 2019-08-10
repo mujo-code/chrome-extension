@@ -22,25 +22,24 @@ export const isOutDated = (predictions = []) => {
 
 export const checkPredictions = async () => {
   let predictions = await storage.get(PREDICTED_BREAK_TIMES)
-  if (isOutDated(predictions) || !predictions) {
-    const activity = await getActivity()
-    if (activity.length) {
-      try {
-        // sync up new activties
-        await api.postActivity(activity.slice(MAX_ACTIVITY_ROWS * -1))
-        await resetActivity()
-      } catch (e) {
-        exception(e)
-      }
-    }
+  if (predictions && !isOutDated(predictions)) return
+  const activity = await getActivity()
+  if (activity.length) {
     try {
-      // get predictions
-      predictions = await api.getBreaks()
-      await storage.set(PREDICTED_BREAK_TIMES, predictions)
+      // sync up new activties
+      await api.postActivity(activity.slice(MAX_ACTIVITY_ROWS * -1))
+      await resetActivity()
     } catch (e) {
       exception(e)
-      predictions = []
     }
+  }
+  try {
+    // get predictions
+    predictions = await api.getBreaks()
+    await storage.set(PREDICTED_BREAK_TIMES, predictions)
+  } catch (e) {
+    exception(e)
+    predictions = []
   }
   const upcomingPredictions = predictions.filter(currentAlarms)
   upcomingPredictions.forEach(prediction => {
