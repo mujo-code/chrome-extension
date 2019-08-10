@@ -12,15 +12,18 @@ import { upsertAlarm } from './util'
 
 export const alarmKey = date => `${P_ALARM}_${date}`
 
-export const currentAlarms = prediction =>
-  isAfter(prediction.date, new Date())
+const getNow = date => date || new Date()
 
-export const isOutDated = (predictions = []) => {
+export const currentAlarms = (prediction, now) =>
+  isAfter(prediction.date, getNow(now))
+
+export const isOutDated = (predictions = [], now) => {
   const lastPrediction = last(predictions) || {}
-  return !isSameDay(new Date(lastPrediction.date), new Date())
+  return !isSameDay(new Date(lastPrediction.date), getNow(now))
 }
 
-export const checkPredictions = async () => {
+export const checkPredictions = async (options = {}) => {
+  const { isActive, now } = options
   let predictions = await storage.get(PREDICTED_BREAK_TIMES)
   if (predictions && !isOutDated(predictions)) return
   const activity = await getActivity()
@@ -33,8 +36,9 @@ export const checkPredictions = async () => {
       exception(e)
     }
   }
+
+  if (!isActive) return
   try {
-    // get predictions
     predictions = await api.getBreaks()
     await storage.set(PREDICTED_BREAK_TIMES, predictions)
   } catch (e) {
@@ -43,7 +47,7 @@ export const checkPredictions = async () => {
   }
   const upcomingPredictions = predictions.filter(currentAlarms)
   upcomingPredictions.forEach(prediction => {
-    const when = new Date(prediction.date)
+    const when = +new Date(prediction.date) - +getNow(now)
     upsertAlarm(alarmKey(prediction.originalDate), { when })
   })
 }

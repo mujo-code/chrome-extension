@@ -117,7 +117,7 @@ test('checkPredictions should store new predictions', async () => {
   // needed or it will break
   api.getBreaks.mockResolvedValue(breaks)
 
-  await checkPredictions()
+  await checkPredictions({ isActive: true })
   expect(storage.set).toBeCalledWith(PREDICTED_BREAK_TIMES, breaks)
 })
 
@@ -133,11 +133,12 @@ test('checkPredictions should log any errors getting breaks', async () => {
   api.getBreaks.mockRejectedValue(fooError)
   getActivity.mockResolvedValue(activity)
 
-  await checkPredictions()
+  await checkPredictions({ isActive: true })
   expect(exception).toBeCalledWith(fooError)
 })
 
 test('checkPredictions should add any upcoming alarms', async () => {
+  const now = new Date()
   const date = new Date()
   const yesterday = new Date()
   date.setHours(date.getHours() + 1)
@@ -153,9 +154,10 @@ test('checkPredictions should add any upcoming alarms', async () => {
   api.getBreaks.mockResolvedValue(breaks)
   getActivity.mockResolvedValue(activity)
 
-  await checkPredictions()
+  await checkPredictions({ now, isActive: true })
 
-  const options = { when: date }
+  const when = +date - +now
+  const options = { when }
   // omits old alarm
   expect(upsertAlarm).toHaveBeenCalledTimes(1)
   expect(upsertAlarm).toHaveBeenLastCalledWith(
