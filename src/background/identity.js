@@ -6,7 +6,7 @@ export const initIdentity = async () => {
   let id = await storage.get(ID_KEY)
   if (!id) {
     id = uuid()
-    await storage.set(ID_KEY, uuid())
+    await storage.set(ID_KEY, id)
   }
   return id
 }

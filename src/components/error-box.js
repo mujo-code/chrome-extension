@@ -97,6 +97,6 @@ export class ErrorBox extends React.Component {
       )
     }
 
-    return this.props.children
+    return <>{this.props.children}</>
   }
 }
