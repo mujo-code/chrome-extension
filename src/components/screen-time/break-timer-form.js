@@ -29,7 +29,9 @@ export const BreakTimerForm = props => {
             onChange={e =>
               setBreakTimer(
                 originalURL,
-                minutesToMS(parseInt(e.target.value || '0', 10)),
+                minutesToMS(
+                  Math.abs(parseInt(e.target.value || '0', 10))
+                ),
                 enabled
               )
             }
