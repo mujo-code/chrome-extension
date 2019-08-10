@@ -5,6 +5,7 @@ import {
   SITE_TIME_KEY,
   APP_READY_KEY,
 } from './constants'
+import { wait } from './lib/async-helpers'
 
 const TEST_TIMEOUT = 10000 // extend test timeout sinces its E2E
 
@@ -75,6 +76,7 @@ test(
     await page.goto('chrome://newtab')
     await waitDOMLoaded()
     const el = await page.$('[data-testid="player"]')
+    await wait(500)
     expect(el).not.toBe(null)
   },
   TEST_TIMEOUT
@@ -110,7 +112,7 @@ test(
       SITE_TIME_KEY,
       screenTimeMock
     )
-    // await wait(500)
+    await wait(500)
     const el = await page.$('[data-testid="graph"]')
     expect(el).not.toBe(null)
     // const screenshot = await page.screenshot()
