@@ -10,7 +10,6 @@ import { createTween } from './tweens'
 
 export { transition } from './styles'
 
-const REPEAT = 5
 export const wait = fn => (...args) =>
   setTimeout(() => fn(...args), 0)
 
@@ -20,15 +19,31 @@ const animatingPropsFactory = () => ({
   circle2: {},
 })
 
+// these are now totals
 const defaultsOptions = {
-  breathTimeIncrease: 300,
-  circleScaleExpandedIncrease: 0.2,
-  circleInnerExpandedIncrease: 0.1,
+  breathTimeIncrease: 1500,
+  circleScaleExpandedIncrease: 1,
+  circleInnerExpandedIncrease: 0.7,
+}
+
+const makeOptions = (breathAmount = 5, argOptions) => {
+  const {
+    breathTimeIncrease,
+    circleScaleExpandedIncrease,
+    circleInnerExpandedIncrease,
+  } = Object.assign({}, defaultsOptions, argOptions)
+  return {
+    breathTimeIncrease: breathTimeIncrease / breathAmount,
+    circleScaleExpandedIncrease:
+      circleScaleExpandedIncrease / breathAmount,
+    circleInnerExpandedIncrease:
+      circleInnerExpandedIncrease / breathAmount,
+  }
 }
 
 export const useAnimations = (props, argOptions = {}) => {
-  const options = Object.assign({}, defaultsOptions, argOptions)
-  const { isOpen, onFinish } = props
+  const { isOpen, onFinish, breathAmount } = props
+  const options = makeOptions(breathAmount, argOptions)
   const [animatingProps, setAnimatingProps] = useState(
     animatingPropsFactory()
   )
@@ -106,7 +121,7 @@ export const useAnimations = (props, argOptions = {}) => {
         createTween({
           updateTween,
           completeTween,
-          repeat: REPEAT,
+          repeat: breathAmount || 5,
           shouldLoop: () => isOpen,
           setTween,
         })
@@ -134,6 +149,8 @@ export const useAnimations = (props, argOptions = {}) => {
     updateTween,
     completeTween,
     delayedSetAnimatingProps,
+    options.breathAmount,
+    breathAmount,
   ])
   const animationProps = {
     svg: toSvgProps(props),

@@ -48,6 +48,8 @@ export const ExtensionProvider = props => {
     breakTimers,
     updateBreakTimers,
     activityNumber,
+    breathAmount,
+    setBreathAmount,
   } = useModel()
   const { user } = useSubscription()
   const {
@@ -115,6 +117,8 @@ export const ExtensionProvider = props => {
     hasPermission,
     requestPermissions,
     removePermissions,
+    breathAmount,
+    setBreathAmount,
   })
   // TODO avoid mutation
   decorateSelectedSegment({ selectedSegment, siteTimesAndTimers })
@@ -124,6 +128,7 @@ export const ExtensionProvider = props => {
       value={{
         topSites: mappedTopSites,
         alarmEnabled,
+        breathAmount,
         pageViews,
         showTopSites,
         siteTimes,

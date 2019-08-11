@@ -13,6 +13,8 @@ export const API_HOST = 'https://getmujo.com'
 export const SUPPORT_URL = `${SPECTRUM_CHAT}/general?tab=posts`
 export const VERSION = '1.3.0' // TODO make dyanmic
 export const MAX_ACTIVITY_ROWS = 40000
+export const BREATH_MAX = 20
+export const BREATH_MIN = 5
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
@@ -37,6 +39,7 @@ export const BREAK_TIMERS_KEY = 'BREAK_TIMERS'
 export const LAST_ACTIVE_KEY = 'LAST_ACTIVE_KEY'
 export const ACTIVITY_NUMBER_KEY = 'ACTIVITY_NUMBER_KEY'
 export const PREDICTED_BREAK_TIMES = 'PREDICTED_BREAK_TIMES'
+export const BREATH_AMOUNT_KEY = 'BREATH_AMOUNT'
 
 // Actions
 export const NEW_TAB_CONNECTION = 'New Connection'

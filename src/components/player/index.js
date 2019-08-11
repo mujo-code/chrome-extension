@@ -34,7 +34,8 @@ export const Player = props => {
     'isOpen',
     'circleRatio',
     'onFinish',
-    'label'
+    'label',
+    'breathAmount'
   )
   const [{ animationProps, isBreathIn, iteration }] = useAnimations(
     props,

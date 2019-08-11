@@ -55,6 +55,7 @@ const App = () => {
     setSelectedSegment,
     setPlayerIsOpen,
     setUpsellModal,
+    breathAmount,
   } = useExtension()
   const theme = useTheme()
   const { background } = theme
@@ -85,6 +86,7 @@ const App = () => {
       {appReady ? (
         <>
           <Header
+            breathAmount={breathAmount}
             playerIsOpen={playerIsOpen}
             logoSize={logoSize}
             resetUsage={resetUsage}

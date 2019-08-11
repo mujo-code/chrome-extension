@@ -2,6 +2,7 @@ import { Box } from '@mujo/box'
 import React from 'react'
 import { Button } from '../button'
 import { HeaderS, BodyS } from '../fonts'
+import { Input } from '../input'
 import { Switch } from '../switch'
 
 export const Boolean = ({
@@ -16,7 +17,7 @@ export const Boolean = ({
 }
 
 export const SettingsInput = props => {
-  const { type, onChange, value } = props
+  const { type, onChange, value, inputLabel } = props
   switch (type) {
     case 'button':
       return (
@@ -28,6 +29,17 @@ export const SettingsInput = props => {
         >
           {value}
         </Button>
+      )
+    case 'number':
+      return (
+        <Input
+          label={inputLabel || ' '}
+          type="number"
+          value={value}
+          onChange={e =>
+            onChange(Math.abs(parseInt(e.target.value, 10)))
+          }
+        />
       )
     case 'boolean':
     default:
