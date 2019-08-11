@@ -11,7 +11,7 @@ The documentation here is a working document and the modification and addition o
 
 ## Useful pages
 
-- [Coding style guides](./coding-guide.md)
+- [Coding style guides](./coding-style-guide.md)
 - [Architecture](./architecture.md)
 - [Top Level file structure](./file-structure.md)
 - [Building a release](./release.md)
