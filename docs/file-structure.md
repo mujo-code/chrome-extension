@@ -22,6 +22,34 @@ This is where the build configuration lives, this can be something like web-pack
 
 This is where all build, test, and distribution script live. This is largely built from ejecting from `create-react-app`.
 
+### background
+
+This is where background script specific code lives. All code here is exclusive to the background script.
+
+### components
+
+This folder holds react components. The standard is to use a dasherized version of the component name as the top level folder name, for example `button-group`. This folder has an `index.js` file for the main export and a test `index.test.js`. If the test has any snapshots they will be scoped to this folder. This allows for organization of sub dependecies of components without flooding the top level scope of components. Think of it is **domain** based folders.
+
+Components can be shared between the NTP and Content Script.
+
+### content
+
+This folder holds any content script specific scripts.
+
+### hooks
+
+This folder hold any custom [React hooks](https://reactjs.org/docs/hooks-overview.html). This if needed can also be split into **domain** based folders.
+
+Hooks can be shared between the NTP and Content Script.
+
+### lib
+
+This is utilities that usually are decouple from React or the application logic itself. This is usually code that is usually doing some type of functionality that is not specific to this application.
+
+### styles
+
+This is a place that houses any additions to the [Box](https://github.com/mujo-code/box) style guide.
+
 ## **\_\_mocks\_\_**
 
 This is just top level mocks for Jest
