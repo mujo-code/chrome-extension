@@ -1,3 +1,5 @@
+# Top level folders
+
 This is a quick overview of what is in a top level folder.
 
 ## src
@@ -20,6 +22,6 @@ This is where the build configuration lives, this can be something like web-pack
 
 This is where all build, test, and distribution script live. This is largely built from ejecting from `create-react-app`.
 
-## **\*\*mocks**\*\*
+## **\_\_mocks\_\_**
 
 This is just top level mocks for Jest
