@@ -1,6 +1,6 @@
 # Architecture
 
-The Chrome extension is comprised of three different script. The **[new tab page](../src/index.js)**, **[background script](../src/background.js)** and **[content script](../src/content.js)**.
+The Chrome extension is comprised of three different script. The **[new tab page](../src/index.js)**, **[background script](../src/background.js)** and **[content script](../src/content.js)**. Its primary database storage is [IndexDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) using [IDB](https://www.npmjs.com/package/idb).
 
 ## New Tab Page ( NTP)
 
@@ -25,3 +25,20 @@ With the introduction of Screen Time the extension now has a [content script](ht
 There is a few ways to message back in forth between scripts... Hooks, Abstractions, Raw Chrome API calls.
 
 [Communicating Between Scripts](./messaging.md)
+
+## Notable Files
+
+### [contants.js](../src/constants.js)
+
+This file is shared with all scripts and applications. I holds all types of configuration like:
+
+- Alarm keys
+- Database names
+- Storage keys
+- Feature flags
+- Additional permission
+- General configuration
+
+## [model.js](../src/model.js)
+
+This file is shared with all scripts and applications. It holds the keys that the key value storage in our database houses. If you need to add any additional keys to store information add it here or the [application will throw](../src/background/storage/storage.js#L16-18).

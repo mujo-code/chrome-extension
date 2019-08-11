@@ -26,3 +26,17 @@ We ask that all contribution follow the current linting and formatting rules of 
 ### Technology
 
 To Lint the code we use [eslint](http://eslint.org) and to format the code we use [prettier](https://prettier.io/). The configs can be found in the root of the repository. All standards are enforce as is, but can be up for debate in an issues ticket.
+
+## Conventions
+
+### Exports
+
+Named exports are encouraged over default exports.
+
+### Component Types
+
+With the introduction of [React hooks](https://reactjs.org/docs/hooks-overview.html) there is not much need to use class components. Please make components from stateless function components.
+
+### File names
+
+File naming conventions can be found in [file structure document](./file-structure.md#srccomponents).

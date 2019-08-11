@@ -31,4 +31,18 @@ This will flow into the message reducer in the background scripts, the response 
 
 # Background to Client
 
+## Responses
+
 If you are responding to a message there is a method passed into the message reducer that allows you to respond explicitly to the client. That value will be resolved in the client from the message call.
+
+## Broadcasting
+
+If you need to update all clients that are running client code there is a concept of a [broadcaster](../src/background/storage/broadcast) that can be used.
+
+> Note: Currently the broadcaster is only being used to update stale data to clients.
+
+```javascript
+import { broadcaster } from './storage/broadcast'
+
+broadcaster.broadcast('foo')
+```
