@@ -1,6 +1,6 @@
 # Architecture
 
-The Chrome extension is comprised of three different script. The **new tab page ( index.js )**, **background script ( background.js )** and **content script ( content.js )**.
+The Chrome extension is comprised of three different script. The **[new tab page](../src/index.js)**, **[background script](../src/background.js)** and **[content script](../src/content.js)**.
 
 ## New Tab Page ( NTP)
 
