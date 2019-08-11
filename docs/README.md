@@ -1,4 +1,4 @@
-### Chrome Extension Documentation
+# Chrome Extension Documentation
 
 ## Architecture
 
