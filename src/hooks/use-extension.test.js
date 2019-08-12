@@ -1,10 +1,12 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { MAX_BREAKTIMER_MODAL, BREAK_TIMERS_KEY } from '../constants'
 import model from '../model'
-import { useExtension } from './use-extension'
+import { useExtension, ExtensionProvider } from './use-extension'
+
+const defaultOptions = { wrapper: ExtensionProvider }
 
 test('the useExtension should return an array with two item', () => {
-  const { result } = renderHook(() => useExtension())
+  const { result } = renderHook(() => useExtension(), defaultOptions)
   expect(result.current.length).toBe(2)
 })
 
@@ -16,7 +18,7 @@ test('the useExtension should by default only allow 5 break timers', () => {
     qux: { enabled: true },
     foobar: { enabled: true },
   }
-  const { result } = renderHook(() => useExtension())
+  const { result } = renderHook(() => useExtension(), defaultOptions)
   const { setBreakTimer } = result.current[1]
   act(() => {
     setBreakTimer('https://bazqux.com', 1, true)
