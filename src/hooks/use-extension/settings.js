@@ -16,25 +16,19 @@ export const makeSettings = ({
   removePermissions,
 }) => [
   {
-    label: 'Subscriber',
+    label: 'Subscribe',
     type: 'button',
     value: 'More Info',
     alt: user.isSubscribed
       ? 'Thanks you for your support ❤️!'
       : 'Get access to more Mujō',
     setter: () => {
-      if (!user.isSubscribed) {
-        setUpsellModal({
-          name: SUB_DETAILS_MODAL,
-          sku: CURRENT_SUB_SKU,
-          callback: () => {},
-        })
-      } else {
-        setUpsellModal({
-          title: 'Contact Support',
-          description: 'We currently do not have this functionality',
-        })
-      }
+      // always open this modal
+      setUpsellModal({
+        name: SUB_DETAILS_MODAL,
+        sku: CURRENT_SUB_SKU,
+        callback: () => {},
+      })
     },
   },
   {
@@ -63,7 +57,7 @@ export const makeSettings = ({
     type: 'button',
     value: 'Get support',
     setter: () => {
-      window.location.href = SUPPORT_URL
+      window.open(SUPPORT_URL)
     },
   },
 ]

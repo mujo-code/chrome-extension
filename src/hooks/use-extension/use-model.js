@@ -56,7 +56,6 @@ export const useModel = () => {
   }
   useEffect(() => {
     if (!isConnected) {
-      console.log('attaching')
       message(ADD_BROADCAST_TAB)
       onMessage(onBackgroundMessage(updateFns))
       setIsConnected(true)

@@ -11,7 +11,7 @@ import {
   SCREEN_TIME_PERMISSIONS,
 } from '../../constants'
 import { toSiteInfo } from '../../lib/aggregation'
-import { message, topSites as topSitesApi } from '../../lib/extension'
+import { message } from '../../lib/extension'
 import { usePermissions } from '../use-permissions'
 import { useSubscription } from '../use-subscription'
 import { makeSettings } from './settings'
@@ -19,6 +19,7 @@ import { decorateSelectedSegment, mapTopSites } from './transforms'
 import { useBreaktimerCallback } from './use-breaktimer-callback'
 import { useDeeplink } from './use-deeplink'
 import { useModel } from './use-model'
+import { useTopsitesAPI } from './use-topsites-api'
 
 const context = React.createContext()
 const { Provider } = context
@@ -60,11 +61,11 @@ export const ExtensionProvider = props => {
     setPlayerIsOpen,
     setSelectedSegment,
   })
+  useTopsitesAPI({ setTopSites })
   useEffect(() => {
     if (!pending && !appReady) {
       updatePageViews(pageViews + 1)
       message(NEW_TAB_CONNECTION)
-      topSitesApi.get(setTopSites)
       setAppReady(true)
       if (typeof window[APP_READY_KEY] === 'function') {
         window[APP_READY_KEY]()
