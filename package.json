@@ -58,7 +58,7 @@
     "punycode": "^2.1.1",
     "puppeteer": "^1.19.0",
     "react": "^16.9.0",
-    "react-app-polyfill": "^1.0.1",
+    "react-app-polyfill": "^1.0.2",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.9.0",
     "react-feather": "^2.0.3",
