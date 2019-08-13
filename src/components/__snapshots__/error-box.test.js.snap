@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBox should match snapshot 1`] = `null`;
+
+exports[`ErrorBox should match when there is an error 1`] = `null`;

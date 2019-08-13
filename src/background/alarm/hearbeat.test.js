@@ -4,14 +4,17 @@ import { onHeartBeat, addHeartBeat } from './heartbeat'
 
 jest.mock('../activity')
 jest.mock('./break-alarm')
+jest.mock('./prediction')
 jest.mock('./util')
 const { isActive, resetUsage } = require('../activity')
 const { removeBreakAlarm, addBreakAlarm } = require('./break-alarm')
 const { upsertAlarm } = require('./util')
+const { checkPredictions } = require('./prediction')
 
 test('onHeartBeat should reset activity if user was inactive', async () => {
   isActive.mockResolvedValue(false)
   await onHeartBeat()
+  expect(checkPredictions).not.toBeCalled()
   expect(addBreakAlarm).not.toBeCalled()
   expect(resetUsage).toBeCalled()
   expect(removeBreakAlarm).toBeCalled()
@@ -23,6 +26,7 @@ test('onHeartBeat should call addBreakAlarm if user is active', async () => {
   expect(resetUsage).not.toBeCalled()
   expect(removeBreakAlarm).not.toBeCalled()
   expect(addBreakAlarm).toBeCalled()
+  expect(checkPredictions).toBeCalled()
 })
 
 test('addHeartBeat should attempt to add a new timer', async () => {

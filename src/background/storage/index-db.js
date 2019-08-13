@@ -66,6 +66,12 @@ export const addLatestActivity = async date => {
   })
 }
 
+export const getActivity = async () =>
+  (await database).getAllFromIndex(LAST_ACTIVITY_TABLE, 'date')
+
+export const resetActivity = async () =>
+  (await database).clear(LAST_ACTIVITY_TABLE)
+
 export default {
   getters: types.reduce((accum, type) => {
     set(accum, type, store.get)

@@ -2,13 +2,16 @@ import {
   LAST_ACTIVITY_TABLE,
   ACTIVITY_NUMBER_KEY,
 } from '../../constants'
-import indexDBInterface, {
+import * as IndexDBInterface from './index-db'
+import { types } from './types'
+
+const {
+  default: indexDBInterface,
   open,
   database,
   addLatestActivity,
   store,
-} from './index-db'
-import { types } from './types'
+} = IndexDBInterface
 
 test('open should return a promise', () => {
   expect(typeof open().then).toBe('function')
@@ -31,13 +34,13 @@ test('addLatestActivity should add an entry to indexDB', async () => {
 })
 
 // NOTE: most other functionality of this module is tests like ./types.test.js
-test('localStorageInterface should have getters for all types', () => {
+test('indexDBInterface should have getters for all types', () => {
   types.forEach(type => {
     expect(typeof indexDBInterface.getters[type]).toBe('function')
   })
 })
 
-test('localStorageInterface should have setters for all types', () => {
+test('indexDBInterface should have setters for all types', () => {
   types.forEach(type => {
     expect(typeof indexDBInterface.setters[type]).toBe('function')
   })

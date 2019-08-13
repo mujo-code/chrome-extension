@@ -6,7 +6,7 @@ import { origin } from '../../lib/url'
 import ContentApp from '.'
 
 const CONTAINER_ID = 'mujo-extension'
-const URL = origin(window.location.href)
+const SHORT_URL = origin(window.location.href)
 
 beforeEach(() => {
   const el = document.createElement('div')
@@ -35,8 +35,8 @@ describe('Async ContentApp', () => {
   test('ContentApp should match snapshot', async () => {
     const timer = { enabled: true, time: 1 }
     const results = {
-      [BREAK_TIMERS_KEY]: { [URL]: timer },
-      [SITE_TIME_KEY]: { [URL]: 2 },
+      [BREAK_TIMERS_KEY]: { [SHORT_URL]: timer },
+      [SITE_TIME_KEY]: { [SHORT_URL]: 2 },
     }
     const mockResults = async key => results[key]
     const storagePromise = new Promise(resolve => {
