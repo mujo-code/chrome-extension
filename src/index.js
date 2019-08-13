@@ -16,7 +16,7 @@ const NewHomePage = () => {
     <ErrorBox>
       <Font />
       <SubscriptionProvider>
-        <ExtensionProvider>
+        <ExtensionProvider shouldRegisterApp={true}>
           <ColorThemeProvider value={scheme}>
             <App />
           </ColorThemeProvider>

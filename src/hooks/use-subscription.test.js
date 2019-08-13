@@ -35,6 +35,7 @@ test('useSubscription should initialize products and purchases', async () => {
   )
   // Two updates [product, user]
   await waitForNextUpdate()
+  await waitForNextUpdate()
   expect(result.current.user.isSubscribed).toBe(true)
   expect(result.current.user.products).toEqual([
     { state: ACTIVE_PRODUCT },
@@ -51,6 +52,7 @@ test('useSubscription should be unsubbed if not active product', async () => {
   )
   // Two updates [product, user]
   await waitForNextUpdate()
+  await waitForNextUpdate()
   expect(result.current.user.isSubscribed).toBe(false)
 })
 
@@ -63,6 +65,7 @@ test('useSubscription a failure to buy should set purchaseError', async () => {
     hookOptions
   )
   // Init calls
+  await waitForNextUpdate()
   await waitForNextUpdate()
   act(() => {
     result.current.buy('foo')

@@ -26,6 +26,7 @@ const { Provider } = context
 
 export const ExtensionProvider = props => {
   // state
+  const { shouldRegisterApp } = props
   const [appReady, setAppReady] = useState(false)
   const [playerIsOpen, setPlayerIsOpen] = useState(false)
   const [selectedSegment, setSelectedSegment] = useState(null)
@@ -63,7 +64,7 @@ export const ExtensionProvider = props => {
   })
   useTopsitesAPI({ setTopSites })
   useEffect(() => {
-    if (!pending && !appReady) {
+    if (!pending && !appReady && shouldRegisterApp) {
       updatePageViews(pageViews + 1)
       message(NEW_TAB_CONNECTION)
       setAppReady(true)
@@ -79,6 +80,7 @@ export const ExtensionProvider = props => {
     setTopSites,
     updatePageViews,
     appReady,
+    shouldRegisterApp,
   ])
 
   // callbacks
@@ -102,7 +104,7 @@ export const ExtensionProvider = props => {
     message(RESET_USAGE)
   }, [])
 
-  // data transforms
+  // transforms
   const mappedTopSites = topSites.map(mapTopSites(topSitesUsage))
   const siteTimesAndTimers = toSiteInfo(siteTimes, breakTimers)
   const settings = makeSettings({
@@ -114,46 +116,41 @@ export const ExtensionProvider = props => {
     requestPermissions,
     removePermissions,
   })
-
   // TODO avoid mutation
   decorateSelectedSegment({ selectedSegment, siteTimesAndTimers })
 
   return (
     <Provider
-      value={[
-        {
-          topSites: mappedTopSites,
-          alarmEnabled,
-          pageViews,
-          showTopSites,
-          siteTimes,
-          siteTimesAndTimers,
-          appReady,
-          breakTimers,
-          selectedSegment,
-          playerIsOpen,
-          activityNumber,
-          upsellModal,
-          settings,
-          screenTime: {
-            hasPermission,
-            requestPermissions,
-            removePermissions,
-          },
+      value={{
+        topSites: mappedTopSites,
+        alarmEnabled,
+        pageViews,
+        showTopSites,
+        siteTimes,
+        siteTimesAndTimers,
+        appReady,
+        breakTimers,
+        selectedSegment,
+        playerIsOpen,
+        activityNumber,
+        upsellModal,
+        settings,
+        screenTime: {
+          hasPermission,
+          requestPermissions,
+          removePermissions,
         },
-        {
-          setAlarmEnabled: setAlarmEnabledProxy,
-          setTopSites,
-          updateSitesUsed,
-          resetUsage,
-          updateShowTopSites,
-          setBreakTimer,
-          setSelectedSegment,
-          setPlayerIsOpen,
-          setUpsellModal,
-          updateBreakTimers,
-        },
-      ]}
+        setAlarmEnabled: setAlarmEnabledProxy,
+        setTopSites,
+        updateSitesUsed,
+        resetUsage,
+        updateShowTopSites,
+        setBreakTimer,
+        setSelectedSegment,
+        setPlayerIsOpen,
+        setUpsellModal,
+        updateBreakTimers,
+      }}
     >
       {props.children}
     </Provider>
