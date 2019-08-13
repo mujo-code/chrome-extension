@@ -22,6 +22,7 @@
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "cra-append-sw": "^2.6.1",
     "css-loader": "3.2.0",
+    "date-fns": "^1.30.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "5.1.0",
     "error-stack-parser": "^2.0.2",
@@ -46,6 +47,8 @@
     "jest-image-snapshot": "^2.9.0",
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "^0.3.1",
+    "ky": "^0.11.2",
+    "ky-universal": "^0.2.2",
     "mini-css-extract-plugin": "^0.8.0",
     "mkdirp": "^0.5.1",
     "optimize-css-assets-webpack-plugin": "5.0.1",
@@ -69,6 +72,7 @@
     "terser-webpack-plugin": "1.2.3",
     "url-loader": "^2.1.0",
     "use-color-scheme": "^1.1.1",
+    "uuid": "^3.3.2",
     "webpack": "^4.39.1",
     "webpack-dev-server": "^3.7.2",
     "webpack-manifest-plugin": "2.0.4"
@@ -101,10 +105,10 @@
   "jest": {
     "coverageThreshold": {
       "global": {
-        "statments": 70,
-        "branches": 50,
-        "functions": 65,
-        "lines": 70
+        "statments": 75,
+        "branches": 60,
+        "functions": 70,
+        "lines": 75
       }
     },
     "collectCoverageFrom": [

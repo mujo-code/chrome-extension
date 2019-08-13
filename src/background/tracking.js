@@ -26,6 +26,15 @@ export const track = (options = {}, overrides = {}) => {
   return addData(payload)
 }
 
+export const exception = (err = {}, overrides = {}) => {
+  const { event = 'exception' } = overrides
+  const errorStack = err.stack
+  const errorMessage = err.message
+  const payload = { errorStack, errorMessage, event }
+  console.error(err, 'Exception Logged')
+  return addData(payload)
+}
+
 export const injectTracking = (id, doc) => {
   const now = new Date()
   addData({

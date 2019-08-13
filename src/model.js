@@ -9,6 +9,8 @@ import {
   SITE_TIME_KEY,
   TOP_SITES_KEY,
   TOP_SITES_USAGE_KEY,
+  PREDICTED_BREAK_TIMES,
+  ID_KEY,
 } from './constants'
 
 export default {
@@ -21,4 +23,6 @@ export default {
   [BREAK_TIMERS_KEY]: { type: Object, defaultValue: {} },
   [LAST_ACTIVE_KEY]: { type: Number, defaultValue: 0 },
   [ACTIVITY_NUMBER_KEY]: { type: Number, defaultValue: 0 },
+  [PREDICTED_BREAK_TIMES]: { type: Object, defaultValue: [] },
+  [ID_KEY]: { type: String, default: null },
 }

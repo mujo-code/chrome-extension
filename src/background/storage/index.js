@@ -2,6 +2,8 @@ import statsModel from '../../model'
 import indexDB from './index-db'
 import { Storage } from './storage'
 
+export { getActivity, resetActivity } from './index-db'
+
 export const storage = Storage.from({
   version: '1',
   model: statsModel,
