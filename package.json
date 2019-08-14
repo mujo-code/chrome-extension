@@ -6,7 +6,7 @@
   "dependencies": {
     "@babel/core": "7.4.3",
     "@emotion/cache": "^10.0.15",
-    "@emotion/core": "^10.0.14",
+    "@emotion/core": "^10.0.15",
     "@mujo/box": "^3.0.0",
     "@svgr/webpack": "4.1.0",
     "@testing-library/react-hooks": "^1.1.0",
