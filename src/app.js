@@ -16,12 +16,8 @@ import * as utilStyles from './styles/utils'
 styleGuide.push(utilStyles)
 
 const bodyBackgrounds = {
-  outerSpace: `radial-gradient(ellipse at center, ${
-    colors.gravel
-  } 0%,${colors.outerSpace} 100%)`,
-  mischka: `radial-gradient(ellipse at center, ${colors.white} 0%,${
-    colors.mischka
-  } 100%)`,
+  outerSpace: `radial-gradient(ellipse at center, ${colors.gravel} 0%,${colors.outerSpace} 100%)`,
+  mischka: `radial-gradient(ellipse at center, ${colors.white} 0%,${colors.mischka} 100%)`,
 }
 
 const appWrapper = css({ height: '100vh' })

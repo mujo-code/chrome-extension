@@ -29,11 +29,7 @@ export const getPathAttributes = ({
   const endPoint = getInnerPoint(angles[1])
   const largeArcFlag = angles[1] - angles[0] <= 180 ? '0' : '1'
   const sweepFlag = angles[1] - angles[0] <= 0 ? '0' : '1'
-  const d = `M ${startPoint.x} ${
-    startPoint.y
-  } A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${
-    endPoint.x
-  } ${endPoint.y}`
+  const d = `M ${startPoint.x} ${startPoint.y} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${endPoint.x} ${endPoint.y}`
   return { d }
 }
 
