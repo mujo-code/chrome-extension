@@ -11,6 +11,7 @@ import {
   TOP_SITES_USAGE_KEY,
   PREDICTED_BREAK_TIMES,
   ID_KEY,
+  BREATH_AMOUNT_KEY,
 } from './constants'
 
 export default {
@@ -25,4 +26,5 @@ export default {
   [ACTIVITY_NUMBER_KEY]: { type: Number, defaultValue: 0 },
   [PREDICTED_BREAK_TIMES]: { type: Object, defaultValue: [] },
   [ID_KEY]: { type: String, default: null },
+  [BREATH_AMOUNT_KEY]: { type: Number, defaultValue: 5 },
 }

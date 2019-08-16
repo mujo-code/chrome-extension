@@ -2,6 +2,8 @@ import {
   SUB_DETAILS_MODAL,
   CURRENT_SUB_SKU,
   SUPPORT_URL,
+  BREATH_MIN,
+  BREATH_MAX,
 } from '../../constants'
 
 const REMINDER_ALT = 'Notifications that remind you to take a break'
@@ -14,6 +16,8 @@ export const makeSettings = ({
   hasPermission,
   requestPermissions,
   removePermissions,
+  breathAmount,
+  setBreathAmount,
 }) => [
   {
     label: 'Subscribe',
@@ -50,6 +54,18 @@ export const makeSettings = ({
       }
     },
     value: hasPermission,
+  },
+  {
+    label: 'Breath amount',
+    type: 'number',
+    alt: 'Want more breath in each break?',
+    inputLabel: `Between ${BREATH_MIN} to ${BREATH_MAX}`,
+    setter: amount => {
+      setBreathAmount(
+        Math.min(Math.max(amount, BREATH_MIN), BREATH_MAX)
+      )
+    },
+    value: breathAmount,
   },
   {
     label: 'Help',

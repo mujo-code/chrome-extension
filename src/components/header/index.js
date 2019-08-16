@@ -14,6 +14,7 @@ export const Header = ({
   setPlayerIsOpen,
   activityNumber,
   setUpsellModal,
+  breathAmount,
 }) => {
   const [toolTipOpen, setToolTipOpen] = useState(false)
   const theme = useTheme()
@@ -46,6 +47,7 @@ export const Header = ({
         isOpen={playerIsOpen}
         width={logoSize}
         height={logoSize}
+        breathAmount={breathAmount}
         onFinish={() => {
           setPlayerIsOpen(false)
           resetUsage()
