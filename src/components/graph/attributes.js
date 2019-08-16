@@ -25,12 +25,17 @@ export const getPathAttributes = ({
   getInnerPoint,
   radius,
 }) => {
-  const startPoint = getInnerPoint(angles[0])
-  const endPoint = getInnerPoint(angles[1])
+  const start = getInnerPoint(angles[0])
+  const end = getInnerPoint(angles[1])
   const largeArcFlag = angles[1] - angles[0] <= 180 ? '0' : '1'
   const sweepFlag = angles[1] - angles[0] <= 0 ? '0' : '1'
-  const d = `M ${startPoint.x} ${startPoint.y} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${endPoint.x} ${endPoint.y}`
-  return { d }
+  const pathdata = [
+    // MOVE
+    `M ${start.x} ${start.y}`,
+    // ARC
+    `A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${end.x} ${end.y}`,
+  ]
+  return { d: pathdata.join(' ') }
 }
 
 export const getLabelAttributes = ({
