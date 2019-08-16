@@ -63,7 +63,6 @@ const App = () => {
   const toggleHandle = (fn, value) => () => fn(!value)
   const bg = bodyBackgrounds[background] || bodyBackgrounds.outerSpace
 
-  console.log(bg)
   return (
     <Box
       color={theme.foreground}

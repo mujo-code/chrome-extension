@@ -4,6 +4,8 @@ import {
   SUPPORT_URL,
   BREATH_MIN,
   BREATH_MAX,
+  VERSION,
+  WEBSTORE_URL,
 } from '../../constants'
 
 const REMINDER_ALT = 'Notifications that remind you to take a break'
@@ -74,6 +76,15 @@ export const makeSettings = ({
     value: 'Get support',
     setter: () => {
       window.open(SUPPORT_URL)
+    },
+  },
+  {
+    label: 'About Mujō',
+    alt: `You are using Mujō v${VERSION}`,
+    type: 'button',
+    value: 'Rate us!',
+    setter: () => {
+      window.open(WEBSTORE_URL)
     },
   },
 ]
