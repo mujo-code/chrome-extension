@@ -37,29 +37,25 @@ const factorMin = size => Math.max(size, DEFAULT_SIZE)
 const getFactor = x => factorMin(factor(x))
 
 const App = () => {
-  const [
-    {
-      topSites,
-      activityNumber,
-      showTopSites,
-      siteTimesAndTimers,
-      appReady,
-      selectedSegment,
-      playerIsOpen,
-      upsellModal,
-      settings,
-      screenTime,
-    },
-    {
-      updateSitesUsed,
-      resetUsage,
-      updateShowTopSites,
-      setBreakTimer,
-      setSelectedSegment,
-      setPlayerIsOpen,
-      setUpsellModal,
-    },
-  ] = useExtension()
+  const {
+    topSites,
+    activityNumber,
+    showTopSites,
+    siteTimesAndTimers,
+    appReady,
+    selectedSegment,
+    playerIsOpen,
+    upsellModal,
+    settings,
+    screenTime,
+    updateSitesUsed,
+    resetUsage,
+    updateShowTopSites,
+    setBreakTimer,
+    setSelectedSegment,
+    setPlayerIsOpen,
+    setUpsellModal,
+  } = useExtension()
   const theme = useTheme()
   const { background } = theme
   const logoSize = getFactor(activityNumber)

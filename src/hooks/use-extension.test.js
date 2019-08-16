@@ -1,11 +1,13 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { MAX_BREAKTIMER_MODAL, BREAK_TIMERS_KEY } from '../constants'
 import model from '../model'
-import { useExtension } from './use-extension'
+import { useExtension, ExtensionProvider } from './use-extension'
 
-test('the useExtension should return an array with two item', () => {
-  const { result } = renderHook(() => useExtension())
-  expect(result.current.length).toBe(2)
+const defaultOptions = { wrapper: ExtensionProvider }
+
+test('the useExtension should return an object', () => {
+  const { result } = renderHook(() => useExtension(), defaultOptions)
+  expect(typeof result.current).toBe('object')
 })
 
 test('the useExtension should by default only allow 5 break timers', () => {
@@ -16,12 +18,12 @@ test('the useExtension should by default only allow 5 break timers', () => {
     qux: { enabled: true },
     foobar: { enabled: true },
   }
-  const { result } = renderHook(() => useExtension())
-  const { setBreakTimer } = result.current[1]
+  const { result } = renderHook(() => useExtension(), defaultOptions)
+  const { setBreakTimer } = result.current
   act(() => {
     setBreakTimer('https://bazqux.com', 1, true)
   })
-  const { breakTimers, upsellModal } = result.current[0]
+  const { breakTimers, upsellModal } = result.current
   expect(Object.keys(breakTimers).length).toBe(5)
   expect(upsellModal.name).toBe(MAX_BREAKTIMER_MODAL)
   expect(upsellModal.url).toBe('bazqux.com')
