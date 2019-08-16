@@ -15,13 +15,18 @@ import * as utilStyles from './styles/utils'
 
 styleGuide.push(utilStyles)
 
+const radialGradient = (centerColor, outerColor) => {
+  const params = [
+    'ellipse at center',
+    `${centerColor} 0%`,
+    `${outerColor}  100%`,
+  ]
+  return `radial-gradient(${params.join(', ')})`
+}
+
 const bodyBackgrounds = {
-  outerSpace: `radial-gradient(ellipse at center, ${
-    colors.gravel
-  } 0%,${colors.outerSpace} 100%)`,
-  mischka: `radial-gradient(ellipse at center, ${colors.white} 0%,${
-    colors.mischka
-  } 100%)`,
+  outerSpace: radialGradient(colors.gravel, colors.outerSpace),
+  mischka: radialGradient(colors.white, colors.mischka),
 }
 
 const appWrapper = css({ height: '100vh' })
@@ -61,6 +66,7 @@ const App = () => {
   const toggleHandle = (fn, value) => () => fn(!value)
   const bg = bodyBackgrounds[background] || bodyBackgrounds.outerSpace
 
+  console.log(bg)
   return (
     <Box
       color={theme.foreground}
