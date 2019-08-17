@@ -37,7 +37,7 @@
     "fake-indexeddb": "^2.1.1",
     "file-loader": "4.2.0",
     "filesize": "^4.1.2",
-    "fs-extra": "7.0.1",
+    "fs-extra": "8.1.0",
     "html-webpack-plugin": "4.0.0-beta.8",
     "idb": "^4.0.4",
     "identity-obj-proxy": "3.0.0",
