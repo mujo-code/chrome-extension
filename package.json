@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "./",
   "dependencies": {
-    "@babel/core": "7.4.3",
+    "@babel/core": "7.5.5",
     "@emotion/cache": "^10.0.15",
     "@emotion/core": "^10.0.16",
     "@mujo/box": "^3.0.0",
