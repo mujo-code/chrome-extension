@@ -42,7 +42,7 @@
     "idb": "^4.0.4",
     "identity-obj-proxy": "3.0.0",
     "is-wsl": "^2.1.0",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-image-snapshot": "^2.9.0",
     "jest-resolve": "24.7.1",
