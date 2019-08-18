@@ -1,3 +1,4 @@
+import EventEmitter from 'eventemitter3'
 import {
   ALARM_KEY,
   HEARTBEAT,
@@ -17,6 +18,7 @@ export const initAlarms = async (...args) => {
   checkPredictions({ isActive: PREDICTED_BREAK_TIMES_FEATURE })
   addHeartBeat()
 }
+export const alarms = new EventEmitter()
 
 export const alarmReducer = alarm => {
   switch (alarm.name) {
@@ -30,4 +32,5 @@ export const alarmReducer = alarm => {
       createNotification(alarm)
       break
   }
+  alarms.emit(alarm.name)
 }
