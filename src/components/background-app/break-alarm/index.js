@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react'
+import { useEffect, useCallback } from 'react'
 import { upsertAlarm } from '../../../background/alarm/util'
 import { ALARM_KEY, THREE_HOURS } from '../../../constants'
 import { useHeartBeat } from '../../../hooks/use-heart-beat'
@@ -17,20 +17,23 @@ export const BreakAlarm = () => {
   const removeBreakAlarm = useCallback(() => {
     alarms.clear(ALARM_KEY)
   }, [])
-  const handleAlarmToggle = useCallback(() => {
-    if (isEnabled) {
-      addBreakAlarm()
-    } else {
-      removeBreakAlarm()
-    }
-  }, [addBreakAlarm, isEnabled, removeBreakAlarm])
+  const handleAlarmToggle = useCallback(
+    enabled => {
+      if (enabled) {
+        addBreakAlarm()
+      } else {
+        removeBreakAlarm()
+      }
+    },
+    [addBreakAlarm, removeBreakAlarm]
+  )
 
   // effects
   useEffect(() => {
     handleAlarmToggle(isEnabled)
   }, [handleAlarmToggle, isEnabled])
-  useHeartBeat(() => {
-    handleAlarmToggle(isEnabled)
+  useHeartBeat(isActive => {
+    handleAlarmToggle(isEnabled && isActive)
   })
-  return <></>
+  return null
 }

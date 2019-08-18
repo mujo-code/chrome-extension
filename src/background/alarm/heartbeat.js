@@ -1,7 +1,6 @@
 import { HEARTBEAT, FOURTY_FIVE_MINUTES } from '../../constants'
 import { msToMinutes } from '../../lib/time'
 import { isActive, resetUsage } from '../activity'
-import { addBreakAlarm, removeBreakAlarm } from './break-alarm'
 import { checkPredictions } from './prediction'
 import { upsertAlarm } from './util'
 
@@ -9,9 +8,7 @@ export const onHeartBeat = async () => {
   const active = await isActive()
   if (active) {
     await checkPredictions()
-    await addBreakAlarm()
   } else {
-    removeBreakAlarm()
     await resetUsage()
   }
 }
