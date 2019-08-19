@@ -96,7 +96,7 @@
     "last 3 Chrome versions"
   ],
   "devDependencies": {
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import-order-alphabetical": "0.0.2",
     "eslint-plugin-prettier": "^3.1.0",
     "gaze": "^1.1.3",
