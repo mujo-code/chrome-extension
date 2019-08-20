@@ -10,7 +10,7 @@ Install then start-up the dev server.
 
 ```shell
 git clone <repository-url>
-cd Mujō-extension # or folder name you give it
+cd Mujo-extension # or folder name you give it
 npm install
 ```
 
