@@ -8,7 +8,7 @@
     "@emotion/cache": "^10.0.15",
     "@emotion/core": "^10.0.16",
     "@mujo/box": "^3.0.1",
-    "@mujo/eslint-config": "^1.0.3",
+    "@mujo/eslint-config": "^1.0.4",
     "@svgr/webpack": "4.3.2",
     "@testing-library/react-hooks": "^1.1.0",
     "@tweenjs/tween.js": "^17.4.0",
