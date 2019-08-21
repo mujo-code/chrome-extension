@@ -7,7 +7,7 @@
     "@babel/core": "7.5.5",
     "@emotion/cache": "^10.0.15",
     "@emotion/core": "^10.0.16",
-    "@mujo/box": "^3.0.0",
+    "@mujo/box": "^3.0.1",
     "@mujo/eslint-config": "^1.0.3",
     "@svgr/webpack": "4.3.2",
     "@testing-library/react-hooks": "^1.1.0",
