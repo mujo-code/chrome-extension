@@ -18,7 +18,7 @@ const defaultsOptions = {
 }
 
 export const createTween = inputOptions => {
-  const options = Object.assign({}, defaultsOptions, inputOptions)
+  const options = { ...defaultsOptions, ...inputOptions }
   const {
     updateTween,
     completeTween,
@@ -48,9 +48,7 @@ export const createTween = inputOptions => {
     .to({ scale: circleScale, scale2: circleInnerScale }, breathTime)
     .easing(TWEEN.Easing.Back.InOut)
     .onUpdate(update)
-    .onComplete(
-      completeTween(Object.assign({ tween: breathIn }, options))
-    )
+    .onComplete(completeTween({ tween: breathIn, ...options }))
 
   breathIn.chain(breathOut).onUpdate(update)
 
@@ -75,7 +73,7 @@ export const createTween = inputOptions => {
       breathIn.onUpdate(nextUpdate)
       breathOut.onUpdate(nextUpdate)
       breathOut.onComplete(
-        nextCompleteTween(Object.assign({ tween: breathIn }, options))
+        nextCompleteTween({ tween: breathIn, ...options })
       )
     },
     stop: () => {

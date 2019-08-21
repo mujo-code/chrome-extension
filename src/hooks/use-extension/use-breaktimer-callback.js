@@ -17,11 +17,7 @@ export const useBreaktimerCallback = ({
   const setBreakTimer = useCallback(
     (url, time, enabled) => {
       const lastBreakTimer = breakTimers[url] || {}
-      const nextBreakTimer = Object.assign({}, lastBreakTimer, {
-        url,
-        time,
-        enabled,
-      })
+      const nextBreakTimer = { ...lastBreakTimer, url, time, enabled }
       const nextBreakTimers = create(breakTimers, url, nextBreakTimer)
       const enabledTimers = Object.keys(nextBreakTimers).filter(
         key => nextBreakTimers[key].enabled

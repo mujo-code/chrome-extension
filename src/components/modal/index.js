@@ -59,7 +59,7 @@ export const Modal = props => {
   const theme = useTheme()
   const { css: addedCSS, modalMaxHeight, zIndex = '1000' } = props
   const customStyles = cssToStyle(addedCSS)
-  const results = getPropClasses(Object.assign({}, props))
+  const results = getPropClasses({ ...props })
   if (customStyles) {
     results.styles.push(customStyles)
   }

@@ -112,7 +112,10 @@ export const createGraphAttibutes = (passedOptions = {}) => {
     labelRadiusOffest,
     spacingAngle,
     rotateGraph,
-  } = Object.assign({}, defaultOptions, passedOptions)
+  } = {
+    ...defaultOptions,
+    ...passedOptions,
+  }
 
   const getInnerPoint = getCirclePoint(center, radius)
   const getOuterPoint = getCirclePoint(

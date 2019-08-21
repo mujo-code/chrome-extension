@@ -31,7 +31,7 @@ const makeOptions = (breathAmount = 5, argOptions) => {
     breathTimeIncrease,
     circleScaleExpandedIncrease,
     circleInnerExpandedIncrease,
-  } = Object.assign({}, defaultsOptions, argOptions)
+  } = { ...defaultsOptions, ...argOptions }
   return {
     breathTimeIncrease: breathTimeIncrease / breathAmount,
     circleScaleExpandedIncrease:
@@ -64,18 +64,17 @@ export const useAnimations = (props, argOptions = {}) => {
       if (!shouldUpdate()) {
         return
       }
-      setAnimatingProps(
-        Object.assign({}, animatingProps, {
-          circle: {
-            transform: `scale(${scale2}) translateZ(0)`,
-            transition: 'none',
-          },
-          circle2: {
-            transform: `scale(${scale}) translateZ(0)`,
-            transition: 'none',
-          },
-        })
-      )
+      setAnimatingProps({
+        ...animatingProps,
+        circle: {
+          transform: `scale(${scale2}) translateZ(0)`,
+          transition: 'none',
+        },
+        circle2: {
+          transform: `scale(${scale}) translateZ(0)`,
+          transition: 'none',
+        },
+      })
     },
     [animatingProps, delayedSetInBreath, isBreathIn]
   )
@@ -128,12 +127,11 @@ export const useAnimations = (props, argOptions = {}) => {
       )
     } else if (tween && !isOpen) {
       tween.stop()
-      delayedSetAnimatingProps(
-        Object.assign({}, animatingProps, {
-          circle: {},
-          circle2: {},
-        })
-      )
+      delayedSetAnimatingProps({
+        ...animatingProps,
+        circle: {},
+        circle2: {},
+      })
     } else if (tween) {
       tween.update({
         updateTween,
