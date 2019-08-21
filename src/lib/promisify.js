@@ -25,10 +25,5 @@ export const promisifyNode = fn => (...args) =>
 
 export const promisifyOptions = (fn, options) =>
   new Promise((resolve, reject) => {
-    fn(
-      Object.assign({}, options, {
-        success: resolve,
-        failure: reject,
-      })
-    )
+    fn({ ...options, success: resolve, failure: reject })
   })

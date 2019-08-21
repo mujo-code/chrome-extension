@@ -52,12 +52,11 @@ export const SubscriptionProvider = props => {
         return
       }
       // eager update user
-      setUser(
-        Object.assign({}, user, {
-          products: [getProduct(sku)],
-          isSubscribed: true,
-        })
-      )
+      setUser({
+        ...user,
+        products: [getProduct(sku)],
+        isSubscribed: true,
+      })
     },
     [getProduct, user]
   )

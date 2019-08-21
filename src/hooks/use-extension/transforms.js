@@ -21,5 +21,5 @@ export const decorateSelectedSegment = ({
 export const mapTopSites = topSitesUsage => topSite => {
   const { url } = topSite
   const isUsed = topSitesUsage.some(site => site.url === url)
-  return Object.assign({ isUsed }, topSite)
+  return { isUsed, ...topSite }
 }
