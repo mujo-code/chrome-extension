@@ -1,6 +1,6 @@
 # Mujō
 
-Mujō is a Chrome Extension built in React. It slow gets rid of items that you use until you take a break. Slowly trying to get you to do a breathing exercise.
+Mujō is a Chrome Extension built in React. It slowly gets rid of items that you use until you take a break. Slowly trying to get you to do a breathing exercise.
 
 [Documentation](./docs/README.md)
 
