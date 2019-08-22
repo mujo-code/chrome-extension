@@ -1,0 +1,83 @@
+{
+  "name": "@mujo/plugins",
+  "version": "0.0.1",
+  "description": "A set of utilities to create plugins in Mujo",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mujo-code/plugins.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Jacob Lowe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mujo-code/plugins/issues"
+  },
+  "homepage": "https://github.com/mujo-code/plugins#readme",
+  "scripts": {
+    "test": "npm run lint && jest",
+    "fmt": "prettier '{src,public}/**/*.js' --write",
+    "lint": "eslint '{src,public}/**/*.js'",
+    "build": "babel src --out-dir dist"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@emotion/core": "^10.0.14",
+    "@mujo/eslint-config": "^1.0.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react-app": "^9.0.1",
+    "eslint": "^5.16.0",
+    "jest": "^24.9.0",
+    "jest-environment-jsdom-fourteen": "0.1.0",
+    "jest-image-snapshot": "^2.9.0",
+    "jest-resolve": "24.9.0",
+    "jest-watch-typeahead": "^0.3.1",
+    "prettier": "^1.17.1",
+    "react": "^16.9.0",
+    "react-test-renderer": "^16.9.0"
+  },
+  "peerDependencies": {
+    "@emotion/core": ">=10.0.14",
+    "react": ">=16.8.6"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js",
+      "<rootDir>/src/**/*.{spec,test}.js"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
+    ],
+    "modulePaths": [],
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  }
+}
