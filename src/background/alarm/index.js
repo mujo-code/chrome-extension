@@ -8,12 +8,6 @@ import { createNotification } from '../notifications'
 import { onHeartBeat, addHeartBeat } from './heartbeat'
 import { checkPredictions } from './prediction'
 
-export {
-  addBreakAlarm,
-  removeBreakAlarm,
-  handleAlarmToggle,
-} from './break-alarm'
-
 export const initAlarms = async (...args) => {
   checkPredictions({ isActive: PREDICTED_BREAK_TIMES_FEATURE })
   addHeartBeat()
