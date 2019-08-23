@@ -21,7 +21,6 @@ import {
 import { identify } from './lib/mujo-sdk'
 
 const element = document.createElement('div')
-document.body.appendChild(element)
 const startReactApp = () => {
   ReactDOM.render(<BackgroundApp />, element)
 }
