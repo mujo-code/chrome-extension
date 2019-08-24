@@ -3,7 +3,7 @@ import { Box } from '@mujo/box'
 import ErrorStackParser from 'error-stack-parser'
 import React from 'react'
 import { mapStackTrace } from 'sourcemapped-stacktrace'
-import { exception } from '../lib/tracker'
+import { tracker } from '../lib/error-tracker'
 import { set } from '../lib/util'
 import { FixedS, FixedL } from './fonts'
 
@@ -54,11 +54,14 @@ export class ErrorBox extends React.Component {
     return { hasError: true }
   }
 
-  componentDidCatch(error) {
-    mapStackTrace(error.stack, stack => {
+  componentDidCatch(error, errorInfo) {
+    mapStackTrace(error.stack, async stack => {
       set(error, 'stack', stack.join('\n'))
-      this.setState({ error })
-      exception(error)
+      const errorId = await tracker.exceptionWithInfo(
+        error,
+        errorInfo
+      )
+      this.setState({ error, errorId })
     })
   }
 
