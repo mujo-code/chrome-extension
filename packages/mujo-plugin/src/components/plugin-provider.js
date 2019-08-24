@@ -10,12 +10,27 @@ const { Provider } = context
   extensions to allow the plugins to have access to common functionality
   within the app with out exposing it to window or something else gross
 
-  env       - the environment in the extension (background | content | ntp)
-  extension - sugar sytax extension of browser api's
-  storage   - access to the database
-  config    - configuration for the extension
+  env           - the environment in the extension (background | content | ntp)
+  extension     - sugar sytax extension of browser api's
+  storage       - access to the database
+  config        - configuration for the extension
+  changeEmitter - ( bg only ) a way for storage updates to be propgated to hooks
+  alarms        - ( bg only ) a way to listen to heartbeat ticks
+  model         - data structure for db
+  constants     - constants variables defined in the extension
 */
 
-export const PluginProvider = ({ env, extension, storage, config }) => (
-  <Provider value={{ env, extension, storage, config }}></Provider>
+export const PluginProvider = ({
+  env,
+  extension,
+  storage,
+  config,
+  changeEmitter,
+  constants,
+  alarms,
+  model,
+}) => (
+  <Provider
+    value={{ env, extension, storage, config, constants, alarms, model }}
+  ></Provider>
 )
