@@ -71,7 +71,7 @@ export const Graph = React.memo(
               Component="path"
               onClick={onSegmentClick.bind(null, seg)}
               cursor="pointer"
-              ariaSelected={isSelectedSegment(seg)}
+              aria-selected={isSelectedSegment(seg)}
               {...seg.path}
               {...transitions}
             />

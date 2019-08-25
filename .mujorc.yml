@@ -50,7 +50,7 @@ contentSecurityPolicy:
     - https://www.google-analytics.com
     - https://www.googletagmanager.com
     - http://localhost:5000
-    - 'sha256-Hh68uPWQF960rB8rb9c+clat9HNoP1DpxpruDkr5esY='
+    - "'sha256-Hh68uPWQF960rB8rb9c+clat9HNoP1DpxpruDkr5esY='"
   fontSrc:
     - https://fonts.gstatic.com
   objectSrc:

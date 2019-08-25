@@ -70,8 +70,9 @@
     "webpack-manifest-plugin": "2.0.4"
   },
   "scripts": {
+    "start": "node scripts/watch.js",
     "serve": "serve",
-    "start": "NODE_ENV=development node scripts/build.js",
+    "build:dev": "NODE_ENV=development node scripts/build.js && npm run build:post",
     "build:beta": "BETA='true' node scripts/build.js && npm run build:post && npm run append:beta",
     "build:post": "npm run append:sw && npm run append:sm && npm run append:manifest",
     "build": "PUBLIC_URL=./ node scripts/build.js && npm run build:post",
