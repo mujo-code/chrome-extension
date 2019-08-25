@@ -5,18 +5,18 @@ const BLACK_LIST = ['about:blank', 'chrome']
 const MAP_PATTERN = /map/
 const CONTENT_PATTERN = /content|vendor/
 
-const getScripts = (assets, PATTERN) =>
+export const getScripts = assets =>
   // TODO this needs to be ran post build
   Object.keys(assets.files)
     .filter(
       filename =>
-        PATTERN.test(filename) && !MAP_PATTERN.test(filename)
+        CONTENT_PATTERN.test(filename) && !MAP_PATTERN.test(filename)
     )
     .map(file => assets.files[file].replace('./', ''))
 
 export const injectAll = tab => {
   const assets = window.mujo_assets || []
-  const scripts = getScripts(assets, CONTENT_PATTERN)
+  const scripts = getScripts(assets)
   if (scripts.length) {
     scripts.forEach(script => {
       tabs.executeScript(tab.tabId, { file: script })

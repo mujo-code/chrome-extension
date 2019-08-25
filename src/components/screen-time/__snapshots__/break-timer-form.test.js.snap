@@ -21,7 +21,7 @@ exports[`BreakTimerForm should match snapshot 1`] = `
     <h4
       className="css-30v94s"
       color="color"
-      labelFor="break-timer"
+      htmlFor="break-timer"
     >
       Break Timer
     </h4>
@@ -78,7 +78,7 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
     <h4
       className="css-30v94s"
       color="color"
-      labelFor="break-timer"
+      htmlFor="break-timer"
     >
       Break Timer
     </h4>
