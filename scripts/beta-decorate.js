@@ -1,11 +1,9 @@
 const fs = require('fs')
-const path = require('path')
 const { promisify } = require('util')
 const paths = require('../config/paths')
 
 const write = promisify(fs.writeFile)
 const read = promisify(fs.readFile)
-const MANIFEST_PATH = path.resolve(paths.appBuild, './manifest.json')
 const BETA_ICON = 'favicon-beta.png'
 
 const beta = str => `[BETA] ${str}`
@@ -31,7 +29,7 @@ const decorateBETA = async () => {
     version: `${manifest.version}.${secondsInWeek}`,
     version_name: `${manifest.version} BETA`,
   }
-  return write(MANIFEST_PATH, serialize(betaManifest))
+  return write(paths.manifestFile, serialize(betaManifest))
 }
 
 decorateBETA()
