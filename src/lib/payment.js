@@ -1,5 +1,6 @@
+import { tracker } from './error-tracker'
 import { promisifyOptions } from './promisify'
-import { exception, track } from './tracker'
+import { track } from './tracker'
 import { set } from './util'
 
 const env = process.env.PRODUCT_ENV || 'prod'
@@ -7,11 +8,16 @@ const env = process.env.PRODUCT_ENV || 'prod'
 export const paymentsAPI = () => window.google.payments.inapp
 export const getProducts = async () => {
   const options = { parameters: { env } }
-  const response = await promisifyOptions(
-    paymentsAPI().getSkuDetails,
-    options
-  )
-  return response.response.details.inAppProducts
+  try {
+    const response = await promisifyOptions(
+      paymentsAPI().getSkuDetails,
+      options
+    )
+    return response.response.details.inAppProducts
+  } catch (e) {
+    // this errors a lot of development
+  }
+  return []
 }
 
 export const getPurchases = async () => {
@@ -46,7 +52,7 @@ export const buy = async sku => {
       `Failed to purchase subscription [${type})]`
     )
     set(paymentError, 'stack', stack)
-    exception(paymentError)
+    tracker.exception(paymentError)
     track({
       category: 'payment',
       action: 'error',

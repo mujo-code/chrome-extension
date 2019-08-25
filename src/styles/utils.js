@@ -26,6 +26,7 @@ export const outlineColor = makeStyles('outlineColor', colors)
 
 export const maxWidth = {
   '100%': css({ maxWidth: '100%' }),
+  '500px': css({ maxWidth: '500px' }),
   '300px': css({ maxWidth: '300px' }),
   '100px': css({ maxWidth: '100px' }),
 }
