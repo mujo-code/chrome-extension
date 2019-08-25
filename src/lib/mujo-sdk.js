@@ -1,5 +1,6 @@
 import ky from 'ky-universal'
-import { API_HOST, VERSION } from '../constants'
+import { API_HOST } from '../constants'
+import { VERSION } from '../env'
 
 let identity
 

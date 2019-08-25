@@ -4,9 +4,9 @@ import {
   SUPPORT_URL,
   BREATH_MIN,
   BREATH_MAX,
-  VERSION,
   WEBSTORE_URL,
 } from '../../constants'
+import { VERSION } from '../../env'
 
 const REMINDER_ALT = 'Notifications that remind you to take a break'
 

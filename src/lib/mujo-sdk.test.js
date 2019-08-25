@@ -1,9 +1,14 @@
 /* eslint-disable import-order-alphabetical/order */
-import { API_HOST, VERSION } from '../constants'
+import { API_HOST } from '../constants'
 import { getOptions, http, identify, api } from './mujo-sdk'
 
 jest.mock('ky-universal')
+jest.mock('../env')
 const ky = require('ky-universal')
+const Env = require('../env')
+
+Env.VERSION = 'foo'
+const { VERSION } = Env
 
 test('getOptions should return some default header and prefixUrl', () => {
   const json = 'foo'

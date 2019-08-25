@@ -15,7 +15,7 @@ export const getProducts = async () => {
     )
     return response.response.details.inAppProducts
   } catch (e) {
-    // this errors a lot of development
+    // NOTE: this errors in development
   }
   return []
 }
