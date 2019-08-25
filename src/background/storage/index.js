@@ -21,6 +21,6 @@ export const onGetStorage = async (key, callback) => {
 
 export const onSetStorage = async (key, value, callback) => {
   await storage.set(key, value)
-  callback({ key, value })
   changeEmitter.emit(key, value)
+  return callback({ key, value })
 }
