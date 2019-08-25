@@ -70,13 +70,15 @@
     "webpack-manifest-plugin": "2.0.4"
   },
   "scripts": {
-    "serve": "serve",
     "start": "node scripts/watch.js",
+    "serve": "serve",
+    "build:dev": "NODE_ENV=development node scripts/build.js && npm run build:post",
     "build:beta": "BETA='true' node scripts/build.js && npm run build:post && npm run append:beta",
-    "build:post": "npm run append:sw && npm run append:sm",
+    "build:post": "npm run append:sw && npm run append:sm && npm run append:manifest",
     "build": "PUBLIC_URL=./ node scripts/build.js && npm run build:post",
     "append:sw": "cra-append-sw --mode replace --skip-compile ./public/service-worker.js",
     "append:sm": "node scripts/modify-source-maps.js",
+    "append:manifest": "node scripts/create-manifest.js",
     "test": "npm run build && node scripts/test.js --env=jsdom",
     "fmt": "prettier '{src,public}/**/*.js' --write",
     "lint": "eslint '{src,public}/**/*.js'",
@@ -88,6 +90,8 @@
     "last 3 Chrome versions"
   ],
   "devDependencies": {
+    "change-case": "^3.1.0",
+    "cosmiconfig": "^5.2.1",
     "gaze": "^1.1.3",
     "serve": "^11.1.0"
   },

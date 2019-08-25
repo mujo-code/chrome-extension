@@ -60,7 +60,7 @@ export const BreakTimerForm = props => {
         <HeaderS
           marginTop="zero"
           marginBottom="zero"
-          labelFor="break-timer"
+          htmlFor="break-timer"
         >
           Break Timer
         </HeaderS>

@@ -1,10 +1,16 @@
 import { SCREEN_TIME_PERMISSIONS } from '../constants'
 import { tabs, permissions } from '../lib/extension'
-import { injectScript } from './inject'
+import { injectScript, getScripts } from './inject'
 
-test('injectScript should not inject script a black list url', async () => {
-  await injectScript({ url: 'chrome://newtab' })
-  expect(tabs.executeScript).not.toBeCalled()
+test('getScripts should filter vendor or content scripts', async () => {
+  const manifest = {
+    files: {
+      'content.js': './content.js',
+      'vendor.js': './vendor.js',
+      'foo.js': 'foo.js',
+    },
+  }
+  expect(getScripts(manifest)).toEqual(['content.js', 'vendor.js'])
 })
 
 test('injectScript should not inject script a sub frame', async () => {
@@ -24,6 +30,7 @@ test('injectScript should not inject script if no permissions', async () => {
 
 test('injectScript should inject script if there is permissions', async () => {
   const file = { file: 'content.js' }
+  window.mujo_assets = { files: { 'content.js': 'content.js' } }
   permissions.contains.mockResolvedValueOnce(true)
   await injectScript({ url: 'https://foo', tabId: 'foo' })
   expect(permissions.contains).toBeCalledWith(SCREEN_TIME_PERMISSIONS)

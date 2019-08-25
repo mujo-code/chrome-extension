@@ -60,7 +60,6 @@ export const SettingItem = ({
     direction="row"
     paddingTop="s"
     paddingBottom="s"
-    borderBottom="s"
   >
     <Box
       backgroundColor={theme.backgroundSecondary}

@@ -697,7 +697,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
               <h4
                 className="css-30v94s"
                 color="color"
-                labelFor="break-timer"
+                htmlFor="break-timer"
               >
                 Break Timer
               </h4>
