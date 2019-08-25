@@ -64,3 +64,4 @@ contentSecurityPolicy:
   connectSrc:
     - https://getmujo.com
     - http://localhost:3000
+    - https://sentry.io

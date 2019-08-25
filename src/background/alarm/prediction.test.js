@@ -10,10 +10,10 @@ import {
 jest.mock('../storage')
 jest.mock('../../lib/mujo-sdk')
 jest.mock('./util')
-jest.mock('../tracking')
+jest.mock('../../lib/error-tracker')
 const { api } = require('../../lib/mujo-sdk')
 const { storage, getActivity } = require('../storage')
-const { exception } = require('../tracking')
+const { tracker } = require('../../lib/error-tracker')
 const { upsertAlarm } = require('./util')
 
 beforeEach(() => {
@@ -21,6 +21,7 @@ beforeEach(() => {
   storage.set = jest.fn()
   api.postActivity = jest.fn()
   api.getBreaks = jest.fn()
+  tracker.exception = jest.fn()
 })
 
 test('alarmKey should return a prefix id', () => {
@@ -101,7 +102,7 @@ test('checkPredictions should log an exception if syncing fails', async () => {
   const activity = [{ date }, { date }]
   getActivity.mockResolvedValue(activity)
   await checkPredictions()
-  expect(exception).toBeCalledWith(fooError)
+  expect(tracker.exception).toBeCalledWith(fooError)
 })
 
 test('checkPredictions should store new predictions', async () => {
@@ -134,7 +135,7 @@ test('checkPredictions should log any errors getting breaks', async () => {
   getActivity.mockResolvedValue(activity)
 
   await checkPredictions({ isActive: true })
-  expect(exception).toBeCalledWith(fooError)
+  expect(tracker.exception).toBeCalledWith(fooError)
 })
 
 test('checkPredictions should add any upcoming alarms', async () => {
