@@ -1,6 +1,5 @@
 import * as Sentry from '@sentry/browser'
-
-const { SENTRY_DSN } = process.env
+import { SENTRY_DSN, ENVIRONMENT } from '../env'
 
 export const createTracker = ({ dsn, environment }) => {
   const hasDSN = !!dsn
@@ -25,4 +24,7 @@ export const createTracker = ({ dsn, environment }) => {
   }
 }
 
-export const tracker = createTracker({ dsn: SENTRY_DSN })
+export const tracker = createTracker({
+  dsn: SENTRY_DSN,
+  environment: ENVIRONMENT,
+})
