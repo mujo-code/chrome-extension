@@ -11,6 +11,7 @@ import { TopSites } from './components/top-sites'
 import { SCREEN_TIME_FEATURE, TRANSLATION_FILE } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
+import { getPlugins } from './plugins'
 import { colors } from './styles/colors'
 import * as utilStyles from './styles/utils'
 import './i18n'
@@ -39,6 +40,7 @@ const factorMin = size => Math.max(size, DEFAULT_SIZE)
 const getFactor = x => factorMin(factor(x))
 
 const App = () => {
+  console.log(getPlugins())
   const {
     topSites,
     activityNumber,

@@ -86,7 +86,8 @@
     "build:dev": "NODE_ENV=development node scripts/build.js && npm run build:post",
     "build:beta": "BETA='true' node scripts/build.js && npm run build:post && npm run append:beta",
     "build:post": "npm run append:sw && npm run append:sm && npm run append:manifest",
-    "build": "PUBLIC_URL=./ node scripts/build.js && npm run build:post",
+    "prepend:plugins": "NODE_ENV=development node scripts/plugins-resolver",
+    "build": "npm run prepend:plugins && PUBLIC_URL=./ node scripts/build.js && npm run build:post",
     "append:sw": "cra-append-sw --mode replace --skip-compile ./public/service-worker.js",
     "append:sm": "node scripts/modify-source-maps.js",
     "append:manifest": "node scripts/create-manifest.js",
@@ -102,6 +103,7 @@
     "last 3 Chrome versions"
   ],
   "devDependencies": {
+    "@babel/register": "^7.5.5",
     "change-case": "^3.1.0",
     "cosmiconfig": "^5.2.1",
     "gaze": "^1.1.3",
