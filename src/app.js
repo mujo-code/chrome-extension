@@ -1,6 +1,7 @@
 import { css, Global } from '@emotion/core'
 import { Box, styleGuide } from '@mujo/box'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from './components/button'
 import { Span, Sup } from './components/fonts'
 import { Header } from './components/header'
@@ -12,6 +13,7 @@ import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
 import { colors } from './styles/colors'
 import * as utilStyles from './styles/utils'
+import './i18n'
 
 styleGuide.push(utilStyles)
 
@@ -62,6 +64,7 @@ const App = () => {
   const logoSize = getFactor(activityNumber)
   const toggleHandle = (fn, value) => () => fn(!value)
   const bg = bodyBackgrounds[background] || bodyBackgrounds.outerSpace
+  const { t } = useTranslation('translation')
 
   return (
     <Box
@@ -141,8 +144,8 @@ const App = () => {
                   }
                 >
                   {showTopSites
-                    ? 'Show Screen Time'
-                    : 'Show top sites'}
+                    ? t('show-screen-time')
+                    : t('show-top-sites')}
                 </Button>
               )}
             </Box>

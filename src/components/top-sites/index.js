@@ -1,6 +1,8 @@
 import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { useTheme } from '../../hooks/use-theme'
 import { FavRows } from '../fav-rows'
 import { HeaderS } from '../fonts'
@@ -19,6 +21,8 @@ const siteWrapper = css({
 export const TopSites = ({ topSites, updateSitesUsed }) => {
   const [toolTipOpen, setToolTipOpen] = useState(false)
   const { foreground } = useTheme()
+  const { t } = useTranslation('translation')
+
   return (
     <Box
       display="flex"
@@ -38,10 +42,8 @@ export const TopSites = ({ topSites, updateSitesUsed }) => {
         onMouseLeave={() => setToolTipOpen(false)}
         onMouseEnter={() => setToolTipOpen(true)}
       >
-        Top Sites
-        <ToolTip isOpen={toolTipOpen}>
-          Top sites is based on your site usage
-        </ToolTip>
+        {t('top-sites')}
+        <ToolTip isOpen={toolTipOpen}>{t('top-sites-usage')}</ToolTip>
       </HeaderS>
       {topSites.length ? (
         <FavRows items={topSites} updateSitesUsed={updateSitesUsed} />
