@@ -1,25 +1,18 @@
 import { SUBSCRIBE_FEATURE } from '../../constants'
 
-export const maxBreaktimers = ({ url, onClick }) => {
+export const maxBreaktimers = ({ url, onClick }, _, { t }) => {
   if (SUBSCRIBE_FEATURE) {
     return {
-      title: 'Mindful to the max',
-      description: [
-        'You have set the max number of break timers.',
-        [
-          'To get access to unlimited break timers',
-          `and add a break timer for ${url}`,
-          'subscribe to Mujō.',
-        ].join(' '),
-      ],
+      title: t('mindful-max'),
+      description: t('max-break-timers-sub', { url }),
       button: {
-        children: 'Subscription Details',
+        children: t('sub-details'),
         onClick,
       },
     }
   }
   return {
-    title: 'Mindful to the max',
-    description: ['You have set the max number of break timers.'],
+    title: t('mindful-max'),
+    description: t('max-break-timers'),
   }
 }

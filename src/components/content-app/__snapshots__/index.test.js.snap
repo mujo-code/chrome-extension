@@ -80,9 +80,7 @@ exports[`Async ContentApp ContentApp should match snapshot 1`] = `
     <p
       className="css-n7s5ks"
     >
-      The site 
-      localhost
-       was actively viewed for
+      The site localhost was actively viewed for
        
       <span
         className="css-1fyhpnh"

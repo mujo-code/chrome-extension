@@ -13,7 +13,8 @@ exports[`ScreenTime should match snapshot 1`] = `
     onMouseLeave={[Function]}
     position="relative"
   >
-    Screen Time 
+    Screen Time
+     
     <sup
       className="css-xonfx3"
       color="color"
@@ -172,8 +173,7 @@ exports[`ScreenTime should match snapshot 1`] = `
       className="css-gq0ijd"
       color="color"
     >
-      Screen Time is 
-      disabled
+      Screen Time is disabled
     </p>
   </div>
 </div>
@@ -192,7 +192,8 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
     onMouseLeave={[Function]}
     position="relative"
   >
-    Screen Time 
+    Screen Time
+     
     <sup
       className="css-xonfx3"
       color="color"
@@ -327,8 +328,7 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       className="css-gq0ijd"
       color="color"
     >
-      Screen Time is 
-      disabled
+      Screen Time is disabled
     </p>
   </div>
   <div
@@ -431,7 +431,8 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
     onMouseLeave={[Function]}
     position="relative"
   >
-    Screen Time 
+    Screen Time
+     
     <sup
       className="css-xonfx3"
       color="color"
@@ -566,8 +567,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       className="css-gq0ijd"
       color="color"
     >
-      Screen Time is 
-      disabled
+      Screen Time is disabled
     </p>
   </div>
   <div
@@ -648,9 +648,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
           className="css-1p1wrjs"
           color="color"
         >
-          The site 
-          foo.com
-           was actively viewed for
+          The site foo.com was actively viewed for
            
           <span
             className="css-0"
@@ -659,9 +657,7 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
             6 seconds
           </span>
            
-          since your last break. That is 
-          67
-          % of your web viewing.
+          since your last break. That is 67% of your web viewing.
         </p>
         <p
           className="css-tmwlom"

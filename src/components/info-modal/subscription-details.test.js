@@ -1,4 +1,7 @@
+import { i18n } from '../../i18n'
 import { subscriptionDetails } from './subscription-details'
+
+const t = i18n.t.bind(i18n)
 
 const stampSubDetails = isSub => ({
   user: { isSubscriber: isSub, products: [] },
@@ -10,16 +13,16 @@ const stampSubDetails = isSub => ({
 test('subscriptionDetails should return error when no product is found', () => {
   const context = {}
   const subDetails = stampSubDetails()
-  const callback = jest.fn()
+  const options = { t }
   expect(
-    subscriptionDetails(context, subDetails, callback).title
+    subscriptionDetails(context, subDetails, options).title
   ).toMatch('Unable to subscribe')
 })
 
 test('subscriptionDetails should return detail when there is a product', () => {
   const context = {}
   const subDetails = stampSubDetails()
-  const callback = jest.fn()
+  const options = { t }
   subDetails.getProduct.mockReturnValue({
     sku: 'foo',
     prices: [
@@ -38,7 +41,7 @@ test('subscriptionDetails should return detail when there is a product', () => {
     ],
   })
   expect(
-    subscriptionDetails(context, subDetails, callback).button.children
+    subscriptionDetails(context, subDetails, options).button.children
   ).toMatch('$0.99/mo') // correct pricing format
 })
 
@@ -64,7 +67,7 @@ test('subscriptionDetails should call buy when button is clicked', async () => {
     ],
   })
   subDetails.buy.mockResolvedValue(true)
-  const options = { changeModal }
+  const options = { changeModal, t }
   const modal = subscriptionDetails(context, subDetails, options)
   await modal.button.onClick()
   expect(subDetails.buy).toBeCalledWith('foo')

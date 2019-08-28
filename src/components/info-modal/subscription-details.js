@@ -28,7 +28,7 @@ import { PurchaseError } from './purchase-error'
 export const subscriptionDetails = (
   context,
   subDetails,
-  { changeModal }
+  { changeModal, t }
 ) => {
   const sku = context.sku || CURRENT_SUB_SKU
   const callback = context.callback || noop
@@ -37,10 +37,8 @@ export const subscriptionDetails = (
   if (!product) {
     // TODO: logging monitoring
     return {
-      title: 'Unable to subscribe at this time',
-      description: [
-        'Please contact support at jacoblowe2.0@gmail.com',
-      ],
+      title: t('unable-to-sub'),
+      description: [t('contact-questions')],
     }
   }
 
@@ -53,28 +51,23 @@ export const subscriptionDetails = (
     <PurchaseError
       marginBottom="zero"
       error={subDetails.purchaseError}
+      t={t}
     />
   ) : null
-  const noSubDescription = [
-    'Thanks for considering supporting Mujō with a subscription.',
-    'Your support helps keep the extension running and supported.',
-    'By purchasing a subscription you get access to:',
-  ]
   const description = subDetails.user.isSubscriber
-    ? ['You are already a subscriber', 'You have access to:']
-    : noSubDescription
+    ? t('sub-access')
+    : t('purchase-consider')
+  const cost = formatter.format(price.valueMicros / 1000 / 1000)
   return {
     title: <>Subscription Details {purchaseError}</>,
     description: [
-      description.join(' '),
-      'Unlimited break timers.',
-      'Intellgent algorithm to notify you when to take a break.',
-      'Early access to advanced features.',
+      description,
+      t('unlimited-break-timers'),
+      t('smart-break-times'),
+      t('early-access'),
     ],
     button: {
-      children: `Subscribe at ${formatter.format(
-        price.valueMicros / 1000 / 1000
-      )}/mo`,
+      children: t('sub-at', { cost }),
       onClick: async () => {
         await subDetails.buy(sku)
         changeModal({ name: SUB_SUCCESS_MODAL })

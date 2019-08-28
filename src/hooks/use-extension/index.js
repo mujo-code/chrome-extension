@@ -4,11 +4,13 @@ import React, {
   useContext,
   useCallback,
 } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   NEW_TAB_CONNECTION,
   RESET_USAGE,
   APP_READY_KEY,
   SCREEN_TIME_PERMISSIONS,
+  TRANSLATION_FILE,
 } from '../../constants'
 import { toSiteInfo } from '../../lib/aggregation'
 import { message } from '../../lib/extension'
@@ -27,6 +29,7 @@ const { Provider } = context
 export const ExtensionProvider = props => {
   // state
   const { shouldRegisterApp } = props
+  const { t } = useTranslation(TRANSLATION_FILE)
   const [appReady, setAppReady] = useState(false)
   const [playerIsOpen, setPlayerIsOpen] = useState(false)
   const [selectedSegment, setSelectedSegment] = useState(null)
@@ -119,6 +122,7 @@ export const ExtensionProvider = props => {
     removePermissions,
     breathAmount,
     setBreathAmount,
+    t,
   })
   // TODO avoid mutation
   decorateSelectedSegment({ selectedSegment, siteTimesAndTimers })

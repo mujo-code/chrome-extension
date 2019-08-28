@@ -1,4 +1,5 @@
 import 'fake-indexeddb/auto'
+import './src/i18n'
 
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
 

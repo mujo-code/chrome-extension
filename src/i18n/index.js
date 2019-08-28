@@ -1,7 +1,8 @@
-import i18n from 'i18next'
+import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
-
 import { en } from './translations/en'
+
+export const i18n = i18next
 
 const defaultLang = 'en'
 
@@ -20,5 +21,3 @@ const options = {
 }
 
 i18n.use(initReactI18next).init(options)
-
-export default i18n
