@@ -14,7 +14,7 @@ import { toSiteInfo } from '../../lib/aggregation'
 import { message } from '../../lib/extension'
 import { usePermissions } from '../use-permissions'
 import { useSubscription } from '../use-subscription'
-import { makeSettings } from './settings'
+import { useSettings } from './settings'
 import { decorateSelectedSegment, mapTopSites } from './transforms'
 import { useBreaktimerCallback } from './use-breaktimer-callback'
 import { useDeeplink } from './use-deeplink'
@@ -109,7 +109,7 @@ export const ExtensionProvider = props => {
   // transforms
   const mappedTopSites = topSites.map(mapTopSites(topSitesUsage))
   const siteTimesAndTimers = toSiteInfo(siteTimes, breakTimers)
-  const settings = makeSettings({
+  const settings = useSettings({
     user,
     setUpsellModal,
     alarmEnabled,

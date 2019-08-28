@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import {
   SUB_DETAILS_MODAL,
   CURRENT_SUB_SKU,
@@ -5,12 +6,11 @@ import {
   BREATH_MIN,
   BREATH_MAX,
   WEBSTORE_URL,
+  TRANSLATION_FILE,
 } from '../../constants'
 import { VERSION } from '../../env'
 
-const REMINDER_ALT = 'Notifications that remind you to take a break'
-
-export const makeSettings = ({
+export const useSettings = ({
   user,
   setUpsellModal,
   alarmEnabled,
@@ -20,71 +20,77 @@ export const makeSettings = ({
   removePermissions,
   breathAmount,
   setBreathAmount,
-}) => [
-  {
-    label: 'Subscribe',
-    type: 'button',
-    value: 'More Info',
-    alt: user.isSubscribed
-      ? 'Thanks you for your support ❤️!'
-      : 'Get access to more Mujō',
-    setter: () => {
-      // always open this modal
-      setUpsellModal({
-        name: SUB_DETAILS_MODAL,
-        sku: CURRENT_SUB_SKU,
-        callback: () => {},
-      })
+}) => {
+  const { t } = useTranslation(TRANSLATION_FILE)
+  return [
+    {
+      label: t('subscribe'),
+      type: 'button',
+      value: t('more-info'),
+      alt: user.isSubscribed
+        ? t('thanks-support')
+        : t('get-more-access'),
+      setter: () => {
+        // always open this modal
+        setUpsellModal({
+          name: SUB_DETAILS_MODAL,
+          sku: CURRENT_SUB_SKU,
+          callback: () => {},
+        })
+      },
     },
-  },
-  {
-    label: 'Reminder',
-    type: 'boolean',
-    alt: REMINDER_ALT,
-    setter: enabled => setAlarmEnabled(enabled),
-    value: alarmEnabled,
-  },
-  {
-    label: 'Screen Time Enabled',
-    type: 'boolean',
-    alt: 'Screen Time requires some additional permissions',
-    setter: () => {
-      if (hasPermission) {
-        removePermissions()
-      } else {
-        requestPermissions()
-      }
+    {
+      label: t('reminder'),
+      type: 'boolean',
+      alt: t('reminder-alt'),
+      setter: enabled => setAlarmEnabled(enabled),
+      value: alarmEnabled,
     },
-    value: hasPermission,
-  },
-  {
-    label: 'Breath amount',
-    type: 'number',
-    alt: 'Want more breath in each break?',
-    inputLabel: `Between ${BREATH_MIN} to ${BREATH_MAX}`,
-    setter: amount => {
-      setBreathAmount(
-        Math.min(Math.max(amount, BREATH_MIN), BREATH_MAX)
-      )
+    {
+      label: t('screen-time-enabled'),
+      type: 'boolean',
+      alt: t('screen-time-permissions'),
+      setter: () => {
+        if (hasPermission) {
+          removePermissions()
+        } else {
+          requestPermissions()
+        }
+      },
+      value: hasPermission,
     },
-    value: breathAmount,
-  },
-  {
-    label: 'Help',
-    alt: 'Need help or got feedback? Talk to us on Spectrum.chat',
-    type: 'button',
-    value: 'Get support',
-    setter: () => {
-      window.open(SUPPORT_URL)
+    {
+      label: t('breath-amount'),
+      type: 'number',
+      alt: t('want-more-breath'),
+      inputLabel: t('breath-limits', {
+        min: BREATH_MIN,
+        max: BREATH_MAX,
+      }),
+      setter: amount => {
+        setBreathAmount(
+          Math.min(Math.max(amount, BREATH_MIN), BREATH_MAX)
+        )
+      },
+      value: breathAmount,
     },
-  },
-  {
-    label: 'About Mujō',
-    alt: `You are using Mujō v${VERSION}`,
-    type: 'button',
-    value: 'Rate us!',
-    setter: () => {
-      window.open(WEBSTORE_URL)
+    {
+      label: t('help'),
+      alt: t('join-chat'),
+      type: 'button',
+      value: t('get-support'),
+      setter: () => {
+        window.open(SUPPORT_URL)
+      },
     },
-  },
-]
+    {
+      label: t('about-mujo'),
+      alt: t('mujo-version', { version: VERSION }),
+      type: 'button',
+      value: t('rate-us'),
+      setter: () => {
+        window.open(WEBSTORE_URL)
+      },
+    },
+  ]
+}

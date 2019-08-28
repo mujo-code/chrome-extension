@@ -8,7 +8,7 @@ import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
 import { ScreenTime } from './components/screen-time'
 import { TopSites } from './components/top-sites'
-import { SCREEN_TIME_FEATURE } from './constants'
+import { SCREEN_TIME_FEATURE, TRANSLATION_FILE } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
 import { colors } from './styles/colors'
@@ -64,7 +64,7 @@ const App = () => {
   const logoSize = getFactor(activityNumber)
   const toggleHandle = (fn, value) => () => fn(!value)
   const bg = bodyBackgrounds[background] || bodyBackgrounds.outerSpace
-  const { t } = useTranslation('translation')
+  const { t } = useTranslation(TRANSLATION_FILE)
 
   return (
     <Box

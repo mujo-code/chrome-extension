@@ -1,6 +1,7 @@
 import { Box } from '@mujo/box'
 import React from 'react'
-import { MINUTE } from '../../constants'
+import { useTranslation } from 'react-i18next'
+import { MINUTE, TRANSLATION_FILE } from '../../constants'
 import { useTheme } from '../../hooks/use-theme'
 import { getTotalTime } from '../../lib/aggregation'
 import { BodyS } from '../fonts'
@@ -10,6 +11,7 @@ export const hasEnoughData = (segments, data) =>
 
 export const NotEnoughData = props => {
   const theme = useTheme()
+  const { t } = useTranslation(TRANSLATION_FILE)
   return (
     <Box>
       <Box
@@ -80,10 +82,7 @@ export const NotEnoughData = props => {
           r="15"
         />
       </Box>
-      <BodyS>
-        Explore more, there is not enough data to show you anything
-        yet.
-      </BodyS>
+      <BodyS>{t('keep-exploring')}</BodyS>
     </Box>
   )
 }

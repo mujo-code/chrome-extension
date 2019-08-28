@@ -2,6 +2,8 @@ import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { TRANSLATION_FILE } from '../../constants'
 import { useTheme } from '../../hooks/use-theme'
 import { HeaderL, HeaderS } from '../fonts'
 import { useAnimations, transition } from './use-animations'
@@ -41,6 +43,7 @@ export const Player = props => {
     props,
     isOpen
   )
+  const { t } = useTranslation(TRANSLATION_FILE)
   const { foreground, background, highlight } = useTheme()
   return (
     <Box
@@ -80,7 +83,7 @@ export const Player = props => {
                 css={[textTranistions, isBreathIn ? fadeInText : {}]}
                 {...animationProps.text}
               >
-                Breathe in
+                {t('breathe-in')}
               </HeaderL>
               <HeaderL
                 fill={background}
@@ -89,7 +92,7 @@ export const Player = props => {
                 {...animationProps.text}
                 css={[textTranistions, !isBreathIn ? fadeInText : {}]}
               >
-                Breathe out
+                {t('breathe-out')}
               </HeaderL>
               <HeaderS
                 Component="text"

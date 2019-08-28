@@ -2,6 +2,8 @@ import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import ErrorStackParser from 'error-stack-parser'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { TRANSLATION_FILE } from '../../constants'
 import { ENVIRONMENT } from '../../env'
 import { tracker } from '../../lib/error-tracker'
 import { HeaderL } from '../fonts'
@@ -27,6 +29,7 @@ export class ErrorBox extends React.Component {
 
   render() {
     const { hasError, error, errorId } = this.state
+    const { t } = useTranslation(TRANSLATION_FILE)
     const isDev = ENVIRONMENT === 'development'
     let frames
     if (error && isDev) {
@@ -58,7 +61,7 @@ export class ErrorBox extends React.Component {
             color="saltBox"
             marginBottom="xl"
           >
-            Just like everything, errors are impermanent
+            {t('errors-impermanent')}
           </HeaderL>
           {frames && isDev ? (
             <Frames frames={frames} error={error} />

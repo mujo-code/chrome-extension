@@ -1,19 +1,23 @@
 import { Box } from '@mujo/box'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { TRANSLATION_FILE } from '../../constants'
 import { BodyS, HeaderS } from '../fonts'
 
-export const Message = ({ errorId }) => (
-  <>
-    <HeaderS maxWidth="500px" color="mischka">
-      We are sorry for this issue
-    </HeaderS>
-    <BodyS maxWidth="500px" color="mischka">
-      We have created a issue for this error{' '}
-      <Box Component="span" color="saltBox">
-        ${errorId}
-      </Box>
-      , and will be working to resolve it. If the problem presist,
-      please contact us at jacoblowe2.0@gmail.com
-    </BodyS>
-  </>
-)
+export const Message = ({ errorId }) => {
+  const { t } = useTranslation(TRANSLATION_FILE)
+  return (
+    <>
+      <HeaderS maxWidth="500px" color="mischka">
+        {t('sorry-for-issue')}
+      </HeaderS>
+      <BodyS maxWidth="500px" color="mischka">
+        {t('created-an-issue')}
+        <Box Component="span" color="saltBox">
+          ${errorId}
+        </Box>
+        {t('error-persists')}
+      </BodyS>
+    </>
+  )
+}

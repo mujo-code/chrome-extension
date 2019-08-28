@@ -1,6 +1,7 @@
 import { Box } from '@mujo/box'
 import React, { useState } from 'react'
-import { SETTINGS_MODAL } from '../../constants'
+import { useTranslation } from 'react-i18next'
+import { SETTINGS_MODAL, TRANSLATION_FILE } from '../../constants'
 import { useTheme } from '../../hooks/use-theme'
 import { track } from '../../lib/tracker'
 import { Icon } from '../icon'
@@ -17,6 +18,7 @@ export const Header = ({
   breathAmount,
 }) => {
   const [toolTipOpen, setToolTipOpen] = useState(false)
+  const { t } = useTranslation(TRANSLATION_FILE)
   const theme = useTheme()
   return (
     <Box
@@ -67,7 +69,7 @@ export const Header = ({
         onMouseLeave={() => setToolTipOpen(false)}
       />
       <ToolTip isOpen={toolTipOpen && !playerIsOpen} below>
-        Take a break!
+        {t('take-a-break')}
       </ToolTip>
     </Box>
   )
