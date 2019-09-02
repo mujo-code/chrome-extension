@@ -17,7 +17,7 @@
     "@storybook/react": "^5.1.11",
     "@svgr/webpack": "4.3.2",
     "@testing-library/react-hooks": "^1.1.0",
-    "@tweenjs/tween.js": "^17.4.0",
+    "@tweenjs/tween.js": "^18.1.0",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
