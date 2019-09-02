@@ -1,6 +1,10 @@
 import { useEffect, useCallback } from 'react'
 import { upsertAlarm } from '../../../background/alarm/util'
-import { ALARM_KEY, THREE_HOURS } from '../../../constants'
+import {
+  ALARM_KEY,
+  THREE_HOURS,
+  PREDICTED_BREAK_TIMES_FEATURE,
+} from '../../../constants'
 import { useHeartBeat } from '../../../hooks/use-heart-beat'
 import { useStorage } from '../../../hooks/use-storage-background'
 import { alarms } from '../../../lib/extension'
@@ -11,8 +15,9 @@ export const BreakAlarm = () => {
 
   // callbacks
   const addBreakAlarm = useCallback(() => {
+    if (PREDICTED_BREAK_TIMES_FEATURE) return
     const delayInMinutes = msToMinutes(THREE_HOURS)
-    return upsertAlarm(ALARM_KEY, { delayInMinutes })
+    upsertAlarm(ALARM_KEY, { delayInMinutes })
   }, [])
   const removeBreakAlarm = useCallback(() => {
     alarms.clear(ALARM_KEY)
