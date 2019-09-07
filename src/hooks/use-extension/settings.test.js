@@ -3,14 +3,17 @@ import {
   CURRENT_SUB_SKU,
   SUPPORT_URL,
 } from '../../constants'
+import { i18n } from '../../i18n'
 import { first } from '../../lib/functional'
-import { makeSettings } from './settings'
+import { useSettings } from './settings'
+
+const t = i18n.t.bind(i18n)
 
 const findSettingByLabel = (label, settings) =>
   first(settings.filter(s => s.label === label))
 
-test('makeSettings should return a collection of objects', () => {
-  const settings = makeSettings({ user: {} })
+test('useSettings should return a collection of objects', () => {
+  const settings = useSettings({ user: {}, t })
   expect(Array.isArray(settings)).toBe(true)
   settings.forEach(setting => {
     expect(typeof setting).toBe('object')
@@ -20,7 +23,7 @@ test('makeSettings should return a collection of objects', () => {
 test('subcribe setting should open a subscribe modal when clicked', () => {
   const setUpsellModal = jest.fn()
   const user = { isSubscribed: false }
-  const settings = makeSettings({ setUpsellModal, user })
+  const settings = useSettings({ setUpsellModal, user, t })
   const subSetting = findSettingByLabel('Subscribe', settings)
   subSetting.setter()
   const arg = setUpsellModal.mock.calls[0][0]
@@ -33,17 +36,18 @@ test('subcribe setting should open a subscribe modal when clicked', () => {
 test('subcribe setting should show love to subscribers', () => {
   const setUpsellModal = jest.fn()
   const user = { isSubscribed: true }
-  const settings = makeSettings({ setUpsellModal, user })
+  const settings = useSettings({ setUpsellModal, user, t })
   const subSetting = findSettingByLabel('Subscribe', settings)
   expect(subSetting.alt).toMatch('❤️')
 })
 
 test('reminder setting should set the opposite reminder value', () => {
   const setAlarmEnabled = jest.fn()
-  const settings = makeSettings({
+  const settings = useSettings({
     alarmEnabled: true,
     setAlarmEnabled,
     user: {},
+    t,
   })
   const reminderSetting = findSettingByLabel('Reminder', settings)
   reminderSetting.setter(false)
@@ -52,10 +56,11 @@ test('reminder setting should set the opposite reminder value', () => {
 
 test('screen time setting should request permissions on click', () => {
   const requestPermissions = jest.fn()
-  const settings = makeSettings({
+  const settings = useSettings({
     hasPermission: false,
     requestPermissions,
     user: {},
+    t,
   })
   const screenTimeSetting = findSettingByLabel(
     'Screen Time Enabled',
@@ -67,10 +72,11 @@ test('screen time setting should request permissions on click', () => {
 
 test('screen time setting should remove permissions on click', () => {
   const removePermissions = jest.fn()
-  const settings = makeSettings({
+  const settings = useSettings({
     hasPermission: true,
     removePermissions,
     user: {},
+    t,
   })
   const screenTimeSetting = findSettingByLabel(
     'Screen Time Enabled',
@@ -82,7 +88,7 @@ test('screen time setting should remove permissions on click', () => {
 
 test('help setting should navigate to support on click', () => {
   global.open = jest.fn()
-  const settings = makeSettings({ user: {} })
+  const settings = useSettings({ user: {}, t })
   const helpSetting = findSettingByLabel('Help', settings)
   helpSetting.setter(false)
   expect(global.open).toBeCalledWith(SUPPORT_URL)

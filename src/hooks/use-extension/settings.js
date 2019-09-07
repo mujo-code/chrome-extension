@@ -8,9 +8,7 @@ import {
 } from '../../constants'
 import { VERSION } from '../../env'
 
-const REMINDER_ALT = 'Notifications that remind you to take a break'
-
-export const makeSettings = ({
+export const useSettings = ({
   user,
   setUpsellModal,
   alarmEnabled,
@@ -20,14 +18,15 @@ export const makeSettings = ({
   removePermissions,
   breathAmount,
   setBreathAmount,
+  t,
 }) => [
   {
-    label: 'Subscribe',
+    label: t('subscribe'),
     type: 'button',
-    value: 'More Info',
+    value: t('more-info'),
     alt: user.isSubscribed
-      ? 'Thanks you for your support ❤️!'
-      : 'Get access to more Mujō',
+      ? t('thanks-support')
+      : t('get-more-access'),
     setter: () => {
       // always open this modal
       setUpsellModal({
@@ -38,16 +37,16 @@ export const makeSettings = ({
     },
   },
   {
-    label: 'Reminder',
+    label: t('reminder'),
     type: 'boolean',
-    alt: REMINDER_ALT,
+    alt: t('reminder-alt'),
     setter: enabled => setAlarmEnabled(enabled),
     value: alarmEnabled,
   },
   {
-    label: 'Screen Time Enabled',
+    label: t('screen-time-enabled'),
     type: 'boolean',
-    alt: 'Screen Time requires some additional permissions',
+    alt: t('screen-time-permissions'),
     setter: () => {
       if (hasPermission) {
         removePermissions()
@@ -58,10 +57,13 @@ export const makeSettings = ({
     value: hasPermission,
   },
   {
-    label: 'Breath amount',
+    label: t('breath-amount'),
     type: 'number',
-    alt: 'Want more breath in each break?',
-    inputLabel: `Between ${BREATH_MIN} to ${BREATH_MAX}`,
+    alt: t('want-more-breath'),
+    inputLabel: t('breath-limits', {
+      min: BREATH_MIN,
+      max: BREATH_MAX,
+    }),
     setter: amount => {
       setBreathAmount(
         Math.min(Math.max(amount, BREATH_MIN), BREATH_MAX)
@@ -70,19 +72,19 @@ export const makeSettings = ({
     value: breathAmount,
   },
   {
-    label: 'Help',
-    alt: 'Need help or got feedback? Talk to us on Spectrum.chat',
+    label: t('help'),
+    alt: t('join-chat'),
     type: 'button',
-    value: 'Get support',
+    value: t('get-support'),
     setter: () => {
       window.open(SUPPORT_URL)
     },
   },
   {
-    label: 'About Mujō',
-    alt: `You are using Mujō v${VERSION}`,
+    label: t('about-mujo'),
+    alt: t('mujo-version', { version: VERSION }),
     type: 'button',
-    value: 'Rate us!',
+    value: t('rate-us'),
     setter: () => {
       window.open(WEBSTORE_URL)
     },

@@ -3,6 +3,7 @@ import { Box } from '@mujo/box'
 import ErrorStackParser from 'error-stack-parser'
 import React from 'react'
 import { ENVIRONMENT } from '../../env'
+import { i18n } from '../../i18n'
 import { tracker } from '../../lib/error-tracker'
 import { HeaderL } from '../fonts'
 import { Frames } from './frames'
@@ -58,7 +59,7 @@ export class ErrorBox extends React.Component {
             color="saltBox"
             marginBottom="xl"
           >
-            Just like everything, errors are impermanent
+            {i18n.t('errors-impermanent')}
           </HeaderL>
           {frames && isDev ? (
             <Frames frames={frames} error={error} />

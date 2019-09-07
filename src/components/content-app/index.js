@@ -1,10 +1,12 @@
 import { styleGuide, Box } from '@mujo/box'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   BREAK_TIMERS_KEY,
   SITE_TIME_KEY,
   DEEP_LINK_NEWTAB,
   RESET_USAGE,
+  TRANSLATION_FILE,
 } from '../../constants'
 import { useStorage } from '../../hooks/use-storage'
 import { useTheme } from '../../hooks/use-theme'
@@ -19,11 +21,14 @@ import { Player } from '../player'
 import { Time } from '../time'
 import { shouldDisplayModal } from './util'
 
+import '../../i18n'
+
 styleGuide.push(utilStyles)
 
 const ContentApp = () => {
   const url = window.location.href
   const originURL = origin(url)
+  const { t } = useTranslation(TRANSLATION_FILE)
   const [isPlayerOpen, setPlayerIsOpen] = useState(false)
   const [isModalOpen, setModalIsOpen] = useState(true)
   const [breakTimers] = useStorage(BREAK_TIMERS_KEY)
@@ -55,7 +60,7 @@ const ContentApp = () => {
         onClick={() => {
           setPlayerIsOpen(true)
         }}
-        label="Take a break"
+        label={t('take-a-break')}
       />
       <Box css={{ maxWidth: '40vw', minWidth: '300px' }}>
         <BodyL
@@ -65,19 +70,18 @@ const ContentApp = () => {
           paddingRight="xl"
           textAlign="left"
         >
-          The site {label} was actively viewed for{' '}
+          {t('actively-viewed-for', { site: label })}{' '}
           <Time Component="span" color={foreground}>
             {time}
           </Time>{' '}
-          since your last break. Right now is a good time to take a
-          break
+          {t('since-last-break')}
         </BodyL>
         <Button
           onClick={() => message(DEEP_LINK_NEWTAB)}
           design="secondary"
           marginBottom="m"
         >
-          Edit site timer
+          {t('edit-site-timer')}
         </Button>
       </Box>
     </Modal>

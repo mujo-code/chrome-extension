@@ -1,5 +1,7 @@
 import { Box } from '@mujo/box'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { TRANSLATION_FILE } from '../../constants'
 import { useTheme } from '../../hooks/use-theme'
 import { siteTimeToChartData } from '../../lib/aggregation'
 import { HeaderS, Sup, BodyS } from '../fonts'
@@ -17,6 +19,7 @@ export const ScreenTime = ({
   setSelectedSegment,
   permissions = {},
 }) => {
+  const { t } = useTranslation(TRANSLATION_FILE)
   const [toolTipOpen, setToolTipOpen] = useState(false)
   const {
     hasPermission,
@@ -27,6 +30,7 @@ export const ScreenTime = ({
   const theme = useTheme()
   const { foreground, highlight } = theme
   const showGraph = hasEnoughData(graphData, data)
+  const status = hasPermission ? 'enabled' : 'disabled'
   return (
     <Box
       flex="1"
@@ -45,9 +49,9 @@ export const ScreenTime = ({
         onMouseLeave={() => setToolTipOpen(false)}
         onMouseEnter={() => setToolTipOpen(true)}
       >
-        Screen Time <Sup>BETA</Sup>
+        {t('screen-time')} <Sup>{t('beta')}</Sup>
         <ToolTip isOpen={toolTipOpen}>
-          Screen time is the time viewing sites between your breaks
+          {t('screen-time-explain')}
         </ToolTip>
       </HeaderS>
       {showGraph ? (
@@ -88,7 +92,7 @@ export const ScreenTime = ({
           />
         </Box>
         <BodyS flex="1" paddingLeft="m">
-          Screen Time is {!hasPermission ? 'disabled' : 'enabled'}
+          {t('screen-time-status', { status })}
         </BodyS>
       </Box>
 

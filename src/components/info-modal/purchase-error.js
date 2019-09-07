@@ -10,7 +10,6 @@ export const PurchaseError = props => (
     borderRadius="l"
     marginBottom={props.marginBottom}
   >
-    We were unable to process your purchase at this time. Please try
-    again later.
+    {props.t('unable-to-process')}
   </BodyS>
 )

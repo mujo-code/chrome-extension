@@ -1,4 +1,5 @@
 import { ALARM_KEY } from '../constants'
+import { i18n } from '../i18n'
 import { notifications, tabs } from '../lib/extension'
 import { storage } from './storage'
 import { track } from './tracking'
@@ -8,11 +9,11 @@ export const createNotification = async () => {
 
   if (!isEnabled) return
   // TODO: pass some information here to make this more contextual
-  const title = 'Take a break'
+  const title = i18n.t('take-a-break')
   const options = {
     type: 'basic',
     title,
-    message: 'Gentle nudge to be mindful with your time.',
+    message: i18n.t('gentle-nudge'),
     iconUrl: 'favicon.png',
   }
   const id = notifications.create(options, () => {})

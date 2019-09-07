@@ -1,12 +1,17 @@
 import { Box } from '@mujo/box'
 import React from 'react'
-import { FOURTY_FIVE_MINUTES } from '../../constants'
+import { useTranslation } from 'react-i18next'
+import {
+  FOURTY_FIVE_MINUTES,
+  TRANSLATION_FILE,
+} from '../../constants'
 import { msToMinutes, minutesToMS } from '../../lib/time'
 import { HeaderS } from '../fonts'
 import { Input } from '../input'
 import { Switch } from '../switch'
 
 export const BreakTimerForm = props => {
+  const { t } = useTranslation(TRANSLATION_FILE)
   const { time, enabled, originalURL, setBreakTimer } = props
   const minutes = msToMinutes(time)
   const suffix = minutes === 1 ? '' : 's'
@@ -23,7 +28,7 @@ export const BreakTimerForm = props => {
             marginTop="zero"
             marginBottom="m"
             id="break-timer-time"
-            label={`Shown in ${minutes} minute${suffix} of usage`}
+            label={t('shown-in-usage', { minutes, suffix })}
             type="number"
             value={minutes}
             onChange={e =>
@@ -62,7 +67,7 @@ export const BreakTimerForm = props => {
           marginBottom="zero"
           htmlFor="break-timer"
         >
-          Break Timer
+          {t('break-timer')}
         </HeaderS>
       </Box>
     </Box>

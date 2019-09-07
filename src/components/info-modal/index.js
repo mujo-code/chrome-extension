@@ -1,5 +1,7 @@
 import { Box } from '@mujo/box'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { TRANSLATION_FILE } from '../../constants'
 import { useSubscription } from '../../hooks/use-subscription'
 import { useTheme } from '../../hooks/use-theme'
 import { Button } from '../button'
@@ -16,12 +18,13 @@ export const InfoModal = ({
   settings,
 }) => {
   const theme = useTheme()
+  const { t } = useTranslation(TRANSLATION_FILE)
   const { highlight, backgroundSecondary } = theme
   const subDetails = useSubscription()
   const { title, description, button, children } = getModalData(
     context,
     subDetails,
-    { changeModal, settings, theme }
+    { changeModal, settings, theme, t }
   )
   return (
     <Modal

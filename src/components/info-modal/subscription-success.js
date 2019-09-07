@@ -1,7 +1,4 @@
-export const subscriptionSuccess = (context, subDetails) => ({
-  title: 'Thanks for purchasing a subscription',
-  description: [
-    'Your support is greatly appreciated!',
-    'Please contact jacoblowe2.0@gmail.com with any comment or questions.',
-  ],
+export const subscriptionSuccess = (context, subDetails, { t }) => ({
+  title: t('thanks-subscription'),
+  description: [t('support-appreciation'), t('contact-questions')],
 })

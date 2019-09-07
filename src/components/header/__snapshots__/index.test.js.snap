@@ -134,7 +134,7 @@ exports[`Header component matches open snapshot 1`] = `
           className="css-4obz46"
           position="relative"
         >
-          Take a break!
+          Take a break
         </div>
       </span>
     </div>
@@ -246,7 +246,7 @@ exports[`Header component matches snapshot 1`] = `
           className="css-4obz46"
           position="relative"
         >
-          Take a break!
+          Take a break
         </div>
       </span>
     </div>

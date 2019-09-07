@@ -2,6 +2,8 @@ import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { TRANSLATION_FILE } from '../../constants'
 import { useTheme } from '../../hooks/use-theme'
 import { ToolTip } from '../tool-tip'
 
@@ -19,6 +21,7 @@ export const FavButton = props => {
   const [isServer, setIsServer] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
   const encodedURL = encodeURIComponent(props.url)
+  const { t } = useTranslation(TRANSLATION_FILE)
   const iconUrl = isServer
     ? `https://mujō.com/api/icon?site=${encodedURL}`
     : `chrome://favicon/${props.url}`
@@ -57,9 +60,7 @@ export const FavButton = props => {
         {...(disabled ? css({ opacity: 0.5 }) : {})}
       />
       <ToolTip isOpen={tooltipOpen}>
-        {disabled
-          ? 'Bring back this link by taking a break'
-          : props.title}
+        {disabled ? t('bring-back-link') : props.title}
       </ToolTip>
     </Box>
   )

@@ -1,5 +1,7 @@
 import { Box } from '@mujo/box'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { TRANSLATION_FILE } from '../../constants'
 import { HeaderS } from '../fonts'
 import { Modal as BaseModal } from '../modal'
 import { InfoModal } from './info-modal'
@@ -26,6 +28,7 @@ export const Modal = props => {
     selectedSegment,
     allSegments,
   } = props
+  const { t } = useTranslation(TRANSLATION_FILE)
   return (
     <BaseModal
       display="flex"
@@ -54,7 +57,7 @@ export const Modal = props => {
           marginTop="zero"
           color={foreground}
         >
-          Screen Time for:
+          {t('screen-time-for')}
         </HeaderS>
       </Box>
       <Box

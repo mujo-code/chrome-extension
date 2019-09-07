@@ -22,6 +22,7 @@ export const VERSION = '1.4.0' // TODO make dyanmic
 export const MAX_ACTIVITY_ROWS = 40000
 export const BREATH_MAX = 20
 export const BREATH_MIN = 5
+export const TRANSLATION_FILE = 'translation'
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key

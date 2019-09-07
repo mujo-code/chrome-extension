@@ -79,6 +79,7 @@ function getClientEnvironment(publicUrl) {
         UA: process.env.UA,
       }
     )
+
   // Stringify all values so we can feed into Webpack DefinePlugin
   const stringified = {
     'process.env': Object.keys(raw).reduce((env, key) => {

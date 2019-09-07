@@ -59,13 +59,7 @@ exports[`InfoModal should match snapshot 1`] = `
       className="css-1x9rsfv"
       color="color"
     >
-      You have set the max number of break timers.
-    </p>
-    <p
-      className="css-120ftwk"
-      color="color"
-    >
-      To get access to unlimited break timers and add a break timer for foo subscribe to Mujō.
+      You have set the max number of break timers. To get access to unlimited break timers and add a break timer for foo subscribe to Mujō.
     </p>
   </div>
   <div
