@@ -8,8 +8,6 @@ import {
 } from '../../constants'
 import { VERSION } from '../../env'
 
-console.log(VERSION)
-
 export const useSettings = ({
   user,
   setUpsellModal,
