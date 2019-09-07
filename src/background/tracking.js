@@ -22,8 +22,7 @@ export const track = (options = {}) => {
   return tracker.event(payload)
 }
 
-export const initTracking = (id, doc) => async userId => {
-  console.log({ id, userId })
+export const initTracking = id => async userId => {
   tracker = ua(id, userId)
   // set promise interface for events
   set(tracker, 'event', promisifyNode(tracker.event.bind(tracker)))

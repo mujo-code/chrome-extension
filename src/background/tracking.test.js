@@ -1,16 +1,18 @@
 import * as Tracking from './tracking'
 
-const { injectTracking, GTM_JS } = Tracking
+const { initTracking } = Tracking
 
-test('injectTracking should attempt to inject a script into the doc', () => {
-  const el = {}
-  const id = 'foo'
-  const docMock = {
-    body: { appendChild: jest.fn() },
-    createElement: jest.fn().mockReturnValue(el),
+jest.mock('universal-analytics')
+const ua = require('universal-analytics')
+
+test('initTracking should init "universal-analytics"', async () => {
+  const tracker = {
+    event: () => {},
+    screenview: () => {},
   }
-  injectTracking(id, docMock)
-  expect(docMock.createElement).toBeCalledWith('script')
-  expect(el.src).toBe(`${GTM_JS}?id=${id}`)
-  expect(docMock.body.appendChild).toBeCalledWith(el)
+  ua.mockReset().mockReturnValue(tracker)
+  const id = 'baz'
+  const userId = 'qux'
+  await initTracking(id)(userId)
+  expect(ua).toBeCalledWith(id, userId)
 })
