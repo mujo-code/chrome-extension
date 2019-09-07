@@ -65,3 +65,4 @@ contentSecurityPolicy:
     - https://getmujo.com
     - http://localhost:3000
     - https://sentry.io
+    - https://www.google-analytics.com

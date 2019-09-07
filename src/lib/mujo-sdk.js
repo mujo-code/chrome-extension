@@ -30,6 +30,7 @@ export const http = async ({
 
 export const identify = async id => {
   identity = id
+  return id
 }
 
 export const availableAPIs = [

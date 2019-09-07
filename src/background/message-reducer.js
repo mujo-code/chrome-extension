@@ -19,7 +19,7 @@ import {
 import { updateScreenTime } from './screen-time'
 import { onGetStorage, onSetStorage } from './storage'
 import { broadcaster } from './storage/broadcast'
-import { addData } from './tracking'
+import { track } from './tracking'
 
 export const reducer = (request, sender, sendResponse) => {
   const { event } = request
@@ -32,7 +32,7 @@ export const reducer = (request, sender, sendResponse) => {
       broadcaster.remove(sender.tab)
       break
     case NEW_TAB_CONNECTION:
-      addData({ event: 'pageView' }) // custom event for pageviews
+      track({ event: 'pageView' }) // custom event for pageviews
       break
     case PAGE_VIEWING_TIME:
       updateScreenTime(sender.url, request.measure)
@@ -58,7 +58,7 @@ export const reducer = (request, sender, sendResponse) => {
       break
     }
     case TRACK:
-      addData(request.payload || {})
+      track(request.payload || {})
       break
     default:
   }

@@ -1,7 +1,6 @@
 // NOTE: array of tab ids
 import { tabs } from '../../lib/extension'
 import { curry } from '../../lib/functional'
-import { addData } from '../tracking'
 
 export const containsTab = curry((connections, tabId) =>
   connections.includes(tabId)
@@ -25,11 +24,12 @@ export const broadcastToTabs = curry((connections, message) =>
     try {
       tabs.sendMessage(tabId, message)
     } catch (e) {
-      addData({
-        event: 'exception',
-        errorMessage: e.message,
-        errorStack: e.stack,
-      })
+      // TODO: swap to sentry
+      // addData({
+      //   event: 'exception',
+      //   errorMessage: e.message,
+      //   errorStack: e.stack,
+      // })
     }
   })
 )
