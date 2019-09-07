@@ -9,7 +9,7 @@ import { initIdentity } from './background/identity'
 import { injectScript } from './background/inject'
 import { reducer } from './background/message-reducer'
 import { onNotificationClicked } from './background/notifications'
-import { injectTracking } from './background/tracking'
+import { initTracking } from './background/tracking'
 import { BackgroundApp } from './components/background-app'
 import { composePromises } from './lib/async-helpers'
 import {
@@ -27,6 +27,7 @@ const startReactApp = () => {
 
 const init = composePromises(
   initAlarms,
+  initTracking(process.env.UA, window.document),
   identify,
   initIdentity,
   startReactApp
@@ -39,4 +40,3 @@ onMessage(reducer)
 webNavigation.onCommitted.addListener(injectScript)
 
 init()
-injectTracking('GTM-P5PFGSF', window.document)

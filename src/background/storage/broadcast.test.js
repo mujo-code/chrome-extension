@@ -9,10 +9,6 @@ import {
   removeListener,
 } from './broadcast'
 
-jest.mock('../tracking')
-/* eslint-disable-next-line import-order-alphabetical/order */
-const { addData } = require('../tracking')
-
 test('createBroadcaster should create a broadcaster interface', () => {
   const connections = ['foo']
   const broadcaster = createBroadcaster(connections)
@@ -49,19 +45,6 @@ test('broadcastToTabs should send a message to connections', () => {
   expect(tabs.sendMessage).toBeCalledTimes(2)
   expect(tabs.sendMessage).toHaveBeenNthCalledWith(1, 'foo', message)
   expect(tabs.sendMessage).toHaveBeenNthCalledWith(2, 'bar', message)
-})
-
-test('broadcastToTabs if error occurs it should be tracked', () => {
-  tabs.sendMessage.mockImplementation(() => {
-    throw new Error('foo')
-  })
-  broadcastToTabs(['foo'], {})
-  expect(addData).toBeCalledWith(
-    expect.objectContaining({
-      event: 'exception',
-      errorMessage: 'foo',
-    })
-  )
 })
 
 test('removeTab should remove tabId from connections', () => {

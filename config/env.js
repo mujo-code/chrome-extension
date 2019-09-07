@@ -76,6 +76,7 @@ function getClientEnvironment(publicUrl) {
         PUBLIC_URL: publicUrl,
         SENTRY_DSN: process.env.SENTRY_DSN,
         VESION: pkg.version,
+        UA: process.env.UA,
       }
     )
   // Stringify all values so we can feed into Webpack DefinePlugin

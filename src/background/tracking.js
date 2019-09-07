@@ -1,40 +1,35 @@
+import ua from 'universal-analytics'
+import { promisifyNode } from '../lib/promisify'
 import { set } from '../lib/util'
 
 export const GTM_JS = 'https://www.googletagmanager.com/gtm.js'
 
-export const createDataLayer = win => {
-  const layer = 'dataLayer'
-  const currentLayer = win[layer] || []
-  set(win, layer, currentLayer)
-  return win[layer]
-}
+// NOTE: this will be the gtm tracker
+let tracker = null
 
-export const addToDataLayer = dataLayer => payload =>
-  dataLayer.push(payload)
-
-export const addData = addToDataLayer(createDataLayer(window))
-
-export const track = (options = {}, overrides = {}) => {
-  const { event = 'event' } = overrides
+export const track = (options = {}) => {
   const {
     category = null,
     action = null,
     label = null,
     value = null,
+    event = 'event',
   } = options
-  const payload = { category, action, label, value, event }
-  return addData(payload)
+  const payload = { ec: category, ea: action, el: label, ev: value }
+  if (event === 'pageView') {
+    return tracker.screenview('new tab page', 'Mujo Chrome Extension')
+  }
+  return tracker.event(payload)
 }
 
-export const injectTracking = (id, doc) => {
-  const now = new Date()
-  addData({
-    event: 'gtm.js',
-    'gtm.start': now.getTime(),
-  })
-  const script = doc.createElement('script')
-  const { body } = doc
-  script.async = true
-  script.src = `${GTM_JS}?id=${id}`
-  body.appendChild(script)
+export const initTracking = id => async userId => {
+  tracker = ua(id, userId)
+  // set promise interface for events
+  set(tracker, 'event', promisifyNode(tracker.event.bind(tracker)))
+  set(
+    tracker,
+    'screenview',
+    promisifyNode(tracker.screenview.bind(tracker))
+  )
+  return userId
 }

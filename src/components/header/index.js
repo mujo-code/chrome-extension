@@ -54,8 +54,6 @@ export const Header = ({
           track({
             category: 'break',
             action: 'finish',
-            label: 'activity_number',
-            value: activityNumber,
           })
         }}
         onClick={() => {
@@ -63,8 +61,6 @@ export const Header = ({
           track({
             category: 'break',
             action: 'start',
-            label: 'activity_number',
-            value: activityNumber,
           })
         }}
         onMouseEnter={() => setToolTipOpen(true)}
