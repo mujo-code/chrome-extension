@@ -1,3 +1,4 @@
+/* eslint-disable import-order-alphabetical/order */
 import * as Tracking from './tracking'
 
 const { initTracking } = Tracking
