@@ -88,9 +88,8 @@ const resolvePlugin = async pluginName => {
   if (!exists) {
     throw new TypeError(`Plugin "${pluginName}" does not exist`)
   }
-  // TODO we will eventually need to require the component in node
-  // to pull off any values for the manifest
-  console.log({ isInRepo, isInNodeModule })
+
+  // TODO: check repo for config file to be able to add in permissions
   return isInRepo ? inRepoPath : nodeModulePath
 }
 
