@@ -1,15 +1,16 @@
-require('@babel/register')
-
 const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
 const cosmiconfig = require('cosmiconfig')
+const rimraf = require('rimraf')
 const paths = require('../config/paths')
 const pkg = require('../package.json')
 
 const stat = promisify(fs.stat)
 const write = promisify(fs.writeFile)
 const symlink = promisify(fs.symlink)
+const rmrf = promisify(rimraf)
+const mkdir = promisify(fs.mkdir)
 
 const promiseSeq = async (fn, arr) => {
   const resolves = []
@@ -25,20 +26,24 @@ const promiseSeq = async (fn, arr) => {
   return resolves
 }
 
+const cleanDirectory = async () => {
+  // cleans out synlinks
+  await rmrf(paths.appPluginsDir)
+  await mkdir(paths.appPluginsDir)
+}
+
 const run = async () => {
   const name = pkg.name.toLowerCase()
   const explorer = cosmiconfig(name)
   const { config } = await explorer.search()
-  const pluginFolders = config.plugins
-  const plugins = await promiseSeq(resolvePlugin, pluginFolders)
-  await promiseSeq(symlinkPlugin(pluginFolders), plugins)
-  await createPluginFile(pluginFolders)
+  const pluginFolder = config.plugins
+  await cleanDirectory()
+  const plugins = await promiseSeq(resolvePlugin, pluginFolder)
+  await promiseSeq(symlinkPlugin(pluginFolder), plugins)
+  await createPluginFile(pluginFolder)
 }
 
 const symlinkPlugin = plugins => async (pluginPath, i) => {
-  // TODO: symlink folder path into src/plugins/"plugin"
-  // this will allow use to build it into webpack bundles
-  // will fail if there is already a symlink
   await symlink(
     pluginPath,
     path.resolve(paths.appPluginsDir, plugins[i])
@@ -57,13 +62,13 @@ const doesExist = async pluginPath => {
 
 const createPluginFile = async plugins => {
   const content = `module.exports = [${plugins
-    .map(
-      plugin =>
-        `require('${path.resolve(
-          paths.appPluginsDir,
-          plugin
-        )}').default`
-    )
+    .map(plugin => {
+      const pluginPath = path.relative(
+        paths.appSrc,
+        path.resolve(paths.appPluginsDir, plugin)
+      )
+      return `require('./${pluginPath}').default`
+    })
     .join(',\n')}]`
 
   await write(paths.appPluginsJs, content)
