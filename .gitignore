@@ -63,3 +63,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Plugins
+src/mujo-plugins.js
+src/plugins/*
