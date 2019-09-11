@@ -3,9 +3,11 @@ import { Box } from '@mujo/box'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
+import { useExtension } from '../../hooks/use-extension'
 import { useTheme } from '../../hooks/use-theme'
 import { FavRows } from '../fav-rows'
 import { HeaderS } from '../fonts'
+import { TabContent } from '../tabs'
 import { ToolTip } from '../tool-tip'
 
 const siteWrapper = css({
@@ -18,36 +20,44 @@ const siteWrapper = css({
   },
 })
 
-export const TopSites = ({ topSites, updateSitesUsed }) => {
+export const TopSites = () => {
+  const { topSites, updateSitesUsed } = useExtension()
   const [toolTipOpen, setToolTipOpen] = useState(false)
   const { foreground } = useTheme()
   const { t } = useTranslation(TRANSLATION_FILE)
 
   return (
-    <Box
-      display="flex"
-      flex={1}
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      textAlign="center"
-      position="relative"
-      layer="1"
-      {...siteWrapper}
-    >
-      <HeaderS
+    <TabContent name="Top Sites">
+      <Box
+        display="flex"
+        flex={1}
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        textAlign="center"
         position="relative"
-        cursor="pointer"
-        color={foreground}
-        onMouseLeave={() => setToolTipOpen(false)}
-        onMouseEnter={() => setToolTipOpen(true)}
+        layer="1"
+        {...siteWrapper}
       >
-        {t('top-sites')}
-        <ToolTip isOpen={toolTipOpen}>{t('top-sites-usage')}</ToolTip>
-      </HeaderS>
-      {topSites.length ? (
-        <FavRows items={topSites} updateSitesUsed={updateSitesUsed} />
-      ) : null}
-    </Box>
+        <HeaderS
+          position="relative"
+          cursor="pointer"
+          color={foreground}
+          onMouseLeave={() => setToolTipOpen(false)}
+          onMouseEnter={() => setToolTipOpen(true)}
+        >
+          {t('top-sites')}
+          <ToolTip isOpen={toolTipOpen}>
+            {t('top-sites-usage')}
+          </ToolTip>
+        </HeaderS>
+        {topSites.length ? (
+          <FavRows
+            items={topSites}
+            updateSitesUsed={updateSitesUsed}
+          />
+        ) : null}
+      </Box>
+    </TabContent>
   )
 }

@@ -1,3 +1,4 @@
+import { IngressProvider } from '@mujo/ingress'
 import React, {
   useEffect,
   useState,
@@ -21,6 +22,7 @@ import { decorateSelectedSegment, mapTopSites } from './transforms'
 import { useBreaktimerCallback } from './use-breaktimer-callback'
 import { useDeeplink } from './use-deeplink'
 import { useModel } from './use-model'
+import { useTabs } from './use-tabs'
 import { useTopsitesAPI } from './use-topsites-api'
 
 const context = React.createContext()
@@ -34,6 +36,7 @@ export const ExtensionProvider = props => {
   const [playerIsOpen, setPlayerIsOpen] = useState(false)
   const [selectedSegment, setSelectedSegment] = useState(null)
   const [upsellModal, setUpsellModal] = useState(null)
+  const tabInterface = useTabs()
   const {
     alarmEnabled,
     setAlarmEnabled,
@@ -159,9 +162,10 @@ export const ExtensionProvider = props => {
         setPlayerIsOpen,
         setUpsellModal,
         updateBreakTimers,
+        ...tabInterface,
       }}
     >
-      {props.children}
+      <IngressProvider>{props.children}</IngressProvider>
     </Provider>
   )
 }
