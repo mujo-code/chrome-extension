@@ -1,5 +1,6 @@
 import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
+import { Tab } from '@mujo/plugins'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
@@ -7,7 +8,6 @@ import { useExtension } from '../../hooks/use-extension'
 import { useTheme } from '../../hooks/use-theme'
 import { FavRows } from '../fav-rows'
 import { HeaderS } from '../fonts'
-import { TabContent } from '../tabs'
 import { ToolTip } from '../tool-tip'
 
 const siteWrapper = css({
@@ -27,7 +27,7 @@ export const TopSites = () => {
   const { t } = useTranslation(TRANSLATION_FILE)
 
   return (
-    <TabContent name="Top Sites">
+    <Tab name="Top Sites">
       <Box
         display="flex"
         flex={1}
@@ -58,6 +58,6 @@ export const TopSites = () => {
           />
         ) : null}
       </Box>
-    </TabContent>
+    </Tab>
   )
 }

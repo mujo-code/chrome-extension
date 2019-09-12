@@ -4,7 +4,7 @@ import React from 'react'
 import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
 import { ScreenTime } from './components/screen-time'
-import { Tabs, TabTarget } from './components/tabs'
+import { Tabs, TabsTarget } from './components/tabs'
 import { TopSites } from './components/top-sites'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
@@ -83,7 +83,7 @@ const App = () => {
             setUpsellModal={setUpsellModal}
           />
           <Box flex="1" />
-          <TabTarget />
+          <TabsTarget />
           <Box flex="1" />
           <Box
             display="flex"

@@ -1,4 +1,5 @@
 import { Box } from '@mujo/box'
+import { Tab } from '@mujo/plugins'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
@@ -8,7 +9,6 @@ import { siteTimeToChartData } from '../../lib/aggregation'
 import { HeaderS, Sup, BodyS } from '../fonts'
 import { Graph } from '../graph'
 import { Switch } from '../switch'
-import { TabContent } from '../tabs'
 import { ToolTip } from '../tool-tip'
 import { Modal } from './modal'
 import { NotEnoughData, hasEnoughData } from './not-enough-data'
@@ -35,7 +35,7 @@ export const ScreenTime = () => {
   const showGraph = hasEnoughData(graphData, data)
   const status = hasPermission ? 'enabled' : 'disabled'
   return (
-    <TabContent name="Screen Time">
+    <Tab name="Screen Time">
       <Box
         flex="1"
         display="flex"
@@ -109,7 +109,7 @@ export const ScreenTime = () => {
           setBreakTimer={setBreakTimer}
         />
       </Box>
-    </TabContent>
+    </Tab>
   )
 }
 
