@@ -27,7 +27,7 @@ export const TopSites = () => {
   const { t } = useTranslation(TRANSLATION_FILE)
 
   return (
-    <Tab name="Top Sites">
+    <Tab name={t('top-sites')}>
       <Box
         display="flex"
         flex={1}

@@ -60,6 +60,10 @@ const radius = {
   l: '24px',
 }
 
+// This might need to be revised
+export const width = makeStyles('width', radius)
+export const height = makeStyles('height', radius)
+
 export const borderRadius = makeStyles('borderRadius', radius)
 export const borderTopLeftRadius = makeStyles(
   'borderTopLeftRadius',

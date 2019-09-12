@@ -4,14 +4,15 @@ import * as constants from '../../constants'
 import { useExtension } from '../../hooks/use-extension'
 import * as extension from '../../lib/extension'
 
+// NOTE we use a proxy to allow for access to `useExtension`
 export const NTPPluginProvider = ({ children }) => {
   const { pushTab, currentTab, removeTab } = useExtension()
-  const tabbing = { pushTab, removeTab, currentTab }
-  const value = {
+  const tabs = { pushTab, removeTab, currentTab }
+  const props = {
     env: 'ntp',
     extension,
     constants,
-    tabbing,
+    tabs,
   }
-  return <Provider value={value}>{children}</Provider>
+  return <Provider {...props}>{children}</Provider>
 }

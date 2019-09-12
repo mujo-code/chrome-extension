@@ -1,11 +1,13 @@
 import { css, Global } from '@emotion/core'
 import { Box, styleGuide } from '@mujo/box'
+import { IngressTarget } from '@mujo/ingress'
 import React from 'react'
 import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
 import { ScreenTime } from './components/screen-time'
-import { Tabs, TabsTarget } from './components/tabs'
+import { Tabs } from './components/tabs'
 import { TopSites } from './components/top-sites'
+import { TABS_TARGET } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
 import { colors } from './styles/colors'
@@ -83,24 +85,18 @@ const App = () => {
             setUpsellModal={setUpsellModal}
           />
           <Box flex="1" />
-          <TabsTarget />
+          <IngressTarget id={TABS_TARGET} />
           <Box flex="1" />
           <Box
             display="flex"
             flex={0}
-            paddingTop="m"
             alignItems="center"
             textAlign="center"
             justifyContent="center"
             layer="3"
             position="relative"
           >
-            <Box
-              flex={0}
-              display="flex"
-              direction="row"
-              marginBottom="m"
-            >
+            <Box flex={0} display="flex" direction="row">
               <Tabs />
             </Box>
           </Box>

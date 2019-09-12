@@ -35,7 +35,7 @@ export const ScreenTime = () => {
   const showGraph = hasEnoughData(graphData, data)
   const status = hasPermission ? 'enabled' : 'disabled'
   return (
-    <Tab name="Screen Time">
+    <Tab name={t('screen-time')}>
       <Box
         flex="1"
         display="flex"
