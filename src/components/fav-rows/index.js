@@ -26,6 +26,10 @@ export const FavRows = ({ items, updateSitesUsed }) => {
           display="flex"
           direction="column"
           padding="s"
+          maxWidth="xxl"
+          maxHeight="xxl"
+          height="xxl"
+          width="xxl"
         >
           {column.map(item => (
             <FavButton

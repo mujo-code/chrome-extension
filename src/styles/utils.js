@@ -24,13 +24,6 @@ export const fill = makeStyles('fill', colors)
 export const stroke = makeStyles('stroke', colors)
 export const outlineColor = makeStyles('outlineColor', colors)
 
-export const maxWidth = {
-  '100%': css({ maxWidth: '100%' }),
-  '500px': css({ maxWidth: '500px' }),
-  '300px': css({ maxWidth: '300px' }),
-  '100px': css({ maxWidth: '100px' }),
-}
-
 export const textOverflow = {
   ellipsis: css({ textOverflow: 'ellipsis' }),
   clip: css({ textOverflow: 'clip' }),
@@ -53,33 +46,41 @@ export const position = {
 
 export const display = { table: css({ display: 'table' }) }
 
-const radius = {
+const sizes = {
   xs: '4px',
   s: '8px',
   m: '16px',
   l: '24px',
+  xl: '32px',
+  xxl: '48px',
+  // overrides
+  '100%': '100%',
+  '500px': '500px',
+  '300px': '300px',
+  '100px': '100px',
 }
 
-// This might need to be revised
-export const width = makeStyles('width', radius)
-export const height = makeStyles('height', radius)
+export const width = makeStyles('width', sizes)
+export const maxWidth = makeStyles('maxWidth', sizes)
+export const height = makeStyles('height', sizes)
+export const maxHeight = makeStyles('maxHeight', sizes)
 
-export const borderRadius = makeStyles('borderRadius', radius)
+export const borderRadius = makeStyles('borderRadius', sizes)
 export const borderTopLeftRadius = makeStyles(
   'borderTopLeftRadius',
-  radius
+  sizes
 )
 export const borderBottomLeftRadius = makeStyles(
   'borderBottomLeftRadius',
-  radius
+  sizes
 )
 export const borderTopRightRadius = makeStyles(
   'borderTopRightRadius',
-  radius
+  sizes
 )
 export const borderBottomRightRadius = makeStyles(
   'borderBottomRightRadius',
-  radius
+  sizes
 )
 
 export const layer = {
@@ -92,3 +93,4 @@ export const layer = {
 const flexValues = { flexEnd: 'flex-end', flexStart: 'flex-start' }
 export const justifyContent = makeStyles('justifyContent', flexValues)
 export const alignItems = makeStyles('alignItems', flexValues)
+export const flexWrap = { wrap: css({ flexWrap: 'wrap' }) }

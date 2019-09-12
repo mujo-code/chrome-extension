@@ -14,8 +14,7 @@ export const NotEnoughData = props => {
   const { t } = useTranslation(TRANSLATION_FILE)
   return (
     <Box>
-      <Box
-        Component="svg"
+      <svg
         width="600"
         height="250"
         xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +80,7 @@ export const NotEnoughData = props => {
           cy="126"
           r="15"
         />
-      </Box>
+      </svg>
       <BodyS>{t('keep-exploring')}</BodyS>
     </Box>
   )

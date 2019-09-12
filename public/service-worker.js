@@ -1,7 +1,7 @@
 const ICONCACHE = 'icon-cache-1'
 
 // White list icon domain
-const WHITELISTED_DOMAIN = 'https://xn--muj-sxa.com/'
+const WHITELISTED_DOMAIN = 'https://getmujo.com/'
 
 const onCachableRequest = async event => {
   const cachedResponse = await caches.match(event.request)
@@ -33,7 +33,7 @@ self.addEventListener('activate', () => {
 self.addEventListener('fetch', event => {
   // Skip cross-origin requests, like those for Google Analytics.
   const { url } = event.request
-  if (url.startsWith(WHITELISTED_DOMAIN)) {
+  if (url.startsWith(`${WHITELISTED_DOMAIN}/api/icon`)) {
     event.respondWith(onCachableRequest(event))
   }
 })

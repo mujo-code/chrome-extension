@@ -59,7 +59,6 @@ contentSecurityPolicy:
     - "'self'"
     - https://www.google-analytics.com
     - chrome://favicon
-    - https://xn--muj-sxa.com
     - https://getmujo.com
   connectSrc:
     - https://getmujo.com
