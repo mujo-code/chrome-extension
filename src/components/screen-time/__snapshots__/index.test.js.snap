@@ -233,8 +233,9 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
     className="css-0"
   >
     <svg
-      height="250"
-      width="600"
+      className="css-0"
+      height="250px"
+      width="600px"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -471,8 +472,9 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
     className="css-0"
   >
     <svg
-      height="250"
-      width="600"
+      className="css-0"
+      height="250px"
+      width="600px"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

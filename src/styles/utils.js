@@ -55,9 +55,11 @@ const sizes = {
   xxl: '48px',
   // overrides
   '100%': '100%',
-  '500px': '500px',
-  '300px': '300px',
   '100px': '100px',
+  '250px': '250px',
+  '300px': '300px',
+  '500px': '500px',
+  '600px': '600px',
 }
 
 export const width = makeStyles('width', sizes)
