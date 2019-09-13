@@ -23,6 +23,7 @@ export const MAX_ACTIVITY_ROWS = 40000
 export const BREATH_MAX = 20
 export const BREATH_MIN = 5
 export const TRANSLATION_FILE = 'translation'
+export const TABS_TARGET = 'tabs'
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
@@ -48,6 +49,7 @@ export const LAST_ACTIVE_KEY = 'LAST_ACTIVE_KEY'
 export const ACTIVITY_NUMBER_KEY = 'ACTIVITY_NUMBER_KEY'
 export const PREDICTED_BREAK_TIMES = 'PREDICTED_BREAK_TIMES'
 export const BREATH_AMOUNT_KEY = 'BREATH_AMOUNT'
+export const CURRENT_TAB_KEY = 'CURRENT_TAB'
 
 // Actions
 export const NEW_TAB_CONNECTION = 'New Connection'

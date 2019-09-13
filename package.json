@@ -9,6 +9,8 @@
     "@emotion/core": "^10.0.17",
     "@mujo/box": "^3.0.1",
     "@mujo/eslint-config": "^1.0.4",
+    "@mujo/ingress": "^0.1.0",
+    "@mujo/plugins": "0.0.6",
     "@sentry/browser": "^5.6.3",
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-knobs": "^5.1.11",
@@ -20,7 +22,6 @@
     "@tweenjs/tween.js": "^17.4.0",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.6",
     "babel-plugin-named-asset-import": "^0.3.3",
     "babel-preset-react-app": "^9.0.1",
     "camelcase": "^5.2.0",
@@ -103,6 +104,7 @@
     "last 3 Chrome versions"
   ],
   "devDependencies": {
+    "babel-loader": "^8.0.6",
     "change-case": "^3.1.0",
     "cosmiconfig": "^5.2.1",
     "gaze": "^1.1.3",

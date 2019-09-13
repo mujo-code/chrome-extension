@@ -7,7 +7,7 @@ import {
 } from './constants'
 import { wait } from './lib/async-helpers'
 
-const TEST_TIMEOUT = 10000 // extend test timeout sinces its E2E
+const TEST_TIMEOUT = 20000 // extend test timeout sinces its E2E
 
 let browser
 let page

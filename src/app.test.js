@@ -2,12 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactTestRenderer from 'react-test-renderer'
 import App from './app'
+import { NTPPluginProvider } from './components/plugin-provider'
 import { ExtensionProvider } from './hooks/use-extension'
 import { SubscriptionProvider } from './hooks/use-subscription'
 
 const Wrapper = ({ children }) => (
   <SubscriptionProvider>
-    <ExtensionProvider>{children}</ExtensionProvider>
+    <ExtensionProvider>
+      <NTPPluginProvider>{children}</NTPPluginProvider>
+    </ExtensionProvider>
   </SubscriptionProvider>
 )
 

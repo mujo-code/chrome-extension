@@ -12,6 +12,7 @@ import {
   PREDICTED_BREAK_TIMES,
   ID_KEY,
   BREATH_AMOUNT_KEY,
+  CURRENT_TAB_KEY,
 } from './constants'
 
 export default {
@@ -27,4 +28,5 @@ export default {
   [PREDICTED_BREAK_TIMES]: { type: Object, defaultValue: [] },
   [ID_KEY]: { type: String, default: null },
   [BREATH_AMOUNT_KEY]: { type: Number, defaultValue: 5 },
+  [CURRENT_TAB_KEY]: { type: String, defaultValue: null },
 }

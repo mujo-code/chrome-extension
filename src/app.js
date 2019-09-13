@@ -1,14 +1,13 @@
 import { css, Global } from '@emotion/core'
 import { Box, styleGuide } from '@mujo/box'
+import { IngressTarget } from '@mujo/ingress'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { Button } from './components/button'
-import { Span, Sup } from './components/fonts'
 import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
 import { ScreenTime } from './components/screen-time'
+import { Tabs } from './components/tabs'
 import { TopSites } from './components/top-sites'
-import { SCREEN_TIME_FEATURE, TRANSLATION_FILE } from './constants'
+import { TABS_TARGET } from './constants'
 import { useExtension } from './hooks/use-extension'
 import { useTheme } from './hooks/use-theme'
 import { colors } from './styles/colors'
@@ -40,21 +39,12 @@ const getFactor = x => factorMin(factor(x))
 
 const App = () => {
   const {
-    topSites,
     activityNumber,
-    showTopSites,
-    siteTimesAndTimers,
     appReady,
-    selectedSegment,
     playerIsOpen,
     upsellModal,
     settings,
-    screenTime,
-    updateSitesUsed,
     resetUsage,
-    updateShowTopSites,
-    setBreakTimer,
-    setSelectedSegment,
     setPlayerIsOpen,
     setUpsellModal,
     breathAmount,
@@ -62,9 +52,7 @@ const App = () => {
   const theme = useTheme()
   const { background } = theme
   const logoSize = getFactor(activityNumber)
-  const toggleHandle = (fn, value) => () => fn(!value)
   const bg = bodyBackgrounds[background] || bodyBackgrounds.outerSpace
-  const { t } = useTranslation(TRANSLATION_FILE)
 
   return (
     <Box
@@ -97,62 +85,25 @@ const App = () => {
             setUpsellModal={setUpsellModal}
           />
           <Box flex="1" />
-          {!SCREEN_TIME_FEATURE || showTopSites ? (
-            <TopSites
-              topSites={topSites}
-              updateSitesUsed={updateSitesUsed}
-            />
-          ) : (
-            <ScreenTime
-              data={siteTimesAndTimers}
-              setBreakTimer={setBreakTimer}
-              selectedSegment={selectedSegment}
-              setSelectedSegment={setSelectedSegment}
-              permissions={screenTime}
-            />
-          )}
+          <IngressTarget id={TABS_TARGET} />
           <Box flex="1" />
           <Box
             display="flex"
             flex={0}
-            paddingTop="m"
             alignItems="center"
             textAlign="center"
             justifyContent="center"
             layer="3"
             position="relative"
           >
-            <Box
-              flex={0}
-              display="flex"
-              direction="row"
-              marginBottom="m"
-            >
-              {SCREEN_TIME_FEATURE && (
-                <Button
-                  whiteSpace="nowrap"
-                  design={theme.buttonStyle}
-                  onClick={toggleHandle(
-                    updateShowTopSites,
-                    showTopSites
-                  )}
-                  alt={
-                    <Span>
-                      Toggle view between Screen Time <Sup>BETA</Sup>{' '}
-                      and top sites
-                    </Span>
-                  }
-                >
-                  {showTopSites
-                    ? t('show-screen-time')
-                    : t('show-top-sites')}
-                </Button>
-              )}
+            <Box flex={0} display="flex" direction="row">
+              <Tabs />
             </Box>
           </Box>
         </>
       ) : null}
-
+      <ScreenTime />
+      <TopSites />
       <InfoModal
         zIndex="1000"
         changeModal={setUpsellModal}

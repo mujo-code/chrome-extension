@@ -23,7 +23,7 @@ export const FavButton = props => {
   const encodedURL = encodeURIComponent(props.url)
   const { t } = useTranslation(TRANSLATION_FILE)
   const iconUrl = isServer
-    ? `https://mujō.com/api/icon?site=${encodedURL}`
+    ? `https://getmujo.com/api/icon?site=${encodedURL}`
     : `chrome://favicon/${props.url}`
   const { background } = useTheme()
 
@@ -52,8 +52,8 @@ export const FavButton = props => {
           setIsLoaded(true)
         }}
         src={iconUrl}
-        width="16px"
-        height="16px"
+        width="m"
+        height="m"
         alt={`${props.title}`}
         {...imageStyles}
         {...(isLoaded ? loadedStyles : {})}
