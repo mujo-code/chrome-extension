@@ -12,6 +12,7 @@ import {
   APP_READY_KEY,
   SCREEN_TIME_PERMISSIONS,
   TRANSLATION_FILE,
+  CURRENT_TAB_KEY,
 } from '../../constants'
 import { toSiteInfo } from '../../lib/aggregation'
 import { message } from '../../lib/extension'
@@ -36,7 +37,7 @@ export const ExtensionProvider = props => {
   const [playerIsOpen, setPlayerIsOpen] = useState(false)
   const [selectedSegment, setSelectedSegment] = useState(null)
   const [upsellModal, setUpsellModal] = useState(null)
-  const tabInterface = useTabs()
+  const tabInterface = useTabs(CURRENT_TAB_KEY)
   const {
     alarmEnabled,
     setAlarmEnabled,

@@ -49,6 +49,7 @@ export const LAST_ACTIVE_KEY = 'LAST_ACTIVE_KEY'
 export const ACTIVITY_NUMBER_KEY = 'ACTIVITY_NUMBER_KEY'
 export const PREDICTED_BREAK_TIMES = 'PREDICTED_BREAK_TIMES'
 export const BREATH_AMOUNT_KEY = 'BREATH_AMOUNT'
+export const CURRENT_TAB_KEY = 'CURRENT_TAB'
 
 // Actions
 export const NEW_TAB_CONNECTION = 'New Connection'

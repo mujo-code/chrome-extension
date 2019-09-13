@@ -1,4 +1,5 @@
-import { useCallback, useReducer } from 'react'
+import { useCallback, useReducer, useEffect } from 'react'
+import { useStorage } from '../use-storage'
 
 const Actions = {
   add: 'add',
@@ -31,9 +32,10 @@ const tabsReducer = (state, action) => {
   }
 }
 
-export const useTabs = () => {
+export const useTabs = key => {
+  const [persistedTab, setPersistedTab, { pending }] = useStorage(key)
   const [{ tabs, currentTab }, dispatch] = useReducer(tabsReducer, {
-    currentTab: null,
+    currentTab: persistedTab,
     tabs: [],
   })
 
@@ -81,6 +83,20 @@ export const useTabs = () => {
     },
     [tabs, dispatch, currentTab]
   )
+
+  // updates selected tab from storage
+  useEffect(() => {
+    if (currentTab !== persistedTab && !pending) {
+      selectTab(persistedTab)
+    }
+  }, [persistedTab, pending])
+
+  // updates storage from selected tab
+  useEffect(() => {
+    if (currentTab !== persistedTab && !pending) {
+      setPersistedTab(currentTab)
+    }
+  }, [currentTab])
 
   return { tabs, currentTab, pushTab, selectTab, removeTab }
 }

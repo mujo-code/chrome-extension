@@ -1,3 +1,4 @@
+/* eslint-disable import-order-alphabetical/order */
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { ScreenTime } from '.'
