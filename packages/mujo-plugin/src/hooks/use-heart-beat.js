@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useContext } from 'react'
-import { context } from '../../components/plugin-provider'
+import { context } from '../components/plugin-provider'
 
 export const useHeartBeat = fn => {
   const { alarms, constants, isActive } = useContext(context)
