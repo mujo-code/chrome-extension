@@ -1,12 +1,11 @@
 /* eslint-disable import-order-alphabetical/order */
 import { HEARTBEAT } from '../../constants'
+import { alarms } from '../../lib/extension'
 import { onHeartBeat, addHeartBeat } from './heartbeat'
 
 jest.mock('../activity')
 jest.mock('./prediction')
-jest.mock('./util')
 const { isActive, resetUsage } = require('../activity')
-const { upsertAlarm } = require('./util')
 const { checkPredictions } = require('./prediction')
 
 test('onHeartBeat should reset activity if user was inactive', async () => {
@@ -26,5 +25,6 @@ test('onHeartBeat should call addBreakAlarm if user is active', async () => {
 test('addHeartBeat should attempt to add a new timer', async () => {
   await addHeartBeat()
   const periodInMinutes = 45
-  expect(upsertAlarm).toBeCalledWith(HEARTBEAT, { periodInMinutes })
+  const options = { periodInMinutes }
+  expect(alarms.upsertAlarm).toBeCalledWith(HEARTBEAT, options)
 })

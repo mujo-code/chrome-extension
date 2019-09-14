@@ -1,8 +1,8 @@
 import { HEARTBEAT, FOURTY_FIVE_MINUTES } from '../../constants'
+import { alarms } from '../../lib/extension'
 import { msToMinutes } from '../../lib/time'
 import { isActive, resetUsage } from '../activity'
 import { checkPredictions } from './prediction'
-import { upsertAlarm } from './util'
 
 export const onHeartBeat = async () => {
   const active = await isActive()
@@ -15,5 +15,5 @@ export const onHeartBeat = async () => {
 
 export const addHeartBeat = () => {
   const periodInMinutes = msToMinutes(FOURTY_FIVE_MINUTES)
-  return upsertAlarm(HEARTBEAT, { periodInMinutes })
+  return alarms.upsertAlarm(HEARTBEAT, { periodInMinutes })
 }
