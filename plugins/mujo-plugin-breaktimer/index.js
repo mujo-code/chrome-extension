@@ -1,5 +1,13 @@
-import { useEffect, useCallback } from 'react'
+import { Background } from '@mujo/plugins'
+import React from 'react'
+import { BreakAlarmBackground } from './background'
 
-const BreakAlarm = () => null
+const BreakAlarm = ({ constants }) => (
+  <>
+    <Background>
+      <BreakAlarmBackground />
+    </Background>
+  </>
+)
 
 export default BreakAlarm

@@ -220,12 +220,11 @@ module.exports = function webpackConfig(webpackEnv) {
                 name: 'static/media/[name].[hash:8].[ext]',
               },
             },
-            // Process application JS with Babel.
-            // The preset includes JSX, Flow, TypeScript, and some ESnext
-            // features.
+            // Process application JS, and in repo plugins with Babel
+            // TODO: decide if we should also process node modules plugins ?
             {
               test: /\.(js)$/,
-              include: paths.appSrc,
+              include: [paths.appSrc, paths.inRepoPlugins],
               loader: require.resolve('babel-loader'),
               options: {
                 customize: require.resolve(

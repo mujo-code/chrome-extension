@@ -35,8 +35,26 @@ export const onMessage = (...args) => {
 
 export const permissions = promisifyObject(chrome.permissions)
 
+const getAlarm = key =>
+  new Promise(resolve => {
+    chrome.alarms.get(key, alarm => {
+      resolve(alarm)
+    })
+  })
+
+const upsertAlarm = async (key, ...args) => {
+  const alarm = await getAlarm(key)
+  if (alarm) return
+  chrome.alarms.create(key, ...args)
+}
+
+export const alarms = {
+  ...chrome.alarms,
+  getAlarm,
+  upsertAlarm,
+}
+
 export const {
-  alarms,
   notifications,
   tabs,
   webNavigation,
