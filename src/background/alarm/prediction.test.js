@@ -56,7 +56,7 @@ test(`
 `, () => {
   const date = new Date()
   date.setHours(date.getHours() + 1)
-  storage.get.mockResolvedValue([{ date }])
+  storage.get.mockReset().mockResolvedValue([{ date }])
   checkPredictions()
   expect(storage.get).toBeCalledWith(PREDICTED_BREAK_TIMES)
   expect(getActivity).not.toBeCalled()
