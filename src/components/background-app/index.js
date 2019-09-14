@@ -6,7 +6,7 @@ import { storage, changeEmitter } from '../../background/storage'
 import * as constants from '../../constants'
 import * as extension from '../../lib/extension'
 import model from '../../model'
-import { getPlugins } from '../../plugins'
+import { Plugins } from '../plugins'
 
 export const BackgroundApp = () => (
   <PluginProvider
@@ -19,8 +19,6 @@ export const BackgroundApp = () => (
     alarms={alarms}
     isActive={isActive}
   >
-    {getPlugins().map((Plugin, i) => (
-      <Plugin key={`plugin-${i}`} />
-    ))}
+    <Plugins />
   </PluginProvider>
 )
