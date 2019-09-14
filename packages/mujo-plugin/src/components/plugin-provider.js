@@ -34,7 +34,17 @@ export const PluginProvider = ({
   tabs,
 }) => (
   <Provider
-    value={{ env, extension, storage, config, constants, alarms, model, tabs }}
+    value={{
+      env,
+      extension,
+      storage,
+      config,
+      changeEmitter,
+      constants,
+      alarms,
+      model,
+      tabs,
+    }}
   >
     {children}
   </Provider>
