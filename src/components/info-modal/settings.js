@@ -1,5 +1,6 @@
 import { Box } from '@mujo/box'
 import React from 'react'
+import { i18n } from '../../i18n'
 import { Button } from '../button'
 import { HeaderS, BodyS } from '../fonts'
 import { Input } from '../input'
@@ -103,7 +104,7 @@ export const SettingItem = ({
 )
 
 export const settingsModal = (_, __, { settings, theme }) => ({
-  title: 'Settings',
+  title: i18n.t('settings'),
   children: (
     <>
       {settings.map((setting, i, arr) => (

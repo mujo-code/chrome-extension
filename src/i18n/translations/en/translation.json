@@ -1,6 +1,4 @@
 {
-  "show-screen-time": "Show Screen Time",
-  "show-top-sites": "Show top sites",
   "top-sites-usage": "Top sites is based on your site usage",
   "top-sites": "Top Sites",
   "take-a-break": "Take a break",
@@ -10,7 +8,7 @@
   "errors-impermanent": "Just like everything, errors are impermanent",
   "sorry-for-issue": "We are sorry for this issue",
   "created-an-issue": "We have created a issue for this error",
-  "error-persists": ", and will be working to resolve it. If the problem presist, please contact us at jacoblowe2.0@gmail.com",
+  "error-persists": ", and will be working to resolve it. If the problem presist, please contact us at jacob@getmujo.com",
   "bring-back-link": "Bring back this link by taking a break",
   "breathe-in": "Breathe in",
   "breathe-out": "Breathe out",
@@ -56,7 +54,10 @@
   "sub-at": "Subscribe at {{cost}}/mo",
   "thanks-purchase": "Thanks for purchasing a subscription",
   "support-appreciation": "Your support is greatly appreciated!",
-  "contact-questions": "Please contact jacoblowe2.0@gmail.com with any comment or questions.",
+  "contact-questions": "Please contact jacob@getmujo.com with any comment or questions.",
   "unable-to-sub": "Unable to subscribe at this time",
-  "gentle-nudge": "Gentle nudge to be mindful with your time."
+  "gentle-nudge": "Gentle nudge to be mindful with your time.",
+  "settings": "Settings",
+  "enabled": "enabled",
+  "disabled": "disabled"
 }
