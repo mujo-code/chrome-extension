@@ -55,7 +55,7 @@ test(`
   if the predictions are not outdated
 `, async () => {
   const date = new Date()
-  date.setHours(date.getHours() + 1)
+  date.setHours(date.getHours() + 10)
   storage.get.mockReset().mockResolvedValue([{ date }])
   await checkPredictions()
   expect(storage.get).toBeCalledWith(PREDICTED_BREAK_TIMES)
