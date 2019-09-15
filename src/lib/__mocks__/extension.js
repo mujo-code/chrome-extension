@@ -34,6 +34,7 @@ export const tabs = {
   sendMessage: jest.fn(),
   executeScript: jest.fn(),
 }
+export const i18n = { getUILanguage: jest.fn() }
 export const permissions = { contains: jest.fn() }
 export const webNavigation = { onCommitted: stampEvent() }
 export const runtime = {}

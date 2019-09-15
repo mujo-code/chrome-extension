@@ -60,4 +60,5 @@ export const {
   webNavigation,
   runtime,
   topSites,
+  i18n,
 } = chrome

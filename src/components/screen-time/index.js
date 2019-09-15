@@ -33,7 +33,7 @@ export const ScreenTime = () => {
   const theme = useTheme()
   const { foreground, highlight } = theme
   const showGraph = hasEnoughData(graphData, data)
-  const status = hasPermission ? 'enabled' : 'disabled'
+  const status = hasPermission ? t('enabled') : t('disabled')
   return (
     <Tab name={t('screen-time')}>
       <Box
