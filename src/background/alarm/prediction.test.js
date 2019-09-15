@@ -1,5 +1,6 @@
 /* eslint-disable import-order-alphabetical/order */
 import { P_ALARM, PREDICTED_BREAK_TIMES } from '../../constants'
+import { alarms } from '../../lib/extension'
 import {
   alarmKey,
   currentAlarms,
@@ -9,12 +10,10 @@ import {
 
 jest.mock('../storage')
 jest.mock('../../lib/mujo-sdk')
-jest.mock('./util')
 jest.mock('../../lib/error-tracker')
 const { api } = require('../../lib/mujo-sdk')
 const { storage, getActivity } = require('../storage')
 const { tracker } = require('../../lib/error-tracker')
-const { upsertAlarm } = require('./util')
 
 beforeEach(() => {
   storage.get = jest.fn()
@@ -54,22 +53,10 @@ test('isOutDated should return false if the last prediction is today', () => {
 test(`
   checkPredictions should check storage and nothing else
   if the predictions are not outdated
-`, () => {
-  const date = new Date()
-  date.setHours(date.getHours() + 1)
-  storage.get.mockResolvedValue([{ date }])
-  checkPredictions()
-  expect(storage.get).toBeCalledWith(PREDICTED_BREAK_TIMES)
-  expect(getActivity).not.toBeCalled()
-})
-
-test(`
-  checkPredictions should check storage and nothing else
-  if the predictions are not outdated
 `, async () => {
   const date = new Date()
-  date.setHours(date.getHours() + 1)
-  storage.get.mockResolvedValue([{ date }])
+  date.setHours(date.getHours() + 10)
+  storage.get.mockReset().mockResolvedValue([{ date }])
   await checkPredictions()
   expect(storage.get).toBeCalledWith(PREDICTED_BREAK_TIMES)
   expect(getActivity).not.toBeCalled()
@@ -142,6 +129,9 @@ test('checkPredictions should add any upcoming alarms', async () => {
   const now = new Date()
   const date = new Date()
   const yesterday = new Date()
+
+  alarms.upsertAlarm.mockReset()
+
   date.setHours(date.getHours() + 1)
   yesterday.setDate(yesterday.setDate() - 1)
 
@@ -160,8 +150,8 @@ test('checkPredictions should add any upcoming alarms', async () => {
   const when = +date - +now
   const options = { when }
   // omits old alarm
-  expect(upsertAlarm).toHaveBeenCalledTimes(1)
-  expect(upsertAlarm).toHaveBeenLastCalledWith(
+  expect(alarms.upsertAlarm).toHaveBeenCalledTimes(1)
+  expect(alarms.upsertAlarm).toHaveBeenLastCalledWith(
     `${P_ALARM}_${date.toISOString()}`,
     options
   )

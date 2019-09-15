@@ -21,6 +21,7 @@ export const alarms = {
   create: jest.fn(),
   clear: jest.fn(),
   onAlarm: stampEvent(),
+  upsertAlarm: jest.fn(),
 }
 export const notifications = {
   create: jest.fn(),

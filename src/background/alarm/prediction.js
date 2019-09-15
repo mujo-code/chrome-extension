@@ -5,10 +5,10 @@ import {
   MAX_ACTIVITY_ROWS,
 } from '../../constants'
 import { tracker } from '../../lib/error-tracker'
+import { alarms } from '../../lib/extension'
 import { last } from '../../lib/functional'
 import { api } from '../../lib/mujo-sdk'
 import { storage, getActivity, resetActivity } from '../storage'
-import { upsertAlarm } from './util'
 
 export const alarmKey = date => `${P_ALARM}_${date}`
 
@@ -48,6 +48,6 @@ export const checkPredictions = async (options = {}) => {
   const upcomingPredictions = predictions.filter(currentAlarms)
   upcomingPredictions.forEach(prediction => {
     const when = +new Date(prediction.date) - +getNow(now)
-    upsertAlarm(alarmKey(prediction.originalDate), { when })
+    alarms.upsertAlarm(alarmKey(prediction.originalDate), { when })
   })
 }
