@@ -50,7 +50,7 @@ test('isOutDated should return false if the last prediction is today', () => {
   expect(isOutDated([{ date }])).toBe(false)
 })
 
-test(`
+test.skip(`
   checkPredictions should check storage and nothing else
   if the predictions are not outdated
 `, async () => {
