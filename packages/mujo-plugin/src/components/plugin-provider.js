@@ -19,6 +19,7 @@ const { Provider } = context
   model         - data structure for db
   constants     - constants variables defined in the extension
   tabs          - ( ntp only ) some functions and state for tabs
+  settings      - ( ntp only ) some functions and state for settings
 */
 
 export const PluginProvider = ({
@@ -32,6 +33,7 @@ export const PluginProvider = ({
   model,
   children,
   tabs,
+  settings,
 }) => (
   <Provider
     value={{
@@ -44,6 +46,7 @@ export const PluginProvider = ({
       alarms,
       model,
       tabs,
+      settings,
     }}
   >
     {children}
