@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { context } from '../../components/plugin-provider'
 import { useStorageBackground } from './background'
 import { useStorageClient } from './client'
 
