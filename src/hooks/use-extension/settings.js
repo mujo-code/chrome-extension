@@ -43,19 +43,19 @@ export const useSettings = ({
     setter: enabled => setAlarmEnabled(enabled),
     value: alarmEnabled,
   },
-  {
-    label: t('screen-time-enabled'),
-    type: 'boolean',
-    alt: t('screen-time-permissions'),
-    setter: () => {
-      if (hasPermission) {
-        removePermissions()
-      } else {
-        requestPermissions()
-      }
-    },
-    value: hasPermission,
-  },
+  // {
+  //   label: t('screen-time-enabled'),
+  //   type: 'boolean',
+  //   alt: t('screen-time-permissions'),
+  //   setter: () => {
+  //     if (hasPermission) {
+  //       removePermissions()
+  //     } else {
+  //       requestPermissions()
+  //     }
+  //   },
+  //   value: hasPermission,
+  // },
   {
     label: t('breath-amount'),
     type: 'number',

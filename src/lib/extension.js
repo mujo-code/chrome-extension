@@ -54,11 +54,13 @@ export const alarms = {
   upsertAlarm,
 }
 
+// TODO add mapping for "t"
+export const i18n = { ...chrome.i18n }
+
 export const {
   notifications,
   tabs,
   webNavigation,
   runtime,
   topSites,
-  i18n,
 } = chrome
