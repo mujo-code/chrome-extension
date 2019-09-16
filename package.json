@@ -16,7 +16,7 @@
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-knobs": "^5.1.11",
     "@storybook/addon-notes": "^5.1.11",
-    "@storybook/addon-viewport": "^5.1.11",
+    "@storybook/addon-viewport": "^5.2.0",
     "@storybook/react": "^5.1.11",
     "@svgr/webpack": "4.3.2",
     "@testing-library/react-hooks": "^1.1.0",
