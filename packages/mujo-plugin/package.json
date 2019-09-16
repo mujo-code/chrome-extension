@@ -1,6 +1,6 @@
 {
   "name": "@mujo/plugins",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A set of utilities to create plugins in Mujo",
   "main": "dist/index.js",
   "repository": {
