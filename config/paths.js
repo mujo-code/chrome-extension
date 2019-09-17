@@ -88,6 +88,7 @@ module.exports = {
   inRepoPlugins: resolveApp('plugins'),
   appPluginsJs: resolveModule(resolveApp, 'src/mujo-plugins'),
   appPluginsDir: resolveApp('src/plugins'),
+  devHtml: resolveApp('public/dev.html'),
 }
 
 module.exports.moduleFileExtensions = moduleFileExtensions

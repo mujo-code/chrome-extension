@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+  DevHTML
+  -----
+  The reason for this file is to allow for dev only script injection into html
+  without confusing webpack plugins.
+  -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      body,
+      html {
+        margin: 0;
+      }
+    </style>
+    <script src="./buy.js"></script>
+    <title>New Tab</title>
+  </head>
+  <body>
+    <script src="http://localhost:8097"></script>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="mujo-extension"></div>
+    <script nonce>
+      navigator.serviceWorker.register('service-worker.js')
+    </script>
+  </body>
+</html>
