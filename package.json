@@ -17,7 +17,7 @@
     "@storybook/addon-knobs": "^5.1.11",
     "@storybook/addon-notes": "^5.1.11",
     "@storybook/addon-viewport": "^5.1.11",
-    "@storybook/react": "^5.1.11",
+    "@storybook/react": "^5.2.0",
     "@svgr/webpack": "4.3.2",
     "@testing-library/react-hooks": "^1.1.0",
     "@tweenjs/tween.js": "^17.4.0",
