@@ -1,7 +1,7 @@
 import { css, Global } from '@emotion/core'
 import { Box, styleGuide } from '@mujo/box'
 import { IngressTarget } from '@mujo/ingress'
-import React from 'react'
+import React, { memo } from 'react'
 import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
 import { ScreenTime } from './components/screen-time'
@@ -37,7 +37,7 @@ const factor = x => x * 0.0025
 const factorMin = size => Math.max(size, DEFAULT_SIZE)
 const getFactor = x => factorMin(factor(x))
 
-const App = () => {
+const App = memo(() => {
   const {
     activityNumber,
     appReady,
@@ -116,6 +116,8 @@ const App = () => {
       />
     </Box>
   )
-}
+})
+
+App.displayName = 'App'
 
 export default App

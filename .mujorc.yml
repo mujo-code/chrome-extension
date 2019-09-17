@@ -50,6 +50,7 @@ contentSecurityPolicy:
     - "'self'"
     - https://storage.googleapis.com
     - http://localhost:5000
+    - http://localhost:8097
     - "'sha256-Hh68uPWQF960rB8rb9c+clat9HNoP1DpxpruDkr5esY='"
   fontSrc:
     - https://fonts.gstatic.com
@@ -65,3 +66,4 @@ contentSecurityPolicy:
     - http://localhost:3000
     - https://sentry.io
     - https://www.google-analytics.com
+    - ws://localhost:8097
