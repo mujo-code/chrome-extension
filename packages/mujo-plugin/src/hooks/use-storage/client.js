@@ -17,32 +17,35 @@ export const useStorageClient = (key, defaultArg) => {
       return
     }
     setState(storageValue)
-  }, [key])
+  }, [key, getStorage])
 
-  const updatePersistantState = useCallback((val, opts = {}) => {
-    const { onlyMemory, refresh } = opts
-    if (refresh) {
-      // get value and store
-      updateFromStore()
-      return
-    }
-    if (type && typeof val !== typeof type()) {
-      console.error(
-        new TypeError(
-          `
+  const updatePersistantState = useCallback(
+    (val, opts = {}) => {
+      const { onlyMemory, refresh } = opts
+      if (refresh) {
+        // get value and store
+        updateFromStore()
+        return
+      }
+      if (type && typeof val !== typeof type()) {
+        console.error(
+          new TypeError(
+            `
         Attempted to set value of "${key}" with incorrect type.
         Expected "${typeof type()}" but got "${typeof val}"
         `.trim()
+          )
         )
-      )
-      return
-    }
-    if (!onlyMemory) {
-      // set value
-      setStorage(key, val)
-    }
-    setState(val)
-  })
+        return
+      }
+      if (!onlyMemory) {
+        // set value
+        setStorage(key, val)
+      }
+      setState(val)
+    },
+    [setState, setStorage, key, type, updateFromStore]
+  )
 
   useEffect(() => {
     const initialize = async () => {
