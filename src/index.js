@@ -5,7 +5,6 @@ import App from './app'
 import { ErrorBox } from './components/error-box'
 import { Font } from './components/fonts'
 import { NTPPluginProvider } from './components/plugin-provider'
-import { Plugins } from './components/plugins'
 import { ExtensionProvider } from './hooks/use-extension'
 import { SubscriptionProvider } from './hooks/use-subscription'
 import { ColorThemeProvider } from './hooks/use-theme'
@@ -22,7 +21,6 @@ const NewHomePage = () => {
           <NTPPluginProvider>
             <ColorThemeProvider value={scheme}>
               <App />
-              <Plugins />
             </ColorThemeProvider>
           </NTPPluginProvider>
         </ExtensionProvider>

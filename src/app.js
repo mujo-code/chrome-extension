@@ -4,7 +4,9 @@ import { IngressTarget } from '@mujo/ingress'
 import React, { memo } from 'react'
 import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
+import { Plugins } from './components/plugins'
 import { ScreenTime } from './components/screen-time'
+import { Settings } from './components/settings'
 import { Tabs } from './components/tabs'
 import { TopSites } from './components/top-sites'
 import { TABS_TARGET } from './constants'
@@ -102,8 +104,12 @@ const App = memo(() => {
           </Box>
         </>
       ) : null}
-      <ScreenTime />
-      <TopSites />
+      <Settings>
+        {/* Inside settings to keep ordering */}
+        <Plugins />
+        <ScreenTime />
+        <TopSites />
+      </Settings>
       <InfoModal
         zIndex="1000"
         changeModal={setUpsellModal}

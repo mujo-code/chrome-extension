@@ -52,6 +52,7 @@ export const ExtensionProvider = props => {
     updateBreakTimers,
     activityNumber,
     breathAmount,
+    setBreathAmount,
   } = useModel()
   const { user } = useSubscription()
 
@@ -113,9 +114,11 @@ export const ExtensionProvider = props => {
   return (
     <Provider
       value={{
+        user,
         topSites: mappedTopSites,
         alarmEnabled,
         breathAmount,
+        setBreathAmount,
         pageViews,
         showTopSites,
         siteTimes,
