@@ -1,6 +1,5 @@
 import { Box } from '@mujo/box'
-import { Tab } from '@mujo/plugins'
-import { Setting } from '@mujo/plugins/dist/components/setting'
+import { Tab, Setting } from '@mujo/plugins'
 import React, { useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import {

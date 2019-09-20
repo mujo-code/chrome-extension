@@ -1,16 +1,18 @@
 /* eslint-disable import-order-alphabetical/order */
 import React from 'react'
 import { create } from 'react-test-renderer'
+import { NTPPluginProvider } from '../plugin-provider'
 import { ScreenTime } from '.'
 
 const stampURLData = time => ({ time, breakTimer: {} })
 
 jest.mock('../../hooks/use-extension')
 jest.mock('@mujo/plugins')
-const { Tab } = require('@mujo/plugins')
+const { Tab, PluginProvider } = require('@mujo/plugins')
 const { useExtension } = require('../../hooks/use-extension')
 
 beforeEach(() => {
+  PluginProvider.mockImplementation(({ children }) => <>{children}</>)
   Tab.mockImplementation(({ children }) => <>{children}</>)
 })
 
@@ -24,7 +26,11 @@ test('ScreenTime should match snapshot', () => {
     'https://my.foobar.com': stampURLData(1728.3849999657832),
   }
   useExtension.mockReturnValue({ siteTimesAndTimers, screenTime: {} })
-  const tree = create(<ScreenTime />).toJSON()
+  const tree = create(
+    <NTPPluginProvider>
+      <ScreenTime />
+    </NTPPluginProvider>
+  ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
@@ -47,7 +53,11 @@ test('ScreenTime should match snapshot with a selected segment', () => {
     selectedSegment,
     screenTime: {},
   })
-  const tree = create(<ScreenTime />).toJSON()
+  const tree = create(
+    <NTPPluginProvider>
+      <ScreenTime />
+    </NTPPluginProvider>
+  ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
@@ -65,6 +75,10 @@ test('ScreenTime should match snapshot with a grouped selected segment', () => {
     selectedSegment,
     screenTime: {},
   })
-  const tree = create(<ScreenTime />).toJSON()
+  const tree = create(
+    <NTPPluginProvider>
+      <ScreenTime />
+    </NTPPluginProvider>
+  ).toJSON()
   expect(tree).toMatchSnapshot()
 })

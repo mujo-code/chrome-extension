@@ -14,7 +14,6 @@ import {
 import { toSiteInfo } from '../../lib/aggregation'
 import { message } from '../../lib/extension'
 import { useSubscription } from '../use-subscription'
-// import { useSettings } from './settings'
 import { decorateSelectedSegment, mapTopSites } from './transforms'
 import { useBreaktimerCallback } from './use-breaktimer-callback'
 import { useDeeplink } from './use-deeplink'
