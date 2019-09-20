@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { getPlugins } from '../../plugins'
 import { PluginError } from './plugin-error'
 
-export const Plugins = () => (
+export const Plugins = memo(() => (
   <>
     {getPlugins().map((Plugin, i) => (
       <PluginError key={`plugin-${i}`}>
@@ -10,4 +10,6 @@ export const Plugins = () => (
       </PluginError>
     ))}
   </>
-)
+))
+
+Plugins.displayName = 'Plugins'
