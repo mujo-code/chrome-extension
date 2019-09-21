@@ -5,7 +5,7 @@
   "homepage": "./",
   "dependencies": {
     "@babel/core": "7.6.0",
-    "@emotion/cache": "^10.0.17",
+    "@emotion/cache": "^10.0.19",
     "@emotion/core": "^10.0.17",
     "@mujo/box": "^3.0.1",
     "@mujo/eslint-config": "^1.0.4",
