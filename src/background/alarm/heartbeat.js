@@ -2,13 +2,10 @@ import { HEARTBEAT, FOURTY_FIVE_MINUTES } from '../../constants'
 import { alarms } from '../../lib/extension'
 import { msToMinutes } from '../../lib/time'
 import { isActive, resetUsage } from '../activity'
-import { checkPredictions } from './prediction'
 
 export const onHeartBeat = async () => {
   const active = await isActive()
-  if (active) {
-    await checkPredictions()
-  } else {
+  if (!active) {
     await resetUsage()
   }
 }

@@ -1,3 +1,4 @@
+import EventEmitter from 'eventemitter3'
 import {
   NEW_TAB_CONNECTION,
   PAGE_VIEWING_TIME,
@@ -8,6 +9,7 @@ import {
   TRACK,
   ADD_BROADCAST_TAB,
   REMOVE_BROADCAST_TAB,
+  MESSAGE,
 } from '../constants'
 import { tabs } from '../lib/extension'
 import {
@@ -16,10 +18,11 @@ import {
   activityStatKeys,
   updateActivityNumber,
 } from './activity'
-import { updateScreenTime } from './screen-time'
 import { onGetStorage, onSetStorage } from './storage'
 import { broadcaster } from './storage/broadcast'
 import { track } from './tracking'
+
+export const messageEmitter = new EventEmitter()
 
 export const reducer = (request, sender, sendResponse) => {
   const { event } = request
@@ -35,7 +38,6 @@ export const reducer = (request, sender, sendResponse) => {
       track({ event: 'pageView' }) // custom event for pageviews
       break
     case PAGE_VIEWING_TIME:
-      updateScreenTime(sender.url, request.measure)
       updateActivityNumber()
       break
     case GET_STORAGE:
@@ -58,10 +60,24 @@ export const reducer = (request, sender, sendResponse) => {
       break
     }
     case TRACK:
-      track(request.payload || {})
+      track(request.payload)
       break
     default:
   }
+  messageEmitter.emit(MESSAGE, {
+    request,
+    sender,
+    sendResponse: (...args) => {
+      if (!hasResponse) {
+        hasResponse = true
+        sendResponse(...args)
+      } else {
+        console.warn(
+          `A response has already been sent for "${event}"`
+        )
+      }
+    },
+  })
   if (!hasResponse) {
     sendResponse({ success: true })
   }

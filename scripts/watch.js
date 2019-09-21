@@ -4,10 +4,10 @@ const { log } = require('./logger')
 const { runScript } = require('./script-runner')
 
 const gaze = new Gaze([
-  '{public,src}/**/*.{json,js,html}',
+  '{public,src,plugins}/**/*.{json,js,html}',
   '!**/mujo-plugins.js',
+  '!src/plugins/**/*',
   '.mujorc.yml',
-  // '**/plugins/**/*.{json,js}',
 ])
 const isDevToolsEnabled = process.env.DEVTOOLS
 

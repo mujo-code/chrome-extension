@@ -2,6 +2,7 @@ import { PluginProvider } from '@mujo/plugins'
 import React from 'react'
 import { isActive } from '../../background/activity'
 import { alarms } from '../../background/alarm'
+import { messageEmitter } from '../../background/message-reducer'
 import { storage, changeEmitter } from '../../background/storage'
 import * as constants from '../../constants'
 import * as extension from '../../lib/extension'
@@ -16,6 +17,7 @@ export const BackgroundApp = () => (
     model={model}
     storage={storage}
     changeEmitter={changeEmitter}
+    messageEmitter={messageEmitter}
     alarms={alarms}
     isActive={isActive}
   >

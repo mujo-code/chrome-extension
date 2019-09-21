@@ -1,4 +1,4 @@
-import { from, noop } from '../../lib/functional'
+import { from } from '../../lib/functional'
 
 export class Storage {
   constructor({ version, model, storageInterface = {} }) {
@@ -10,22 +10,14 @@ export class Storage {
     this.model = model
   }
 
+  // NOTE: old past typing can be removed since we do not have to
+  // worry about serialization
   async get(key) {
-    const typeFN = (this.model[key] && this.model[key].type) || noop
-    const type = typeof typeFN()
-    if (type === 'undefined') {
-      throw new TypeError(`No key "${key}" found in typed model`)
-    }
-    return this.getters[type](key)
+    return this.getters.object(key)
   }
 
   async set(key, value) {
-    const typeFN = (this.model[key] && this.model[key].type) || noop
-    const type = typeof typeFN()
-    if (type === 'undefined') {
-      throw new TypeError(`No key "${key}" found in typed model`)
-    }
-    return this.setters[type](key, value)
+    return this.setters.object(key, value)
   }
 }
 

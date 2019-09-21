@@ -1,15 +1,9 @@
 import EventEmitter from 'eventemitter3'
-import {
-  ALARM_KEY,
-  HEARTBEAT,
-  PREDICTED_BREAK_TIMES_FEATURE,
-} from '../../constants'
+import { ALARM_KEY, HEARTBEAT } from '../../constants'
 import { createNotification } from '../notifications'
 import { onHeartBeat, addHeartBeat } from './heartbeat'
-import { checkPredictions } from './prediction'
 
 export const initAlarms = async (...args) => {
-  checkPredictions({ isActive: PREDICTED_BREAK_TIMES_FEATURE })
   addHeartBeat()
 }
 export const alarms = new EventEmitter()
