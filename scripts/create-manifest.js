@@ -3,8 +3,8 @@ const path = require('path')
 const { promisify } = require('util')
 const ChangeCase = require('change-case')
 const cosmiconfig = require('cosmiconfig')
+const deepMerge = require('deepmerge')
 const chalk = require('react-dev-utils/chalk')
-const assets = require('../build/asset-manifest.json')
 const paths = require('../config/paths')
 const pkg = require('../package.json')
 
@@ -21,14 +21,15 @@ const stampDefaultManifest = () => ({
   background: {},
 })
 
-const getScripts = PATTERN =>
-  // TODO this needs to be ran post build
-  Object.keys(assets.files)
+const getScripts = PATTERN => {
+  const assets = require('../build/asset-manifest.json')
+  return Object.keys(assets.files)
     .filter(
       filename =>
         PATTERN.test(filename) && !MAP_PATTERN.test(filename)
     )
     .map(file => assets.files[file].replace('./', ''))
+}
 
 const changeKeyCasing = (object, fn) => {
   const keys = Object.keys(object)
@@ -68,11 +69,9 @@ const createManifest = async () => {
   return {
     ...manifestDefaults,
     ...manifestOverrides,
-    content_security_policy: createSecurityPolicyString(
-      changeKeyCasing(
-        manifestOverrides.content_security_policy,
-        ChangeCase.paramCase
-      )
+    content_security_policy: changeKeyCasing(
+      manifestOverrides.content_security_policy,
+      ChangeCase.paramCase
     ),
     background: {
       scripts: backgroundScripts,
@@ -82,6 +81,7 @@ const createManifest = async () => {
 }
 
 const createBackgroundAssetMap = async () => {
+  const assets = require('../build/asset-manifest.json')
   const fileName = 'asset-map.js'
   const outputFile = path.resolve(paths.appBuild, fileName)
   const content = `window.mujo_assets = ${JSON.stringify(assets)}`
@@ -89,10 +89,35 @@ const createBackgroundAssetMap = async () => {
   return fileName
 }
 
-// run it all
-;(async () => {
+const caseManifest = config => {
+  const manifestOverrides = changeKeyCasing(
+    config,
+    ChangeCase.snakeCase
+  )
+  const csp = config.contentSecurityPolicy || {}
+  return {
+    ...manifestOverrides,
+    content_security_policy: changeKeyCasing(
+      csp,
+      ChangeCase.paramCase
+    ),
+  }
+}
+
+module.exports = async (additionalConfigs = []) => {
+  const casedConfigs = additionalConfigs.map(caseManifest)
   const outputfile = path.resolve(paths.appBuild, 'manifest.json')
-  const manifest = await createManifest()
+  const mainManifest = await createManifest()
+  const { content_security_policy, ...mergedManifest } = deepMerge(
+    ...casedConfigs,
+    mainManifest
+  )
+  const manifest = {
+    ...mergedManifest,
+    content_security_policy: createSecurityPolicyString(
+      content_security_policy
+    ),
+  }
   await write(outputfile, JSON.stringify(manifest, null, '  '))
   console.log(`Manifest.json created: ${chalk.green(outputfile)}`)
-})()
+}
