@@ -3,7 +3,12 @@ const { Gaze } = require('gaze')
 const { log } = require('./logger')
 const { runScript } = require('./script-runner')
 
-const gaze = new Gaze('{public,src}/**/*.{json,js,html}')
+const gaze = new Gaze([
+  '{public,src}/**/*.{json,js,html}',
+  '!**/mujo-plugins.js',
+  '.mujorc.yml',
+  // '**/plugins/**/*.{json,js}',
+])
 const isDevToolsEnabled = process.env.DEVTOOLS
 
 log('starting up server')
@@ -42,4 +47,7 @@ const teardownAll = () => {
 process.on('SIGINT', teardownAll)
 process.on('exit', teardownAll)
 gaze.on('ready', runBuild)
-gaze.on('all', runBuild)
+gaze.on('all', (...args) => {
+  console.log(...args)
+  runBuild()
+})

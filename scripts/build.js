@@ -1,5 +1,4 @@
 // Do this as the first thing so that any code reading it knows the right env.
-
 const env = process.env.NODE_ENV || 'production'
 
 process.env.BABEL_ENV = env
@@ -24,7 +23,12 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')
 const webpack = require('webpack')
 const paths = require('../config/paths')
 const configFactory = require('../config/webpack.config')
+const createManifest = require('./create-manifest')
+const pluginsResolver = require('./plugins-resolver')
+const appendSourceMaps = require('./modify-source-maps')
 const { logger } = require('./logger')
+
+const isDev = process.env.NODE_ENV === 'development'
 
 const copyPublicFolder = () => {
   fs.copySync(paths.appPublic, paths.appBuild, {
@@ -104,10 +108,22 @@ const makeBuilds = (configs, fileSizes) =>
   )
 
 const startBuild = async configs => {
+  const log = logger('process')
+  log('Cleaning old build')
   fs.emptyDirSync(paths.appBuild)
+  log('Resolving plugins')
+  const pluginConfigs = await pluginsResolver()
   // todo make async
+  log('Copy public folder')
   copyPublicFolder()
+  log('Making new build')
   await makeBuilds(configs)
+  log('Appending new manifest')
+  await createManifest(pluginConfigs)
+  if (isDev) {
+    log('Appending source maps')
+    await appendSourceMaps()
+  }
 }
 
 // Warn and crash if required files are missing

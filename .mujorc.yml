@@ -16,7 +16,6 @@ plugins:
 permissions:
   - tabs
   - webNavigation
-  - notifications
   - alarms
   - background
   - topSites
