@@ -1,0 +1,23 @@
+{
+  "name": "mujo-private",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcblw/Mujo-private.git"
+  },
+  "author": "Jacob Lowe",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/jcblw/Mujo-private/issues"
+  },
+  "homepage": "https://github.com/jcblw/Mujo-private#readme",
+  "devDependencies": {
+    "lerna": "^3.16.4",
+    "@mujo/eslint-config": "^1.0.4"
+  }
+}
