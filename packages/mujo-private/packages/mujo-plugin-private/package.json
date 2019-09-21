@@ -75,5 +75,8 @@
       "@babel/preset-env",
       "@babel/preset-react"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
