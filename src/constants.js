@@ -16,7 +16,6 @@ export const WEBSTORE_URL = [
   'mujō-a-transience-page',
   EXT_ID,
 ].join('/')
-export const API_HOST = 'https://getmujo.com'
 export const SUPPORT_URL = `${SPECTRUM_CHAT}/general?tab=posts`
 export const VERSION = '1.4.0' // TODO make dyanmic
 export const MAX_ACTIVITY_ROWS = 40000
@@ -24,12 +23,11 @@ export const BREATH_MAX = 20
 export const BREATH_MIN = 5
 export const TRANSLATION_FILE = 'translation'
 export const TABS_TARGET = 'tabs'
+export const MESSAGE = 'message'
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
 export const HEARTBEAT = 'HEARTBEAT'
-export const P_ALARM = 'PREDICTIVE_ALARM' // is only part of the key
-// ex. PREDICTIVE_ALARM_2019-08-07T22:17:13.246Z
 
 // DB Keys
 export const DATABASE_NAME = 'MUJO'
@@ -47,7 +45,6 @@ export const SITE_TIME_KEY = 'SITE_TIME'
 export const BREAK_TIMERS_KEY = 'BREAK_TIMERS'
 export const LAST_ACTIVE_KEY = 'LAST_ACTIVE_KEY'
 export const ACTIVITY_NUMBER_KEY = 'ACTIVITY_NUMBER_KEY'
-export const PREDICTED_BREAK_TIMES = 'PREDICTED_BREAK_TIMES'
 export const BREATH_AMOUNT_KEY = 'BREATH_AMOUNT'
 export const CURRENT_TAB_KEY = 'CURRENT_TAB'
 

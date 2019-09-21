@@ -18,7 +18,6 @@ import {
   webNavigation,
   notifications,
 } from './lib/extension'
-import { identify } from './lib/mujo-sdk'
 
 const element = document.createElement('div')
 const startReactApp = () => {
@@ -28,7 +27,6 @@ const startReactApp = () => {
 const init = composePromises(
   initAlarms,
   initTracking(process.env.UA, window.document),
-  identify,
   initIdentity,
   startReactApp
 )

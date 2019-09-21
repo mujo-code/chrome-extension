@@ -108,10 +108,10 @@ module.exports = async (additionalConfigs = []) => {
   const casedConfigs = additionalConfigs.map(caseManifest)
   const outputfile = path.resolve(paths.appBuild, 'manifest.json')
   const mainManifest = await createManifest()
-  const { content_security_policy, ...mergedManifest } = deepMerge(
-    ...casedConfigs,
-    mainManifest
-  )
+  const {
+    content_security_policy,
+    ...mergedManifest
+  } = deepMerge.all([...casedConfigs, mainManifest])
   const manifest = {
     ...mergedManifest,
     content_security_policy: createSecurityPolicyString(
