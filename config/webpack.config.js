@@ -311,7 +311,7 @@ module.exports = function webpackConfig(webpackEnv) {
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin({
         chunks: ['index'],
-        template: paths.appHtml,
+        template: isEnvDevelopment ? paths.devHtml : paths.appHtml,
         minify: {
           removeComments: true,
           collapseWhitespace: true,

@@ -4,9 +4,15 @@ const { log } = require('./logger')
 const { runScript } = require('./script-runner')
 
 const gaze = new Gaze('{public,src}/**/*.{json,js,html}')
+const isDevToolsEnabled = process.env.DEVTOOLS
 
 log('starting up server')
 const teardownHttp = runScript('serve')
+let teardownDevtools
+if (isDevToolsEnabled) {
+  log('starting up devtools')
+  teardownDevtools = runScript('devtools')
+}
 
 let teardown = null
 const runBuild = () => {
@@ -23,6 +29,9 @@ const teardownAll = () => {
   hasShutdown = true
   log('shutting down')
   teardownHttp()
+  if (teardownDevtools) {
+    teardownDevtools()
+  }
   if (teardown) {
     teardown()
   }

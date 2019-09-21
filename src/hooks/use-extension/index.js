@@ -5,24 +5,20 @@ import React, {
   useContext,
   useCallback,
 } from 'react'
-import { useTranslation } from 'react-i18next'
 import {
   NEW_TAB_CONNECTION,
   RESET_USAGE,
   APP_READY_KEY,
-  SCREEN_TIME_PERMISSIONS,
-  TRANSLATION_FILE,
   CURRENT_TAB_KEY,
 } from '../../constants'
 import { toSiteInfo } from '../../lib/aggregation'
 import { message } from '../../lib/extension'
-import { usePermissions } from '../use-permissions'
 import { useSubscription } from '../use-subscription'
-import { useSettings } from './settings'
 import { decorateSelectedSegment, mapTopSites } from './transforms'
 import { useBreaktimerCallback } from './use-breaktimer-callback'
 import { useDeeplink } from './use-deeplink'
 import { useModel } from './use-model'
+import { useSettings } from './use-settings'
 import { useTabs } from './use-tabs'
 import { useTopsitesAPI } from './use-topsites-api'
 
@@ -32,7 +28,6 @@ const { Provider } = context
 export const ExtensionProvider = props => {
   // state
   const { shouldRegisterApp } = props
-  const { t } = useTranslation(TRANSLATION_FILE)
   const [appReady, setAppReady] = useState(false)
   const [playerIsOpen, setPlayerIsOpen] = useState(false)
   const [selectedSegment, setSelectedSegment] = useState(null)
@@ -59,11 +54,6 @@ export const ExtensionProvider = props => {
     setBreathAmount,
   } = useModel()
   const { user } = useSubscription()
-  const {
-    hasPermission,
-    requestPermissions,
-    removePermissions,
-  } = usePermissions(SCREEN_TIME_PERMISSIONS)
 
   // effects
   useDeeplink({
@@ -116,27 +106,18 @@ export const ExtensionProvider = props => {
   // transforms
   const mappedTopSites = topSites.map(mapTopSites(topSitesUsage))
   const siteTimesAndTimers = toSiteInfo(siteTimes, breakTimers)
-  const settings = useSettings({
-    user,
-    setUpsellModal,
-    alarmEnabled,
-    setAlarmEnabled,
-    hasPermission,
-    requestPermissions,
-    removePermissions,
-    breathAmount,
-    setBreathAmount,
-    t,
-  })
+  const settingsInterface = useSettings()
   // TODO avoid mutation
   decorateSelectedSegment({ selectedSegment, siteTimesAndTimers })
 
   return (
     <Provider
       value={{
+        user,
         topSites: mappedTopSites,
         alarmEnabled,
         breathAmount,
+        setBreathAmount,
         pageViews,
         showTopSites,
         siteTimes,
@@ -147,12 +128,6 @@ export const ExtensionProvider = props => {
         playerIsOpen,
         activityNumber,
         upsellModal,
-        settings,
-        screenTime: {
-          hasPermission,
-          requestPermissions,
-          removePermissions,
-        },
         setAlarmEnabled: setAlarmEnabledProxy,
         setTopSites,
         updateSitesUsed,
@@ -163,6 +138,7 @@ export const ExtensionProvider = props => {
         setPlayerIsOpen,
         setUpsellModal,
         updateBreakTimers,
+        ...settingsInterface,
         ...tabInterface,
       }}
     >

@@ -52,7 +52,7 @@ export const SettingItem = ({
   type,
   alt,
   label,
-  setter,
+  onChange,
   value,
   theme,
 }) => (
@@ -96,7 +96,7 @@ export const SettingItem = ({
       <SettingsInput
         type={type}
         value={value}
-        onChange={setter}
+        onChange={onChange}
         {...theme}
       />
     </Box>
