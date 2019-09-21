@@ -20,13 +20,15 @@ const updateSourceMaps = async (directory, outputDirectory) => {
       const content = await read(filepath, 'utf8')
       const parsed = content.split('\n')
       const mapping = parsed.pop()
-      const serverMapped = /http/.test(mapping)
-        ? mapping
-        : mapping.replace('=', `=${SERVER}/${outputDirectory}`)
+      const serverMapped = /\/\/#/.test(mapping)
+        ? mapping.replace('=', `=${SERVER}/${outputDirectory}`)
+        : mapping
       parsed.push(serverMapped)
       await write(filepath, parsed.join('\n'))
     })
 }
 
-updateSourceMaps(DIST_DIR, `${JS_DIR}/`)
-updateSourceMaps(BUILD_DIR, '')
+module.exports = async () => {
+  await updateSourceMaps(DIST_DIR, `${JS_DIR}/`)
+  await updateSourceMaps(BUILD_DIR, '')
+}

@@ -5,6 +5,7 @@ const cosmiconfig = require('cosmiconfig')
 const rimraf = require('rimraf')
 const paths = require('../config/paths')
 const pkg = require('../package.json')
+const { log } = require('./logger')
 
 const stat = promisify(fs.stat)
 const write = promisify(fs.writeFile)
@@ -30,17 +31,6 @@ const cleanDirectory = async () => {
   // cleans out synlinks
   await rmrf(paths.appPluginsDir)
   await mkdir(paths.appPluginsDir)
-}
-
-const run = async () => {
-  const name = pkg.name.toLowerCase()
-  const explorer = cosmiconfig(name)
-  const { config } = await explorer.search()
-  const pluginFolder = config.plugins
-  await cleanDirectory()
-  const plugins = await promiseSeq(resolvePlugin, pluginFolder)
-  await promiseSeq(symlinkPlugin(pluginFolder), plugins)
-  await createPluginFile(pluginFolder)
 }
 
 const symlinkPlugin = plugins => async (pluginPath, i) => {
@@ -74,6 +64,21 @@ const createPluginFile = async plugins => {
   await write(paths.appPluginsJs, content)
 }
 
+const resolveConfig = async pluginPath => {
+  const configPath = path.resolve(pluginPath, 'config.js')
+  const configExist = await doesExist(configPath)
+  if (configExist) {
+    try {
+      return require(configPath)({}) // TODO: add config options to plugins
+    } catch (e) {
+      log(`Error running plugin config: ${configPath}`)
+      log(e.message)
+      log(e.stack)
+    }
+  }
+  return {}
+}
+
 const resolvePlugin = async pluginName => {
   const nodeModulePath = path.resolve(
     paths.appNodeModules,
@@ -84,13 +89,25 @@ const resolvePlugin = async pluginName => {
   )
   const inRepoPath = path.resolve(paths.inRepoPlugins, pluginName)
   const isInRepo = await doesExist(inRepoPath)
+
   const exists = isInNodeModule || isInRepo
   if (!exists) {
+    //  Fail fast
     throw new TypeError(`Plugin "${pluginName}" does not exist`)
   }
-
   // TODO: check repo for config file to be able to add in permissions
   return isInRepo ? inRepoPath : nodeModulePath
 }
 
-run()
+module.exports = async () => {
+  const name = pkg.name.toLowerCase()
+  const explorer = cosmiconfig(name)
+  const { config } = await explorer.search()
+  const pluginFolder = config.plugins
+  await cleanDirectory()
+  const plugins = await promiseSeq(resolvePlugin, pluginFolder)
+  const pluginConfigs = await promiseSeq(resolveConfig, plugins)
+  await promiseSeq(symlinkPlugin(pluginFolder), plugins)
+  await createPluginFile(pluginFolder)
+  return pluginConfigs
+}
