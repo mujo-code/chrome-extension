@@ -2,22 +2,19 @@ import ky from 'ky-universal'
 
 let identity
 
-export const getOptions = ({
-  method,
-  json,
-  searchParams,
-  apiHost,
-}) => ({
-  method,
-  json,
-  searchParams,
-  prefixUrl: `${apiHost}/api`,
-  headers: {
-    'request-origin': `Mujo Chrome Extension - ${process.env
-      .VERSION || 'no-version'}`,
-    'mujo-identity': identity,
-  },
-})
+export const getOptions = ({ method, json, searchParams, apiHost }) => {
+  const version = process.env.VERSION || 'no-version'
+  return {
+    method,
+    json,
+    searchParams,
+    prefixUrl: `${apiHost}/api`,
+    headers: {
+      'request-origin': `Mujo Chrome Extension - ${version}`,
+      'mujo-identity': identity,
+    },
+  }
+}
 
 export const http = async ({
   endpoint,
@@ -27,9 +24,6 @@ export const http = async ({
   version,
   apiHost,
 }) => {
-  console.log(
-    getOptions({ method, searchParams, json, version, apiHost })
-  )
   const resp = await ky(
     endpoint,
     getOptions({ method, searchParams, json, version, apiHost })
@@ -49,8 +43,7 @@ export const availableAPIs = [
 ]
 
 const typesFrom = ({ apiHost }) => ({
-  post: endpoint => json =>
-    http({ endpoint, method: 'post', json, apiHost }),
+  post: endpoint => json => http({ endpoint, method: 'post', json, apiHost }),
   get: endpoint => params => {
     const searchParams = new URLSearchParams()
     Object.keys(params || {}).forEach(key => {

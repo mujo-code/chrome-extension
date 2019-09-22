@@ -8,7 +8,7 @@ export const alarmKey = date => `${P_ALARM}_${date}`
 export const getNow = date => date || new Date()
 
 export const currentAlarms = (prediction, now) =>
-  isAfter(prediction.date, getNow(now))
+  isAfter(parseISO(prediction.date), getNow(now))
 
 export const isOutDated = (predictions = [], now) => {
   const lastPrediction = predictions[predictions.length - 1] || {}
@@ -17,10 +17,7 @@ export const isOutDated = (predictions = [], now) => {
 
 export const PredictiveBreakTimes = ({ api, identity }) => {
   const { extension } = useContext(context)
-  const [predictions, setPredictions] = useStorage(
-    PREDICTED_BREAK_TIMES,
-    []
-  )
+  const [predictions, setPredictions] = useStorage(PREDICTED_BREAK_TIMES, [])
   const [initialized, setInitialized] = useState(false)
   const { alarms } = extension
 
@@ -32,7 +29,6 @@ export const PredictiveBreakTimes = ({ api, identity }) => {
         const newPerdictions = await api.getBreaks()
         setPredictions(newPerdictions)
       } catch (e) {
-        console.error(e)
         setPredictions([])
       }
     },
@@ -43,16 +39,11 @@ export const PredictiveBreakTimes = ({ api, identity }) => {
     const now = new Date()
     // TODO: fix needs to happen in background storage to not overwrite
     // defaults
-    const upcomingPredictions = (predictions || []).filter(
-      currentAlarms
-    )
+    const upcomingPredictions = (predictions || []).filter(currentAlarms)
     upcomingPredictions.forEach(prediction => {
       const when = +new Date(prediction.date) - +getNow(now)
       const alarmOptions = { when }
-      alarms.upsertAlarm(
-        alarmKey(prediction.originalDate),
-        alarmOptions
-      )
+      alarms.upsertAlarm(alarmKey(prediction.date), alarmOptions)
     })
   }, [predictions, alarms])
 
