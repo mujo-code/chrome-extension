@@ -14,6 +14,14 @@ export const useStorageBackground = (key, defaultArg) => {
     set(newValue)
   }, [key, set, storage])
 
+  const setValue = useCallback(
+    async newValue => {
+      set(newValue)
+      await storage.set(key, newValue)
+    },
+    [key, set, storage]
+  )
+
   useEffect(() => {
     if (!initialized) {
       // get initial value
@@ -30,5 +38,5 @@ export const useStorageBackground = (key, defaultArg) => {
     return () => changeEmitter.off(key, callback)
   }, [key, set, changeEmitter])
 
-  return [value, set]
+  return [value, setValue]
 }
