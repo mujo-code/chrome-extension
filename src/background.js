@@ -37,4 +37,4 @@ alarms.onAlarm.addListener(alarmReducer)
 onMessage(reducer)
 webNavigation.onCommitted.addListener(injectScript)
 
-init()
+export default init()

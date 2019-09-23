@@ -15,12 +15,12 @@ const { initAlarms } = require('./background/alarm')
 test('all the automatic setup of background', async () => {
   ua.mockReturnValue({ event: jest.fn(), screenview: jest.fn() })
   /* eslint-disable-next-line global-require */
-  require('./background')
+  await require('./background').default
   expect(onMessage).toBeCalled()
   expect(alarms.onAlarm.addListener).toBeCalled()
   expect(webNavigation.onCommitted.addListener).toBeCalled()
   expect(notifications.onClicked.addListener).toBeCalled()
-  await wait(400)
+
   // happens in a promise chain now so its deferred
   expect(initAlarms).toBeCalled()
   expect(ua).toBeCalled()
