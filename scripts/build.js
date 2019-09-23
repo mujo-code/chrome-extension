@@ -101,9 +101,9 @@ const build = config => {
   })
 }
 
-const makeBuilds = (configs, fileSizes) =>
+const makeBuilds = (configs, options) =>
   configs.reduce(
-    (promise, config) => promise.then(() => build(config, fileSizes)),
+    (promise, config) => promise.then(() => build(config(options))),
     Promise.resolve()
   )
 
@@ -112,12 +112,13 @@ const startBuild = async configs => {
   log('Cleaning old build')
   fs.emptyDirSync(paths.appBuild)
   log('Resolving plugins')
-  const pluginConfigs = await pluginsResolver()
+  const [pluginPaths, pluginConfigs] = await pluginsResolver()
   // todo make async
   log('Copy public folder')
   copyPublicFolder()
   log('Making new build')
-  await makeBuilds(configs)
+  const plugins = { paths: pluginPaths, configs: pluginConfigs }
+  await makeBuilds(configs, { plugins })
   log('Appending new manifest')
   await createManifest(pluginConfigs)
   if (isDev) {

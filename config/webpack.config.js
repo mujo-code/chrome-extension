@@ -14,7 +14,7 @@ const paths = require('./paths')
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
-module.exports = function webpackConfig(webpackEnv) {
+const webpackConfig = webpackEnv => ({ plugins }) => {
   const isEnvDevelopment = webpackEnv === 'development'
   const isEnvProduction = webpackEnv === 'production'
 
@@ -224,7 +224,7 @@ module.exports = function webpackConfig(webpackEnv) {
             // TODO: decide if we should also process node modules plugins ?
             {
               test: /\.(js)$/,
-              include: [paths.appSrc, paths.inRepoPlugins],
+              include: [paths.appSrc, ...plugins.paths],
               loader: require.resolve('babel-loader'),
               options: {
                 customize: require.resolve(
@@ -384,3 +384,5 @@ module.exports = function webpackConfig(webpackEnv) {
     performance: false,
   }
 }
+
+module.exports = webpackConfig
