@@ -7,7 +7,7 @@ test('Storage.from should create a new instance of Storage', () => {
 })
 
 test('Storage::get should access key from storageInterface', async () => {
-  const storageInterface = { getters: { string: identity } }
+  const storageInterface = { getters: { object: identity } }
   const model = { foo: { type: String } }
   const storage = Storage.from({ model, storageInterface })
   const value = await storage.get('foo')
@@ -17,7 +17,7 @@ test('Storage::get should access key from storageInterface', async () => {
 test('Storage::set should access key from storageInterface', async () => {
   const data = {}
   const setData = (key, value) => set(data, key, value)
-  const storageInterface = { setters: { string: setData } }
+  const storageInterface = { setters: { object: setData } }
   const model = { foo: { type: String } }
   const storage = Storage.from({ model, storageInterface })
   await storage.set('foo', 'bar')
