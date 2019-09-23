@@ -32,7 +32,7 @@
     "date-fns": "^2.2.1",
     "dotenv": "8.1.0",
     "dotenv-expand": "5.1.0",
-    "error-stack-parser": "^2.0.3",
+    "error-stack-parser": "^2.0.4",
     "eslint": "^5.16.0",
     "eventemitter3": "^4.0.0",
     "fake-indexeddb": "^2.1.1",
