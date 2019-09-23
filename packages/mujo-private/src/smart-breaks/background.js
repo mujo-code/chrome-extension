@@ -46,8 +46,9 @@ export const SmartBreaksBackground = () => {
     // defaults
     const upcomingPredictions = (predictions || []).filter(currentAlarms)
     upcomingPredictions.forEach(prediction => {
-      const when = +new Date(prediction.date) - now
-      const alarmOptions = { when }
+      const delayInMS = +new Date(prediction.date) - now
+      const delayInMinutes = Math.floor(delayInMS / 1000 / 60)
+      const alarmOptions = { delayInMinutes }
       alarms.upsertAlarm(alarmKey(prediction.date), alarmOptions)
     })
   }, [predictions, alarms])
