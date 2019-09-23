@@ -42,10 +42,10 @@ const getAlarm = key =>
     })
   })
 
-const upsertAlarm = async (key, ...args) => {
-  const alarm = await getAlarm(key)
+const upsertAlarm = async (name, alarmInfo) => {
+  const alarm = await getAlarm(name)
   if (alarm) return
-  chrome.alarms.create(key, ...args)
+  chrome.alarms.create(name, alarmInfo)
 }
 
 export const alarms = {

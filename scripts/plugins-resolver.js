@@ -12,6 +12,7 @@ const write = promisify(fs.writeFile)
 const symlink = promisify(fs.symlink)
 const rmrf = promisify(rimraf)
 const mkdir = promisify(fs.mkdir)
+const realpath = promisify(fs.realpath)
 
 const promiseSeq = async (fn, arr) => {
   const resolves = []
@@ -34,6 +35,11 @@ const cleanDirectory = async () => {
 }
 
 const symlinkPlugin = plugins => async (pluginPath, i) => {
+  const pluginName = plugins[i]
+  if (/\//g.test(pluginName)) {
+    const subPath = pluginName.split('/').shift()
+    await mkdir(path.resolve(paths.appPluginsDir, subPath))
+  }
   await symlink(
     pluginPath,
     path.resolve(paths.appPluginsDir, plugins[i])
@@ -79,15 +85,27 @@ const resolveConfig = async pluginPath => {
   return {}
 }
 
+const resolvePath = async (...args) => {
+  try {
+    const fullPath = await realpath(path.resolve(...args))
+    return fullPath
+  } catch (e) {
+    return path.resolve(...args)
+  }
+}
+
 const resolvePlugin = async pluginName => {
-  const nodeModulePath = path.resolve(
+  const nodeModulePath = await resolvePath(
     paths.appNodeModules,
     pluginName
   )
   const isInNodeModule = await doesExist(
     path.resolve(paths.appNodeModules, pluginName)
   )
-  const inRepoPath = path.resolve(paths.inRepoPlugins, pluginName)
+  const inRepoPath = await resolvePath(
+    paths.inRepoPlugins,
+    pluginName
+  )
   const isInRepo = await doesExist(inRepoPath)
 
   const exists = isInNodeModule || isInRepo
@@ -103,11 +121,13 @@ module.exports = async () => {
   const name = pkg.name.toLowerCase()
   const explorer = cosmiconfig(name)
   const { config } = await explorer.search()
-  const pluginFolder = config.plugins
+  const pluginNames = config.plugins.map(pluginName =>
+    pluginName.replace(/\\/g, '')
+  )
   await cleanDirectory()
-  const plugins = await promiseSeq(resolvePlugin, pluginFolder)
+  const plugins = await promiseSeq(resolvePlugin, pluginNames)
   const pluginConfigs = await promiseSeq(resolveConfig, plugins)
-  await promiseSeq(symlinkPlugin(pluginFolder), plugins)
-  await createPluginFile(pluginFolder)
-  return pluginConfigs
+  await promiseSeq(symlinkPlugin(pluginNames), plugins)
+  await createPluginFile(pluginNames)
+  return [plugins, pluginConfigs]
 }
