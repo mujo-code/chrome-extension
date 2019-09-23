@@ -17,7 +17,10 @@ export const isOutDated = (predictions = [], now) => {
 
 export const SmartBreaksBackground = () => {
   const { extension, constants } = useContext(context)
-  const [predictions, setPredictions] = useStorage(PREDICTED_BREAK_TIMES, [])
+  const [predictions, setPredictions, { pending }] = useStorage(
+    PREDICTED_BREAK_TIMES,
+    []
+  )
   const [identity] = useStorage(constants.ID_KEY)
   const [initialized, setInitialized] = useState(false)
 
@@ -54,12 +57,12 @@ export const SmartBreaksBackground = () => {
   }, [predictions, alarms])
 
   useEffect(() => {
-    if (!initialized && identity) {
+    if (!initialized && identity && !pending) {
       setInitialized(true)
       identify(identity)
       checkPredictions(true)
     }
-  }, [initialized, checkPredictions, setInitialized, identity])
+  }, [initialized, checkPredictions, setInitialized, identity, pending])
 
   useHeartBeat(checkPredictions)
 
