@@ -36,6 +36,7 @@ export const PluginProvider = ({
   children,
   tabs,
   settings,
+  isActive,
 }) => (
   <Provider
     value={{
@@ -50,6 +51,7 @@ export const PluginProvider = ({
       model,
       tabs,
       settings,
+      isActive,
     }}
   >
     {children}
