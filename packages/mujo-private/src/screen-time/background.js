@@ -1,10 +1,11 @@
 import { useStorage, useMessage, context } from '@mujo/plugins'
 import { useCallback, useContext } from 'react'
 import { SITE_TIME_KEY } from '../constants'
+import { api } from '../mujo-sdk'
 
 const origin = url => new URL(url).origin
 
-export const ScreenTimeBackground = ({ api }) => {
+export const ScreenTimeBackground = () => {
   const { constants, storage } = useContext(context)
   const [siteTimes, setSiteTimes] = useStorage(SITE_TIME_KEY)
   const [identity] = useStorage(constants.ID_KEY)
