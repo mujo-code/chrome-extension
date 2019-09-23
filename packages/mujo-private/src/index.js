@@ -1,13 +1,12 @@
-import { Background } from '@mujo/plugins'
 import React from 'react'
-import { ScreenTimeBackground } from './background'
+import { ScreenTime } from './screen-time'
+import { SmartBreaks } from './smart-breaks'
 
-const ScreenTime = ({ constants }) => (
+export const MujoPlugins = () => (
   <>
-    <Background>
-      <ScreenTimeBackground />
-    </Background>
+    <ScreenTime />
+    <SmartBreaks />
   </>
 )
 
-export default ScreenTime
+export default MujoPlugins

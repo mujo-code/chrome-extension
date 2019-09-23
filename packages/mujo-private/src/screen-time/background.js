@@ -4,7 +4,7 @@ import { SITE_TIME_KEY } from '../constants'
 
 const origin = url => new URL(url).origin
 
-export const ScreenTimeTracking = ({ api }) => {
+export const ScreenTimeBackground = ({ api }) => {
   const { constants, storage } = useContext(context)
   const [siteTimes, setSiteTimes] = useStorage(SITE_TIME_KEY)
   const [identity] = useStorage(constants.ID_KEY)
@@ -20,9 +20,7 @@ export const ScreenTimeTracking = ({ api }) => {
       const currentSiteTime = (siteTimes[site] || 0) + totalTime
       const nextSiteTimes = { ...siteTimes, [site]: currentSiteTime }
       setSiteTimes(nextSiteTimes)
-      const activityNumber = await storage.get(
-        constants.ACTIVITY_NUMBER_KEY
-      )
+      const activityNumber = await storage.get(constants.ACTIVITY_NUMBER_KEY)
       await api.addActivity({
         d: new Date().toISOString(),
         i: identity,

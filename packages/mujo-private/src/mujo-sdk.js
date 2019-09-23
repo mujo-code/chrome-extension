@@ -1,4 +1,5 @@
 import ky from 'ky-universal'
+import { API_HOST } from './constants'
 
 let identity
 
@@ -65,3 +66,5 @@ export const apiFrom = ({ apiHost, version }) => {
     return accum
   }, {})
 }
+
+export const api = apiFrom({ apiHost: API_HOST })
