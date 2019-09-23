@@ -4,10 +4,8 @@ import { alarmReducer, initAlarms } from '.'
 
 jest.mock('../notifications')
 jest.mock('./heartbeat')
-jest.mock('./prediction')
 const { createNotification } = require('../notifications')
 const { onHeartBeat, addHeartBeat } = require('./heartbeat')
-const { checkPredictions } = require('./prediction')
 
 test('reducer should call onHeartBeat when called with heartbeat', () => {
   const alarm = { name: HEARTBEAT }
@@ -21,8 +19,7 @@ test('reducer should call createNotification when breakalarm fires', () => {
   expect(createNotification).toBeCalled()
 })
 
-test('initAlarms should call checkPredictions and addHeartBeat', () => {
+test('initAlarms should call addHeartBeat', () => {
   initAlarms()
-  expect(checkPredictions).toBeCalled()
   expect(addHeartBeat).toBeCalled()
 })
