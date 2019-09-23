@@ -1,5 +1,5 @@
 import { useHeartBeat, context, useStorage } from '@mujo/plugins'
-import { isAfter, isSameDay, parseISO } from 'date-fns'
+import { isAfter, parseISO } from 'date-fns'
 import { useContext, useCallback, useEffect, useState } from 'react'
 import { PREDICTED_BREAK_TIMES, P_ALARM } from '../constants'
 import { identify, api } from '../mujo-sdk'
@@ -7,12 +7,12 @@ import { identify, api } from '../mujo-sdk'
 export const alarmKey = date => `${P_ALARM}_${date}`
 export const getNow = date => date || new Date()
 
-export const currentAlarms = (prediction, now) =>
+export const afterNow = (prediction, now) =>
   isAfter(parseISO(prediction.date), getNow(now))
 
 export const isOutDated = (predictions = [], now) => {
   const lastPrediction = predictions[predictions.length - 1] || {}
-  return !isSameDay(parseISO(lastPrediction.date), getNow(now))
+  return !afterNow(lastPrediction, now)
 }
 
 export const SmartBreaksBackground = () => {
@@ -47,7 +47,7 @@ export const SmartBreaksBackground = () => {
     const now = Date.now()
     // TODO: fix needs to happen in background storage to not overwrite
     // defaults
-    const upcomingPredictions = (predictions || []).filter(currentAlarms)
+    const upcomingPredictions = (predictions || []).filter(afterNow)
     upcomingPredictions.forEach(prediction => {
       const delayInMS = +new Date(prediction.date) - now
       const delayInMinutes = Math.floor(delayInMS / 1000 / 60)
