@@ -6,6 +6,7 @@ export const useStorageBackground = (key, defaultArg) => {
   const modelDefault = model[key] && model[key].defaultValue
   const hasNoDefault = typeof modelDefault === 'undefined'
   const defaultValue = hasNoDefault ? defaultArg : modelDefault
+  const [pending, setPending] = useState(true)
   const [value, set] = useState(defaultValue)
   const [initialized, setInitialized] = useState(false)
 
@@ -22,13 +23,18 @@ export const useStorageBackground = (key, defaultArg) => {
     [key, set, storage]
   )
 
+  const initialize = useCallback(async () => {
+    setInitialized(true)
+    await getValue()
+    setPending(false)
+  }, [setInitialized, setPending, getValue])
+
   useEffect(() => {
     if (!initialized) {
       // get initial value
-      getValue()
-      setInitialized(true)
+      initialize()
     }
-  }, [getValue, initialized, key, set, value])
+  }, [initialized, initialize])
 
   useEffect(() => {
     const callback = newValue => {
@@ -38,5 +44,5 @@ export const useStorageBackground = (key, defaultArg) => {
     return () => changeEmitter.off(key, callback)
   }, [key, set, changeEmitter])
 
-  return [value, setValue]
+  return [value, setValue, { pending }]
 }
