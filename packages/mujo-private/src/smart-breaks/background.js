@@ -1,10 +1,10 @@
 import { useHeartBeat, context, useStorage } from '@mujo/plugins'
 import { isAfter, parseISO } from 'date-fns'
 import { useContext, useCallback, useEffect, useState } from 'react'
-import { PREDICTED_BREAK_TIMES, P_ALARM } from '../constants'
+import { PREDICTED_BREAK_TIMES, SMART_BREAK } from '../constants'
 import { identify, api } from '../mujo-sdk'
 
-export const alarmKey = date => `${P_ALARM}_${date}`
+export const alarmKey = date => `${SMART_BREAK}_${date}`
 export const getNow = date => date || new Date()
 
 export const afterNow = (prediction, now) =>
