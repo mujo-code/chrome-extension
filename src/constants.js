@@ -17,7 +17,7 @@ export const WEBSTORE_URL = [
   EXT_ID,
 ].join('/')
 export const SUPPORT_URL = `${SPECTRUM_CHAT}/general?tab=posts`
-export const VERSION = '1.4.0' // TODO make dyanmic
+export const { VERSION } = process.env
 export const MAX_ACTIVITY_ROWS = 40000
 export const BREATH_MAX = 20
 export const BREATH_MIN = 5
