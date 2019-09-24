@@ -89,6 +89,8 @@ module.exports = {
   appPluginsJs: resolveModule(resolveApp, 'src/mujo-plugins'),
   appPluginsDir: resolveApp('src/plugins'),
   devHtml: resolveApp('public/dev.html'),
+  react: resolveApp('node_modules/react'),
+  pluginsLib: resolveApp('node_modules/@mujo/plugins'),
 }
 
 module.exports.moduleFileExtensions = moduleFileExtensions

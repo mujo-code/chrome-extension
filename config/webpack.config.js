@@ -148,9 +148,13 @@ const webpackConfig = webpackEnv => ({ plugins }) => {
       // for React Native Web.
       extensions: paths.moduleFileExtensions.map(ext => `.${ext}`),
       alias: {
-        // TODO: maybe setup some custom alias's for
-        // @components, @hooks, @background, @content
         'react-native': 'react-native-web',
+        // Alias react to always be local version to support linked packages
+        // https://github.com/facebook/react/issues/13991#
+        react: paths.react,
+        // same issue but this is to allow context to be shared between linked
+        // packages
+        '@mujo/plugins': paths.pluginsLib,
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster
