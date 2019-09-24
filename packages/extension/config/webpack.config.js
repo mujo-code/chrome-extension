@@ -155,6 +155,7 @@ const webpackConfig = webpackEnv => ({ plugins }) => {
         // same issue but this is to allow context to be shared between linked
         // packages
         '@mujo/plugins': paths.pluginsLib,
+        '@mujo/ingress': paths.ingressLib,
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster
