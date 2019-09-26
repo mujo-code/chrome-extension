@@ -41,7 +41,7 @@
     "jest": "^24.9.0",
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-image-snapshot": "^2.9.0",
-    "jest-webextension-mock": "^3.5.0",
+    "@mujo/jest-webextension-mock": "^3.5.0",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "^0.3.1",
     "prettier": "^1.17.1",
@@ -63,7 +63,7 @@
       "<rootDir>/src/**/*.{spec,test}.js"
     ],
     "setupFiles": [
-      "jest-webextension-mock",
+      "@mujo/jest-webextension-mock",
       "./jest.setup.js"
     ],
     "testEnvironment": "jest-environment-jsdom-fourteen",
