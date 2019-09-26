@@ -6,11 +6,6 @@ import { useTranslation } from 'react-i18next'
 import { SETTINGS_MODAL, TRANSLATION_FILE } from '../../constants'
 import { Player } from '../player'
 
-console.log({
-  Icon,
-  ToolTip,
-})
-
 const { track } = Tracker
 export const Header = ({
   playerIsOpen,

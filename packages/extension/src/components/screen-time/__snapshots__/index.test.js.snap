@@ -7,42 +7,31 @@ exports[`ScreenTime should match snapshot 1`] = `
   position="relative"
 >
   <h4
-    className="css-1khq1ir"
-    color="mischka"
+    className="css-ahm0rg"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    position="relative"
   >
     Screen Time
      
     <sup
-      className="css-xonfx3"
-      color="color"
+      className="css-1aymr1c"
     >
       BETA
     </sup>
     <div
-      className="css-0"
-      position="relative"
+      className="css-79elbk"
     >
       <div
-        className="css-1cncp8y"
-        position="absolute"
+        className="css-4pw2fe"
       >
         <span
-          backgroundColor="mischka"
-          className="css-1bxc77d"
-          color="outerSpace"
-          position="relative"
+          className="css-xrmt9z"
         >
           <div
-            backgroundColor="mischka"
-            className="css-12ece8u"
-            position="absolute"
+            className="css-nxex8j"
           />
           <div
-            className="css-4obz46"
-            position="relative"
+            className="css-91tplw"
           >
             Screen time is the time viewing sites between your breaks
           </div>
@@ -51,66 +40,55 @@ exports[`ScreenTime should match snapshot 1`] = `
     </div>
   </h4>
   <svg
-    className="css-0"
+    className="css-1m3p9o7"
     data-testid="graph"
-    height="275px"
     style={
       Object {
         "height": 275,
         "width": 600,
       }
     }
-    width="600px"
   >
     <g
       className="css-0"
       transform="rotate(-89, 300, 137.5)"
     >
       <path
-        className="css-e5mitn"
+        className="css-8wkuw0"
         d="M 400 137.5 A 100 100 0 0 1 254.78696143925166 226.69518565541688"
         data-testid="graph-segment"
-        fill="transparent"
         onClick={[Function]}
-        stroke="saltBox"
         strokeLinecap="round"
         strokeWidth={16}
       />
       <path
-        className="css-e5mitn"
+        className="css-8wkuw0"
         d="M 231.95291274890502 210.77751303532256 A 100 100 0 0 1 243.56355381395008 54.947425588967306"
         data-testid="graph-segment"
-        fill="transparent"
         onClick={[Function]}
-        stroke="saltBox"
         strokeLinecap="round"
         strokeWidth={16}
       />
       <path
-        className="css-e5mitn"
+        className="css-8wkuw0"
         d="M 268.50437935300914 42.58937951914527 A 100 100 0 0 1 383.37096071317376 82.27968752567193"
         data-testid="graph-segment"
-        fill="transparent"
         onClick={[Function]}
-        stroke="saltBox"
         strokeLinecap="round"
         strokeWidth={16}
       />
       <path
-        className="css-e5mitn"
+        className="css-8wkuw0"
         d="M 395.36209200496467 107.39897994358567 A 100 100 0 0 1 396.1261695938319 109.93626441830011"
         data-testid="graph-segment"
-        fill="transparent"
         onClick={[Function]}
-        stroke="saltBox"
         strokeLinecap="round"
         strokeWidth={16}
       />
     </g>
     <text
       alignmentBaseline="baseline"
-      className="css-4g6ai3"
-      fill="mischka"
+      className="css-1gj31oj"
       onClick={[Function]}
       textAnchor="start"
       x={403.3319028289867}
@@ -120,8 +98,7 @@ exports[`ScreenTime should match snapshot 1`] = `
     </text>
     <text
       alignmentBaseline="hanging"
-      className="css-4g6ai3"
-      fill="mischka"
+      className="css-1gj31oj"
       onClick={[Function]}
       textAnchor="end"
       x={288.99657269198025}
@@ -131,8 +108,7 @@ exports[`ScreenTime should match snapshot 1`] = `
     </text>
     <text
       alignmentBaseline="baseline"
-      className="css-4g6ai3"
-      fill="mischka"
+      className="css-1gj31oj"
       onClick={[Function]}
       textAnchor="end"
       x={187.2811990722431}
@@ -142,8 +118,7 @@ exports[`ScreenTime should match snapshot 1`] = `
     </text>
     <text
       alignmentBaseline="baseline"
-      className="css-4g6ai3"
-      fill="mischka"
+      className="css-1gj31oj"
       onClick={[Function]}
       textAnchor="end"
       x={267.4087140979822}
@@ -159,19 +134,16 @@ exports[`ScreenTime should match snapshot 1`] = `
       className="css-1n2mv2k"
     >
       <div
-        backgroundColor="saltBox"
-        className="css-163c4dr"
+        className="css-1j6ivwb"
         onClick={[Function]}
       >
         <div
-          backgroundColor="outerSpace"
-          className="css-dx4x1i"
+          className="css-1a07xhr"
         />
       </div>
     </div>
     <p
       className="css-gq0ijd"
-      color="color"
     >
       Screen Time is disabled
     </p>
@@ -186,42 +158,31 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
   position="relative"
 >
   <h4
-    className="css-1khq1ir"
-    color="mischka"
+    className="css-ahm0rg"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    position="relative"
   >
     Screen Time
      
     <sup
-      className="css-xonfx3"
-      color="color"
+      className="css-1aymr1c"
     >
       BETA
     </sup>
     <div
-      className="css-0"
-      position="relative"
+      className="css-79elbk"
     >
       <div
-        className="css-1cncp8y"
-        position="absolute"
+        className="css-4pw2fe"
       >
         <span
-          backgroundColor="mischka"
-          className="css-1bxc77d"
-          color="outerSpace"
-          position="relative"
+          className="css-xrmt9z"
         >
           <div
-            backgroundColor="mischka"
-            className="css-12ece8u"
-            position="absolute"
+            className="css-nxex8j"
           />
           <div
-            className="css-4obz46"
-            position="relative"
+            className="css-91tplw"
           >
             Screen time is the time viewing sites between your breaks
           </div>
@@ -302,7 +263,6 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
     </svg>
     <p
       className="css-1hhdzfd"
-      color="color"
     >
       Explore more, there is not enough data to show you anything yet.
     </p>
@@ -314,38 +274,76 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
       className="css-1n2mv2k"
     >
       <div
-        backgroundColor="saltBox"
-        className="css-163c4dr"
+        className="css-1j6ivwb"
         onClick={[Function]}
       >
         <div
-          backgroundColor="outerSpace"
-          className="css-dx4x1i"
+          className="css-1a07xhr"
         />
       </div>
     </div>
     <p
       className="css-gq0ijd"
-      color="color"
     >
       Screen Time is disabled
     </p>
   </div>
   <div
-    className="css-1acr6v9"
+    allSegments={
+      Array [
+        Object {
+          "label": "foo.com",
+          "originalData": Object {
+            "foo.com": Object {
+              "breakTimer": Object {},
+              "originalURL": "https://foo.com",
+              "time": 6619.509999931324,
+            },
+          },
+          "percent": 0.6720393182210956,
+        },
+        Object {
+          "label": "mail.bar.com",
+          "originalData": Object {
+            "mail.bar.com": Object {
+              "breakTimer": Object {},
+              "originalURL": "https://mail.bar.com",
+              "time": 3230.375000031665,
+            },
+          },
+          "percent": 0.3279606817789043,
+        },
+      ]
+    }
+    className="css-zxi8vn"
     closeTimeoutMS={200}
     data-mujo={true}
     isOpen={true}
-    onRequestClose={[Function]}
-    outlineColor="saltBox"
     overlayClassName="mujo-modal css-qcfpiy"
     portalClassName="css-16nllqz"
+    selectedSegment={
+      Object {
+        "label": "qux",
+        "urls": Array [
+          "https://foo.com",
+          "https://main.bar.com",
+        ],
+      }
+    }
     shouldCloseOnOverlayClick={true}
+    theme={
+      Object {
+        "background": "outerSpace",
+        "backgroundSecondary": "gravel",
+        "buttonStyle": "primary",
+        "foreground": "mischka",
+        "foregroundSecondary": "white",
+        "highlight": "saltBox",
+      }
+    }
   >
     <div
-      className="css-1mv301s"
-      onClick={[Function]}
-      position="absolute"
+      className="css-1gam40h"
     >
       <svg
         fill="none"
@@ -372,47 +370,6 @@ exports[`ScreenTime should match snapshot with a grouped selected segment 1`] = 
           y2="18"
         />
       </svg>
-    </div>
-    <div
-      className="css-yzx775"
-    >
-      <h4
-        className="css-30v94s"
-        color="mischka"
-      >
-        Screen Time for:
-      </h4>
-    </div>
-    <div
-      className="css-k0sogd"
-      overflow="scroll"
-    >
-      <div
-        className="css-187idct"
-      >
-        <h2
-          className="css-1f6bnk1"
-          color="white"
-          onClick={[Function]}
-          overflow="hidden"
-          textOverflow="ellipsis"
-        >
-          foo.com
-        </h2>
-      </div>
-      <div
-        className="css-187idct"
-      >
-        <h2
-          className="css-1f6bnk1"
-          color="white"
-          onClick={[Function]}
-          overflow="hidden"
-          textOverflow="ellipsis"
-        >
-          main.bar.com
-        </h2>
-      </div>
     </div>
   </div>
 </div>
@@ -425,42 +382,31 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
   position="relative"
 >
   <h4
-    className="css-1khq1ir"
-    color="mischka"
+    className="css-ahm0rg"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    position="relative"
   >
     Screen Time
      
     <sup
-      className="css-xonfx3"
-      color="color"
+      className="css-1aymr1c"
     >
       BETA
     </sup>
     <div
-      className="css-0"
-      position="relative"
+      className="css-79elbk"
     >
       <div
-        className="css-1cncp8y"
-        position="absolute"
+        className="css-4pw2fe"
       >
         <span
-          backgroundColor="mischka"
-          className="css-1bxc77d"
-          color="outerSpace"
-          position="relative"
+          className="css-xrmt9z"
         >
           <div
-            backgroundColor="mischka"
-            className="css-12ece8u"
-            position="absolute"
+            className="css-nxex8j"
           />
           <div
-            className="css-4obz46"
-            position="relative"
+            className="css-91tplw"
           >
             Screen time is the time viewing sites between your breaks
           </div>
@@ -541,7 +487,6 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
     </svg>
     <p
       className="css-1hhdzfd"
-      color="color"
     >
       Explore more, there is not enough data to show you anything yet.
     </p>
@@ -553,38 +498,80 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
       className="css-1n2mv2k"
     >
       <div
-        backgroundColor="saltBox"
-        className="css-163c4dr"
+        className="css-1j6ivwb"
         onClick={[Function]}
       >
         <div
-          backgroundColor="outerSpace"
-          className="css-dx4x1i"
+          className="css-1a07xhr"
         />
       </div>
     </div>
     <p
       className="css-gq0ijd"
-      color="color"
     >
       Screen Time is disabled
     </p>
   </div>
   <div
-    className="css-1acr6v9"
+    allSegments={
+      Array [
+        Object {
+          "label": "foo.com",
+          "originalData": Object {
+            "foo.com": Object {
+              "breakTimer": Object {},
+              "originalURL": "https://foo.com",
+              "time": 6619.509999931324,
+            },
+          },
+          "percent": 0.6720393182210956,
+        },
+        Object {
+          "label": "mail.bar.com",
+          "originalData": Object {
+            "mail.bar.com": Object {
+              "breakTimer": Object {},
+              "originalURL": "https://mail.bar.com",
+              "time": 3230.375000031665,
+            },
+          },
+          "percent": 0.3279606817789043,
+        },
+      ]
+    }
+    className="css-zxi8vn"
     closeTimeoutMS={200}
     data-mujo={true}
     isOpen={true}
-    onRequestClose={[Function]}
-    outlineColor="saltBox"
     overlayClassName="mujo-modal css-qcfpiy"
     portalClassName="css-16nllqz"
+    selectedSegment={
+      Object {
+        "data": Object {
+          "breakTimer": Object {},
+          "originURL": "https://foo.com",
+          "time": 6619.509999931324,
+        },
+        "label": "foo.com",
+        "urls": Array [
+          "https://foo.com",
+        ],
+      }
+    }
     shouldCloseOnOverlayClick={true}
+    theme={
+      Object {
+        "background": "outerSpace",
+        "backgroundSecondary": "gravel",
+        "buttonStyle": "primary",
+        "foreground": "mischka",
+        "foregroundSecondary": "white",
+        "highlight": "saltBox",
+      }
+    }
   >
     <div
-      className="css-1mv301s"
-      onClick={[Function]}
-      position="absolute"
+      className="css-1gam40h"
     >
       <svg
         fill="none"
@@ -611,112 +598,6 @@ exports[`ScreenTime should match snapshot with a selected segment 1`] = `
           y2="18"
         />
       </svg>
-    </div>
-    <div
-      className="css-yzx775"
-    >
-      <h4
-        className="css-30v94s"
-        color="mischka"
-      >
-        Screen Time for:
-      </h4>
-    </div>
-    <div
-      className="css-k0sogd"
-      overflow="scroll"
-    >
-      <div
-        className="css-dalpef"
-        overflow="scroll"
-      >
-        <h2
-          className="css-132p4b7"
-          color="mischka"
-        >
-          foo.com
-        </h2>
-        <progress
-          className="css-mlu9c0"
-          max="100"
-          value={67}
-        >
-          67
-          %
-        </progress>
-        <p
-          className="css-1p1wrjs"
-          color="color"
-        >
-          The site foo.com was actively viewed for
-           
-          <span
-            className="css-0"
-            color="mischka"
-          >
-            6 seconds
-          </span>
-           
-          since your last break. That is 67% of your web viewing.
-        </p>
-        <p
-          className="css-tmwlom"
-          color="color"
-        >
-          These times are not aways going to represent a 100% view of your viewing habits.
-        </p>
-      </div>
-      <div
-        backgroundColor="gravel"
-        className="css-1yqdfgl"
-      >
-        <div
-          className="css-i3jcei"
-        >
-          <div
-            className="css-j7qwjs"
-          >
-            <div
-              className="css-102g4jn"
-            >
-              <div
-                backgroundColor="saltBox"
-                className="css-b6lj8k"
-                id="break-timer"
-                onClick={[Function]}
-              >
-                <div
-                  backgroundColor="outerSpace"
-                  className="css-dx4x1i"
-                />
-              </div>
-              <h4
-                className="css-30v94s"
-                color="color"
-                htmlFor="break-timer"
-              >
-                Break Timer
-              </h4>
-            </div>
-          </div>
-        </div>
-        <div
-          className="css-wjp2bi"
-        >
-          <a
-            backgroundColor="saltBox"
-            className="css-1akodnm"
-            color="white"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            outlineColor="gravel"
-            position="relative"
-          >
-            Visit site
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </div>

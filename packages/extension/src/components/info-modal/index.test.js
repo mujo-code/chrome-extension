@@ -1,8 +1,7 @@
+import { Button, HeaderL, BodyL } from '@mujo/ui'
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { MAX_BREAKTIMER_MODAL } from '../../constants'
-import { Button } from '../button'
-import { HeaderL, BodyL } from '../fonts'
 import { InfoModal } from '.'
 
 test('InfoModal should match snapshot', () => {

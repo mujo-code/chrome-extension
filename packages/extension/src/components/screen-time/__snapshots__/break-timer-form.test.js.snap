@@ -8,19 +8,16 @@ exports[`BreakTimerForm should match snapshot 1`] = `
     className="css-102g4jn"
   >
     <div
-      backgroundColor="saltBox"
-      className="css-b6lj8k"
+      className="css-u7gedr"
       id="break-timer"
       onClick={[Function]}
     >
       <div
-        backgroundColor="outerSpace"
-        className="css-dx4x1i"
+        className="css-1a07xhr"
       />
     </div>
     <h4
-      className="css-30v94s"
-      color="color"
+      className="css-jemg6l"
       htmlFor="break-timer"
     >
       Break Timer
@@ -40,8 +37,7 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
       className="css-j7qwjs"
     >
       <label
-        className="css-30v94s"
-        color="mischka"
+        className="css-o09rf6"
         htmlFor="break-timer-time"
       >
         <small
@@ -51,9 +47,7 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
         </small>
       </label>
       <input
-        backgroundColor="mischka"
-        className="css-50o2oe"
-        color="outerSpace"
+        className="css-1sq5wse"
         id="break-timer-time"
         onChange={[Function]}
         type="number"
@@ -65,19 +59,16 @@ exports[`BreakTimerForm should match snapshot when enabled 1`] = `
     className="css-102g4jn"
   >
     <div
-      backgroundColor="saltBox"
-      className="css-b6lj8k"
+      className="css-u7gedr"
       id="break-timer"
       onClick={[Function]}
     >
       <div
-        backgroundColor="mischka"
-        className="css-4zx0ao"
+        className="css-fc7zzi"
       />
     </div>
     <h4
-      className="css-30v94s"
-      color="color"
+      className="css-jemg6l"
       htmlFor="break-timer"
     >
       Break Timer

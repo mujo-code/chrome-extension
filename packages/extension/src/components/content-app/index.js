@@ -1,4 +1,4 @@
-import { styleGuide, Box } from '@mujo/box'
+import { Box } from '@mujo/box'
 import { useStorage } from '@mujo/plugins'
 import { useTheme, Button, Modal, BodyL, Time } from '@mujo/ui'
 import { AsyncHelpers, Extension, Url } from '@mujo/utils'
@@ -11,7 +11,6 @@ import {
   RESET_USAGE,
   TRANSLATION_FILE,
 } from '../../constants'
-import * as utilStyles from '../../styles/utils'
 import { Player } from '../player'
 import { shouldDisplayModal } from './util'
 
@@ -20,8 +19,6 @@ import '../../i18n'
 const { defer } = AsyncHelpers
 const { message } = Extension
 const { shortURL, origin } = Url
-
-styleGuide.push(utilStyles)
 
 const ContentApp = () => {
   const url = window.location.href

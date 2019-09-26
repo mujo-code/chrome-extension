@@ -11,14 +11,12 @@ exports[`SettingsItem boolean type should match snapshot 1`] = `
     className="css-kjj7d4"
   >
     <h4
-      className="css-ddfbvk"
-      color="color"
+      className="css-bog7t0"
     >
       foo
     </h4>
     <p
-      className="css-xkhwk8"
-      color="color"
+      className="css-1shpbgb"
     >
       bar
     </p>
@@ -27,13 +25,11 @@ exports[`SettingsItem boolean type should match snapshot 1`] = `
     className="css-5hlt78"
   >
     <div
-      backgroundColor="saltBox"
-      className="css-163c4dr"
+      className="css-1j6ivwb"
       onClick={[Function]}
     >
       <div
-        backgroundColor="mischka"
-        className="css-4zx0ao"
+        className="css-fc7zzi"
       />
     </div>
   </div>
@@ -51,14 +47,12 @@ exports[`SettingsItem button type should match snapshot 1`] = `
     className="css-kjj7d4"
   >
     <h4
-      className="css-ddfbvk"
-      color="color"
+      className="css-bog7t0"
     >
       foo
     </h4>
     <p
-      className="css-xkhwk8"
-      color="color"
+      className="css-1shpbgb"
     >
       bar
     </p>
@@ -67,12 +61,10 @@ exports[`SettingsItem button type should match snapshot 1`] = `
     className="css-180tdcr"
   >
     <button
-      className="css-1akodnm"
+      className="css-z7ovzb"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      outlineColor="saltBox"
-      position="relative"
     >
       baz
     </button>
@@ -91,14 +83,12 @@ exports[`SettingsItem should match snapshot 1`] = `
     className="css-kjj7d4"
   >
     <h4
-      className="css-ddfbvk"
-      color="color"
+      className="css-bog7t0"
     >
       foo
     </h4>
     <p
-      className="css-xkhwk8"
-      color="color"
+      className="css-1shpbgb"
     >
       bar
     </p>
@@ -107,13 +97,11 @@ exports[`SettingsItem should match snapshot 1`] = `
     className="css-5hlt78"
   >
     <div
-      backgroundColor="saltBox"
-      className="css-163c4dr"
+      className="css-1j6ivwb"
       onClick={[Function]}
     >
       <div
-        backgroundColor="outerSpace"
-        className="css-dx4x1i"
+        className="css-1a07xhr"
       />
     </div>
   </div>
