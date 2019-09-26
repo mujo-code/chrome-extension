@@ -1,9 +1,11 @@
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
-import { track } from '../../lib/tracker'
 import { headerS } from '../fonts/styles'
 import { ToolTip } from '../tool-tip'
+
+const { track } = Tracker
 
 const colors = {
   primary: {

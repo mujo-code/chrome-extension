@@ -1,7 +1,8 @@
+import { Extension } from '@mujo/utils'
 import { useState, useEffect, useCallback } from 'react'
-import { getStorage, setStorage } from '../lib/extension'
 import model from '../model'
 
+const { getStorage, setStorage } = Extension
 export const useStorage = key => {
   if (typeof model[key] === 'undefined') {
     throw new TypeError(`No key "${key}" found in model file`)

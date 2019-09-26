@@ -3,21 +3,20 @@ import { context } from '../../components/plugin-provider'
 
 export const useStorageClient = (key, defaultArg) => {
   const { model, extension } = useContext(context)
-  const { getStorage, setStorage } = extension
   const descriptor = model[key] || {}
   const { defaultValue = defaultArg, type } = descriptor
   const [value, setState] = useState(defaultValue)
   const [pending, setPending] = useState(true)
 
   const updateFromStore = useCallback(async () => {
-    const storageValue = await getStorage(key)
+    const storageValue = await extension.getStorage(key)
     const isUndefined = typeof storageValue === 'undefined'
     const isNull = storageValue === null
     if (isNull || isUndefined) {
       return
     }
     setState(storageValue)
-  }, [key, getStorage])
+  }, [key, extension])
 
   const updatePersistantState = useCallback(
     (val, opts = {}) => {
@@ -40,11 +39,11 @@ export const useStorageClient = (key, defaultArg) => {
       }
       if (!onlyMemory) {
         // set value
-        setStorage(key, val)
+        extension.setStorage(key, val)
       }
       setState(val)
     },
-    [setState, setStorage, key, type, updateFromStore]
+    [setState, extension, key, type, updateFromStore]
   )
 
   useEffect(() => {

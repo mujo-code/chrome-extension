@@ -1,3 +1,4 @@
+import { Extension } from '@mujo/utils'
 import { useState, useEffect } from 'react'
 import {
   ALARM_KEY,
@@ -12,8 +13,9 @@ import {
   ADD_BROADCAST_TAB,
   BREATH_AMOUNT_KEY,
 } from '../../constants'
-import { onMessage, message } from '../../lib/extension'
 import { useStorage } from '../use-storage'
+
+const { onMessage, message } = Extension
 
 export const onBackgroundMessage = updateFns => payload => {
   const { key, event } = payload

@@ -1,5 +1,6 @@
-import { first } from '../../lib/functional'
+import { Functional } from '@mujo/utils'
 
+const { first } = Functional
 const FULL_CIRCLE = 360
 const HALF_CIRCLE = 180
 

@@ -1,13 +1,13 @@
 import { PluginProvider as Provider } from '@mujo/plugins'
+import { Extension } from '@mujo/utils'
 import React from 'react'
 import * as constants from '../../constants'
 import { useExtension } from '../../hooks/use-extension'
 import { i18n } from '../../i18n'
-import * as extension from '../../lib/extension'
 import model from '../../model'
 
-// NOTE we use a proxy to allow for access to `useExtension`
-export const NTPPluginProvider = ({ children }) => {
+// client plugin providers
+export const NTPProvider = props => {
   const {
     pushTab,
     currentTab,
@@ -18,16 +18,25 @@ export const NTPPluginProvider = ({ children }) => {
   } = useExtension()
   const tabs = { pushTab, removeTab, currentTab }
   const settings = { pushSetting, removeSetting, updateSetting }
+  return <Provider {...props} tabs={tabs} settings={settings} />
+}
+
+export const PluginProvider = ({ children, env }) => {
   const props = {
-    env: 'ntp',
+    env,
     extension: {
-      ...extension,
-      i18n: { ...extension.i18n, t: i18n.t.bind(i18n) },
+      ...Extension,
+      i18n: { ...Extension.i18n, t: i18n.t.bind(i18n) },
     },
     constants,
-    tabs,
-    settings,
+    tabs: {},
+    settings: {},
     model,
   }
-  return <Provider {...props}>{children}</Provider>
+  // add additional info for ntp
+  return env === 'ntp' ? (
+    <NTPProvider {...props}>{children}</NTPProvider>
+  ) : (
+    <Provider {...props}>{children}</Provider>
+  )
 }

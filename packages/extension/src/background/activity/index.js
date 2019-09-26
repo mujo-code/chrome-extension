@@ -1,3 +1,4 @@
+import { Aggregation } from '@mujo/utils'
 import {
   SITE_TIME_KEY,
   LAST_ACTIVE_KEY,
@@ -7,11 +8,11 @@ import {
   ACTIVITY_NUMBER_KEY,
   HOUR,
 } from '../../constants'
-import { toSiteInfo, getTotalTime } from '../../lib/aggregation'
 import statsModel from '../../model'
 import { storage } from '../storage'
 import { addLatestActivity } from '../storage/index-db'
 
+const { toSiteInfo, getTotalTime } = Aggregation
 export const activityStatKeys = [
   PAGE_VIEWS_KEY,
   TOP_SITES_USAGE_KEY,

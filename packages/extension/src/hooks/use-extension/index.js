@@ -1,4 +1,5 @@
 import { IngressProvider } from '@mujo/ingress'
+import { Aggregation, Extension } from '@mujo/utils'
 import React, {
   useEffect,
   useState,
@@ -11,8 +12,6 @@ import {
   APP_READY_KEY,
   CURRENT_TAB_KEY,
 } from '../../constants'
-import { toSiteInfo } from '../../lib/aggregation'
-import { message } from '../../lib/extension'
 import { useSubscription } from '../use-subscription'
 import { decorateSelectedSegment, mapTopSites } from './transforms'
 import { useBreaktimerCallback } from './use-breaktimer-callback'
@@ -21,6 +20,9 @@ import { useModel } from './use-model'
 import { useSettings } from './use-settings'
 import { useTabs } from './use-tabs'
 import { useTopsitesAPI } from './use-topsites-api'
+
+const { toSiteInfo } = Aggregation
+const { message } = Extension
 
 const context = React.createContext()
 const { Provider } = context

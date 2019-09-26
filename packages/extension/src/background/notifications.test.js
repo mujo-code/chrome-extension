@@ -1,11 +1,13 @@
 /* eslint-disable import-order-alphabetical/order */
+import { Extension } from '@mujo/utils'
 import { ALARM_KEY } from '../constants'
-import { notifications, tabs } from '../lib/extension'
 import {
   createNotification,
   onNotificationClicked,
 } from './notifications'
 import { storage } from './storage'
+
+const { tabs, notifications } = Extension
 
 jest.mock('./tracking')
 const { track } = require('./tracking')

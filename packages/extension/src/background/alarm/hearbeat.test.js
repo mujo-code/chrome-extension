@@ -1,10 +1,15 @@
 /* eslint-disable import-order-alphabetical/order */
+import { Extension } from '@mujo/utils'
 import { HEARTBEAT } from '../../constants'
-import { alarms } from '../../lib/extension'
 import { onHeartBeat, addHeartBeat } from './heartbeat'
 
 jest.mock('../activity')
+const { alarms } = Extension
 const { isActive, resetUsage } = require('../activity')
+
+beforeEach(() => {
+  alarms.upsertAlarm = jest.fn().mockResolvedValue()
+})
 
 test('onHeartBeat should reset activity if user was inactive', async () => {
   isActive.mockResolvedValue(false)

@@ -1,7 +1,9 @@
+import { Extension } from '@mujo/utils'
 import * as Sentry from '@sentry/browser'
 import { ID_KEY } from '../constants'
 import { SENTRY_DSN, ENVIRONMENT } from '../env'
-import { getStorage } from './extension'
+
+const { getStorage } = Extension
 
 export const createTracker = ({ dsn, environment }) => {
   const hasDSN = !!dsn

@@ -1,10 +1,12 @@
 import { Box } from '@mujo/box'
+import { Aggregation } from '@mujo/utils'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { MINUTE, TRANSLATION_FILE } from '../../constants'
 import { useTheme } from '../../hooks/use-theme'
-import { getTotalTime } from '../../lib/aggregation'
 import { BodyS } from '../fonts'
+
+const { getTotalTime } = Aggregation
 
 export const hasEnoughData = (segments, data) =>
   segments.length >= 2 && getTotalTime(data) >= MINUTE

@@ -1,8 +1,10 @@
+import { Extension } from '@mujo/utils'
 import { ALARM_KEY } from '../constants'
 import { i18n } from '../i18n'
-import { notifications, tabs } from '../lib/extension'
 import { storage } from './storage'
 import { track } from './tracking'
+
+const { notifications, tabs } = Extension
 
 export const createNotification = async () => {
   const isEnabled = await storage.get(ALARM_KEY)

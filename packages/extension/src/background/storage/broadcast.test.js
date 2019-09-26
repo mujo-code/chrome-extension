@@ -1,4 +1,4 @@
-import { tabs } from '../../lib/extension'
+import { Extension } from '@mujo/utils'
 import {
   createBroadcaster,
   onTabRemoved,
@@ -8,6 +8,8 @@ import {
   containsTab,
   removeListener,
 } from './broadcast'
+
+const { tabs } = Extension
 
 test('createBroadcaster should create a broadcaster interface', () => {
   const connections = ['foo']

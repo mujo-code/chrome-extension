@@ -1,6 +1,8 @@
 // NOTE: array of tab ids
-import { tabs } from '../../lib/extension'
-import { curry } from '../../lib/functional'
+import { Functional, Extension } from '@mujo/utils'
+
+const { tabs } = Extension
+const { curry } = Functional
 
 export const containsTab = curry((connections, tabId) =>
   connections.includes(tabId)

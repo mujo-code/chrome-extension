@@ -1,4 +1,6 @@
-import { from } from '../../lib/functional'
+import { Functional } from '@mujo/utils'
+
+const { from } = Functional
 
 export class Storage {
   constructor({ version, model, storageInterface = {} }) {

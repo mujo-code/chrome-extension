@@ -1,9 +1,11 @@
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { Util } from '@mujo/utils'
 import React from 'react'
 import { useTheme } from '../../hooks/use-theme'
-import { toDashCase } from '../../lib/util'
 import { HeaderS } from '../fonts'
+
+const { toDashCase } = Util
 
 export const Input = props => {
   const { foreground, background } = useTheme()

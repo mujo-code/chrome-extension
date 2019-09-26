@@ -1,12 +1,13 @@
 import path from 'path'
+import { AsyncHelpers } from '@mujo/utils'
 import puppeteer from 'puppeteer'
 import {
   SET_STORAGE,
   SITE_TIME_KEY,
   APP_READY_KEY,
 } from './constants'
-import { wait } from './lib/async-helpers'
 
+const { wait } = AsyncHelpers
 const TEST_TIMEOUT = 20000 // extend test timeout sinces its E2E
 
 let browser

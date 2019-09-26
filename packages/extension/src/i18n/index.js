@@ -1,11 +1,11 @@
+import { Extension } from '@mujo/utils'
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { i18n as extensioni18n } from '../lib/extension'
 import { en } from './translations/en'
 import { es } from './translations/es'
 
+const { i18n: extensioni18n } = Extension
 export const i18n = i18next
-
 const defaultLang = 'en'
 
 const options = {
