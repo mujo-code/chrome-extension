@@ -11,11 +11,7 @@ jobs:
         env:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         with:
-          args: install
-      - name: Lint Code
-        uses: actions/npm@master
-        with:
-          args: run lint
+          args: run bootstrap
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:
