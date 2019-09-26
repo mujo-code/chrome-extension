@@ -1,6 +1,6 @@
 import { Box } from '@mujo/box'
+import { FixedS, FixedL } from '@mujo/ui'
 import React from 'react'
-import { FixedS, FixedL } from '../fonts'
 
 const FN_SIZE = 25
 

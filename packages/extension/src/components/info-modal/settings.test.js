@@ -1,6 +1,6 @@
+import { Switch } from '@mujo/ui'
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { Switch } from '../switch'
 import { settingsModal, SettingItem, Boolean } from './settings'
 
 test('settingsModal should return an object', () => {

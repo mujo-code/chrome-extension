@@ -1,18 +1,17 @@
 import createCache from '@emotion/cache'
 import { CacheProvider } from '@emotion/core'
+import { Font, ColorThemeProvider } from '@mujo/ui'
 import { Functional } from '@mujo/utils'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useColorScheme } from 'use-color-scheme'
 import ContentApp from './components/content-app'
-import { Font } from './components/fonts'
 import { PluginProvider } from './components/plugin-provider'
 import {
   onVisibilityChange,
   onViewingStart,
   onViewingEnd,
 } from './content/timing'
-import { ColorThemeProvider } from './hooks/use-theme'
 
 const { compose } = Functional
 const startTimer = () => {

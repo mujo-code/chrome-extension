@@ -1,7 +1,6 @@
 import { Box } from '@mujo/box'
+import { BodyS, useTheme } from '@mujo/ui'
 import React, { useState } from 'react'
-import { useTheme } from '../../hooks/use-theme'
-import { BodyS } from '../fonts'
 
 export const Tab = ({ label, selected, onClick }) => {
   const [hovered, setHovered] = useState(false)

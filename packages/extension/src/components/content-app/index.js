@@ -1,5 +1,6 @@
 import { styleGuide, Box } from '@mujo/box'
 import { useStorage } from '@mujo/plugins'
+import { useTheme, Button, Modal, BodyL, Time } from '@mujo/ui'
 import { AsyncHelpers, Extension, Url } from '@mujo/utils'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -10,13 +11,8 @@ import {
   RESET_USAGE,
   TRANSLATION_FILE,
 } from '../../constants'
-import { useTheme } from '../../hooks/use-theme'
 import * as utilStyles from '../../styles/utils'
-import { Button } from '../button'
-import { BodyL } from '../fonts'
-import { Modal } from '../modal'
 import { Player } from '../player'
-import { Time } from '../time'
 import { shouldDisplayModal } from './util'
 
 import '../../i18n'

@@ -1,7 +1,7 @@
 import { Box } from '@mujo/box'
+import { HeaderL } from '@mujo/ui'
 import { Url } from '@mujo/utils'
 import React from 'react'
-import { HeaderL } from '../fonts'
 
 const { shortURL } = Url
 

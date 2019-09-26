@@ -1,11 +1,10 @@
 import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { useTheme, HeaderL, HeaderS } from '@mujo/ui'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
-import { useTheme } from '../../hooks/use-theme'
-import { HeaderL, HeaderS } from '../fonts'
 import { useAnimations, transition } from './use-animations'
 
 const fadeInGroup = css({

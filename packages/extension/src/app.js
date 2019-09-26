@@ -1,6 +1,7 @@
 import { css, Global } from '@emotion/core'
-import { Box, styleGuide } from '@mujo/box'
+import { Box } from '@mujo/box'
 import { IngressTarget } from '@mujo/ingress'
+import { colors, useTheme } from '@mujo/ui'
 import React, { memo } from 'react'
 import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
@@ -11,12 +12,7 @@ import { Tabs } from './components/tabs'
 import { TopSites } from './components/top-sites'
 import { TABS_TARGET } from './constants'
 import { useExtension } from './hooks/use-extension'
-import { useTheme } from './hooks/use-theme'
-import { colors } from './styles/colors'
-import * as utilStyles from './styles/utils'
 import './i18n'
-
-styleGuide.push(utilStyles)
 
 const radialGradient = (centerColor, outerColor) => {
   const params = [

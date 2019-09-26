@@ -1,13 +1,12 @@
+import { Font, ColorThemeProvider } from '@mujo/ui'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useColorScheme } from 'use-color-scheme'
 import App from './app'
 import { ErrorBox } from './components/error-box'
-import { Font } from './components/fonts'
 import { PluginProvider } from './components/plugin-provider'
 import { ExtensionProvider } from './hooks/use-extension'
 import { SubscriptionProvider } from './hooks/use-subscription'
-import { ColorThemeProvider } from './hooks/use-theme'
 
 import '@mujo/utils'
 

@@ -1,7 +1,7 @@
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { colors } from '@mujo/ui'
 import React from 'react'
-import { colors } from '../../styles/colors'
 
 export const BarGraph = props => {
   const { percent, barColor, backgroundColor, height } = props
