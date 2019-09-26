@@ -35,13 +35,13 @@
     "@emotion/core": "^10.0.14",
     "@mujo/eslint-config": "^1.0.4",
     "@mujo/ingress": "^0.1.0",
+    "@mujo/jest-webextension-mock": "^3.5.0",
     "@testing-library/react": "^9.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^5.16.0",
     "jest": "^24.9.0",
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-image-snapshot": "^2.9.0",
-    "@mujo/jest-webextension-mock": "^3.5.0",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "^0.3.1",
     "prettier": "^1.17.1",
@@ -51,8 +51,8 @@
   },
   "peerDependencies": {
     "@emotion/core": ">=10.0.14",
-    "react": ">=16.8.6",
-    "@mujo/ingress": ">=0.1.0"
+    "@mujo/ingress": ">=0.1.0",
+    "react": ">=16.8.6"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -101,6 +101,7 @@
     "last 3 Chrome versions"
   ],
   "dependencies": {
+    "@mujo/jest-webextension-mock": "^3.5.0",
     "punycode": "^2.1.1"
   }
 }

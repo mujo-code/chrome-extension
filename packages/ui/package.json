@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/mujo-code/plugins#readme",
   "scripts": {
+    "test": "npm run lint && jest",
     "fmt": "prettier '{src,public}/**/*.js' --write",
     "lint": "eslint '{src,public}/**/*.js'",
     "build": "babel src --out-dir dist",
@@ -31,8 +32,10 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.6.0",
     "@emotion/core": "^10.0.14",
+    "@mujo/box": "^3.0.1",
     "@mujo/eslint-config": "^1.0.4",
     "@mujo/ingress": "^0.1.0",
+    "@mujo/utils": "*",
     "@testing-library/react": "^9.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^5.16.0",
@@ -44,14 +47,21 @@
     "prettier": "^1.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-modal": "^3.10.1",
     "react-test-renderer": "^16.9.0"
   },
   "peerDependencies": {
     "@emotion/core": ">=10.0.14",
+    "@mujo/box": "^3.0.1",
+    "@mujo/ingress": ">=0.1.0",
+    "@mujo/utils": "*",
     "react": ">=16.8.6",
-    "@mujo/ingress": ">=0.1.0"
+    "react-modal": ">=3.10.1"
   },
   "jest": {
+    "setupFiles": [
+      "@mujo/jest-webextension-mock"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{js}"
     ],
@@ -89,5 +99,9 @@
   },
   "browserslist": [
     "last 3 Chrome versions"
-  ]
+  ],
+  "dependencies": {
+    "@mujo/jest-webextension-mock": "^3.5.0",
+    "react-feather": "^2.0.3"
+  }
 }

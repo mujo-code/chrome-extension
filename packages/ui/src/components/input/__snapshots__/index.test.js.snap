@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should match snapshot 1`] = `
+<div
+  className="css-j7qwjs"
+>
+  <label
+    className="css-7pyckm"
+    color="mischka"
+    htmlFor="label-is-required"
+  >
+    <small
+      className="css-0"
+    >
+      Label is Required
+    </small>
+  </label>
+  <input
+    backgroundColor="mischka"
+    className="css-yd3hjj"
+    color="outerSpace"
+    id="label-is-required"
+    type="text"
+  />
+</div>
+`;
