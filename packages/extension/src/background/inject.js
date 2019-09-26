@@ -1,6 +1,7 @@
+import { Extension } from '@mujo/utils'
 import { SCREEN_TIME_PERMISSIONS } from '../constants'
-import { tabs, permissions } from '../lib/extension'
 
+const { tabs, permissions } = Extension
 const BLACK_LIST = ['about:blank', 'chrome']
 const MAP_PATTERN = /map/
 const CONTENT_PATTERN = /content|vendor/

@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "start": "cd packages/extension && npm run start"
+    "start": "cd packages/extension && npm run start",
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test"
   },
   "devDependencies": {
     "lerna": "^3.16.4",

@@ -1,3 +1,4 @@
+import { Util } from '@mujo/utils'
 import { openDB } from 'idb'
 import {
   DATABASE_NAME,
@@ -7,10 +8,11 @@ import {
   ACTIVITY_NUMBER_KEY,
   VALUE_CHANGED,
 } from '../../constants'
-import { set } from '../../lib/util'
 import { broadcaster } from './broadcast'
 import { migrate } from './migrations'
 import { types } from './types'
+
+const { set } = Util
 
 export const open = async () =>
   openDB(DATABASE_NAME, DATABASE_VERSION, {

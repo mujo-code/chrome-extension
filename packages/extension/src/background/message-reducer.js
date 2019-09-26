@@ -1,3 +1,4 @@
+import { Extension } from '@mujo/utils'
 import EventEmitter from 'eventemitter3'
 import {
   NEW_TAB_CONNECTION,
@@ -11,7 +12,6 @@ import {
   REMOVE_BROADCAST_TAB,
   MESSAGE,
 } from '../constants'
-import { tabs } from '../lib/extension'
 import {
   setLastActive,
   resetUsage,
@@ -21,6 +21,8 @@ import {
 import { onGetStorage, onSetStorage } from './storage'
 import { broadcaster } from './storage/broadcast'
 import { track } from './tracking'
+
+const { tabs } = Extension
 
 export const messageEmitter = new EventEmitter()
 

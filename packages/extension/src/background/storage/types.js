@@ -1,5 +1,7 @@
-import { identity } from '../../lib/functional'
-import { toString } from '../../lib/util'
+import { Functional, Util } from '@mujo/utils'
+
+const { identity } = Functional
+const { toString } = Util
 
 export const types = ['object', 'string', 'boolean', 'number']
 

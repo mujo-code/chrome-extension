@@ -1,6 +1,12 @@
+import { Extension } from '@mujo/utils'
 import { SCREEN_TIME_PERMISSIONS } from '../constants'
-import { tabs, permissions } from '../lib/extension'
 import { injectScript, getScripts } from './inject'
+
+beforeEach(() => {
+  Extension.permissions.contains = jest.fn()
+})
+
+const { tabs, permissions } = Extension
 
 test('getScripts should filter vendor or content scripts', async () => {
   const manifest = {

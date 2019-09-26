@@ -1,4 +1,4 @@
-import { GET_STORAGE, SET_STORAGE } from '../constants'
+import { GET_STORAGE, SET_STORAGE } from './constants'
 import { promisifyObject } from './promisify'
 /*
   Extension Lib
@@ -57,10 +57,4 @@ export const alarms = {
 // TODO add mapping for "t"
 export const i18n = { ...chrome.i18n }
 
-export const {
-  notifications,
-  tabs,
-  webNavigation,
-  runtime,
-  topSites,
-} = chrome
+export const { notifications, tabs, webNavigation, runtime, topSites } = chrome

@@ -1,6 +1,8 @@
-import { identity } from '../../lib/functional'
-import { set } from '../../lib/util'
+import { Functional, Util } from '@mujo/utils'
 import { Storage } from './storage'
+
+const { identity } = Functional
+const { set } = Util
 
 test('Storage.from should create a new instance of Storage', () => {
   expect(Storage.from({})).toBeInstanceOf(Storage)

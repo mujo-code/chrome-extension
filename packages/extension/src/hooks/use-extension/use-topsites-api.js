@@ -1,5 +1,7 @@
+import { Extension } from '@mujo/utils'
 import { useState, useEffect } from 'react'
-import { topSites } from '../../lib/extension'
+
+const { topSites } = Extension
 
 export const useTopsitesAPI = ({ setTopSites }) => {
   const [hasRefreshTopSites, setHasReefreshedTopSites] = useState(

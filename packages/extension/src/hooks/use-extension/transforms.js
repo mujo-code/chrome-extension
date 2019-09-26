@@ -1,5 +1,7 @@
-import { first } from '../../lib/functional'
-import { set } from '../../lib/util'
+import { Functional, Util } from '@mujo/utils'
+
+const { first } = Functional
+const { set } = Util
 
 export const decorateSelectedSegment = ({
   selectedSegment,

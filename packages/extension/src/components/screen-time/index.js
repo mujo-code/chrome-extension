@@ -1,5 +1,6 @@
 import { Box } from '@mujo/box'
 import { Tab, Setting } from '@mujo/plugins'
+import { Aggregation } from '@mujo/utils'
 import React, { useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -9,7 +10,6 @@ import {
 import { useExtension } from '../../hooks/use-extension'
 import { usePermissions } from '../../hooks/use-permissions'
 import { useTheme } from '../../hooks/use-theme'
-import { siteTimeToChartData } from '../../lib/aggregation'
 import { HeaderS, Sup, BodyS } from '../fonts'
 import { Graph } from '../graph'
 import { Switch } from '../switch'
@@ -17,6 +17,8 @@ import { ToolTip } from '../tool-tip'
 import { Modal } from './modal'
 import { NotEnoughData, hasEnoughData } from './not-enough-data'
 import { reduceSegmentToUrls } from './reducer'
+
+const { siteTimeToChartData } = Aggregation
 
 export const ScreenTime = () => {
   const {

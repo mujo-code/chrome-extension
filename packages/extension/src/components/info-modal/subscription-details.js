@@ -1,29 +1,9 @@
+import { Functional } from '@mujo/utils'
 import React from 'react'
 import { CURRENT_SUB_SKU, SUB_SUCCESS_MODAL } from '../../constants'
-import { first, noop } from '../../lib/functional'
 import { PurchaseError } from './purchase-error'
 
-// const mockProduct = {
-//   kind: 'chromewebstore#inAppProduct',
-//   sku: 'foo',
-//   item_id: 'foo',
-//   type: 'inapp',
-//   state: 'ACTIVE',
-//   prices: [
-//     {
-//       valueMicros: '990000',
-//       currencyCode: 'USD',
-//       regionCode: 'US',
-//     },
-//   ],
-//   localeData: [
-//     {
-//       title: 'Foo',
-//       description: 'Foo bar baz',
-//       languageCode: 'all',
-//     },
-//   ],
-// }
+const { first, noop } = Functional
 
 export const subscriptionDetails = (
   context,

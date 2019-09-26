@@ -1,9 +1,10 @@
+import { Time } from '@mujo/utils'
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { minutesToMS } from '../../lib/time'
 import { Input } from '../input'
 import { BreakTimerForm } from './break-timer-form'
 
+const { minutesToMS } = Time
 test('BreakTimerForm should match snapshot', () => {
   const tree = create(<BreakTimerForm />).toJSON()
   expect(tree).toMatchSnapshot()

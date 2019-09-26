@@ -1,4 +1,4 @@
-import { FOURTY_FIVE_MINUTES } from '../constants'
+import { FOURTY_FIVE_MINUTES } from './constants'
 import { shortURL } from './url'
 import { set } from './util'
 

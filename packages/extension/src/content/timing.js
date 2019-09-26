@@ -1,5 +1,6 @@
-import { message } from '../lib/extension'
+import { Extension } from '@mujo/utils'
 
+const { message } = Extension
 let count = 0
 const { performance } = window
 

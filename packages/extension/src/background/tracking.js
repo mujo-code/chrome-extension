@@ -1,6 +1,8 @@
+import { Promisify, Util } from '@mujo/utils'
 import ua from 'universal-analytics'
-import { promisifyNode } from '../lib/promisify'
-import { set } from '../lib/util'
+
+const { promisifyNode } = Promisify
+const { set } = Util
 
 export const GTM_JS = 'https://www.googletagmanager.com/gtm.js'
 

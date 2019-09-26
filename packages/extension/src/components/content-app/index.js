@@ -1,4 +1,6 @@
 import { styleGuide, Box } from '@mujo/box'
+import { useStorage } from '@mujo/plugins'
+import { AsyncHelpers, Extension, Url } from '@mujo/utils'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -8,11 +10,7 @@ import {
   RESET_USAGE,
   TRANSLATION_FILE,
 } from '../../constants'
-import { useStorage } from '../../hooks/use-storage'
 import { useTheme } from '../../hooks/use-theme'
-import { defer } from '../../lib/async-helpers'
-import { message } from '../../lib/extension'
-import { shortURL, origin } from '../../lib/url'
 import * as utilStyles from '../../styles/utils'
 import { Button } from '../button'
 import { BodyL } from '../fonts'
@@ -22,6 +20,10 @@ import { Time } from '../time'
 import { shouldDisplayModal } from './util'
 
 import '../../i18n'
+
+const { defer } = AsyncHelpers
+const { message } = Extension
+const { shortURL, origin } = Url
 
 styleGuide.push(utilStyles)
 

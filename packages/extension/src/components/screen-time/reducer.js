@@ -1,12 +1,6 @@
-import { find } from '../../lib/find'
-/*
-// selectedSegement
-{
-  label: { children: 'google.com' },
-  originalData: { google.com: 23232.232, ... }
-}
-*/
+import { Find } from '@mujo/utils'
 
+const { find } = Find
 const makeNicePercent = percent => Math.floor(percent * 100)
 
 export const reduceSelectedSegment = (

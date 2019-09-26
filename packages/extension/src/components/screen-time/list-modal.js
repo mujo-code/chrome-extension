@@ -1,7 +1,9 @@
 import { Box } from '@mujo/box'
+import { Url } from '@mujo/utils'
 import React from 'react'
-import { shortURL } from '../../lib/url'
 import { HeaderL } from '../fonts'
+
+const { shortURL } = Url
 
 export const ListModal = ({
   theme: { foregroundSecondary },

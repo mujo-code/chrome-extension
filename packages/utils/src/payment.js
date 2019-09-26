@@ -1,4 +1,3 @@
-import { tracker } from './error-tracker'
 import { promisifyOptions } from './promisify'
 import { track } from './tracker'
 import { set } from './util'
@@ -22,10 +21,7 @@ export const getProducts = async () => {
 
 export const getPurchases = async () => {
   const options = { parameters: { env } }
-  const response = await promisifyOptions(
-    paymentsAPI().getPurchases,
-    options
-  )
+  const response = await promisifyOptions(paymentsAPI().getPurchases, options)
   return response.response.details
 }
 
@@ -48,11 +44,8 @@ export const buy = async sku => {
   } catch (e) {
     // Logging error
     const type = e.response.errorType
-    const paymentError = new Error(
-      `Failed to purchase subscription [${type})]`
-    )
+    const paymentError = new Error(`Failed to purchase subscription [${type})]`)
     set(paymentError, 'stack', stack)
-    tracker.exception(paymentError)
     track({
       category: 'payment',
       action: 'error',

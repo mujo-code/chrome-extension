@@ -1,5 +1,7 @@
+import { Url } from '@mujo/utils'
 import { useEffect } from 'react'
-import { queryParams, shortURL, origin } from '../../lib/url'
+
+const { queryParams, shortURL, origin } = Url
 
 export const useDeeplink = ({
   appReady,

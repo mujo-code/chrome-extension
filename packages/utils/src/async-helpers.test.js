@@ -1,9 +1,4 @@
-import {
-  wait,
-  defer,
-  composePromises,
-  pipePromises,
-} from './async-helpers'
+import { wait, defer, composePromises, pipePromises } from './async-helpers'
 
 test('wait should wait pause a function execution', async () => {
   const timeout = 0

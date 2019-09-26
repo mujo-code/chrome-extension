@@ -1,3 +1,4 @@
+import { Payment, Functional } from '@mujo/utils'
 import React, {
   useState,
   useEffect,
@@ -5,12 +6,8 @@ import React, {
   useContext,
 } from 'react'
 import { ACTIVE_PRODUCT } from '../constants'
-import { compose, first } from '../lib/functional'
-import {
-  buy as buyProduct,
-  getPurchases,
-  getProducts,
-} from '../lib/payment'
+
+const { compose, first } = Functional
 
 export const activeProducts = products =>
   products.filter(product => product.state === ACTIVE_PRODUCT)
@@ -26,8 +23,8 @@ export const hydrate = async ({ setProducts, setUser }) => {
     setUser,
     userFactory
   )
-  hydrateUser(await getPurchases())
-  setProducts(await getProducts())
+  hydrateUser(await Payment.getPurchases())
+  setProducts(await Payment.getProducts())
 }
 
 const context = React.createContext({ user: userFactory([]) })
@@ -46,7 +43,7 @@ export const SubscriptionProvider = props => {
     async sku => {
       setPurchaseError(null) // reset error
       try {
-        await buyProduct(sku)
+        await Payment.buy(sku)
       } catch (e) {
         setPurchaseError(e)
         return
@@ -78,8 +75,6 @@ export const SubscriptionProvider = props => {
     purchaseError,
     user,
   }
-  // eslint-disable-next-line no-underscore-dangle
-  window.__MUJO_SUBSCRIPTION__ = value
   return <Provider {...props} value={value} />
 }
 

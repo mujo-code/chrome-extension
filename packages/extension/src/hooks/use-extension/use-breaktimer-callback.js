@@ -1,3 +1,4 @@
+import { Url, Util } from '@mujo/utils'
 import { useCallback } from 'react'
 import {
   MAX_BREAKTIMER_MODAL,
@@ -5,8 +6,9 @@ import {
   SUB_DETAILS_MODAL,
   CURRENT_SUB_SKU,
 } from '../../constants'
-import { shortURL } from '../../lib/url'
-import { create } from '../../lib/util'
+
+const { shortURL } = Url
+const { create } = Util
 
 export const useBreaktimerCallback = ({
   breakTimers,

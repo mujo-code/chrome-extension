@@ -9,9 +9,7 @@ test('shortUrl should return the hostname of a url', () => {
 })
 
 test('queryParams should return an object of search params in url', () => {
-  expect(
-    queryParams('https://foo.com/bar?foo=bar&baz=q%C3%BCx')
-  ).toEqual({
+  expect(queryParams('https://foo.com/bar?foo=bar&baz=q%C3%BCx')).toEqual({
     foo: 'bar',
     baz: 'qüx',
   })

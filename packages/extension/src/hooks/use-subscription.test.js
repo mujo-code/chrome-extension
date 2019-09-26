@@ -1,3 +1,4 @@
+import { Payment } from '@mujo/utils'
 import { renderHook, act } from '@testing-library/react-hooks'
 import { ACTIVE_PRODUCT, CANCELLED_PRODUCT } from '../constants'
 import {
@@ -6,16 +7,21 @@ import {
   SubscriptionProvider,
 } from './use-subscription'
 
-jest.mock('../lib/payment')
-/* eslint-disable-next-line import-order-alphabetical/order */
-const { getPurchases, getProducts, buy } = require('../lib/payment')
-
 const hookOptions = { wrapper: SubscriptionProvider }
 
 beforeEach(() => {
-  getPurchases.mockReset()
-  getProducts.mockReset()
-  buy.mockReset()
+  global.google = {
+    payments: {
+      inapp: {
+        getSkuDetails: jest.fn(),
+        buy: jest.fn(),
+        getPurchases: jest.fn(),
+      },
+    },
+  }
+  Payment.getPurchases = jest.fn()
+  Payment.buy = jest.fn()
+  Payment.getProducts = jest.fn()
 })
 
 test('activeProduct should filter to only active products', () => {
@@ -27,8 +33,8 @@ test('activeProduct should filter to only active products', () => {
 })
 
 test('useSubscription should initialize products and purchases', async () => {
-  getPurchases.mockResolvedValue([{ state: ACTIVE_PRODUCT }])
-  getProducts.mockResolvedValue(['foo', 'bar'])
+  Payment.getPurchases.mockResolvedValue([{ state: ACTIVE_PRODUCT }])
+  Payment.getProducts.mockResolvedValue(['foo', 'bar'])
   const { result, waitForNextUpdate } = renderHook(
     () => useSubscription(),
     hookOptions
@@ -44,8 +50,10 @@ test('useSubscription should initialize products and purchases', async () => {
 })
 
 test('useSubscription should be unsubbed if not active product', async () => {
-  getPurchases.mockResolvedValue([{ state: CANCELLED_PRODUCT }])
-  getProducts.mockResolvedValue(['foo', 'bar'])
+  Payment.getPurchases.mockResolvedValue([
+    { state: CANCELLED_PRODUCT },
+  ])
+  Payment.getProducts.mockResolvedValue(['foo', 'bar'])
   const { result, waitForNextUpdate } = renderHook(
     () => useSubscription(),
     hookOptions
@@ -57,9 +65,9 @@ test('useSubscription should be unsubbed if not active product', async () => {
 })
 
 test('useSubscription a failure to buy should set purchaseError', async () => {
-  getPurchases.mockResolvedValue([])
-  getProducts.mockResolvedValue([])
-  buy.mockRejectedValue(new Error('fail'))
+  Payment.getPurchases.mockResolvedValue([])
+  Payment.getProducts.mockResolvedValue([])
+  Payment.buy.mockRejectedValue(new Error('fail'))
   const { result, waitForNextUpdate } = renderHook(
     () => useSubscription(),
     hookOptions

@@ -1,0 +1,1 @@
+global.google = { payments: { inapp: {} } }

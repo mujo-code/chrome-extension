@@ -1,7 +1,9 @@
+import { Extension, Time } from '@mujo/utils'
 import { HEARTBEAT, FOURTY_FIVE_MINUTES } from '../../constants'
-import { alarms } from '../../lib/extension'
-import { msToMinutes } from '../../lib/time'
 import { isActive, resetUsage } from '../activity'
+
+const { alarms } = Extension
+const { msToMinutes } = Time
 
 export const onHeartBeat = async () => {
   const active = await isActive()

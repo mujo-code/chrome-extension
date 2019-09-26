@@ -2,6 +2,7 @@
 import './background/pollyfill'
 /* eslint-enable */
 
+import { AsyncHelpers, Extension } from '@mujo/utils'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { alarmReducer, initAlarms } from './background/alarm'
@@ -11,14 +12,9 @@ import { reducer } from './background/message-reducer'
 import { onNotificationClicked } from './background/notifications'
 import { initTracking } from './background/tracking'
 import { BackgroundApp } from './components/background-app'
-import { composePromises } from './lib/async-helpers'
-import {
-  onMessage,
-  alarms,
-  webNavigation,
-  notifications,
-} from './lib/extension'
 
+const { onMessage, alarms, webNavigation, notifications } = Extension
+const { composePromises } = AsyncHelpers
 const element = document.createElement('div')
 const startReactApp = () => {
   ReactDOM.render(<BackgroundApp />, element)

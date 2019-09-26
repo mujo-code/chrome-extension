@@ -1,8 +1,10 @@
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { Functional } from '@mujo/utils'
 import React from 'react'
 import { useTheme } from '../../hooks/use-theme'
-import { noop } from '../../lib/functional'
+
+const { noop } = Functional
 
 const radius = {
   m: 16,

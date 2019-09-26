@@ -1,5 +1,7 @@
+import { Extension } from '@mujo/utils'
 import { useState, useEffect, useCallback } from 'react'
-import { permissions } from '../lib/extension'
+
+const { permissions } = Extension
 
 export const usePermissions = perms => {
   const [hasPermission, setHasPermission] = useState(false)

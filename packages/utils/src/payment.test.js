@@ -45,8 +45,8 @@ test('getProducts should resolve a list of products', async () => {
       },
     },
   }
-  window.google.payments.inapp.getSkuDetails.mockImplementation(
-    options => options.success(mockResponse)
+  window.google.payments.inapp.getSkuDetails.mockImplementation(options =>
+    options.success(mockResponse)
   )
   const results = await getProducts()
   expect(results).toEqual(products)
@@ -64,8 +64,8 @@ test('getPurchases should resolve a list of products', async () => {
     },
   ]
   const mockResponse = { response: { details: purchases } }
-  window.google.payments.inapp.getPurchases.mockImplementation(
-    options => options.success(mockResponse)
+  window.google.payments.inapp.getPurchases.mockImplementation(options =>
+    options.success(mockResponse)
   )
   const results = await getPurchases()
   expect(results).toEqual(purchases)
