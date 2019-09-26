@@ -1,10 +1,7 @@
 import { Box } from '@mujo/box'
+import { Button, HeaderS, BodyS, Input, Switch } from '@mujo/ui'
 import React from 'react'
 import { i18n } from '../../i18n'
-import { Button } from '../button'
-import { HeaderS, BodyS } from '../fonts'
-import { Input } from '../input'
-import { Switch } from '../switch'
 
 export const Boolean = ({
   onChange,

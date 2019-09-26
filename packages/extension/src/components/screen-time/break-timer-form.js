@@ -1,4 +1,5 @@
 import { Box } from '@mujo/box'
+import { HeaderS, Input, Switch } from '@mujo/ui'
 import { Time } from '@mujo/utils'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -6,9 +7,6 @@ import {
   FOURTY_FIVE_MINUTES,
   TRANSLATION_FILE,
 } from '../../constants'
-import { HeaderS } from '../fonts'
-import { Input } from '../input'
-import { Switch } from '../switch'
 
 const { msToMinutes, minutesToMS } = Time
 export const BreakTimerForm = props => {

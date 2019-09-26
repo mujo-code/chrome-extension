@@ -92,6 +92,7 @@ module.exports = {
   react: resolveApp('node_modules/react'),
   pluginsLib: resolveApp('node_modules/@mujo/plugins'),
   ingressLib: resolveApp('node_modules/@mujo/ingress'),
+  boxLib: resolveApp('node_modules/@mujo/box'),
 }
 
 module.exports.moduleFileExtensions = moduleFileExtensions

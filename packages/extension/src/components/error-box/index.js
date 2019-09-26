@@ -1,11 +1,11 @@
 import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
+import { HeaderL } from '@mujo/ui'
 import ErrorStackParser from 'error-stack-parser'
 import React from 'react'
 import { ENVIRONMENT } from '../../env'
 import { i18n } from '../../i18n'
 import { tracker } from '../../lib/error-tracker'
-import { HeaderL } from '../fonts'
 import { Frames } from './frames'
 import { Message } from './message'
 

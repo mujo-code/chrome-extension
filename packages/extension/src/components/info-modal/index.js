@@ -1,12 +1,9 @@
 import { Box } from '@mujo/box'
+import { useTheme, Button, HeaderL, Modal } from '@mujo/ui'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
 import { useSubscription } from '../../hooks/use-subscription'
-import { useTheme } from '../../hooks/use-theme'
-import { Button } from '../button'
-import { HeaderL } from '../fonts'
-import { Modal } from '../modal'
 import { Description } from './description'
 import { getModalData } from './modal-data'
 

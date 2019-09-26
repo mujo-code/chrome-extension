@@ -1,5 +1,15 @@
 import { Box } from '@mujo/box'
 import { Tab, Setting } from '@mujo/plugins'
+import {
+  useTheme,
+  HeaderS,
+  Sup,
+  BodyS,
+  Graph,
+  Switch,
+  ToolTip,
+  Modal,
+} from '@mujo/ui'
 import { Aggregation } from '@mujo/utils'
 import React, { useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -9,12 +19,6 @@ import {
 } from '../../constants'
 import { useExtension } from '../../hooks/use-extension'
 import { usePermissions } from '../../hooks/use-permissions'
-import { useTheme } from '../../hooks/use-theme'
-import { HeaderS, Sup, BodyS } from '../fonts'
-import { Graph } from '../graph'
-import { Switch } from '../switch'
-import { ToolTip } from '../tool-tip'
-import { Modal } from './modal'
 import { NotEnoughData, hasEnoughData } from './not-enough-data'
 import { reduceSegmentToUrls } from './reducer'
 

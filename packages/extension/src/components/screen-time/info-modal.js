@@ -1,13 +1,11 @@
 import { Box } from '@mujo/box'
+import { Button, HeaderL, BodyS, BodyL, Time } from '@mujo/ui'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   BREAK_TIMER_FEATURE,
   TRANSLATION_FILE,
 } from '../../constants'
-import { Button } from '../button'
-import { HeaderL, BodyS, BodyL } from '../fonts'
-import { Time } from '../time'
 import { BarGraph } from './bar-graph'
 import { BreakTimerForm } from './break-timer-form'
 

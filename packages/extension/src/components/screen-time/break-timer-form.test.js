@@ -1,7 +1,7 @@
+import { Input } from '@mujo/ui'
 import { Time } from '@mujo/utils'
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { Input } from '../input'
 import { BreakTimerForm } from './break-timer-form'
 
 const { minutesToMS } = Time

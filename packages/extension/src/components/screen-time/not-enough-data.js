@@ -1,10 +1,9 @@
 import { Box } from '@mujo/box'
+import { BodyS, useTheme } from '@mujo/ui'
 import { Aggregation } from '@mujo/utils'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { MINUTE, TRANSLATION_FILE } from '../../constants'
-import { useTheme } from '../../hooks/use-theme'
-import { BodyS } from '../fonts'
 
 const { getTotalTime } = Aggregation
 

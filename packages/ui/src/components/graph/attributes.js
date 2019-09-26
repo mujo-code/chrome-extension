@@ -21,11 +21,7 @@ export const zipData = originalData => (angles, i) => ({
   originalData: originalData[i].originalData,
 })
 
-export const getPathAttributes = ({
-  angles,
-  getInnerPoint,
-  radius,
-}) => {
+export const getPathAttributes = ({ angles, getInnerPoint, radius }) => {
   const start = getInnerPoint(angles[0])
   const end = getInnerPoint(angles[1])
   const largeArcFlag = angles[1] - angles[0] <= 180 ? '0' : '1'
@@ -47,9 +43,7 @@ export const getLabelAttributes = ({
   rotateGraph,
 }) => {
   const fullAngle = angles[1] - angles[0]
-  const labelPoint = getOuterPoint(
-    angles[0] + fullAngle / 2 + rotateGraph
-  )
+  const labelPoint = getOuterPoint(angles[0] + fullAngle / 2 + rotateGraph)
   const isBelowCenter = labelPoint.y > center[1]
   const isRightOfCenter = labelPoint.x > center[0]
   const textAnchor = isRightOfCenter ? 'start' : 'end'
@@ -119,17 +113,12 @@ export const createGraphAttibutes = (passedOptions = {}) => {
   }
 
   const getInnerPoint = getCirclePoint(center, radius)
-  const getOuterPoint = getCirclePoint(
-    center,
-    radius + labelRadiusOffest
-  )
+  const getOuterPoint = getCirclePoint(center, radius + labelRadiusOffest)
   const removeSpacing = angle => angle - spacingAngle
 
   let lastAggregated = false
 
-  const sortedData = data.sort(
-    (next, prev) => prev.percent - next.percent
-  )
+  const sortedData = data.sort((next, prev) => prev.percent - next.percent)
 
   return sortedData
     .map(toPercents)
@@ -144,10 +133,7 @@ export const createGraphAttibutes = (passedOptions = {}) => {
       } else {
         const rest = allSegments.slice(i)
         const previousSegment = allSegments[i - 1]
-        const originalData = Object.assign(
-          {},
-          ...rest.map(r => r.originalData)
-        )
+        const originalData = Object.assign({}, ...rest.map(r => r.originalData))
         const urls = Object.keys(originalData)
 
         let startAngle = previousSegment.angles[1] + spacingAngle

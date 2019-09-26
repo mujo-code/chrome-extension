@@ -7,9 +7,8 @@ exports[`Header component matches open snapshot 1`] = `
   position="relative"
 >
   <div
-    className="css-1cq7tb4"
+    className="css-4rodaq"
     onClick={[Function]}
-    position="absolute"
   >
     <svg
       fill="none"
@@ -71,9 +70,7 @@ exports[`Header component matches open snapshot 1`] = `
         className="css-1itd6tp"
       >
         <text
-          className="css-pdmncd"
-          color="color"
-          fill="outerSpace"
+          className="css-htf91a"
           textAnchor="middle"
           x={512}
           y={392}
@@ -81,9 +78,7 @@ exports[`Header component matches open snapshot 1`] = `
           Breathe in
         </text>
         <text
-          className="css-13elofn"
-          color="color"
-          fill="outerSpace"
+          className="css-1u04o22"
           textAnchor="middle"
           x={512}
           y={392}
@@ -91,9 +86,7 @@ exports[`Header component matches open snapshot 1`] = `
           Breathe out
         </text>
         <text
-          className="css-1tprw8m"
-          color="color"
-          fill="mischka"
+          className="css-1ll0n0l"
           textAnchor="middle"
           x={512}
           y={752}
@@ -101,9 +94,7 @@ exports[`Header component matches open snapshot 1`] = `
           0
         </text>
         <text
-          className="css-1vhvvnq"
-          color="color"
-          fill="outerSpace"
+          className="css-1ep9p9z"
           textAnchor="middle"
           x={512}
           y={392}
@@ -112,27 +103,19 @@ exports[`Header component matches open snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-0"
-    position="relative"
+    className="css-79elbk"
   >
     <div
-      className="css-1cncp8y"
-      position="absolute"
+      className="css-4pw2fe"
     >
       <span
-        backgroundColor="mischka"
-        className="css-1bxc77d"
-        color="outerSpace"
-        position="relative"
+        className="css-xrmt9z"
       >
         <div
-          backgroundColor="mischka"
-          className="css-34aj3n"
-          position="absolute"
+          className="css-1as2nky"
         />
         <div
-          className="css-4obz46"
-          position="relative"
+          className="css-91tplw"
         >
           Take a break
         </div>
@@ -149,9 +132,8 @@ exports[`Header component matches snapshot 1`] = `
   position="relative"
 >
   <div
-    className="css-z2kty0"
+    className="css-1kyoofh"
     onClick={[Function]}
-    position="absolute"
   >
     <svg
       fill="none"
@@ -213,9 +195,7 @@ exports[`Header component matches snapshot 1`] = `
         className="css-1itd6tp"
       >
         <text
-          className="css-1i93ua"
-          color="color"
-          fill="outerSpace"
+          className="css-dywesz"
           textAnchor="middle"
           x={NaN}
           y={NaN}
@@ -224,27 +204,19 @@ exports[`Header component matches snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-0"
-    position="relative"
+    className="css-79elbk"
   >
     <div
-      className="css-1cncp8y"
-      position="absolute"
+      className="css-4pw2fe"
     >
       <span
-        backgroundColor="mischka"
-        className="css-1bxc77d"
-        color="outerSpace"
-        position="relative"
+        className="css-xrmt9z"
       >
         <div
-          backgroundColor="mischka"
-          className="css-34aj3n"
-          position="absolute"
+          className="css-1as2nky"
         />
         <div
-          className="css-4obz46"
-          position="relative"
+          className="css-91tplw"
         >
           Take a break
         </div>

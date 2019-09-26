@@ -56,19 +56,11 @@ const trianglePositions = {
 export const ToolTip = props => {
   const { isOpen, below, offset } = props
   const { foreground, background } = useTheme()
-  const styles = below
-    ? toolTipPositions.below
-    : toolTipPositions.above
+  const styles = below ? toolTipPositions.below : toolTipPositions.above
   const triangleStyles = below
     ? trianglePositions.below
     : trianglePositions.above
-  const otherProps = removeKeys(
-    props,
-    'isOpen',
-    'children',
-    'below',
-    'offset'
-  )
+  const otherProps = removeKeys(props, 'isOpen', 'children', 'below', 'offset')
   return (
     <Box position="relative">
       <Box

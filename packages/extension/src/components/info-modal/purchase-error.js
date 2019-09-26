@@ -1,5 +1,5 @@
+import { BodyS } from '@mujo/ui'
 import React from 'react'
-import { BodyS } from '../fonts'
 
 export const PurchaseError = props => (
   <BodyS

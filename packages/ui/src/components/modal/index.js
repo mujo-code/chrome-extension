@@ -29,8 +29,7 @@ const modelContent = modalMaxHeight =>
   })
 
 const getPropClasses = propsToStyles(styleGuide)
-const getOverlayClass = c =>
-  emotion({ backgroundColor: rgba(c, 0.3) }, overlay)
+const getOverlayClass = c => emotion({ backgroundColor: rgba(c, 0.3) }, overlay)
 
 const getModalContent = ({ background, color, modalMaxHeight }) =>
   emotion(

@@ -32,9 +32,8 @@ test('getPathAttributes should generate path data with an arc', () => {
     .mockReturnValueOnce({ x: 1, y: 1 })
   const angles = [1, 2]
   const radius = 30
-  expect(
-    getPathAttributes({ angles, getInnerPoint, radius })
-  ).toEqual({ d: 'M 0 0 A 30 30 0 0 1 1 1' })
+  const d = { d: 'M 0 0 A 30 30 0 0 1 1 1' }
+  expect(getPathAttributes({ angles, getInnerPoint, radius })).toEqual(d)
 })
 
 test('getPathAttributes should generate path data and flip arc flags', () => {
@@ -44,9 +43,8 @@ test('getPathAttributes should generate path data and flip arc flags', () => {
     .mockReturnValueOnce({ x: 1, y: 1 })
   const angles = [500, 1000]
   const radius = 30
-  expect(
-    getPathAttributes({ angles, getInnerPoint, radius })
-  ).toEqual({ d: 'M 0 0 A 30 30 0 1 1 1 1' })
+  const d = { d: 'M 0 0 A 30 30 0 1 1 1 1' }
+  expect(getPathAttributes({ angles, getInnerPoint, radius })).toEqual(d)
 })
 
 test(`
@@ -56,9 +54,7 @@ test(`
   const label = 'foo'
   const angles = [0, 1]
   const center = [0, 0]
-  const getOuterPoint = jest
-    .fn()
-    .mockReturnValueOnce({ x: 10, y: 10 })
+  const getOuterPoint = jest.fn().mockReturnValueOnce({ x: 10, y: 10 })
   const rotateGraph = 0
   expect(
     getLabelAttributes({

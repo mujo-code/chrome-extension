@@ -6,10 +6,7 @@ import { Button } from '../button'
 const defaultSpacerStyles = { width: '1px' }
 
 export const ButtonGroup = props => {
-  const {
-    spacerStyles = defaultSpacerStyles,
-    childComponent = Button,
-  } = props
+  const { spacerStyles = defaultSpacerStyles, childComponent = Button } = props
   const childArr = React.Children.toArray(props.children)
   const otherProps = removeKeys(props, 'children', 'spacerStyles')
   return (

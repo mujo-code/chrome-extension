@@ -1,5 +1,5 @@
+import { BodyL } from '@mujo/ui'
 import React from 'react'
-import { BodyL } from '../fonts'
 
 export const Description = ({ children, hasTitle }) => {
   const isArray = Array.isArray(children)

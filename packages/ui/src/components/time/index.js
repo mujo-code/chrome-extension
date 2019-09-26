@@ -6,7 +6,5 @@ import React from 'react'
 const { readableTime } = TimeUtil
 
 export const Time = props => (
-  <Box {...removeKeys(props, 'children')}>
-    {readableTime(props.children)}
-  </Box>
+  <Box {...removeKeys(props, 'children')}>{readableTime(props.children)}</Box>
 )

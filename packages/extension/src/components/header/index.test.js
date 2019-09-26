@@ -1,7 +1,7 @@
+import { Icon } from '@mujo/ui'
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { SETTINGS_MODAL } from '../../constants'
-import { Icon } from '../icon'
 import { Player } from '../player'
 import { Header } from '.'
 

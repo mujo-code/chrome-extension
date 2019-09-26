@@ -26,12 +26,7 @@ const colors = {
 }
 
 export const Button = props => {
-  const {
-    children = 'Label',
-    design = 'primary',
-    alt,
-    altOffset = 0,
-  } = props
+  const { children = 'Label', design = 'primary', alt, altOffset = 0 } = props
   const restProps = removeKeys(
     props,
     'design',
@@ -63,10 +58,7 @@ export const Button = props => {
         track({
           category: 'button',
           action: 'click',
-          label:
-            typeof children === 'string'
-              ? children
-              : e.target.textContent,
+          label: typeof children === 'string' ? children : e.target.textContent,
         })
       }}
       onMouseLeave={() => setToolTipOpen(false)}

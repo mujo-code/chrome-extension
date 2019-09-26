@@ -54,9 +54,7 @@ export const Graph = React.memo(
       >
         <Box
           Component="g"
-          transform={`rotate(${rotation}, ${center[0]}, ${
-            center[1]
-          })`}
+          transform={`rotate(${rotation}, ${center[0]}, ${center[1]})`}
         >
           {segments.map((seg, i) => (
             <Box
@@ -64,9 +62,7 @@ export const Graph = React.memo(
               key={`path-${i}`}
               fill="transparent"
               strokeWidth={strokeWidth}
-              stroke={
-                isSelectedSegment(seg) ? selectedStroke : stroke
-              }
+              stroke={isSelectedSegment(seg) ? selectedStroke : stroke}
               strokeLinecap={strokeLinecap}
               Component="path"
               onClick={onSegmentClick.bind(null, seg)}

@@ -1,11 +1,10 @@
 import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { ToolTip, useTheme } from '@mujo/ui'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
-import { useTheme } from '../../hooks/use-theme'
-import { ToolTip } from '../tool-tip'
 
 const imageStyles = css({
   opacity: 0,

@@ -68,18 +68,12 @@ export const height = makeStyles('height', sizes)
 export const maxHeight = makeStyles('maxHeight', sizes)
 
 export const borderRadius = makeStyles('borderRadius', sizes)
-export const borderTopLeftRadius = makeStyles(
-  'borderTopLeftRadius',
-  sizes
-)
+export const borderTopLeftRadius = makeStyles('borderTopLeftRadius', sizes)
 export const borderBottomLeftRadius = makeStyles(
   'borderBottomLeftRadius',
   sizes
 )
-export const borderTopRightRadius = makeStyles(
-  'borderTopRightRadius',
-  sizes
-)
+export const borderTopRightRadius = makeStyles('borderTopRightRadius', sizes)
 export const borderBottomRightRadius = makeStyles(
   'borderBottomRightRadius',
   sizes

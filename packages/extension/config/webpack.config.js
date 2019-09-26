@@ -156,6 +156,7 @@ const webpackConfig = webpackEnv => ({ plugins }) => {
         // packages
         '@mujo/plugins': paths.pluginsLib,
         '@mujo/ingress': paths.ingressLib,
+        '@mujo/box': paths.boxLib,
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster

@@ -2,14 +2,7 @@ import { Global, css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
 import React from 'react'
-import {
-  headerL,
-  headerS,
-  bodyL,
-  bodyS,
-  fixedL,
-  fixedS,
-} from './styles'
+import { headerL, headerS, bodyL, bodyS, fixedL, fixedS } from './styles'
 
 const sup = { ' sup': { fontSize: '0.6em' } }
 

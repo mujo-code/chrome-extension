@@ -21,7 +21,6 @@ exports[`Tabs component matches snapshot 1`] = `
     />
     <p
       className="css-1hhdzfd"
-      color="color"
     >
       foo
     </p>
@@ -43,7 +42,6 @@ exports[`Tabs component matches snapshot 1`] = `
     />
     <p
       className="css-1hhdzfd"
-      color="color"
     >
       bar
     </p>

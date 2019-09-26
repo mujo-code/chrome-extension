@@ -1,14 +1,12 @@
 import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import { Tab } from '@mujo/plugins'
+import { useTheme, ToolTip, HeaderS } from '@mujo/ui'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
 import { useExtension } from '../../hooks/use-extension'
-import { useTheme } from '../../hooks/use-theme'
 import { FavRows } from '../fav-rows'
-import { HeaderS } from '../fonts'
-import { ToolTip } from '../tool-tip'
 
 const siteWrapper = css({
   transition: 'all 0.5s ease-in 0.2s',

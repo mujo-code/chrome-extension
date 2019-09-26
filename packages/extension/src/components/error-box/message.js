@@ -1,8 +1,8 @@
 import { Box } from '@mujo/box'
+import { BodyS, HeaderS } from '@mujo/ui'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
-import { BodyS, HeaderS } from '../fonts'
 
 export const Message = ({ errorId }) => {
   const { t } = useTranslation(TRANSLATION_FILE)
