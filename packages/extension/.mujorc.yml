@@ -13,7 +13,7 @@ name: Mujō - Be mindful of your time
 description: Mujō is a extension that reminds you not to over work yourself.
 plugins:
   - mujo-plugin-breaktimer
-  - \@jcblw/mujo-private
+  - \@mujo/private
 permissions:
   - tabs
   - webNavigation

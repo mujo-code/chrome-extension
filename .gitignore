@@ -67,4 +67,4 @@ typings/
 
 # Plugins
 src/mujo-plugins.js
-src/plugins/*
+extension/src/plugins/*

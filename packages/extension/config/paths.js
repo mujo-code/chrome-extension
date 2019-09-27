@@ -90,9 +90,11 @@ module.exports = {
   appPluginsDir: resolveApp('src/plugins'),
   devHtml: resolveApp('public/dev.html'),
   react: resolveApp('node_modules/react'),
+  reactModal: resolveApp('node_modules/react-modal'),
   pluginsLib: resolveApp('node_modules/@mujo/plugins'),
   ingressLib: resolveApp('node_modules/@mujo/ingress'),
   boxLib: resolveApp('node_modules/@mujo/box'),
+  uiLib: resolveApp('node_modules/@mujo/ui'),
 }
 
 module.exports.moduleFileExtensions = moduleFileExtensions
