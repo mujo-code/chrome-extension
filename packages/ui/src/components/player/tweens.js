@@ -1,4 +1,4 @@
-import * as TWEEN from '@tweenjs/tween.js'
+import TWEEN from '@tweenjs/tween.js'
 
 const loop = shouldLoop => time => {
   if (shouldLoop()) {
@@ -35,10 +35,7 @@ export const createTween = inputOptions => {
   const renderLoop = loop(shouldLoop)
   const position = { scale: circleScale, scale2: circleInnerScale }
   const breathIn = new TWEEN.Tween(position)
-    .to(
-      { scale: circleScaleExpanded, scale2: circleInnerExpanded },
-      breathTime
-    )
+    .to({ scale: circleScaleExpanded, scale2: circleInnerExpanded }, breathTime)
     .easing(TWEEN.Easing.Back.InOut)
   const update = updateTween({
     tween: breathIn,
@@ -72,9 +69,7 @@ export const createTween = inputOptions => {
       })
       breathIn.onUpdate(nextUpdate)
       breathOut.onUpdate(nextUpdate)
-      breathOut.onComplete(
-        nextCompleteTween({ tween: breathIn, ...options })
-      )
+      breathOut.onComplete(nextCompleteTween({ tween: breathIn, ...options }))
     },
     stop: () => {
       setTween(null)

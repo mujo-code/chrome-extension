@@ -1,10 +1,9 @@
 import { Box } from '@mujo/box'
-import { Icon, ToolTip, useTheme } from '@mujo/ui'
+import { Icon, ToolTip, useTheme, Player } from '@mujo/ui'
 import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SETTINGS_MODAL, TRANSLATION_FILE } from '../../constants'
-import { Player } from '../player'
 
 const { track } = Tracker
 export const Header = ({

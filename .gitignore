@@ -66,5 +66,5 @@ typings/
 .env.*
 
 # Plugins
-src/mujo-plugins.js
-extension/src/plugins/*
+packages/extension/src/mujo-plugins.js
+packages/extension/src/plugins/

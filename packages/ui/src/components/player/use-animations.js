@@ -10,8 +10,7 @@ import { createTween } from './tweens'
 
 export { transition } from './styles'
 
-export const wait = fn => (...args) =>
-  setTimeout(() => fn(...args), 0)
+export const wait = fn => (...args) => setTimeout(() => fn(...args), 0)
 
 const animatingPropsFactory = () => ({
   rect: {},
@@ -34,28 +33,21 @@ const makeOptions = (breathAmount = 5, argOptions) => {
   } = { ...defaultsOptions, ...argOptions }
   return {
     breathTimeIncrease: breathTimeIncrease / breathAmount,
-    circleScaleExpandedIncrease:
-      circleScaleExpandedIncrease / breathAmount,
-    circleInnerExpandedIncrease:
-      circleInnerExpandedIncrease / breathAmount,
+    circleScaleExpandedIncrease: circleScaleExpandedIncrease / breathAmount,
+    circleInnerExpandedIncrease: circleInnerExpandedIncrease / breathAmount,
   }
 }
 
 export const useAnimations = (props, argOptions = {}) => {
   const { isOpen, onFinish, breathAmount } = props
   const options = makeOptions(breathAmount, argOptions)
-  const [animatingProps, setAnimatingProps] = useState(
-    animatingPropsFactory()
-  )
+  const [animatingProps, setAnimatingProps] = useState(animatingPropsFactory())
   const [isBreathIn, setIsBreathIn] = useState(true)
   const [tween, setTween] = useState(null)
   const delayedSetInBreath = wait(setIsBreathIn)
   const delayedSetAnimatingProps = wait(setAnimatingProps)
   const updateTween = useCallback(
-    ({ tween: currentTween, shouldUpdate }) => ({
-      scale,
-      scale2,
-    }) => {
+    ({ tween: currentTween, shouldUpdate }) => ({ scale, scale2 }) => {
       /* eslint-disable-next-line no-underscore-dangle */
       const isPlaying = currentTween._isPlaying
       if (isBreathIn !== isPlaying) {

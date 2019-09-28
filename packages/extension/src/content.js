@@ -1,28 +1,11 @@
 import createCache from '@emotion/cache'
 import { CacheProvider } from '@emotion/core'
 import { Font, ColorThemeProvider } from '@mujo/ui'
-import { Functional } from '@mujo/utils'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useColorScheme } from 'use-color-scheme'
-import ContentApp from './components/content-app'
 import { PluginProvider } from './components/plugin-provider'
-import {
-  onVisibilityChange,
-  onViewingStart,
-  onViewingEnd,
-} from './content/timing'
-
-const { compose } = Functional
-const startTimer = () => {
-  onViewingStart()
-  window.document.addEventListener(
-    'visibilitychange',
-    onVisibilityChange,
-    true
-  )
-  window.addEventListener('beforeunload', onViewingEnd)
-}
+import { Plugins } from './components/plugins'
 
 const renderContentApp = () => {
   // React app in content script
@@ -41,7 +24,7 @@ const renderContentApp = () => {
         <ColorThemeProvider value={scheme}>
           <PluginProvider env="content">
             <Font />
-            <ContentApp />
+            <Plugins />
           </PluginProvider>
         </ColorThemeProvider>
       </CacheProvider>
@@ -51,12 +34,7 @@ const renderContentApp = () => {
   ReactDOM.render(<App />, el)
 }
 
-const startContentScript = compose(
-  renderContentApp,
-  startTimer
-)
-
 if (!window.hasBeenInjected) {
   window.hasBeenInjected = true
-  startContentScript()
+  renderContentApp()
 }
