@@ -22,6 +22,12 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         with:
           args: run bootstrap
+      - name: Build Modules
+        uses: actions/npm@master
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+        with:
+          args: run build
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:
