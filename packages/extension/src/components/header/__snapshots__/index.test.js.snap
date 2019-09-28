@@ -55,16 +55,13 @@ exports[`Header component matches open snapshot 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
-        className="css-1j7or71"
-        fill="outerSpace"
+        className="css-jkon25"
       />
       <circle
-        className="css-glnwju"
-        fill="saltBox"
+        className="css-jdjnld"
       />
       <circle
-        className="css-glnwju"
-        fill="mischka"
+        className="css-wib5no"
       />
       <g
         className="css-1itd6tp"
@@ -180,16 +177,13 @@ exports[`Header component matches snapshot 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
-        className="css-15od96u"
-        fill="outerSpace"
+        className="css-ofpo8f"
       />
       <circle
-        className="css-1ijalb3"
-        fill="saltBox"
+        className="css-1ldyrs9"
       />
       <circle
-        className="css-1ijalb3"
-        fill="mischka"
+        className="css-38wz48"
       />
       <g
         className="css-1itd6tp"
