@@ -102,6 +102,7 @@
   ],
   "dependencies": {
     "@mujo/jest-webextension-mock": "^3.5.0",
+    "babel-jest": "^24.9.0",
     "punycode": "^2.1.1"
   }
 }

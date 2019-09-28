@@ -1,10 +1,10 @@
 import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
-import { useTheme, HeaderL, HeaderS } from '@mujo/ui'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { TRANSLATION_FILE } from '../../constants'
+import { context } from '@mujo/plugins'
+import React, { useContext } from 'react'
+import { useTheme } from '../../hooks/use-theme'
+import { HeaderL, HeaderS } from '../fonts'
 import { useAnimations, transition } from './use-animations'
 
 const fadeInGroup = css({
@@ -27,6 +27,8 @@ const fadeInText = css({
 })
 
 export const Player = props => {
+  const { extension } = useContext(context)
+  const { i18n } = extension
   const { isOpen, label } = props
   const otherProps = removeKeys(
     props,
@@ -42,7 +44,6 @@ export const Player = props => {
     props,
     isOpen
   )
-  const { t } = useTranslation(TRANSLATION_FILE)
   const { foreground, background, highlight } = useTheme()
   return (
     <Box
@@ -58,21 +59,9 @@ export const Player = props => {
         {...animationProps.svg}
         css={{ pointerEvents: 'none' }}
       >
-        <Box
-          Component="rect"
-          fill={background}
-          {...animationProps.rect}
-        />
-        <Box
-          Component="circle"
-          fill={highlight}
-          {...animationProps.circle2}
-        />
-        <Box
-          Component="circle"
-          fill={foreground}
-          {...animationProps.circle}
-        />
+        <Box Component="rect" fill={background} {...animationProps.rect} />
+        <Box Component="circle" fill={highlight} {...animationProps.circle2} />
+        <Box Component="circle" fill={foreground} {...animationProps.circle} />
         <Box Component="g" {...fadeInGroup}>
           {isOpen ? (
             <>
@@ -82,7 +71,7 @@ export const Player = props => {
                 css={[textTranistions, isBreathIn ? fadeInText : {}]}
                 {...animationProps.text}
               >
-                {t('breathe-in')}
+                {i18n.t('breathe-in')}
               </HeaderL>
               <HeaderL
                 fill={background}
@@ -91,7 +80,7 @@ export const Player = props => {
                 {...animationProps.text}
                 css={[textTranistions, !isBreathIn ? fadeInText : {}]}
               >
-                {t('breathe-out')}
+                {i18n.t('breathe-out')}
               </HeaderL>
               <HeaderS
                 Component="text"

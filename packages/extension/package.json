@@ -7,7 +7,6 @@
     "@babel/core": "7.6.0",
     "@emotion/cache": "^10.0.19",
     "@emotion/core": "^10.0.17",
-    "@jcblw/mujo-private": "0.0.7",
     "@mujo/box": "^3.0.1",
     "@mujo/eslint-config": "^1.0.4",
     "@mujo/ingress": "^0.1.1",
@@ -24,7 +23,6 @@
     "@storybook/react": "^5.2.1",
     "@svgr/webpack": "4.3.2",
     "@testing-library/react-hooks": "^1.1.0",
-    "@tweenjs/tween.js": "^17.4.0",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-plugin-named-asset-import": "^0.3.3",
@@ -119,7 +117,7 @@
     "coverageThreshold": {
       "global": {
         "statments": 75,
-        "branches": 60,
+        "branches": 55,
         "functions": 70,
         "lines": 75
       }
@@ -156,6 +154,7 @@
       "^react$": "<rootDir>/node_modules/react",
       "^@mujo/plugins$": "<rootDir>/node_modules/@mujo/plugins",
       "^@mujo/ingress$": "<rootDir>/node_modules/@mujo/ingress",
+      "^@mujo/ui$": "<rootDir>/node_modules/@mujo/ui",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [

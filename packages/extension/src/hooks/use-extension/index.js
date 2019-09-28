@@ -1,5 +1,5 @@
 import { IngressProvider } from '@mujo/ingress'
-import { Aggregation, Extension } from '@mujo/utils'
+import { Extension } from '@mujo/utils'
 import React, {
   useEffect,
   useState,
@@ -21,7 +21,6 @@ import { useSettings } from './use-settings'
 import { useTabs } from './use-tabs'
 import { useTopsitesAPI } from './use-topsites-api'
 
-const { toSiteInfo } = Aggregation
 const { message } = Extension
 
 const context = React.createContext()
@@ -107,10 +106,9 @@ export const ExtensionProvider = props => {
 
   // transforms
   const mappedTopSites = topSites.map(mapTopSites(topSitesUsage))
-  const siteTimesAndTimers = toSiteInfo(siteTimes, breakTimers)
   const settingsInterface = useSettings()
   // TODO avoid mutation
-  decorateSelectedSegment({ selectedSegment, siteTimesAndTimers })
+  decorateSelectedSegment({ selectedSegment })
 
   return (
     <Provider
@@ -123,7 +121,6 @@ export const ExtensionProvider = props => {
         pageViews,
         showTopSites,
         siteTimes,
-        siteTimesAndTimers,
         appReady,
         breakTimers,
         selectedSegment,

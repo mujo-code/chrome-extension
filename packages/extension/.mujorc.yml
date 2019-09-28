@@ -13,7 +13,6 @@ name: Mujō - Be mindful of your time
 description: Mujō is a extension that reminds you not to over work yourself.
 plugins:
   - mujo-plugin-breaktimer
-  - \@jcblw/mujo-private
 permissions:
   - tabs
   - webNavigation
@@ -21,11 +20,6 @@ permissions:
   - background
   - topSites
   - chrome://favicon/
-# TEMP: This will eventually be moved to plugin
-optionalPermissions:
-  - activeTab
-  - https://*/*
-  - http://*/*
 ## TODO: Maybe infer this base on icons directory
 icons:
   16: favicon.png

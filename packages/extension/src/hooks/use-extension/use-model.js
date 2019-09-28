@@ -5,7 +5,6 @@ import {
   TOP_SITES_KEY,
   TOP_SITES_USAGE_KEY,
   PAGE_VIEWS_KEY,
-  SITE_TIME_KEY,
   SHOW_TOP_SITES_KEY,
   BREAK_TIMERS_KEY,
   ACTIVITY_NUMBER_KEY,
@@ -31,7 +30,6 @@ export const useModel = () => {
   const [isConnected, setIsConnected] = useState(false)
   const [alarmEnabled, setAlarmEnabled] = useStorage(ALARM_KEY)
   const [topSites, setTopSites] = useStorage(TOP_SITES_KEY)
-  const [siteTimes, setSiteTimes] = useStorage(SITE_TIME_KEY)
   const [topSitesUsage, setTopSitesUsage] = useStorage(
     TOP_SITES_USAGE_KEY
   )
@@ -53,7 +51,6 @@ export const useModel = () => {
   const updateFns = {
     [ALARM_KEY]: setAlarmEnabled,
     [TOP_SITES_KEY]: setTopSites,
-    [SITE_TIME_KEY]: setSiteTimes,
     [TOP_SITES_USAGE_KEY]: setTopSitesUsage,
     [PAGE_VIEWS_KEY]: updatePageViews,
     [SHOW_TOP_SITES_KEY]: updateShowTopSites,
@@ -74,8 +71,6 @@ export const useModel = () => {
     setAlarmEnabled,
     topSites,
     setTopSites,
-    siteTimes,
-    setSiteTimes,
     topSitesUsage,
     setTopSitesUsage,
     pageViews,
