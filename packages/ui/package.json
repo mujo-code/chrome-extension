@@ -1,6 +1,6 @@
 {
   "name": "@mujo/ui",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
@@ -35,8 +35,8 @@
     "@mujo/box": "^3.0.1",
     "@mujo/eslint-config": "^1.0.4",
     "@mujo/ingress": "^0.1.0",
-    "@mujo/plugins": "*",
-    "@mujo/utils": "*",
+    "@mujo/plugins": "^2.0.0",
+    "@mujo/utils": "^2.0.0",
     "@testing-library/react": "^9.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^5.16.0",
