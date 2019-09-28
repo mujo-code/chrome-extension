@@ -10,12 +10,12 @@ jobs:
         uses: actions/npm@master
         with:
           args: install
-      - name: Bootstrap Lerna Hoisted
+      - name: Bootstrap Lerna Hoist
         uses: actions/npm@master
         env:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         with:
-          args: run bootstrap:hoisted
+          args: run bootstrap:hoist
       - name: Bootstrap Lerna
         uses: actions/npm@master
         env:
