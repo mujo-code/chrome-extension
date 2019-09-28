@@ -4,6 +4,7 @@
   "scripts": {
     "start": "cd packages/extension && npm run start",
     "bootstrap": "lerna bootstrap",
+    "build": "lerna build",
     "test": "lerna run test"
   },
   "devDependencies": {
