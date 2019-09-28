@@ -105,6 +105,7 @@
   "dependencies": {
     "@mujo/jest-webextension-mock": "^3.5.0",
     "@tweenjs/tween.js": "^18.3.1",
+    "babel-jest": "^24.9.0",
     "react-feather": "^2.0.3"
   }
 }

@@ -93,6 +93,7 @@
     "last 3 Chrome versions"
   ],
   "dependencies": {
-    "@mujo/jest-webextension-mock": "^3.5.0"
+    "@mujo/jest-webextension-mock": "^3.5.0",
+    "babel-jest": "^24.9.0"
   }
 }
