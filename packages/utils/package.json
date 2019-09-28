@@ -1,6 +1,6 @@
 {
   "name": "@mujo/utils",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
@@ -105,5 +105,5 @@
     "babel-jest": "^24.9.0",
     "punycode": "^2.1.1"
   },
-  "gitHead": "a3645becc34422ec610946952285d9662a7d161a"
+  "gitHead": "f661b0c32be27dd7284a6284f41e0341a5af36f4"
 }
