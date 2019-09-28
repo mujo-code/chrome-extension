@@ -104,5 +104,6 @@
     "@mujo/jest-webextension-mock": "^3.5.0",
     "babel-jest": "^24.9.0",
     "punycode": "^2.1.1"
-  }
+  },
+  "gitHead": "a3645becc34422ec610946952285d9662a7d161a"
 }

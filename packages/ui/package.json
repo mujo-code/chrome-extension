@@ -107,5 +107,6 @@
     "@tweenjs/tween.js": "^18.3.1",
     "babel-jest": "^24.9.0",
     "react-feather": "^2.0.3"
-  }
+  },
+  "gitHead": "a3645becc34422ec610946952285d9662a7d161a"
 }
