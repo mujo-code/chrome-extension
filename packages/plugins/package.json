@@ -1,6 +1,6 @@
 {
   "name": "@mujo/plugins",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A set of utilities to create plugins in Mujo",
   "main": "dist/index.js",
   "repository": {
@@ -92,5 +92,5 @@
   "browserslist": [
     "last 3 Chrome versions"
   ],
-  "gitHead": "f661b0c32be27dd7284a6284f41e0341a5af36f4"
+  "gitHead": "1a24f20513b5e7fa7d2e3d0245142cc61a4ae337"
 }
