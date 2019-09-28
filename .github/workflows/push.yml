@@ -8,14 +8,26 @@ jobs:
       - uses: actions/checkout@master
       - name: Install Dependencies
         uses: actions/npm@master
+        with:
+          args: install
+      - name: Bootstrap Lerna Hoist
+        uses: actions/npm@master
         env:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         with:
-          args: install
-      - name: Lint Code
+          args: run bootstrap:hoist
+      - name: Bootstrap Lerna
         uses: actions/npm@master
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         with:
-          args: run lint
+          args: run bootstrap
+      - name: Build Modules
+        uses: actions/npm@master
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+        with:
+          args: run build
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:

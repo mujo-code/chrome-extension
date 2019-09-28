@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavButton component matches snapshot 1`] = `
+<a
+  backgroundColor="outerSpace"
+  className="css-1ipcdyd"
+  disable={false}
+  disabled={true}
+  href="foo"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <link
+    href="foo"
+    rel="preconnect"
+  />
+  <img
+    alt="bar"
+    className="css-61i3el"
+    height="m"
+    onError={[Function]}
+    onLoad={[Function]}
+    src="https://getmujo.com/api/icon?site=foo"
+    width="m"
+  />
+  <div
+    className="css-79elbk"
+  >
+    <div
+      className="css-4pw2fe"
+    >
+      <span
+        className="css-xrmt9z"
+      >
+        <div
+          className="css-nxex8j"
+        />
+        <div
+          className="css-91tplw"
+        >
+          bar
+        </div>
+      </span>
+    </div>
+  </div>
+</a>
+`;

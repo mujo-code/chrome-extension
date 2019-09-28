@@ -1,0 +1,63 @@
+## Mujo RC
+##
+## This is a YAML file that gets transformed into a manifest file
+## most keys are transformed into snake case upon creation
+##
+## Referances:
+## https://developer.chrome.com/extensions/manifest
+##
+## Mujo has some defaults that are set in
+## scripts/create-manifest.js
+
+name: Mujō - Be mindful of your time
+description: Mujō is a extension that reminds you not to over work yourself.
+plugins:
+  - mujo-plugin-breaktimer
+permissions:
+  - tabs
+  - webNavigation
+  - alarms
+  - background
+  - topSites
+  - chrome://favicon/
+## TODO: Maybe infer this base on icons directory
+icons:
+  16: favicon.png
+  32: favicon.png
+  48: favicon.png
+  96: favicon.png
+  128: favicon.png
+  512: favicon.png
+
+browserAction:
+  defaultIcon: favicon.png
+chromeUrlOverrides:
+  newtab: index.html
+webAccessibleResources:
+  - images/*.png
+  - images/*.svg
+  - template/*...
+  - '*.js.map'
+  - '*'
+contentSecurityPolicy:
+  scriptSrc:
+    - "'self'"
+    - https://storage.googleapis.com
+    - http://localhost:5000
+    - http://localhost:8097
+    - "'sha256-Hh68uPWQF960rB8rb9c+clat9HNoP1DpxpruDkr5esY='"
+  fontSrc:
+    - https://fonts.gstatic.com
+  objectSrc:
+    - "'self'"
+  imgSrc:
+    - "'self'"
+    - https://www.google-analytics.com
+    - chrome://favicon
+    - https://getmujo.com
+  connectSrc:
+    - https://getmujo.com
+    - http://localhost:3000
+    - https://sentry.io
+    - https://www.google-analytics.com
+    - ws://localhost:8097

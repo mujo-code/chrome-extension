@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsItem boolean type should match snapshot 1`] = `
+<div
+  className="css-12jtym5"
+>
+  <div
+    className="css-p1yvl5"
+  />
+  <div
+    className="css-kjj7d4"
+  >
+    <h4
+      className="css-bog7t0"
+    >
+      foo
+    </h4>
+    <p
+      className="css-1shpbgb"
+    >
+      bar
+    </p>
+  </div>
+  <div
+    className="css-5hlt78"
+  >
+    <div
+      className="css-1j6ivwb"
+      onClick={[Function]}
+    >
+      <div
+        className="css-fc7zzi"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SettingsItem button type should match snapshot 1`] = `
+<div
+  className="css-12jtym5"
+>
+  <div
+    className="css-p1yvl5"
+  />
+  <div
+    className="css-kjj7d4"
+  >
+    <h4
+      className="css-bog7t0"
+    >
+      foo
+    </h4>
+    <p
+      className="css-1shpbgb"
+    >
+      bar
+    </p>
+  </div>
+  <div
+    className="css-180tdcr"
+  >
+    <button
+      className="css-z7ovzb"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      baz
+    </button>
+  </div>
+</div>
+`;
+
+exports[`SettingsItem should match snapshot 1`] = `
+<div
+  className="css-12jtym5"
+>
+  <div
+    className="css-p1yvl5"
+  />
+  <div
+    className="css-kjj7d4"
+  >
+    <h4
+      className="css-bog7t0"
+    >
+      foo
+    </h4>
+    <p
+      className="css-1shpbgb"
+    >
+      bar
+    </p>
+  </div>
+  <div
+    className="css-5hlt78"
+  >
+    <div
+      className="css-1j6ivwb"
+      onClick={[Function]}
+    >
+      <div
+        className="css-1a07xhr"
+      />
+    </div>
+  </div>
+</div>
+`;
