@@ -1,10 +1,10 @@
 ## Mujō Source
 
-Mujō is a extension that reminds you not to over work yourself.
+Mujō is a Chrome Extension that reminds you not to over work yourself. This is the source code for that extension.
 
-## About REPO
+## About this repository
 
-This repo is a [lerna](https://lerna.js.org/) repo. I contains no only the source code for the Chrome Extension but also some supporting libraries.
+This repository is a [lerna](https://lerna.js.org/) repo. I contains not only the source code for the Chrome Extension but also some supporting libraries.
 
 ## Packages
 
@@ -17,8 +17,19 @@ This repo is a [lerna](https://lerna.js.org/) repo. I contains no only the sourc
 
 ```shell
 npm i
-npx lerna bootstrap
-npm start
+npm run bootstrap:hoist
+npm run bootstrap
+npm start # starts the extension
 ```
 
-[more docs](./packages/extension/docs/README.md)
+## Installing into Chrome
+
+- Go to [chrome://extensions/](chrome://extensions/) and turn on developer mode
+- Click Load unpacked and select `/build` directory from this app
+- Enjoy the extension!
+
+> Each change will be rebuilt automatically if your server is running, you will need to refresh and changes to the public folder require a reload of the chrome application.
+
+## Find more info
+
+[more extension specific docs](./packages/extension/docs/README.md)
