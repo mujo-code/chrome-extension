@@ -5,7 +5,8 @@
     "start": "cd packages/extension && npm run start",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "install-modules": "lerna exec npm install"
   },
   "devDependencies": {
     "lerna": "^3.16.4",
