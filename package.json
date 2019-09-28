@@ -5,7 +5,7 @@
     "start": "cd packages/extension && npm run start",
     "bootstrap:hoist": "lerna bootstrap --hoist",
     "bootstrap": "lerna bootstrap",
-    "build": "lern run build",
+    "build": "lerna run build",
     "test": "lerna run test"
   },
   "devDependencies": {
