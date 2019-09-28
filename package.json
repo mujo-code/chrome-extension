@@ -3,10 +3,8 @@
   "private": true,
   "scripts": {
     "start": "cd packages/extension && npm run start",
-    "bootstrap": "lerna bootstrap",
-    "build": "lerna run build",
-    "test": "lerna run test",
-    "install-modules": "lerna exec npm install"
+    "bootstrap": "lerna bootstrap --hoist",
+    "test": "lerna run test"
   },
   "devDependencies": {
     "lerna": "^3.16.4",

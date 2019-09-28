@@ -10,14 +10,6 @@ jobs:
         uses: actions/npm@master
         with:
           args: install
-      - name: Install Lerna module dependencies
-        uses: actions/npm@master
-        with:
-          args: run install-modules
-      - name: Build modules with Lerna
-        uses: actions/npm@master
-        with:
-          args: run build
       - name: Bootstrap Lerna
         uses: actions/npm@master
         env:
