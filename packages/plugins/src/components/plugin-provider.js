@@ -21,6 +21,7 @@ const { Provider } = context
   constants      - constants variables defined in the extension
   tabs           - ( ntp only ) some functions and state for tabs
   settings       - ( ntp only ) some functions and state for settings
+  track          - ( bg only ) a function to track with google analytics
 */
 
 export const PluginProvider = ({
