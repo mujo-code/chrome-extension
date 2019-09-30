@@ -14,7 +14,7 @@
     "dist/**/*"
   ],
   "author": "Jacob Lowe",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mujo-code/plugins/issues"
   },
