@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useContext } from 'react'
 import { context } from '../../components/plugin-provider'
 
 export const useStorageClient = (key, defaultArg) => {
-  const { model, extension } = useContext(context)
+  const { model, extension, constants } = useContext(context)
   const descriptor = model[key] || {}
   const { defaultValue = defaultArg, type } = descriptor
   const [value, setState] = useState(defaultValue)
@@ -46,6 +46,15 @@ export const useStorageClient = (key, defaultArg) => {
     [setState, extension, key, type, updateFromStore]
   )
 
+  const changeListener = useCallback(
+    payload => {
+      const { key: eventKey, event } = payload
+      if (event !== constants.VALUE_CHANGED || eventKey !== key) return
+      updatePersistantState(null, { refresh: true })
+    },
+    [updatePersistantState, constants, key]
+  )
+
   useEffect(() => {
     const initialize = async () => {
       await updateFromStore()
@@ -53,6 +62,11 @@ export const useStorageClient = (key, defaultArg) => {
     }
     initialize()
   }, [updateFromStore])
+
+  useEffect(() => {
+    extension.runtime.onMessage.addListener(changeListener)
+    return () => extension.runtime.onMessage.removeListener(changeListener)
+  }, [key, extension, changeListener])
 
   return [value, updatePersistantState, { pending }]
 }
