@@ -38,6 +38,7 @@ export const PluginProvider = ({
   tabs,
   settings,
   isActive,
+  track,
 }) => (
   <Provider
     value={{
@@ -53,6 +54,7 @@ export const PluginProvider = ({
       tabs,
       settings,
       isActive,
+      track,
     }}
   >
     {children}
