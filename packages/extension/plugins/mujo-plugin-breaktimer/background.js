@@ -36,8 +36,11 @@ export const BreakAlarmBackground = () => {
   useEffect(() => {
     handleAlarmToggle(isEnabled)
   }, [handleAlarmToggle, isEnabled])
-  useHeartBeat(isActive => {
-    handleAlarmToggle(isEnabled && isActive)
-  })
+  useHeartBeat(
+    isActive => {
+      handleAlarmToggle(isEnabled && isActive)
+    },
+    [handleAlarmToggle, isEnabled]
+  )
   return null
 }
