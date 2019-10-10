@@ -101,8 +101,8 @@ const App = memo(() => {
       ) : null}
       <Settings>
         {/* Inside settings to keep ordering */}
-        <Plugins />
         <TopSites />
+        <Plugins />
       </Settings>
       <InfoModal
         zIndex="1000"
