@@ -8,7 +8,16 @@ const { getStorage } = Extension
 export const createTracker = ({ dsn, environment }) => {
   const hasDSN = !!dsn
   if (hasDSN) {
-    Sentry.init({ dsn, environment })
+    Sentry.init({
+      dsn,
+      environment,
+      ignoreErrors: [
+        // Random extension errors some because users are not
+        // logged into their browser
+        'Non-Error promise rejection captured with keys',
+        'Extension context invalidated.',
+      ],
+    })
     getStorage(ID_KEY).then(id => {
       Sentry.setUser({ id })
     })
