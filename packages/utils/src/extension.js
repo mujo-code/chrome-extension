@@ -10,7 +10,7 @@ import { promisifyObject } from './promisify'
 export const message = async (event, data) =>
   new Promise((resolve, reject) => {
     const payload = { event, ...(data || {}) }
-    chrome.runtime.sendMessage(payload, (response = {}, ...args) => {
+    chrome.runtime.sendMessage(payload, (response = {}) => {
       if (response.error) {
         reject(response.error)
         return
@@ -57,4 +57,11 @@ export const alarms = {
 // TODO add mapping for "t"
 export const i18n = { ...chrome.i18n }
 
-export const { notifications, tabs, webNavigation, runtime, topSites } = chrome
+export const {
+  notifications,
+  tabs,
+  webNavigation,
+  runtime,
+  topSites,
+  browserAction,
+} = chrome
