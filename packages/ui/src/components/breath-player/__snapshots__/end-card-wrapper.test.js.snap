@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EndCardWrapper component matches snapshot 1`] = `
+<div
+  className="css-j5wxqf"
+  color="outerSpace"
+  layer="2"
+  onClick={[Function]}
+  position="absolute"
+  style={
+    Object {
+      "opacity": 0,
+      "transform": "scale(1.1)",
+    }
+  }
+>
+  <div
+    className="css-1rr4qq7"
+  />
+  Foo
+  <div
+    className="css-1rr4qq7"
+  />
+</div>
+`;

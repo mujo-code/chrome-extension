@@ -65,6 +65,7 @@
     "setupFiles": [
       "@mujo/jest-webextension-mock"
     ],
+    "rootDir": "./",
     "collectCoverageFrom": [
       "src/**/*.{js}"
     ],
