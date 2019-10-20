@@ -1,9 +1,10 @@
 import { Box } from '@mujo/box'
-import { Icon, ToolTip, useTheme, Player } from '@mujo/ui'
+import { Icon, ToolTip, useTheme, BreathPlayer } from '@mujo/ui'
 import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SETTINGS_MODAL, TRANSLATION_FILE } from '../../constants'
+import { PostSessionAffirmation } from './post-session-affirmation'
 
 const { track } = Tracker
 export const Header = ({
@@ -43,30 +44,44 @@ export const Header = ({
         cursor="pointer"
         onClick={() => setUpsellModal({ name: SETTINGS_MODAL })}
       />
-      <Player
-        isOpen={playerIsOpen}
-        width={logoSize}
-        height={logoSize}
-        breathAmount={breathAmount}
-        onFinish={() => {
-          setPlayerIsOpen(false)
-          resetUsage()
-          track({
-            category: 'break',
-            action: 'finish',
-          })
+      <Box
+        css={{
+          transition: 'transform 1s ease-in-out',
+          transform: `translateY(${playerIsOpen ? '0px' : '24px'})`,
         }}
-        onClick={() => {
-          setPlayerIsOpen(true)
-          track({
-            category: 'break',
-            action: 'start',
-          })
-        }}
-        onMouseEnter={() => setToolTipOpen(true)}
-        onMouseLeave={() => setToolTipOpen(false)}
-      />
-      <ToolTip isOpen={toolTipOpen && !playerIsOpen} below>
+      >
+        <BreathPlayer
+          isOpen={playerIsOpen}
+          width={logoSize}
+          height={logoSize}
+          breathAmount={breathAmount}
+          breatheInText={t('breathe-in')}
+          breatheOutText={t('breathe-out')}
+          onFinish={() => {
+            setPlayerIsOpen(false)
+            resetUsage()
+            track({
+              category: 'break',
+              action: 'finish',
+            })
+          }}
+          onClick={() => {
+            setPlayerIsOpen(true)
+            track({
+              category: 'break',
+              action: 'start',
+            })
+          }}
+          onMouseEnter={() => setToolTipOpen(true)}
+          onMouseLeave={() => setToolTipOpen(false)}
+          EndCard={PostSessionAffirmation}
+        />
+      </Box>
+      <ToolTip
+        offset={24}
+        isOpen={toolTipOpen && !playerIsOpen}
+        below
+      >
         {t('take-a-break')}
       </ToolTip>
     </Box>
