@@ -2,10 +2,7 @@ import { Box } from '@mujo/box'
 import React, { useState, useMemo } from 'react'
 import { useTheme } from '../../hooks/use-theme'
 import { HeaderS } from '../fonts'
-import {
-  createAnimationSteps,
-  createIdleAnimationSteps,
-} from './animation-steps'
+import { createAnimationSteps } from './animation-steps'
 import { CenterText } from './center-text'
 import { Dots } from './dots'
 import { EndCardWrapper } from './end-card-wrapper'
@@ -37,11 +34,12 @@ export const BreathPlayer = ({
     if (isOpen) {
       return data || [...createAnimationSteps(breathAmount, plays)]
     }
-    return [] || createIdleAnimationSteps()
+    return []
   }, [breathAmount, isOpen, plays, data])
 
   return (
     <Box
+      data-testid="breath-player"
       display="flex"
       alignItems="flexStart"
       justifyContent="center"

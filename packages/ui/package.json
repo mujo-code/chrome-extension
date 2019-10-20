@@ -23,7 +23,8 @@
     "fmt": "prettier '{src,public}/**/*.js' --write",
     "lint": "eslint '{src,public}/**/*.js'",
     "build": "babel src --out-dir dist",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "only-test": "jest --collectCoverage"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

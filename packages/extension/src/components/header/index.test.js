@@ -1,4 +1,4 @@
-import { Icon, Player } from '@mujo/ui'
+import { Icon, BreathPlayer } from '@mujo/ui'
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { SETTINGS_MODAL } from '../../constants'
@@ -61,7 +61,7 @@ test('Clicking the Header player should open it', () => {
     </PluginProvider>
   )
   const { root } = wrapper
-  const player = root.findByType(Player)
+  const player = root.findByType(BreathPlayer)
 
   // mock click on modal
   player.props.onClick({ target: player })

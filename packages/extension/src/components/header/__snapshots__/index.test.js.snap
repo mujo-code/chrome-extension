@@ -43,61 +43,95 @@ exports[`Header component matches open snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-t94bnt"
-    data-testid="player"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+    className="css-1wl0vcq"
   >
-    <svg
-      className="css-ui4khd"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      className="css-97bura"
+      data-testid="breath-player"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <rect
-        className="css-jkon25"
+      <div
+        className="css-1uugaji"
+        style={
+          Object {
+            "borderRadius": "30vh",
+            "height": "30vh",
+            "left": "50%",
+            "marginLeft": "-15vh",
+            "marginTop": "-15vh",
+            "top": "50%",
+            "transform": "scale(1)",
+            "transition": "width 0.7s ease-in-out,height 0.7s ease-in-out,margin-left 0.7s ease-in-out,margin-top 0.7s ease-in-out,border-radius 0.7s ease-in-out",
+            "width": "30vh",
+          }
+        }
       />
-      <circle
-        className="css-jdjnld"
+      <div
+        className="css-1o44dsb"
+        style={
+          Object {
+            "borderRadius": "30vh",
+            "height": "30vh",
+            "left": "50%",
+            "marginLeft": "-15vh",
+            "marginTop": "-15vh",
+            "top": "50%",
+            "transform": "scale(1)",
+            "transition": "width 0.7s ease-in-out,height 0.7s ease-in-out,margin-left 0.7s ease-in-out,margin-top 0.7s ease-in-out,border-radius 0.7s ease-in-out",
+            "width": "30vh",
+          }
+        }
       />
-      <circle
-        className="css-wib5no"
-      />
-      <g
-        className="css-1itd6tp"
+      <div
+        className="css-ykw1nj"
+        style={Object {}}
       >
-        <text
-          className="css-htf91a"
-          textAnchor="middle"
-          x={512}
-          y={392}
+        <h2
+          className="css-j5os12"
         >
           Breathe in
-        </text>
-        <text
-          className="css-1u04o22"
-          textAnchor="middle"
-          x={512}
-          y={392}
+        </h2>
+      </div>
+      <div
+        className="css-ykw1nj"
+        style={
+          Object {
+            "opacity": 0,
+            "transform": "scale(1.1)",
+          }
+        }
+      >
+        <h2
+          className="css-j5os12"
         >
           Breathe out
-        </text>
-        <text
-          className="css-1ll0n0l"
-          textAnchor="middle"
-          x={512}
-          y={752}
-        >
-          0
-        </text>
-        <text
-          className="css-1ep9p9z"
-          textAnchor="middle"
-          x={512}
-          y={392}
+        </h2>
+      </div>
+      <h4
+        className="css-1r3e8hh"
+      >
+        5
+      </h4>
+      <div
+        className="css-cejex2"
+        onClick={[Function]}
+        style={
+          Object {
+            "opacity": 0,
+            "transform": "scale(1.1)",
+          }
+        }
+      >
+        <div
+          className="css-1rr4qq7"
         />
-      </g>
-    </svg>
+        <div
+          className="css-1rr4qq7"
+        />
+      </div>
+    </div>
   </div>
   <div
     className="css-79elbk"
@@ -165,37 +199,48 @@ exports[`Header component matches snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-pjuhn5"
-    data-testid="player"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+    className="css-13u4gsy"
   >
-    <svg
-      className="css-63egd1"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      className="css-1y63kkb"
+      data-testid="breath-player"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <rect
-        className="css-ofpo8f"
+      <div
+        className="css-1uugaji"
+        style={
+          Object {
+            "borderRadius": 80,
+            "height": 40,
+            "left": "50%",
+            "marginLeft": -20,
+            "marginTop": -20,
+            "top": "50%",
+            "transform": "scale(1)",
+            "transition": "width 0.7s ease-in-out,height 0.7s ease-in-out,margin-left 0.7s ease-in-out,margin-top 0.7s ease-in-out,border-radius 0.7s ease-in-out",
+            "width": 40,
+          }
+        }
       />
-      <circle
-        className="css-1ldyrs9"
+      <div
+        className="css-1o44dsb"
+        style={
+          Object {
+            "borderRadius": 80,
+            "height": 40,
+            "left": "50%",
+            "marginLeft": -20,
+            "marginTop": -20,
+            "top": "50%",
+            "transform": "scale(1)",
+            "transition": "width 0.7s ease-in-out,height 0.7s ease-in-out,margin-left 0.7s ease-in-out,margin-top 0.7s ease-in-out,border-radius 0.7s ease-in-out",
+            "width": 40,
+          }
+        }
       />
-      <circle
-        className="css-38wz48"
-      />
-      <g
-        className="css-1itd6tp"
-      >
-        <text
-          className="css-dywesz"
-          textAnchor="middle"
-          x={NaN}
-          y={NaN}
-        />
-      </g>
-    </svg>
+    </div>
   </div>
   <div
     className="css-79elbk"

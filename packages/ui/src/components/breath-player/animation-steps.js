@@ -41,17 +41,3 @@ export const createAnimationSteps = amount => {
     return animation
   })
 }
-
-export const createIdleAnimationSteps = () =>
-  createNArray(100, stampAnimation).map((animation, i) => {
-    animation.scale.push(defaults.scale)
-    animation.scale.push(defaults.scale + 0.01)
-
-    animation.outerScale.push(defaults.outerScale)
-    animation.outerScale.push(defaults.outerScale + 2)
-
-    animation.duration.push(3000)
-    animation.duration.push(3000)
-
-    return animation
-  })

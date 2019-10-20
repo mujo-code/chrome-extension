@@ -65,7 +65,7 @@ test(
   async () => {
     await page.goto('chrome://newtab')
     await waitDOMLoaded()
-    const el = await page.$('[data-testid="player"]')
+    const el = await page.$('[data-testid="breath-player"]')
     await wait(500)
     expect(el).not.toBe(null)
   },
