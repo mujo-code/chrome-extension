@@ -19,6 +19,7 @@ test('useDotAnimation should step though animation json', () => {
     { scale: [1.6, 1], outerScale: [1.7, 1], duration: [10, 10] },
     { scale: [1.8, 1.1], outerScale: [1.9, 1.1], duration: [20, 20] },
   ]
+  const onRenderEndCard = jest.fn()
   useSpring.mockImplementation(() => [props, set, stop])
   const { rerender } = renderHook(
     ({ currentStep }) =>
@@ -28,7 +29,7 @@ test('useDotAnimation should step though animation json', () => {
         setCurrentStep,
         currentStep,
         onFinish: jest.fn(),
-        onRenderEndCard: jest.fn(),
+        onRenderEndCard,
         EndCard: jest.fn().mockImplementation(() => null),
         plays: 0,
         setPlays: jest.fn(),
@@ -81,4 +82,11 @@ test('useDotAnimation should step though animation json', () => {
   expect(step5.scale).toBe(defaults.scale)
   expect(step5.outerScale).toBe(defaults.outerScale)
   expect(step5.config.duration).toBe(defaults.breathTime)
+
+  act(() => {
+    onRest(step5)
+  })
+
+  // end card after full animation
+  expect(onRenderEndCard).toBeCalled()
 })
