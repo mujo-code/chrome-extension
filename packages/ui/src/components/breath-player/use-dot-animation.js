@@ -17,6 +17,18 @@ const animationFrom = ({ config, ...rest }) => ({
   },
 })
 
+const defaultStep = {
+  duration: defaults.breathTime,
+  scale: defaults.scale,
+  outerScale: defaults.outerScale,
+}
+
+const getStep = (steps, currentStep) => ({
+  scale: steps.scale[currentStep],
+  outerScale: steps.outerScale[currentStep],
+  duration: steps.duration[currentStep],
+})
+
 export const useDotAnimation = ({
   json,
   isOpen,
@@ -31,7 +43,6 @@ export const useDotAnimation = ({
   const [renderEndCard, setRenderEndCard] = useState(false)
   const [isAnimatingOut, setIsAnimatingOut] = useState(false)
 
-  // NOTE on rest is fired at the end of a in/out breath
   const onRest = useCallback(
     animationProps => {
       if (!json[0] && isOpen) {
@@ -48,8 +59,7 @@ export const useDotAnimation = ({
       }
       setCurrentStep(index ? 0 : 1)
     },
-    // eslint-disable-next-line
-    [json, setCurrentStep]
+    [isOpen, json, setCurrentStep]
   )
 
   const [props, set, stop] = useSpring(() =>
@@ -109,17 +119,15 @@ export const useDotAnimation = ({
       return () => {}
     }
     const isEnding = !json[0]
+    const { duration, scale, outerScale } = isEnding
+      ? defaultStep
+      : getStep(json[0], currentStep)
+
     set(
       animationFrom({
-        scale: isEnding ? defaults.scale : json[0].scale[currentStep],
-        outerScale: isEnding
-          ? defaults.outerScale
-          : json[0].outerScale[currentStep],
-        config: {
-          duration: isEnding
-            ? defaults.breathAmount
-            : json[0].duration[currentStep],
-        },
+        scale,
+        outerScale,
+        config: { duration },
         onRest,
       })
     ) // kick off animation
@@ -130,11 +138,11 @@ export const useDotAnimation = ({
     currentStep,
     isAnimatingOut,
     isOpen,
-    json,
     onRest,
     renderEndCard,
     set,
     stop,
+    json,
   ])
 
   useEffect(() => {
