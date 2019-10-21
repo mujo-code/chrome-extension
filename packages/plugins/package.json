@@ -92,5 +92,8 @@
   "browserslist": [
     "last 3 Chrome versions"
   ],
-  "gitHead": "1a24f20513b5e7fa7d2e3d0245142cc61a4ae337"
+  "gitHead": "1a24f20513b5e7fa7d2e3d0245142cc61a4ae337",
+  "dependencies": {
+    "react-spring": "^8.0.27"
+  }
 }

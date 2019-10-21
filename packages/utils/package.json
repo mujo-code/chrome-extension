@@ -103,7 +103,8 @@
   "dependencies": {
     "@mujo/jest-webextension-mock": "^3.5.0",
     "babel-jest": "^24.9.0",
-    "punycode": "^2.1.1"
+    "punycode": "^2.1.1",
+    "react-spring": "^8.0.27"
   },
   "gitHead": "1a24f20513b5e7fa7d2e3d0245142cc61a4ae337"
 }

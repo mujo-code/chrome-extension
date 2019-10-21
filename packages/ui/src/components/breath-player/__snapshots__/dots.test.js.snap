@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dots component matches snapshot 1`] = `
+Array [
+  <div
+    backgroundColor="saltBox"
+    className="css-0"
+    layer="1"
+    position="absolute"
+    style={
+      Object {
+        "borderRadius": undefined,
+        "height": NaN,
+        "left": "50%",
+        "marginLeft": NaN,
+        "marginTop": NaN,
+        "top": "50%",
+        "transform": "scale(1)",
+        "transition": "width 0.7s ease-in-out,height 0.7s ease-in-out,margin-left 0.7s ease-in-out,margin-top 0.7s ease-in-out,border-radius 0.7s ease-in-out",
+        "width": NaN,
+      }
+    }
+  />,
+  <div
+    backgroundColor="mischka"
+    className="css-0"
+    layer="1"
+    position="absolute"
+    style={
+      Object {
+        "borderRadius": undefined,
+        "height": NaN,
+        "left": "50%",
+        "marginLeft": NaN,
+        "marginTop": NaN,
+        "top": "50%",
+        "transform": "scale(1)",
+        "transition": "width 0.7s ease-in-out,height 0.7s ease-in-out,margin-left 0.7s ease-in-out,margin-top 0.7s ease-in-out,border-radius 0.7s ease-in-out",
+        "width": NaN,
+      }
+    }
+  />,
+]
+`;

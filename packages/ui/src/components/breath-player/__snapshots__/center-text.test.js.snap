@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CenterText component matches snapshot 1`] = `
+<div
+  className="css-r3g0g0"
+  color="outerSpace"
+  layer="2"
+  position="absolute"
+  style={
+    Object {
+      "opacity": 0,
+      "transform": "scale(1.1)",
+    }
+  }
+>
+  <h2
+    className="css-2tlyqf"
+    color="color"
+  >
+    Foo
+  </h2>
+</div>
+`;

@@ -20,7 +20,7 @@ export const SUPPORT_URL = `${SPECTRUM_CHAT}/general?tab=posts`
 export const { VERSION } = process.env
 export const MAX_ACTIVITY_ROWS = 40000
 export const BREATH_MAX = 20
-export const BREATH_MIN = 5
+export const BREATH_MIN = 3
 export const TRANSLATION_FILE = 'translation'
 export const TABS_TARGET = 'tabs'
 export const MESSAGE = 'message'
