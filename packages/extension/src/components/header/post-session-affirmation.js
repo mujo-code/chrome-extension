@@ -1,6 +1,6 @@
 import { Box } from '@mujo/box'
 import { HeaderL, useTheme } from '@mujo/ui'
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
 import { HappyFace } from './happy-face'
@@ -21,6 +21,7 @@ const getRandomAffirmation = t => {
 export const PostSessionAffirmation = ({ close }) => {
   const { t } = useTranslation(TRANSLATION_FILE)
   const { foregroundSecondary, highlight } = useTheme()
+  const message = useMemo(() => getRandomAffirmation(t), [t])
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,7 +39,7 @@ export const PostSessionAffirmation = ({ close }) => {
         background={foregroundSecondary}
         marginBottom="s"
       />
-      <HeaderL>{getRandomAffirmation(t)}</HeaderL>
+      <HeaderL>{message}</HeaderL>
     </Box>
   )
 }
