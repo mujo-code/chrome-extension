@@ -36,7 +36,7 @@ exports[`PostSessionAffirmation component matches snapshot 1`] = `
   <h2
     className="css-1lzekp8"
   >
-    You are a pro at this!
+    You are doing amazing!
   </h2>
 </div>
 `;
