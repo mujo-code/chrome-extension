@@ -6,7 +6,7 @@ import { PostSessionAffirmation } from './post-session-affirmation'
 test('PostSessionAffirmation component matches snapshot', () => {
   const tree = create(
     <ColorThemeProvider>
-      <PostSessionAffirmation />
+      <PostSessionAffirmation index={0} />
     </ColorThemeProvider>
   ).toJSON()
   expect(tree).toMatchSnapshot()

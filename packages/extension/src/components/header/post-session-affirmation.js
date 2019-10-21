@@ -7,21 +7,26 @@ import { HappyFace } from './happy-face'
 
 const TIMEOUT = 5000
 
-const getRandomAffirmation = t => {
-  const affirmations = [
+const randomN = n => Math.floor(Math.random() * n)
+
+const getRandomAffirmation = (t, i) => {
+  const messages = [
     t('youre-amazing'),
     t('youre-mindful'),
     t('youre-the-best'),
     t('youre-pro'),
   ]
-  const random = Math.floor(Math.random() * affirmations.length)
-  return affirmations[random]
+  const number = typeof i === 'number' ? i : randomN(messages.length)
+  return messages[number]
 }
 
-export const PostSessionAffirmation = ({ close }) => {
+export const PostSessionAffirmation = ({ close, index }) => {
   const { t } = useTranslation(TRANSLATION_FILE)
   const { foregroundSecondary, highlight } = useTheme()
-  const message = useMemo(() => getRandomAffirmation(t), [t])
+  const message = useMemo(() => getRandomAffirmation(t, index), [
+    index,
+    t,
+  ])
 
   useEffect(() => {
     const timer = setTimeout(() => {
