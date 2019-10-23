@@ -83,3 +83,6 @@ export const SCREEN_TIME_PERMISSIONS = {
   permissions: ['activeTab'],
   origins: ['https://*/*', 'http://*/*'],
 }
+
+// optional new tab page
+export const NEW_TAB = 'chrome://newtab'

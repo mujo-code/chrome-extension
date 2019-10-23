@@ -7,6 +7,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { alarmReducer, initAlarms } from './background/alarm'
 import { onBrowserAction } from './background/browser-action'
+import { onConditionalNewTab } from './background/conditional-new-tab'
 import { initIdentity } from './background/identity'
 import { injectScript } from './background/inject'
 import { reducer } from './background/message-reducer'
@@ -20,6 +21,7 @@ const {
   webNavigation,
   notifications,
   browserAction,
+  tabs,
 } = Extension
 const { composePromises } = AsyncHelpers
 const element = document.createElement('div')
@@ -43,4 +45,6 @@ webNavigation.onCommitted.addListener(injectScript)
 // Called when the user clicks on the browser action.
 browserAction.onClicked.addListener(onBrowserAction)
 
+// Listen for tabs getting created.
+tabs.onCreated.addListener(tab => onConditionalNewTab(tab))
 export default init()
