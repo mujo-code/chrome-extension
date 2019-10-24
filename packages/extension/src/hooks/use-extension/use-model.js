@@ -33,9 +33,11 @@ export const useModel = () => {
   const [topSitesUsage, setTopSitesUsage] = useStorage(
     TOP_SITES_USAGE_KEY
   )
-  const [pageViews, updatePageViews, { pending }] = useStorage(
-    PAGE_VIEWS_KEY
-  )
+  const [
+    pageViews,
+    updatePageViews,
+    { pending: pageViewPending },
+  ] = useStorage(PAGE_VIEWS_KEY)
   const [showTopSites, updateShowTopSites] = useStorage(
     SHOW_TOP_SITES_KEY
   )
@@ -45,9 +47,11 @@ export const useModel = () => {
   const [activityNumber, updateActivityNumber] = useStorage(
     ACTIVITY_NUMBER_KEY
   )
-  const [breathAmount, setBreathAmount] = useStorage(
-    BREATH_AMOUNT_KEY
-  )
+  const [
+    breathAmount,
+    setBreathAmount,
+    { pending: breathAmountPending },
+  ] = useStorage(BREATH_AMOUNT_KEY)
   const updateFns = {
     [ALARM_KEY]: setAlarmEnabled,
     [TOP_SITES_KEY]: setTopSites,
@@ -65,6 +69,8 @@ export const useModel = () => {
       setIsConnected(true)
     }
   }, [updateFns, isConnected, setIsConnected])
+
+  const pending = breathAmountPending || pageViewPending
 
   return {
     alarmEnabled,
