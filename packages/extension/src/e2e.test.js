@@ -72,6 +72,19 @@ test(
   TEST_TIMEOUT
 )
 
+// TODO need a good indicator that deeplinking is working
+test.skip(
+  'newtab page should be able to deeplink into a exercisee',
+  async () => {
+    await page.goto('chrome://newtab?play=true')
+    await waitDOMLoaded()
+    await wait(1000)
+    const el = await page.$('[data-testid="breath-player"]')
+    expect(el).not.toBe(null)
+  },
+  TEST_TIMEOUT
+)
+
 const screenTimeMock = {
   'https://foo.com': 1000000,
   'https://www.bar.com': 200000,
