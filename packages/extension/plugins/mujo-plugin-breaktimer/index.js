@@ -1,9 +1,12 @@
 import { Background, NewTabPage } from '@mujo/plugins'
 import React from 'react'
 import { BreakAlarmBackground } from './background'
-import { BreakAlarmNewTabPage } from './new-tab-page'
+import {
+  BreakAlarmNewTabPage,
+  ConditionalNewTabPage,
+} from './new-tab-page'
 
-const BreakAlarm = ({ constants }) => (
+const BreakAlarm = () => (
   <>
     <Background>
       <BreakAlarmBackground />
@@ -14,4 +17,19 @@ const BreakAlarm = ({ constants }) => (
   </>
 )
 
-export default BreakAlarm
+const ConditionalNewPage = () => (
+  <>
+    <NewTabPage>
+      <ConditionalNewTabPage />
+    </NewTabPage>
+  </>
+)
+
+const Plugins = () => (
+  <>
+    <BreakAlarm />
+    <ConditionalNewPage />
+  </>
+)
+
+export default Plugins

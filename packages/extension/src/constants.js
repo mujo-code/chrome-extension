@@ -24,6 +24,7 @@ export const BREATH_MIN = 5
 export const TRANSLATION_FILE = 'translation'
 export const TABS_TARGET = 'tabs'
 export const MESSAGE = 'message'
+export const CONDITIONAL_NEW_TAB_PAGE_DEFAULT_VALUE = false
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
@@ -57,6 +58,7 @@ export const TRACK = 'Track'
 export const ADD_BROADCAST_TAB = 'Add Broadcast Tab'
 export const REMOVE_BROADCAST_TAB = 'Remove Broadcast Tab'
 export const VALUE_CHANGED = 'Value changed'
+export const CONDITIONAL_NEW_TAB_PAGE_KEY = 'OPEN_NEW_TAB'
 
 // Getter, Setters for storage
 export const GET_STORAGE = 'GET_STORAGE'
@@ -85,4 +87,4 @@ export const SCREEN_TIME_PERMISSIONS = {
 }
 
 // optional new tab page
-export const NEW_TAB = 'chrome://newtab'
+export const NEW_TAB = 'chrome://newtab/'
