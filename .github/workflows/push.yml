@@ -10,18 +10,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: run bootstrap:hoist
+      - run: npm run bootstrap:hoist
       - name: Bootstrap Lerna
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: run bootstrap
+      - run: npm run bootstrap
       - name: Build Modules
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
-      - run: run build
+      - run: npm run build
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:
