@@ -1,21 +1,16 @@
 import { Extension } from '@mujo/utils'
-import { NEW_TAB } from '../constants'
+import { NEW_TAB, CONDITIONAL_NEW_TAB_PAGE_KEY } from '../constants'
+import { storage } from './storage'
 
-const { storage, tabs, extension } = Extension
+const { tabs, extension } = Extension
 
-export const onConditionalNewTab = tab => {
-  if (tab.url === NEW_TAB) {
-    storage.sync.get({ shouldReplaceNewTab: false }, items => {
-      if (items.shouldReplaceNewTab) {
-        onTabUpdate(
-          tab.id,
-          { url: extension.getURL('../index.html') },
-          () => {}
-        )
-      }
-    })
+export const onConditionalNewTab = async tab => {
+  const isEnabled = await storage.get(CONDITIONAL_NEW_TAB_PAGE_KEY)
+  if (tab.url === NEW_TAB && isEnabled) {
+    tabs.update(
+      tab.id,
+      { url: extension.getURL('../index.html') },
+      () => {}
+    )
   }
 }
-
-export const onTabUpdate = (id, updateProperties, callback) =>
-  tabs.update(id, updateProperties, callback)

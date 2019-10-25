@@ -20,7 +20,6 @@ permissions:
   - background
   - topSites
   - chrome://favicon/
-  - storage
 ## TODO: Maybe infer this base on icons directory
 icons:
   16: favicon.png
