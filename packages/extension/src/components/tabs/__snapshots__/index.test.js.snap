@@ -9,8 +9,6 @@ exports[`Tabs component matches snapshot 1`] = `
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    overflow="hidden"
-    position="relative"
   >
     <div
       backgroundColor="saltBox"
@@ -30,8 +28,6 @@ exports[`Tabs component matches snapshot 1`] = `
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    overflow="hidden"
-    position="relative"
   >
     <div
       backgroundColor="saltBox"

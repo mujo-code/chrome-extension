@@ -78,7 +78,7 @@ test(
   async () => {
     await page.goto('chrome://newtab?play=true')
     await waitDOMLoaded()
-    await wait(500)
+    await wait(1000)
     const el = await page.$('[data-testid="breath-player--count"]')
     expect(el).not.toBe(null)
 
@@ -86,12 +86,6 @@ test(
       'textContent'
     )).jsonValue()
     expect(initialCount.trim()).toBe('5')
-
-    await wait(7000)
-    const nextCount = await (await el.getProperty(
-      'textContent'
-    )).jsonValue()
-    expect(nextCount.trim()).toBe('4')
   },
   TEST_TIMEOUT
 )

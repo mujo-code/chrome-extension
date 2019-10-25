@@ -10,26 +10,22 @@ exports[`PostSessionAffirmation component matches snapshot 1`] = `
   >
     <g
       className="css-0"
-      fill="none"
       fillRule="nonzero"
       transform="translate(-1)"
     >
       <circle
-        className="css-0"
+        className="css-diostm"
         cx="59"
         cy="43"
-        fill="white"
         r="43"
       />
       <path
-        className="css-0"
+        className="css-1m6864i"
         d="M109.405 37.11a4 4 0 1 1 7.05 3.782c-9.898 18.45-29.28 27.609-57.49 27.609s-47.593-9.159-57.49-27.61a4 4 0 1 1 7.05-3.781c8.34 15.55 24.936 23.39 50.44 23.39 25.504 0 42.099-7.84 50.44-23.39z"
-        fill="saltBox"
       />
       <path
-        className="css-0"
+        className="css-1m6864i"
         d="M79 36.412c7.18 0 13.055 6.225 13.055-2.93 0-9.156-5.875-4-13.055-4s-12.937-5.294-12.937 3.89 5.757 3.04 12.937 3.04zM39 36.412c7.18 0 13.055 6.225 13.055-2.93 0-9.156-5.875-4-13.055-4s-12.937-5.294-12.937 3.89 5.757 3.04 12.937 3.04z"
-        fill="saltBox"
       />
     </g>
   </svg>
