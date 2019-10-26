@@ -2,10 +2,10 @@
 
 exports[`Tabs component matches snapshot 1`] = `
 <div
-  className="css-1xhj18k"
+  className="css-1ur1i3x"
 >
   <div
-    className="css-17xbw2"
+    className="css-17lhke"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -14,7 +14,7 @@ exports[`Tabs component matches snapshot 1`] = `
   >
     <div
       backgroundColor="saltBox"
-      className="css-u4k9dx"
+      className="css-2djo8t"
       height="m"
       position="absolute"
       width="m"
@@ -26,7 +26,7 @@ exports[`Tabs component matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="css-17xbw2"
+    className="css-17lhke"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -35,7 +35,7 @@ exports[`Tabs component matches snapshot 1`] = `
   >
     <div
       backgroundColor="saltBox"
-      className="css-u4k9dx"
+      className="css-2djo8t"
       height="m"
       position="absolute"
       width="m"

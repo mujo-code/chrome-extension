@@ -2,7 +2,7 @@
 
 exports[`Header component matches open snapshot 1`] = `
 <div
-  className="css-1s1haim"
+  className="css-sb0vx4"
   layer="2"
   position="relative"
 >
@@ -43,7 +43,7 @@ exports[`Header component matches open snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-1wl0vcq"
+    className="css-wmwfnm"
   >
     <div
       className="css-97bura"
@@ -158,7 +158,7 @@ exports[`Header component matches open snapshot 1`] = `
 
 exports[`Header component matches snapshot 1`] = `
 <div
-  className="css-1s1haim"
+  className="css-sb0vx4"
   layer="2"
   position="relative"
 >
@@ -199,7 +199,7 @@ exports[`Header component matches snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-13u4gsy"
+    className="css-sdhbkc"
   >
     <div
       className="css-1y63kkb"

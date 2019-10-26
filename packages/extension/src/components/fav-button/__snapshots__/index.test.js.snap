@@ -3,7 +3,7 @@
 exports[`FavButton component matches snapshot 1`] = `
 <a
   backgroundColor="outerSpace"
-  className="css-1ipcdyd"
+  className="css-51z5ye"
   disable={false}
   disabled={true}
   href="foo"
@@ -16,7 +16,7 @@ exports[`FavButton component matches snapshot 1`] = `
   />
   <img
     alt="bar"
-    className="css-61i3el"
+    className="css-1numroz"
     height="m"
     onError={[Function]}
     onLoad={[Function]}

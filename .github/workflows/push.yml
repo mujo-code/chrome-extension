@@ -7,27 +7,26 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Install Dependencies
-        uses: actions/npm@master
+        uses: actions/setup-node@v1
         with:
-          args: install
-      - name: Bootstrap Lerna Hoist
-        uses: actions/npm@master
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+          node-version: '12.x'
+      - run: npm i
+      - name: Hoist Bootstrap Lerna
+        uses: actions/setup-node@v1
         with:
-          args: run bootstrap:hoist
+          node-version: '12.x'
+      - run: npm run bootstrap:hoist
       - name: Bootstrap Lerna
-        uses: actions/npm@master
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+        uses: actions/setup-node@v1
         with:
-          args: run bootstrap
+          node-version: '12.x'
+      - run: npm run bootstrap
       - name: Build Modules
-        uses: actions/npm@master
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+        uses: actions/setup-node@v1
         with:
-          args: run build
+          node-version: '12.x'
+
+      - run: npm run build
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:
