@@ -111,6 +111,7 @@ exports[`Header component matches open snapshot 1`] = `
       </div>
       <h4
         className="css-1r3e8hh"
+        data-testid="breath-player--count"
       >
         5
       </h4>
