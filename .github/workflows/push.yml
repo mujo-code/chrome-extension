@@ -10,6 +10,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - run: npm i
+      - name: Hoist Bootstrap Lerna
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
       - run: npm run bootstrap:hoist
       - name: Bootstrap Lerna
         uses: actions/setup-node@v1
