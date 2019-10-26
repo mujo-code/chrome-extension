@@ -78,7 +78,9 @@ export const BreathPlayer = ({
           <CenterText show={!endCardActive && currentStep}>
             {breatheOutText}
           </CenterText>
-          <HeaderS color={foreground}>{json.length}</HeaderS>
+          <HeaderS data-testid="breath-player--count" color={foreground}>
+            {json.length}
+          </HeaderS>
           <EndCardWrapper show={endCardActive}>
             {endCardActive ? <EndCard {...endCardActive} /> : null}
           </EndCardWrapper>

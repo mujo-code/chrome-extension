@@ -3,17 +3,15 @@ import { useEffect } from 'react'
 
 const { queryParams } = Url
 
-export const useDeeplink = ({
-  appReady,
-  setPlayerIsOpen,
-  setSelectedSegment,
-}) => {
+export const useDeeplink = ({ appReady, setPlayerIsOpen }) => {
   useEffect(() => {
-    if (!appReady) {
-      const { play } = queryParams(window.location.href)
-      if (play) {
-        setPlayerIsOpen(true)
-      }
+    if (appReady) {
+      setTimeout(() => {
+        const { play } = queryParams(window.location.href)
+        if (play) {
+          setPlayerIsOpen(true)
+        }
+      }, 500)
     }
-  }, [appReady, setPlayerIsOpen, setSelectedSegment])
+  }, [appReady, setPlayerIsOpen])
 }
