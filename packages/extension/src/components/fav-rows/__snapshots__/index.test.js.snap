@@ -2,18 +2,18 @@
 
 exports[`FavRows component matches snapshot 1`] = `
 <div
-  className="css-k008qs"
+  className="css-gvoll6"
   flexWrap="wrap"
 >
   <div
-    className="css-1frdjpe"
+    className="css-s8fzq"
     height="xxl"
     maxHeight="xxl"
     width="xxl"
   >
     <a
       backgroundColor="outerSpace"
-      className="css-gtqkk4"
+      className="css-1ioivri"
       disabled={true}
       href="https://foo.com"
       onClick={[Function]}
@@ -26,7 +26,7 @@ exports[`FavRows component matches snapshot 1`] = `
       />
       <img
         alt="foo"
-        className="css-61i3el"
+        className="css-1numroz"
         height="m"
         onError={[Function]}
         onLoad={[Function]}
@@ -56,14 +56,14 @@ exports[`FavRows component matches snapshot 1`] = `
     </a>
   </div>
   <div
-    className="css-1frdjpe"
+    className="css-s8fzq"
     height="xxl"
     maxHeight="xxl"
     width="xxl"
   >
     <a
       backgroundColor="outerSpace"
-      className="css-gtqkk4"
+      className="css-1ioivri"
       disabled={true}
       href={null}
       onClick={[Function]}
@@ -76,7 +76,7 @@ exports[`FavRows component matches snapshot 1`] = `
       />
       <img
         alt="bar"
-        className="css-1tzeee1"
+        className="css-64d9dy"
         height="m"
         onError={[Function]}
         onLoad={[Function]}

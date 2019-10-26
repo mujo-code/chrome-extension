@@ -2,7 +2,7 @@
 
 exports[`Tab component matches snapshot 1`] = `
 <div
-  className="css-17xbw2"
+  className="css-17lhke"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   overflow="hidden"
@@ -10,7 +10,7 @@ exports[`Tab component matches snapshot 1`] = `
 >
   <div
     backgroundColor="saltBox"
-    className="css-u4k9dx"
+    className="css-2djo8t"
     height="m"
     position="absolute"
     width="m"

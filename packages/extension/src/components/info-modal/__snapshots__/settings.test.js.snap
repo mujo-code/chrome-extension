@@ -2,13 +2,13 @@
 
 exports[`SettingsItem boolean type should match snapshot 1`] = `
 <div
-  className="css-12jtym5"
+  className="css-eawcpc"
 >
   <div
-    className="css-p1yvl5"
+    className="css-aoco0s"
   />
   <div
-    className="css-kjj7d4"
+    className="css-vysije"
   >
     <h4
       className="css-bog7t0"
@@ -22,7 +22,7 @@ exports[`SettingsItem boolean type should match snapshot 1`] = `
     </p>
   </div>
   <div
-    className="css-5hlt78"
+    className="css-naf6nl"
   >
     <div
       className="css-1j6ivwb"
@@ -38,13 +38,13 @@ exports[`SettingsItem boolean type should match snapshot 1`] = `
 
 exports[`SettingsItem button type should match snapshot 1`] = `
 <div
-  className="css-12jtym5"
+  className="css-eawcpc"
 >
   <div
-    className="css-p1yvl5"
+    className="css-aoco0s"
   />
   <div
-    className="css-kjj7d4"
+    className="css-vysije"
   >
     <h4
       className="css-bog7t0"
@@ -58,7 +58,7 @@ exports[`SettingsItem button type should match snapshot 1`] = `
     </p>
   </div>
   <div
-    className="css-180tdcr"
+    className="css-19d2vsr"
   >
     <button
       className="css-z7ovzb"
@@ -74,13 +74,13 @@ exports[`SettingsItem button type should match snapshot 1`] = `
 
 exports[`SettingsItem should match snapshot 1`] = `
 <div
-  className="css-12jtym5"
+  className="css-eawcpc"
 >
   <div
-    className="css-p1yvl5"
+    className="css-aoco0s"
   />
   <div
-    className="css-kjj7d4"
+    className="css-vysije"
   >
     <h4
       className="css-bog7t0"
@@ -94,7 +94,7 @@ exports[`SettingsItem should match snapshot 1`] = `
     </p>
   </div>
   <div
-    className="css-5hlt78"
+    className="css-naf6nl"
   >
     <div
       className="css-1j6ivwb"

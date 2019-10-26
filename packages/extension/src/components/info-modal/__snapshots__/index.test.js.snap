@@ -40,7 +40,7 @@ exports[`InfoModal should match snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-rczwh0"
+    className="css-1r5j51h"
   >
     <h2
       className="css-wxpusu"
@@ -49,7 +49,7 @@ exports[`InfoModal should match snapshot 1`] = `
     </h2>
   </div>
   <div
-    className="css-1yhq37y"
+    className="css-5mk0cz"
     overflow="scroll"
   >
     <p
@@ -60,7 +60,7 @@ exports[`InfoModal should match snapshot 1`] = `
   </div>
   <div
     backgroundColor="gravel"
-    className="css-1yqdfgl"
+    className="css-1pgjng9"
   >
     <button
       className="css-1j51hru"
