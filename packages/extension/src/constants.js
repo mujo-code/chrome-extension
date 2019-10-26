@@ -24,7 +24,7 @@ export const BREATH_MIN = 5
 export const TRANSLATION_FILE = 'translation'
 export const TABS_TARGET = 'tabs'
 export const MESSAGE = 'message'
-export const CONDITIONAL_NEW_TAB_PAGE_DEFAULT_VALUE = false
+export const CONDITIONAL_NEW_TAB_PAGE_DEFAULT_VALUE = true
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key

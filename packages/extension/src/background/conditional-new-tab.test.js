@@ -10,18 +10,26 @@ const { tabs } = Extension
 beforeEach(() => {
   storage.get = jest.fn()
   storage.set = jest.fn()
+  tabs.update = jest.fn()
 })
 
 test('conditional new tab should update if settings is true', async () => {
   storage.get.mockResolvedValue(true)
-  onConditionalNewTab(NEW_TAB)
+  await onConditionalNewTab({ url: NEW_TAB })
+
+  expect(tabs.update).toBeCalled()
+})
+
+test('conditional new tab should update if settings is undefined', async () => {
+  storage.get.mockResolvedValue(undefined)
+  await onConditionalNewTab({ url: NEW_TAB })
 
   expect(tabs.update).toBeCalled()
 })
 
 test('conditional new tab should not update if settings is false', async () => {
   storage.get.mockResolvedValue(false)
-  onConditionalNewTab(NEW_TAB)
+  await onConditionalNewTab({ url: NEW_TAB })
 
   expect(tabs.update).not.toBeCalled()
 })

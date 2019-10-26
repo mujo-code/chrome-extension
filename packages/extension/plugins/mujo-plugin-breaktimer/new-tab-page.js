@@ -18,23 +18,3 @@ export const BreakAlarmNewTabPage = () => {
     </>
   )
 }
-
-export const ConditionalNewTabPage = () => {
-  const { extension } = useContext(context)
-  const [
-    conditionalNewTabPageEnabled,
-    setConditionalNewTabPageEnabled,
-  ] = useStorage(CONDITIONAL_NEW_TAB_PAGE_KEY)
-  const { i18n } = extension
-  return (
-    <>
-      <Setting
-        label={i18n.t('conditional-new-tab-page')}
-        type="boolean"
-        alt={i18n.t('conditional-new-tab-page-alt')}
-        onChange={setConditionalNewTabPageEnabled}
-        value={conditionalNewTabPageEnabled}
-      />
-    </>
-  )
-}
