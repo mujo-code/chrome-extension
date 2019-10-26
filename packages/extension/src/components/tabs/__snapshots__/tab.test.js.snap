@@ -5,6 +5,8 @@ exports[`Tab component matches snapshot 1`] = `
   className="css-17lhke"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  overflow="hidden"
+  position="relative"
 >
   <div
     backgroundColor="saltBox"

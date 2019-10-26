@@ -21,6 +21,7 @@ exports[`FavButton component matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="https://getmujo.com/api/icon?site=foo"
+    width="m"
   />
   <div
     className="css-79elbk"

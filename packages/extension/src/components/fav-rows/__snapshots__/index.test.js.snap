@@ -15,15 +15,21 @@ exports[`FavRows component matches snapshot 1`] = `
     <a
       backgroundColor="outerSpace"
       className="css-1ioivri"
-=======
-  className="css-2imjyh"
 >
   <div
-    className="css-b63p58"
+    className="css-s8fzq"
+    height="xxl"
+    maxHeight="xxl"
+    width="xxl"
   >
     <a
+<<<<<<< HEAD
       className="css-1jlrpu8"
 >>>>>>> add in some test fixes
+=======
+      backgroundColor="outerSpace"
+      className="css-1ioivri"
+>>>>>>> revert some random changes
       disabled={true}
       href="https://foo.com"
       onClick={[Function]}
@@ -37,14 +43,20 @@ exports[`FavRows component matches snapshot 1`] = `
       <img
         alt="foo"
 <<<<<<< HEAD
+<<<<<<< HEAD
         className="css-1numroz"
         height="m"
 =======
         className="css-1ok5hg5"
 >>>>>>> add in some test fixes
+=======
+        className="css-1numroz"
+        height="m"
+>>>>>>> revert some random changes
         onError={[Function]}
         onLoad={[Function]}
         src="https://getmujo.com/api/icon?site=https%3A%2F%2Ffoo.com"
+        width="m"
       />
       <div
         className="css-79elbk"
@@ -70,10 +82,14 @@ exports[`FavRows component matches snapshot 1`] = `
   </div>
   <div
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> revert some random changes
     className="css-s8fzq"
     height="xxl"
     maxHeight="xxl"
     width="xxl"
+<<<<<<< HEAD
   >
     <a
       backgroundColor="outerSpace"
@@ -84,6 +100,12 @@ exports[`FavRows component matches snapshot 1`] = `
     <a
       className="css-1jlrpu8"
 >>>>>>> add in some test fixes
+=======
+  >
+    <a
+      backgroundColor="outerSpace"
+      className="css-1ioivri"
+>>>>>>> revert some random changes
       disabled={true}
       href={null}
       onClick={[Function]}
@@ -97,14 +119,20 @@ exports[`FavRows component matches snapshot 1`] = `
       <img
         alt="bar"
 <<<<<<< HEAD
+<<<<<<< HEAD
         className="css-64d9dy"
         height="m"
 =======
         className="css-l5oww"
 >>>>>>> add in some test fixes
+=======
+        className="css-64d9dy"
+        height="m"
+>>>>>>> revert some random changes
         onError={[Function]}
         onLoad={[Function]}
         src="https://getmujo.com/api/icon?site=https%3A%2F%2Fbar.com"
+        width="m"
       />
       <div
         className="css-79elbk"
