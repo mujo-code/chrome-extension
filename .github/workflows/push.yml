@@ -25,10 +25,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-
       - run: npm run build
       - name: Test Code
-        uses: mujo-code/puppeteer-headful@7a98912
+        uses: mujo-code/puppeteer-headful@0a1a95a
         env:
           CI: 'true'
         with:
