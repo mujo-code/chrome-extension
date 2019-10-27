@@ -11,6 +11,7 @@ beforeEach(() => {
   storage.get = jest.fn()
   storage.set = jest.fn()
   tabs.update = jest.fn()
+  Extension.runtime.getURL = jest.fn()
 })
 
 test('conditional new tab should update if settings is true', async () => {
