@@ -27,7 +27,7 @@ jobs:
           node-version: '12.x'
       - run: npm run build
       - name: Test Code
-        uses: mujo-code/puppeteer-headful@56efe19
+        uses: mujo-code/puppeteer-headful@7d982d1
         env:
           CI: 'true'
         with:
