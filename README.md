@@ -32,4 +32,10 @@ npm start # starts the extension
 
 ## Find more info
 
-[more extension specific docs](./packages/extension/docs/README.md)
+More about the extension
+
+* [extension docs](./packages/extension/docs/README.md)
+
+Build your own Mujō plugin!
+
+* [plugin docs](./packages/extension/docs/README.md)

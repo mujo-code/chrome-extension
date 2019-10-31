@@ -44,3 +44,15 @@ The reason why we still use the same paradigm of React components for a viewless
   <MyPluginBackground />
 </Background>
 ```
+
+### Content script
+
+The content script is essentially a script that is hosted inside of another website. It can be embedded into any page. It could have a view or just can setup some event listeners. In this script it is common to build up overlays or content that overlays the page. We use React in a div at the bottom of the page. This pages implementation simply to render what ever content is added inside of the Content component.
+
+```jsx
+<Content>
+  <MyPluginContent />
+</Content>
+```
+
+[Check out more about plugin component](./components.md)
