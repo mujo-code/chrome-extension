@@ -2,7 +2,10 @@
 
 This is a set of utilities to create a Mujō plugins. This is a collection of hooks and components that allow you to hook into functionality of Mujō extension without having to modify its source code.
 
-[See an example](../extension/plugins/mujo-plugin-breaktimer)
+* [Example plugin](../extension/plugins/mujo-plugin-breaktimer)
+* [Render targets doc](./docs/README.md)
+* [Components doc](./docs/components.md)
+* [Hooks doc](./docs/hooks.md)
 
 ## Install
 
@@ -31,5 +34,3 @@ const MyPlugin = () => (
 
 export default MyPlugin
 ```
-
-We are working on more documentation, for more info see the [original RFC](./RFC.md)
