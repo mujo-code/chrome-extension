@@ -62,3 +62,6 @@ contentSecurityPolicy:
     - https://sentry.io
     - https://www.google-analytics.com
     - ws://localhost:8097
+defaultLocale:
+  - en
+  - es
