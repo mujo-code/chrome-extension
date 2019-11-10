@@ -1,5 +1,5 @@
 import { Box } from '@mujo/box'
-import { context } from '@mujo/plugins'
+import { context, EndScreen } from '@mujo/plugins'
 import { HeaderL, useTheme } from '@mujo/ui'
 import React, { useEffect, useMemo, useContext } from 'react'
 import { HappyFace } from './happy-face'
@@ -46,5 +46,15 @@ export const EndScreenAffirmation = ({ close, index }) => {
       />
       <HeaderL>{message}</HeaderL>
     </Box>
+  )
+}
+
+export const EndScreenComponent = () => {
+  const { constants } = useContext(context)
+  return (
+    <EndScreen
+      type={constants.DEFAULT_END_SCREEN}
+      Component={EndScreenAffirmation}
+    />
   )
 }

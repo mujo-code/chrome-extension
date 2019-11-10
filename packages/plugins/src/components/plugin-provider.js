@@ -46,6 +46,7 @@ export const PluginProvider = ({
   settings,
   isActive,
   track,
+  endScreen,
 }) => (
   <Provider
     value={{
@@ -62,6 +63,7 @@ export const PluginProvider = ({
       settings,
       isActive,
       track,
+      endScreen,
     }}
   >
     {children}

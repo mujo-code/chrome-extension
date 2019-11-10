@@ -21,25 +21,23 @@ const endScreenReducer = (state, action) => {
 }
 
 export const useEndScreen = key => {
+  // eslint-disable-next-line
   const [endScreens, dispatch] = useReducer(endScreenReducer, [])
 
-  const lookupEndScreen = useCallback(type =>
-    endScreens.find(endScreen => endScreen.endScreenType === type)
+  const lookupEndScreen = useCallback(
+    type =>
+      [...endScreens]
+        .reverse()
+        .find(endScreen => endScreen.endScreenType === type),
+    [endScreens]
   )
 
-  const registerEndScreen = useCallback(
-    endScreen => {
-      dispatch({ type: Actions.add, ...endScreen })
-    },
-    [dispatch]
-  )
+  const registerEndScreen = useCallback(endScreen => {
+    dispatch({ type: Actions.add, ...endScreen })
+  }, [])
 
-  const removeEndScreen = useCallback(
-    endScreen => {
-      dispatch({ type: Actions.remove, ...endScreen })
-    },
-    [dispatch]
-  )
-
+  const removeEndScreen = useCallback(endScreen => {
+    dispatch({ type: Actions.remove, ...endScreen })
+  }, [])
   return { removeEndScreen, registerEndScreen, lookupEndScreen }
 }

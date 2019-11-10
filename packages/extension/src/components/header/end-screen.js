@@ -13,6 +13,6 @@ export const EndScreen = ({ close, index, type }) => {
   }, [close, endScreenResult])
 
   return endScreenResult ? (
-    <>{endScreenResult.children({ close })}</>
+    <endScreenResult.Component close={close} />
   ) : null
 }

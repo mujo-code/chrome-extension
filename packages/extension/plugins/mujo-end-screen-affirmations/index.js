@@ -1,12 +1,10 @@
 import { NewTabPage } from '@mujo/plugins'
 import React from 'react'
-import { EndScreenAffirmation } from './end-screen-affirmation'
+import { EndScreenComponent } from './end-screen-affirmation'
 
-const EndScreen = ({ constants }) => (
+const EndScreen = () => (
   <NewTabPage>
-    <EndScreen type={constants.DEFAULT_END_SCREEN}>
-      {({ close }) => <EndScreenAffirmation close={close} />}
-    </EndScreen>
+    <EndScreenComponent />
   </NewTabPage>
 )
 

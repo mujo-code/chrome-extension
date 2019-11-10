@@ -1,17 +1,18 @@
 import { useEffect, useContext } from 'react'
 import { context } from './plugin-provider'
 
-export const EndScreen = ({ type, children }) => {
+export const EndScreen = ({ type, Component }) => {
   const { endScreen, env } = useContext(context)
+  if (env !== 'ntp') return null
   const { registerEndScreen, removeEndScreen } = endScreen
 
+  // eslint-disable-next-line
   useEffect(() => {
     if (env !== 'ntp') return () => {}
     const endScreenType = type
-    registerEndScreen({ endScreenType, children })
+    registerEndScreen({ endScreenType, Component })
     return () => removeEndScreen({ endScreenType })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [type, children])
-  // only supported on ntp page
+  }, [type, Component])
   return null
 }
