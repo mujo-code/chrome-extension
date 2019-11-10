@@ -144,7 +144,8 @@ The tab component allows plugins to render their content inside the New Tab Page
 The EndScreen component  allows you to setup a "end screen" after a breathing exercise in the NewTabPage.
 
 ```javascript
-<Tab type={constants.DEFAULT_END_SCREEN}>
-  <Box>You are doing great!</Box>
-</Tab>
+<EndScreen
+  type={constants.DEFAULT_END_SCREEN}
+  Component={MyEndScreenComponent}
+/>
 ```
