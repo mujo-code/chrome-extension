@@ -15,10 +15,23 @@ export const NTPProvider = props => {
     pushSetting,
     removeSetting,
     updateSetting,
+    registerEndScreen,
+    removeEndScreen,
   } = useExtension()
   const tabs = { pushTab, removeTab, currentTab }
+  const endScreen = {
+    registerEndScreen,
+    removeEndScreen,
+  }
   const settings = { pushSetting, removeSetting, updateSetting }
-  return <Provider {...props} tabs={tabs} settings={settings} />
+  return (
+    <Provider
+      {...props}
+      tabs={tabs}
+      settings={settings}
+      endScreen={endScreen}
+    />
+  )
 }
 
 export const PluginProvider = ({ children, env }) => {

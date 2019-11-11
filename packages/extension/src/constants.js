@@ -24,6 +24,7 @@ export const BREATH_MIN = 5
 export const TRANSLATION_FILE = 'translation'
 export const TABS_TARGET = 'tabs'
 export const MESSAGE = 'message'
+export const DEFAULT_END_SCREEN = 'default end screen'
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key

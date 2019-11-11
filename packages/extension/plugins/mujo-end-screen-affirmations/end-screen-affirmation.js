@@ -1,8 +1,7 @@
 import { Box } from '@mujo/box'
+import { context, EndScreen } from '@mujo/plugins'
 import { HeaderL, useTheme } from '@mujo/ui'
-import React, { useEffect, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { TRANSLATION_FILE } from '../../constants'
+import React, { useEffect, useMemo, useContext } from 'react'
 import { HappyFace } from './happy-face'
 
 const TIMEOUT = 5000
@@ -20,12 +19,13 @@ const getRandomAffirmation = (t, i) => {
   return messages[number]
 }
 
-export const PostSessionAffirmation = ({ close, index }) => {
-  const { t } = useTranslation(TRANSLATION_FILE)
+export const EndScreenAffirmation = ({ close, index }) => {
+  const { extension } = useContext(context)
+  const { i18n } = extension
   const { foregroundSecondary, highlight } = useTheme()
-  const message = useMemo(() => getRandomAffirmation(t, index), [
+  const message = useMemo(() => getRandomAffirmation(i18n.t, index), [
+    i18n.t,
     index,
-    t,
   ])
 
   useEffect(() => {
@@ -46,5 +46,15 @@ export const PostSessionAffirmation = ({ close, index }) => {
       />
       <HeaderL>{message}</HeaderL>
     </Box>
+  )
+}
+
+export const EndScreenComponent = () => {
+  const { constants } = useContext(context)
+  return (
+    <EndScreen
+      type={constants.DEFAULT_END_SCREEN}
+      Component={EndScreenAffirmation}
+    />
   )
 }

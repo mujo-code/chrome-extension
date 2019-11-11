@@ -14,14 +14,21 @@ const { Provider } = context
   extension      - sugar sytax extension of browser api's
   storage        - access to the database
   config         - configuration for the extension
-  changeEmitter  - ( bg only ) storage updates propgated to hooks
-  messageEmitter - ( bg only ) event emmiter for messages
-  alarms         - ( bg only ) a way to listen to heartbeat ticks
   model          - data structure for db
   constants      - constants variables defined in the extension
-  tabs           - ( ntp only ) some functions and state for tabs
-  settings       - ( ntp only ) some functions and state for settings
-  track          - ( bg only ) a function to track with google analytics
+
+  Background only props
+
+  changeEmitter  - storage updates propgated to hooks
+  messageEmitter - event emmiter for messages
+  alarms         - a way to listen to heartbeat ticks
+  track          - a function to track with google analytics
+
+  New tab page only props
+
+  tabs           - some functions and state for tabs
+  settings       - some functions and state for settings
+  endScreen      - some functions to allow plugins to hook into the endscreen
 */
 
 export const PluginProvider = ({
@@ -39,6 +46,7 @@ export const PluginProvider = ({
   settings,
   isActive,
   track,
+  endScreen,
 }) => (
   <Provider
     value={{
@@ -55,6 +63,7 @@ export const PluginProvider = ({
       settings,
       isActive,
       track,
+      endScreen,
     }}
   >
     {children}
