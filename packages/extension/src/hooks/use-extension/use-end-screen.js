@@ -5,13 +5,16 @@ const Actions = {
   remove: 'remove',
 }
 
-const endScreenReducer = (state, action) => {
-  switch (action.type) {
+const shallowEqual = (obj1, obj2) =>
+  Object.keys(obj1).every(key => obj1[key] === obj2[key])
+
+const endScreenReducer = (state, { type, ...action }) => {
+  switch (type) {
     case Actions.add:
       return [...state, action]
     case Actions.remove: {
-      const index = state.findIndex(
-        endScreen => endScreen.endScreenType === action.endScreenType
+      const index = state.findIndex(endScreen =>
+        shallowEqual(endScreen, action)
       )
       return [...state.slice(0, index), ...state.slice(index + 1)]
     }
