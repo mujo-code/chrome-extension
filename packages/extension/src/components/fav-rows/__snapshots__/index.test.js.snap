@@ -97,9 +97,7 @@ exports[`FavRows component matches snapshot 1`] = `
             />
             <div
               className="css-91tplw"
-            >
-              Bring back this link by taking a break
-            </div>
+            />
           </span>
         </div>
       </div>

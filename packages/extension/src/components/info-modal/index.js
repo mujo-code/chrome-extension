@@ -1,8 +1,7 @@
 import { Box } from '@mujo/box'
 import { useTheme, Button, HeaderL, Modal } from '@mujo/ui'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { TRANSLATION_FILE } from '../../constants'
+import { Extension } from '@mujo/utils'
 import { useSubscription } from '../../hooks/use-subscription'
 import { Description } from './description'
 import { getModalData } from './modal-data'
@@ -15,7 +14,8 @@ export const InfoModal = ({
   settings,
 }) => {
   const theme = useTheme()
-  const { t } = useTranslation(TRANSLATION_FILE)
+  const { useTranslation } = Extension
+  const { t } = useTranslation()
   const { highlight, backgroundSecondary } = theme
   const subDetails = useSubscription()
   const { title, description, button, children } = getModalData(

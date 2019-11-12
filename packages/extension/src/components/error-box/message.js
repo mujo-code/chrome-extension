@@ -1,11 +1,11 @@
 import { Box } from '@mujo/box'
 import { BodyS, HeaderS } from '@mujo/ui'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { TRANSLATION_FILE } from '../../constants'
+import { Extension } from '@mujo/utils'
 
 export const Message = ({ errorId }) => {
-  const { t } = useTranslation(TRANSLATION_FILE)
+  const { useTranslation } = Extension
+  const { t } = useTranslation()
   return (
     <>
       <HeaderS maxWidth="500px" color="mischka">

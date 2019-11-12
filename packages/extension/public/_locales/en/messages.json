@@ -1,0 +1,205 @@
+{
+  "topSitesUsage": {
+    "message": "Top sites is based on your site usage"
+  },
+  "topSites": { "message": "Top Sites" },
+  "takeABreak": { "message": "Take a break" },
+  "activelyViewedFor": {
+    "message": "The site {{site}} was actively viewed for"
+  },
+
+  "sinceLastBreak": {
+    "message": "since your last break. Right now is a good time to take a break"
+  },
+
+  "editSiteTimer": {
+    "message": "Edit site timer"
+  },
+
+  "errorsImpermanent": {
+    "message": "Just like everything, errors are impermanent"
+  },
+
+  "sorryForIssue": {
+    "message": "We are sorry for this issue"
+  },
+
+  "createdAnIssue": {
+    "message": "We have created a issue for this error"
+  },
+
+  "errorPersists": {
+    "message": ", and will be working to resolve it. If the problem presist, please contact us at jacob@getmujo.com"
+  },
+  "bringBackLink": {
+    "message": "Bring back this link by taking a break"
+  },
+  "breatheIn": {
+    "message": "Breathe in"
+  },
+  "breatheOut": {
+    "message": "Breathe out"
+  },
+  "shownInUsage": {
+    "message": "Shown in {{minutes}} minute{{suffix}} of usage"
+  },
+  "breakTimer": {
+    "message": "Break Timer"
+  },
+
+  "screenTime": {
+    "message": "Screen Time"
+  },
+  "beta": {
+    "message": "BETA"
+  },
+  "screenTimeExplain": {
+    "message": "Screen time is the time viewing sites between your breaks"
+  },
+
+  "screenTimeStatus": {
+    "message": "Screen Time is {{status}}"
+  },
+  "sinceLastBreakPercent": {
+    "message": "since your last break. That is {{percent}}% of your web viewing."
+  },
+  "screenTimeDisclaimer": {
+    "message": "These times are not aways going to represent a 100% view of your viewing habits."
+  },
+  "backToSite": {
+    "message": "Back to site"
+  },
+  "visitSite": {
+    "message": "Visit site"
+  },
+  "screenTimeFor": {
+    "message": "Screen Time for:"
+  },
+  "keepExploring": {
+    "message": "Explore more, there is not enough data to show you anything yet."
+  },
+  "subscribe": {
+    "message": "Subscribe"
+  },
+  "moreInfo": {
+    "message": "More info"
+  },
+
+  "thanksSupport": {
+    "message": "Thanks you for your support ❤️!"
+  },
+  "getMoreAccess": {
+    "message": "Get access to more Mujō"
+  },
+  "reminder": {
+    "message": "Reminder"
+  },
+  "screenTimeEnabled": {
+    "message": "Screen Time Enabled"
+  },
+
+  "screenTimePermissions": {
+    "message": "Screen Time requires some additional permissions"
+  },
+
+  "breathAmount": {
+    "message": "Breath amount"
+  },
+  "wantMoreBreath": {
+    "message": "Want more breath in each break?"
+  },
+  "breathLimits": {
+    "message": "Between {{min}} to {{max}}"
+  },
+  "help": {
+    "message": "Help"
+  },
+  "joinChat": {
+    "message": "Need help or got feedback? Talk to us on Spectrum.chat"
+  },
+  "getSupport": {
+    "message": "Get support"
+  },
+  "aboutMujo": {
+    "message": "About Mujō"
+  },
+  "mujoVersion": {
+    "message": "You are using Mujō v{{version}}"
+  },
+  "rateUs": {
+    "message": "Rate us!"
+  },
+  "reminderAlt": {
+    "message": "Notifications that remind you to take a break now"
+  },
+  "mindfulMax": {
+    "message": "Mindful to the max"
+  },
+  "maxBreakTimers": {
+    "message": "You have set the max number of break timers."
+  },
+  "maxBreakTimersSub": {
+    "message": "You have set the max number of break timers. To get access to unlimited break timers and add a break timer for {{url}} subscribe to Mujō."
+  },
+  "subDetails": {
+    "message": "Subscription Details"
+  },
+  "unableToProcess": {
+    "message": "We were unable to process your purchase at this time. Please try again later."
+  },
+  "purchaseConsider": {
+    "message": "'Thanks for considering supporting Mujō with a subscription. Your support helps keep the extension running and supported. By purchasing a subscription you get access to:"
+  },
+  "subAccess": {
+    "message": "You are already a subscriber. You have access to:"
+  },
+  "unlimitedBreakTimers": {
+    "message": "Unlimited break timers."
+  },
+  "smartBreakTimes": {
+    "message": "Smart algorithm to predict the best times to take a break."
+  },
+
+  "earlyAccess": {
+    "message": "Early access to advanced features."
+  },
+  "subAt": {
+    "message": "Subscribe at {{cost}}/mo"
+  },
+  "thanksPurchase": {
+    "message": "Thanks for purchasing a subscription"
+  },
+  "supportAppreciation": {
+    "message": "Your support is greatly appreciated!"
+  },
+  "contactQuestions": {
+    "message": "Please contact jacob@getmujo.com with any comment or questions."
+  },
+  "unableToSub": {
+    "message": "Unable to subscribe at this time"
+  },
+  "gentleNudge": {
+    "message": "Gentle nudge to be mindful with your time."
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "enabled": {
+    "message": "enabled"
+  },
+  "disabled": {
+    "message": "disabled"
+  },
+  "youreAmazing": {
+    "message": "You are doing amazing!"
+  },
+  "youreMindful": {
+    "message": "You are so mindful."
+  },
+  "youreTheBest": {
+    "message": "You are the best!"
+  },
+  "yourePro": {
+    "message": "You are a pro at this!"
+  }
+}

@@ -3,8 +3,7 @@ import { Box } from '@mujo/box'
 import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
 import { ToolTip, useTheme } from '@mujo/ui'
 import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { TRANSLATION_FILE } from '../../constants'
+import { Extension } from '@mujo/utils'
 
 const imageStyles = css({
   opacity: 0,
@@ -20,7 +19,8 @@ export const FavButton = props => {
   const [isServer, setIsServer] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
   const encodedURL = encodeURIComponent(props.url)
-  const { t } = useTranslation(TRANSLATION_FILE)
+  const { useTranslation } = Extension
+  const { t } = useTranslation()
   const iconUrl = isServer
     ? `https://getmujo.com/api/icon?site=${encodedURL}`
     : `chrome://favicon/${props.url}`

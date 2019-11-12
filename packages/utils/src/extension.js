@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { GET_STORAGE, SET_STORAGE } from './constants'
 import { promisifyObject } from './promisify'
 /*
@@ -53,6 +54,25 @@ export const alarms = {
   getAlarm,
   upsertAlarm,
 }
+
+export const capitalize = word => word[0].toUpperCase() + word.slice(1)
+
+export const pascalize = key => {
+  const splitKey = key.split('-')
+  if (splitKey.length === 1) {
+    return key
+  }
+  const firstElement = splitKey[0]
+  const transform = splitKey.slice(1).map(value => capitalize(value))
+  return firstElement + transform.join('')
+}
+
+export const useTranslation = () => ({
+  t: key => {
+    const convert = pascalize(key)
+    return useCallback(chrome.i18n.getMessage(convert), [])
+  },
+})
 
 // TODO add mapping for "t"
 export const i18n = { ...chrome.i18n }

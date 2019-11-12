@@ -1,10 +1,9 @@
 import { css } from '@emotion/core'
 import { Box } from '@mujo/box'
 import { Tab } from '@mujo/plugins'
+import { Extension } from '@mujo/utils'
 import { useTheme, ToolTip, HeaderS } from '@mujo/ui'
 import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { TRANSLATION_FILE } from '../../constants'
 import { useExtension } from '../../hooks/use-extension'
 import { FavRows } from '../fav-rows'
 
@@ -22,7 +21,8 @@ export const TopSites = () => {
   const { topSites, updateSitesUsed } = useExtension()
   const [toolTipOpen, setToolTipOpen] = useState(false)
   const { foreground } = useTheme()
-  const { t } = useTranslation(TRANSLATION_FILE)
+  const { useTranslation } = Extension
+  const { t } = useTranslation()
 
   return (
     <Tab name={t('top-sites')}>

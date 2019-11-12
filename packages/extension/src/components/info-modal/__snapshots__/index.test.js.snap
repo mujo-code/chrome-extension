@@ -40,24 +40,9 @@ exports[`InfoModal should match snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="css-1r5j51h"
-  >
-    <h2
-      className="css-wxpusu"
-    >
-      Mindful to the max
-    </h2>
-  </div>
-  <div
-    className="css-5mk0cz"
+    className="css-1towekv"
     overflow="scroll"
-  >
-    <p
-      className="css-s5sz7t"
-    >
-      You have set the max number of break timers. To get access to unlimited break timers and add a break timer for foo subscribe to Mujō.
-    </p>
-  </div>
+  />
   <div
     backgroundColor="gravel"
     className="css-1pgjng9"
@@ -68,7 +53,7 @@ exports[`InfoModal should match snapshot 1`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
-      Subscription Details
+      Label
     </button>
   </div>
 </div>
