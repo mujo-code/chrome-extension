@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+// import { useCallback } from 'react'
 import { GET_STORAGE, SET_STORAGE } from './constants'
 import { promisifyObject } from './promisify'
 /*
@@ -70,7 +70,7 @@ export const pascalize = key => {
 export const useTranslation = () => ({
   t: key => {
     const convert = pascalize(key)
-    return useCallback(chrome.i18n.getMessage(convert), [])
+    return chrome.i18n.getMessage(convert)
   },
 })
 

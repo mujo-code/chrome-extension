@@ -1,7 +1,7 @@
 import { Box } from '@mujo/box'
 import { Button, HeaderS, BodyS, Input, Switch } from '@mujo/ui'
 import React from 'react'
-import { i18n } from '../../i18n'
+import { Extension } from '@mujo/utils'
 
 export const Boolean = ({
   onChange,
@@ -16,6 +16,7 @@ export const Boolean = ({
 
 export const SettingsInput = props => {
   const { type, onChange, value, inputLabel } = props
+
   switch (type) {
     case 'button':
       return (
@@ -100,13 +101,22 @@ export const SettingItem = ({
   </Box>
 )
 
-export const settingsModal = (_, __, { settings, theme }) => ({
-  title: i18n.t('settings'),
-  children: (
-    <>
-      {settings.map((setting, i, arr) => (
-        <SettingItem key={setting.label} {...setting} theme={theme} />
-      ))}
-    </>
-  ),
-})
+export const settingsModal = (_, __, { settings, theme }) => {
+  const { useTranslation } = Extension
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = useTranslation()
+  return {
+    title: t('settings'),
+    children: (
+      <>
+        {settings.map((setting, i, arr) => (
+          <SettingItem
+            key={setting.label}
+            {...setting}
+            theme={theme}
+          />
+        ))}
+      </>
+    ),
+  }
+}

@@ -1,7 +1,5 @@
-import { i18n } from '../../i18n'
+import { Extension } from '@mujo/utils'
 import { subscriptionDetails } from './subscription-details'
-
-const t = i18n.t.bind(i18n)
 
 const stampSubDetails = isSub => ({
   user: { isSubscriber: isSub, products: [] },
@@ -9,6 +7,9 @@ const stampSubDetails = isSub => ({
   getProduct: jest.fn(),
   buy: jest.fn(),
 })
+
+const { useTranslation } = Extension
+const { t } = useTranslation()
 
 test('subscriptionDetails should return error when no product is found', () => {
   const context = {}

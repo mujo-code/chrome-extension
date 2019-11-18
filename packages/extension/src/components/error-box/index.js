@@ -3,12 +3,14 @@ import { Box } from '@mujo/box'
 import { HeaderL } from '@mujo/ui'
 import ErrorStackParser from 'error-stack-parser'
 import React from 'react'
+import { Extension } from '@mujo/utils'
 import { ENVIRONMENT } from '../../env'
-import { i18n } from '../../i18n'
 import { tracker } from '../../lib/error-tracker'
 import { Frames } from './frames'
 import { Message } from './message'
 
+const { useTranslation } = Extension
+const { t } = useTranslation()
 export class ErrorBox extends React.Component {
   constructor(props) {
     super(props)
@@ -59,7 +61,7 @@ export class ErrorBox extends React.Component {
             color="saltBox"
             marginBottom="xl"
           >
-            {i18n.t('errors-impermanent')}
+            {t('errors-impermanent')}
           </HeaderL>
           {frames && isDev ? (
             <Frames frames={frames} error={error} />

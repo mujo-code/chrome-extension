@@ -11,7 +11,6 @@ import { Tabs } from './components/tabs'
 import { TopSites } from './components/top-sites'
 import { TABS_TARGET } from './constants'
 import { useExtension } from './hooks/use-extension'
-import './i18n'
 
 const radialGradient = (centerColor, outerColor) => {
   const params = [
