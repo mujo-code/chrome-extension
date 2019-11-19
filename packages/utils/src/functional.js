@@ -35,3 +35,15 @@ export const curry = (fn, ...args) => {
 // array helpers
 export const first = arr => arr[0]
 export const last = arr => arr[arr.length - 1]
+
+export const capitalize = word => first(word).toUpperCase() + word.slice(1)
+
+export const pascalize = key => {
+  const splitKey = key.split('-')
+  if (splitKey.length === 1) {
+    return key
+  }
+  const firstElement = first(splitKey)
+  const transform = splitKey.slice(1).map(value => capitalize(value))
+  return firstElement + transform.join('')
+}

@@ -5,10 +5,9 @@ import { track } from './tracking'
 
 const { notifications, tabs, useTranslation } = Extension
 
+const { t } = useTranslation()
 export const createNotification = async () => {
   const isEnabled = await storage.get(ALARM_KEY)
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = useTranslation()
 
   if (!isEnabled) return
   // TODO: pass some information here to make this more contextual

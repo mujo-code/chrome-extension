@@ -1,4 +1,4 @@
-import { alarms, capitalize, pascalize } from './extension'
+import { alarms } from './extension'
 
 const callbackFN = ret => (...args) => args.pop().call(null, ret)
 
@@ -19,12 +19,4 @@ test.skip('upsertAlarm should not create a alarm if one exist', async () => {
   alarms.create = jest.fn().mockResolvedValueOnce('bar')
   await alarms.upsertAlarm('bar')
   expect(alarms.create).not.toBeCalled()
-})
-
-test('capitalize first letter', () => {
-  expect(capitalize('letter')).toBe('Letter')
-})
-
-test('pascalize word', () => {
-  expect(pascalize('letter-word')).toBe('letterWord')
 })

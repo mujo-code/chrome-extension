@@ -7,6 +7,8 @@ import {
   curry,
   first,
   last,
+  capitalize,
+  pascalize,
 } from './functional'
 
 test('noop should be a none operational function', () => {
@@ -61,4 +63,12 @@ test('last should return the last item in an array', () => {
   const arr = ['foo', 'bar', 'baz']
   expect(last(arr)).toBe('baz')
   expect(arr.length).toBe(3)
+})
+
+test('capitalize first letter', () => {
+  expect(capitalize('letter')).toBe('Letter')
+})
+
+test('pascalize word', () => {
+  expect(pascalize('letter-word')).toBe('letterWord')
 })
