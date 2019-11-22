@@ -1,9 +1,8 @@
 import { Box } from '@mujo/box'
 import { Icon, ToolTip, useTheme, BreathPlayer } from '@mujo/ui'
-import { Tracker } from '@mujo/utils'
+import { Tracker, Extension } from '@mujo/utils'
 import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { SETTINGS_MODAL, TRANSLATION_FILE } from '../../constants'
+import { SETTINGS_MODAL } from '../../constants'
 import { EndScreen } from './end-screen'
 
 const { track } = Tracker
@@ -17,7 +16,8 @@ export const Header = ({
   breathAmount,
 }) => {
   const [toolTipOpen, setToolTipOpen] = useState(false)
-  const { t } = useTranslation(TRANSLATION_FILE)
+  const { useTranslation } = Extension
+  const { t } = useTranslation()
   const theme = useTheme()
   return (
     <Box

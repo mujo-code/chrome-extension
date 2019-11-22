@@ -1,21 +1,21 @@
 import { Extension } from '@mujo/utils'
 import { ALARM_KEY } from '../constants'
-import { i18n } from '../i18n'
 import { storage } from './storage'
 import { track } from './tracking'
 
-const { notifications, tabs } = Extension
+const { notifications, tabs, useTranslation } = Extension
 
+const { t } = useTranslation()
 export const createNotification = async () => {
   const isEnabled = await storage.get(ALARM_KEY)
 
   if (!isEnabled) return
   // TODO: pass some information here to make this more contextual
-  const title = i18n.t('take-a-break')
+  const title = t('take-a-break')
   const options = {
     type: 'basic',
     title,
-    message: i18n.t('gentle-nudge'),
+    message: t('gentle-nudge'),
     iconUrl: 'favicon.png',
   }
   const id = notifications.create(options, () => {})

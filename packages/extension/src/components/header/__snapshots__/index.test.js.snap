@@ -91,7 +91,7 @@ exports[`Header component matches open snapshot 1`] = `
         <h2
           className="css-j5os12"
         >
-          Breathe in
+          Inhale
         </h2>
       </div>
       <div
@@ -106,7 +106,7 @@ exports[`Header component matches open snapshot 1`] = `
         <h2
           className="css-j5os12"
         >
-          Breathe out
+          Exhale
         </h2>
       </div>
       <h4
@@ -148,9 +148,7 @@ exports[`Header component matches open snapshot 1`] = `
         />
         <div
           className="css-91tplw"
-        >
-          Take a break
-        </div>
+        />
       </span>
     </div>
   </div>
@@ -257,9 +255,7 @@ exports[`Header component matches snapshot 1`] = `
         />
         <div
           className="css-91tplw"
-        >
-          Take a break
-        </div>
+        />
       </span>
     </div>
   </div>

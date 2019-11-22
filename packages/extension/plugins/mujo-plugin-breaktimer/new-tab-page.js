@@ -1,17 +1,18 @@
-import { Setting, context, useStorage } from '@mujo/plugins'
-import React, { useContext } from 'react'
+import { Setting, useStorage } from '@mujo/plugins'
+import React from 'react'
+import { Extension } from '@mujo/utils'
 import { ALARM_KEY } from './constants'
 
 export const BreakAlarmNewTabPage = () => {
-  const { extension } = useContext(context)
   const [alarmEnabled, setAlarmEnabled] = useStorage(ALARM_KEY)
-  const { i18n } = extension
+  const { useTranslation } = Extension
+  const { t } = useTranslation()
   return (
     <>
       <Setting
-        label={i18n.t('reminder')}
+        label={t('reminder')}
         type="boolean"
-        alt={i18n.t('reminder-alt')}
+        alt={t('reminder-alt')}
         onChange={setAlarmEnabled}
         value={alarmEnabled}
       />

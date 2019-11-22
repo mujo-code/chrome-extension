@@ -7,6 +7,8 @@ import {
   curry,
   first,
   last,
+  capitalize,
+  pascalize,
 } from './functional'
 
 test('noop should be a none operational function', () => {
@@ -16,14 +18,20 @@ test('noop should be a none operational function', () => {
 test('compose should combine two or more functions', () => {
   const addOne = x => x + 1
   const toString = x => `${x}`
-  const composedFn = compose(toString, addOne)
+  const composedFn = compose(
+    toString,
+    addOne
+  )
   expect(composedFn(1)).toBe('2')
 })
 
 test('pipe should combine two or more functions in reverse to compose', () => {
   const addOne = x => x + 1
   const toString = x => `${x}`
-  const composedFn = pipe(toString, addOne)
+  const composedFn = pipe(
+    toString,
+    addOne
+  )
   expect(composedFn(1)).toBe('11')
 })
 
@@ -55,4 +63,12 @@ test('last should return the last item in an array', () => {
   const arr = ['foo', 'bar', 'baz']
   expect(last(arr)).toBe('baz')
   expect(arr.length).toBe(3)
+})
+
+test('capitalize first letter', () => {
+  expect(capitalize('letter')).toBe('Letter')
+})
+
+test('pascalize word', () => {
+  expect(pascalize('letter-word')).toBe('letterWord')
 })

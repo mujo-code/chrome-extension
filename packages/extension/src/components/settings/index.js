@@ -1,10 +1,9 @@
 import { Setting } from '@mujo/plugins'
 import React, { useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Extension } from '@mujo/utils'
 import {
   SUB_DETAILS_MODAL,
   CURRENT_SUB_SKU,
-  TRANSLATION_FILE,
   BREATH_MAX,
   BREATH_MIN,
   SUPPORT_URL,
@@ -20,7 +19,8 @@ export const Settings = ({ children }) => {
     setBreathAmount,
     breathAmount,
   } = useExtension()
-  const { t } = useTranslation(TRANSLATION_FILE)
+  const { useTranslation } = Extension
+  const { t } = useTranslation()
   const openUpsell = useCallback(() => {
     setUpsellModal({
       name: SUB_DETAILS_MODAL,
@@ -29,11 +29,14 @@ export const Settings = ({ children }) => {
     })
   }, [setUpsellModal])
 
-  const setBreath = useCallback(amount => {
-    setBreathAmount(
-      Math.min(Math.max(amount, BREATH_MIN), BREATH_MAX)
-    )
-  }, [])
+  const setBreath = useCallback(
+    amount => {
+      setBreathAmount(
+        Math.min(Math.max(amount, BREATH_MIN), BREATH_MAX)
+      )
+    },
+    [setBreathAmount]
+  )
   const openWebstore = useCallback(() => {
     window.open(WEBSTORE_URL)
   }, [])

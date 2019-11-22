@@ -2,6 +2,7 @@ import { Box } from '@mujo/box'
 import { context, EndScreen } from '@mujo/plugins'
 import { HeaderL, useTheme } from '@mujo/ui'
 import React, { useEffect, useMemo, useContext } from 'react'
+import { Extension } from '@mujo/utils'
 import { HappyFace } from './happy-face'
 
 const TIMEOUT = 5000
@@ -20,11 +21,11 @@ const getRandomAffirmation = (t, i) => {
 }
 
 export const EndScreenAffirmation = ({ close, index }) => {
-  const { extension } = useContext(context)
-  const { i18n } = extension
+  const { useTranslation } = Extension
+  const { t } = useTranslation()
   const { foregroundSecondary, highlight } = useTheme()
-  const message = useMemo(() => getRandomAffirmation(i18n.t, index), [
-    i18n.t,
+  const message = useMemo(() => getRandomAffirmation(t, index), [
+    t,
     index,
   ])
 

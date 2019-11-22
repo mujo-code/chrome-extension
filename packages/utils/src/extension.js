@@ -1,5 +1,7 @@
+// import { useCallback } from 'react'
 import { GET_STORAGE, SET_STORAGE } from './constants'
 import { promisifyObject } from './promisify'
+import { pascalize } from './functional'
 /*
   Extension Lib
   -----
@@ -53,6 +55,13 @@ export const alarms = {
   getAlarm,
   upsertAlarm,
 }
+
+export const useTranslation = () => ({
+  t: key => {
+    const convert = pascalize(key)
+    return chrome.i18n.getMessage(convert)
+  },
+})
 
 // TODO add mapping for "t"
 export const i18n = { ...chrome.i18n }

@@ -3,7 +3,6 @@ import { Extension } from '@mujo/utils'
 import React from 'react'
 import * as constants from '../../constants'
 import { useExtension } from '../../hooks/use-extension'
-import { i18n } from '../../i18n'
 import model from '../../model'
 
 // client plugin providers
@@ -39,7 +38,6 @@ export const PluginProvider = ({ children, env }) => {
     env,
     extension: {
       ...Extension,
-      i18n: { ...Extension.i18n, t: i18n.t.bind(i18n) },
     },
     constants,
     tabs: {},

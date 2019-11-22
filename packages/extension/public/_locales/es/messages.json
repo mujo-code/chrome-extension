@@ -1,0 +1,205 @@
+{
+  "topSitesUsage": {
+    "message": "Los sitios principales se basan en el uso de su sitio"
+  },
+  "topSites": { "message": "Principales sitios" },
+  "takeABreak": { "message": "Tomar un descanso" },
+  "activelyViewedFor": {
+    "message": "El sitio {{site}} fue visto activamente por"
+  },
+
+  "sinceLastBreak": {
+    "message": "desde tu último descanso. Ahora es un buen momento para tomar un descanso."
+  },
+
+  "editSiteTimer": {
+    "message": "Editar temporizador de sitio"
+  },
+
+  "errorsImpermanent": {
+    "message": "Como todo, los errores son impermanentes."
+  },
+
+  "sorryForIssue": {
+    "message": "Lamentamos este problema"
+  },
+
+  "createdAnIssue": {
+    "message": "Hemos creado un problema para este error"
+  },
+
+  "errorPersists": {
+    "message": " y trabajaremos para resolverlo. Si el problema persiste contactate con jacob@getmujo.com"
+  },
+  "bringBackLink": {
+    "message": "Regresar al enlace, tomando un descanso."
+  },
+  "breatheIn": {
+    "message": "Inhala"
+  },
+  "breatheOut": {
+    "message": "Exhala"
+  },
+  "shownInUsage": {
+    "message": "Se muestra en {{minutes}} minuto{{suffix}} de uso"
+  },
+  "breakTimer": {
+    "message": "Temporizador de descanso"
+  },
+
+  "screenTime": {
+    "message": "Tiempo en pantalla"
+  },
+  "beta": {
+    "message": "BETA"
+  },
+  "screenTimeExplain": {
+    "message": "El tiempo en pantalla es el tiempo de visualización de sitios entre tus descansos"
+  },
+
+  "screenTimeStatus": {
+    "message": "El tiempo en pantalla es {{status}}"
+  },
+  "sinceLastBreakPercent": {
+    "message": "desde su último descanso. Este es el {{percent}}% de la visualización en web."
+  },
+  "screenTimeDisclaimer": {
+    "message": "Estos tiempos no van a representar una vista del 100% de sus hábitos de visualización"
+  },
+  "backToSite": {
+    "message": "Volver al sitio"
+  },
+  "visitSite": {
+    "message": "Visite el sitio"
+  },
+  "screenTimeFor": {
+    "message": "Tiempo en pantalla por:"
+  },
+  "keepExploring": {
+    "message": "Explorando más, todavía no hay suficientes datos para mostrarte."
+  },
+  "subscribe": {
+    "message": "Suscribirte"
+  },
+  "moreInfo": {
+    "message": "Más información"
+  },
+
+  "thanksSupport": {
+    "message": "¡Gracias por tu apoyo! ❤️"
+  },
+  "getMoreAccess": {
+    "message": "Obtén más acceso a Mujō"
+  },
+  "reminder": {
+    "message": "Recordatorio"
+  },
+  "screenTimeEnabled": {
+    "message": "Tiempo en pantalla habilitado"
+  },
+
+  "screenTimePermissions": {
+    "message": "Tiempo en pantalla requiere algunos permisos adicionales"
+  },
+
+  "breathAmount": {
+    "message": "Cantidad de respiraciones"
+  },
+  "wantMoreBreath": {
+    "message": "¿Quieres más respiraciones en cada descanso?"
+  },
+  "breathLimits": {
+    "message": "Entre {{min}} a {{max}}"
+  },
+  "help": {
+    "message": "Ayuda"
+  },
+  "joinChat": {
+    "message": "¿Necesitas ayuda o recibió comentarios? Hable con nosotros en Spectrum.chat"
+  },
+  "getSupport": {
+    "message": "Obtenga apoyo"
+  },
+  "aboutMujo": {
+    "message": "Acerca de Mujō"
+  },
+  "mujoVersion": {
+    "message": "Tú estás usando v{{version}} de Mujō"
+  },
+  "rateUs": {
+    "message": "¡Califícanos!"
+  },
+  "reminderAlt": {
+    "message": "Notificaciones que te recuerdan de tomar un descanso"
+  },
+  "mindfulMax": {
+    "message": "Consciente al máximo"
+  },
+  "maxBreakTimers": {
+    "message": "Has establecido el número máximo de temporizadores de descanso."
+  },
+  "maxBreakTimersSub": {
+    "message": "Ha establecido el número máximo de temporizadores de descanso. Para obtener acceso a temporizadores de descanso ilimitados y agregar un temporizador de descanso para {{url}} suscribase a Mujō."
+  },
+  "subDetails": {
+    "message": "Detalles de suscripción"
+  },
+  "unableToProcess": {
+    "message": "No pudimos procesar su compra en este momento. Por favor, inténtelo de nuevo más tarde."
+  },
+  "purchaseConsider": {
+    "message":"Gracias por considerar apoyar a Mujō con una suscripción. Su apoyo, ayuda a mantener la extensión en funcionamiento y admitida. Al comprar una suscripción, obtiene acceso a:"
+  },
+  "subAccess": {
+    "message": "Ya eres suscriptor. Tienes acceso a:"
+  },
+  "unlimitedBreakTimers": {
+    "message": "Unlimited break timers."
+  },
+  "smartBreakTimes": {
+    "message": "Algoritmo inteligente para predecir los mejores momentos para tomar un descanso."
+  },
+
+  "earlyAccess": {
+    "message": "Acceso anticipado a funciones avanzadas."
+  },
+  "subAt": {
+    "message": "Suscríbase a {{cost}}/mo"
+  },
+  "thanksPurchase": {
+    "message": "Gracias por comprar una suscripción"
+  },
+  "supportAppreciation": {
+    "message": "¡Su apoyo es muy apreciado!"
+  },
+  "contactQuestions": {
+    "message": "Por favor contactar jacob@getmujo.com con cualquier comentario o pregunta"
+  },
+  "unableToSub": {
+    "message": "No se puede suscribir en este momento"
+  },
+  "gentleNudge": {
+    "message": "Un suave empujón, para ser consciente con su tiempo."
+  },
+  "settings": {
+    "message": "Ajustes"
+  },
+  "enabled": {
+    "message": "habilitado"
+  },
+  "disabled": {
+    "message": "inhabilitado"
+  },
+  "youreAmazing": {
+    "message": "Tú lo estás haciendo increíble!"
+  },
+  "youreMindful": {
+    "message": "Tú eres muy consciente!"
+  },
+  "youreTheBest": {
+    "message": "Tú eres el mejor!"
+  },
+  "yourePro": {
+    "message": "Tú eres un profesional en  ésto.!"
+  }
+}
