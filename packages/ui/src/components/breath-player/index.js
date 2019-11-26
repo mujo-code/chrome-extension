@@ -24,6 +24,7 @@ export const BreathPlayer = ({
   EndCard,
   breatheInText = 'Inhale',
   breatheOutText = 'Exhale',
+  type,
   ...otherProps
 }) => {
   const { foreground, background } = useTheme()
@@ -82,7 +83,7 @@ export const BreathPlayer = ({
             {json.length}
           </HeaderS>
           <EndCardWrapper show={endCardActive}>
-            {endCardActive ? <EndCard {...endCardActive} /> : null}
+            {endCardActive ? <EndCard type={type} {...endCardActive} /> : null}
           </EndCardWrapper>
         </>
       ) : null}

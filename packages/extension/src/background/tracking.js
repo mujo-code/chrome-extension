@@ -24,6 +24,10 @@ export const track = (options = {}) => {
   return tracker.event(payload)
 }
 
+export const setupInitialTracker = id => {
+  tracker = ua(id) // this is for install events
+}
+
 export const initTracking = id => async userId => {
   tracker = ua(id, userId)
   // set promise interface for events
