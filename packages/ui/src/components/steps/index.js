@@ -71,13 +71,18 @@ export const Steps = ({
           </AnimatedStep>
         ))}
       </Box>
-      <Box display="flex" direction="column" paddingBottom="m">
+      <Box
+        display="flex"
+        direction="row"
+        paddingBottom="m"
+        justifyContent="center"
+      >
         <Box
           flex="0"
           display="flex"
           direction="row"
           justifyContent="center"
-          marginBottom="m"
+          alignItems="center"
         >
           {steps.map(({ name }, i) => (
             <Box
@@ -86,7 +91,7 @@ export const Steps = ({
               marginRight="s"
               borderRadius="l"
               backgroundColor={i === step ? bg : hl}
-              css={{ width: '16px', height: '16px' }}
+              css={{ width: '8px', height: '8px' }}
             />
           ))}
         </Box>
@@ -95,9 +100,11 @@ export const Steps = ({
           display="flex"
           justifyContent="center"
           position="relative"
+          paddingLeft="s"
           layer="3"
         >
           <Button
+            whiteSpace="nowrap"
             design={buttonDesign || buttonStyle}
             onClick={isDone ? onFinish : next}
           >
