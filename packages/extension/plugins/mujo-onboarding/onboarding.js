@@ -1,24 +1,14 @@
-import { Box } from '@mujo/box'
 import { EndScreen, context } from '@mujo/plugins'
-import { HeaderL, BodyL, Steps, Step } from '@mujo/ui'
+import { Steps, Step, useTheme } from '@mujo/ui'
 import React, { useContext } from 'react'
-
-const CenterBox = ({ children }) => (
-  <Box
-    maxWidth="600px"
-    display="flex"
-    height="300px"
-    direction="column"
-    justifyContent="center"
-    alignItems="center"
-    margin="l"
-  >
-    {children}
-  </Box>
-)
+import { FeelsGoodBreak } from './feels-good-break'
+import { JustBreathe } from './just-breathe'
+import { Launch } from './launch'
+import { OnboardingScreen } from './onboarding-screen'
 
 export const EndScreenOnboarding = ({ close, index }) => {
   const { extension } = useContext(context)
+  const { highlight, background } = useTheme()
   const { i18n } = extension
   return (
     <Steps
@@ -27,22 +17,37 @@ export const EndScreenOnboarding = ({ close, index }) => {
       lastCTA={i18n.t('start-journey')}
     >
       <Step name="intro">
-        <CenterBox>
-          <HeaderL>{i18n.t('feels-good-break')}</HeaderL>
-          <BodyL>{i18n.t('feels-good-break-desc')}</BodyL>
-        </CenterBox>
+        <OnboardingScreen
+          icon={
+            <FeelsGoodBreak
+              highlight={highlight}
+              foreground={background}
+            />
+          }
+          title={i18n.t('feels-good-break')}
+          description={i18n.t('feels-good-break-desc')}
+        />
       </Step>
       <Step name="breathe">
-        <CenterBox>
-          <HeaderL>{i18n.t('just-breathe')}</HeaderL>
-          <BodyL>{i18n.t('just-breathe-desc')}</BodyL>
-        </CenterBox>
+        <OnboardingScreen
+          icon={
+            <JustBreathe
+              highlight={highlight}
+              foreground={background}
+            />
+          }
+          title={i18n.t('just-breathe')}
+          description={i18n.t('just-breathe-desc')}
+        />
       </Step>
       <Step name="thanks">
-        <CenterBox>
-          <HeaderL>{i18n.t('thanks-install')}</HeaderL>
-          <BodyL>{i18n.t('thanks-install-desc')}</BodyL>
-        </CenterBox>
+        <OnboardingScreen
+          icon={
+            <Launch highlight={highlight} foreground={background} />
+          }
+          title={i18n.t('thanks-install')}
+          description={i18n.t('thanks-install-desc')}
+        />
       </Step>
     </Steps>
   )
