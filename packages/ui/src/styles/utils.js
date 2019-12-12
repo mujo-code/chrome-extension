@@ -64,8 +64,10 @@ const sizes = {
 
 export const width = makeStyles('width', sizes)
 export const maxWidth = makeStyles('maxWidth', sizes)
+export const minWidth = makeStyles('minWidth', sizes)
 export const height = makeStyles('height', sizes)
 export const maxHeight = makeStyles('maxHeight', sizes)
+export const minHeight = makeStyles('minHeight', sizes)
 
 export const borderRadius = makeStyles('borderRadius', sizes)
 export const borderTopLeftRadius = makeStyles('borderTopLeftRadius', sizes)

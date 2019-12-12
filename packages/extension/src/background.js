@@ -11,7 +11,11 @@ import { initIdentity } from './background/identity'
 import { injectScript } from './background/inject'
 import { reducer } from './background/message-reducer'
 import { onNotificationClicked } from './background/notifications'
-import { initTracking } from './background/tracking'
+import {
+  initTracking,
+  setupInitialTracker,
+} from './background/tracking'
+import { onInstall } from './background/install'
 import { BackgroundApp } from './components/background-app'
 
 const {
@@ -20,27 +24,32 @@ const {
   webNavigation,
   notifications,
   browserAction,
+  runtime,
 } = Extension
+const { UA } = process.env
 const { composePromises } = AsyncHelpers
 const element = document.createElement('div')
 const startReactApp = () => {
   ReactDOM.render(<BackgroundApp />, element)
 }
 
+const addExtensionListeners = () => {
+  notifications.onClicked.addListener(onNotificationClicked)
+  alarms.onAlarm.addListener(alarmReducer)
+  onMessage(reducer)
+  webNavigation.onCommitted.addListener(injectScript)
+  browserAction.onClicked.addListener(onBrowserAction)
+  runtime.onInstalled.addListener(onInstall)
+}
+
 const init = composePromises(
   initAlarms,
-  initTracking(process.env.UA, window.document),
+  initTracking(UA, window.document),
   initIdentity,
   startReactApp
 )
 
-notifications.onClicked.addListener(onNotificationClicked)
-alarms.onAlarm.addListener(alarmReducer)
-// NOTE: Most functionlity will probably stem from the reducer
-onMessage(reducer)
-webNavigation.onCommitted.addListener(injectScript)
-
-// Called when the user clicks on the browser action.
-browserAction.onClicked.addListener(onBrowserAction)
+setupInitialTracker(UA) // initial tracker only use for install events
+addExtensionListeners()
 
 export default init()

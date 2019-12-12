@@ -4,6 +4,7 @@ import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SETTINGS_MODAL, TRANSLATION_FILE } from '../../constants'
+import { useExtension } from '../../hooks/use-extension'
 import { EndScreen } from './end-screen'
 
 const { track } = Tracker
@@ -16,6 +17,7 @@ export const Header = ({
   setUpsellModal,
   breathAmount,
 }) => {
+  const { query } = useExtension()
   const [toolTipOpen, setToolTipOpen] = useState(false)
   const { t } = useTranslation(TRANSLATION_FILE)
   const theme = useTheme()
@@ -57,6 +59,7 @@ export const Header = ({
           breathAmount={breathAmount}
           breatheInText={t('breathe-in')}
           breatheOutText={t('breathe-out')}
+          type={query.type}
           onFinish={() => {
             setPlayerIsOpen(false)
             resetUsage()

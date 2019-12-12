@@ -1,6 +1,7 @@
 import path from 'path'
 import { AsyncHelpers } from '@mujo/utils'
 import puppeteer from 'puppeteer'
+import manifest from '../build/manifest.json'
 import {
   SET_STORAGE,
   SITE_TIME_KEY,
@@ -13,6 +14,24 @@ const TEST_TIMEOUT = 20000 // extend test timeout sinces its E2E
 let browser
 let page
 const BUILD_PATH = path.resolve(__dirname, '../build')
+
+let extensionId = null
+
+const getExtensionId = async () => {
+  const dummyPage = await browser.newPage()
+  await dummyPage.waitFor(2000) // arbitrary wait time.
+
+  const targets = await browser.targets()
+  const extensionTarget = targets.find(
+    ({ _targetInfo }) =>
+      _targetInfo.title === manifest.name &&
+      _targetInfo.type === 'background_page'
+  )
+  const extensionUrl = extensionTarget._targetInfo.url || ''
+  const [, , extensionID] = extensionUrl.split('/')
+  dummyPage.close()
+  return extensionID
+}
 
 beforeAll(async () => {
   browser = await puppeteer.launch({
@@ -29,6 +48,8 @@ beforeAll(async () => {
     },
     slowMo: 100,
   })
+
+  extensionId = await getExtensionId()
 })
 
 afterAll(async () => {
@@ -63,7 +84,7 @@ const waitDOMLoaded = async () =>
 test(
   'newtab page should have a player',
   async () => {
-    await page.goto('chrome://newtab')
+    await page.goto(`chrome-extension://${extensionId}/index.html`)
     await waitDOMLoaded()
     const el = await page.$('[data-testid="breath-player"]')
     await wait(500)
@@ -76,7 +97,9 @@ test(
 test(
   'newtab page should be able to deeplink into a exercisee',
   async () => {
-    await page.goto('chrome://newtab?play=true')
+    await page.goto(
+      `chrome-extension://${extensionId}/index.html?play=true`
+    )
     await waitDOMLoaded()
     await wait(1000)
     const el = await page.$('[data-testid="breath-player--count"]')

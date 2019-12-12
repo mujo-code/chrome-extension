@@ -59,7 +59,7 @@ export const ExtensionProvider = props => {
   const endScreenInterface = useEndScreen()
 
   // effects
-  useDeeplink({
+  const { query } = useDeeplink({
     appReady,
     setPlayerIsOpen,
     setSelectedSegment,
@@ -139,6 +139,7 @@ export const ExtensionProvider = props => {
         setPlayerIsOpen,
         setUpsellModal,
         updateBreakTimers,
+        query,
         ...settingsInterface,
         ...tabInterface,
         ...endScreenInterface,

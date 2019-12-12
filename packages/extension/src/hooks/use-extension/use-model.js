@@ -70,7 +70,7 @@ export const useModel = () => {
     }
   }, [updateFns, isConnected, setIsConnected])
 
-  const pending = breathAmountPending || pageViewPending
+  const pending = breathAmountPending && pageViewPending
 
   return {
     alarmEnabled,
