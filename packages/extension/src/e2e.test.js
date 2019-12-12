@@ -29,6 +29,7 @@ const getExtensionId = async () => {
   )
   const extensionUrl = extensionTarget._targetInfo.url || ''
   const [, , extensionID] = extensionUrl.split('/')
+  dummyPage.close()
   return extensionID
 }
 
@@ -100,7 +101,7 @@ test(
       `chrome-extension://${extensionId}/index.html?play=true`
     )
     await waitDOMLoaded()
-    await wait(2000)
+    await wait(1000)
     const el = await page.$('[data-testid="breath-player--count"]')
     expect(el).not.toBe(null)
 
