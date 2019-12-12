@@ -5,6 +5,14 @@ import { SETTINGS_MODAL } from '../../constants'
 import { PluginProvider } from '../plugin-provider'
 import { Header } from '.'
 
+jest.mock('../../hooks/use-extension')
+
+const { useExtension } = require('../../hooks/use-extension')
+
+beforeEach(() => {
+  useExtension.mockReturnValue({ query: {} })
+})
+
 test('Header component matches snapshot', () => {
   const tree = create(
     <PluginProvider>
