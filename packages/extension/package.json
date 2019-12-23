@@ -1,6 +1,6 @@
 {
   "name": "mujo",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "homepage": "./",
   "dependencies": {
@@ -12,8 +12,8 @@
     "@mujo/ingress": "^0.1.1",
     "@mujo/plugins": "^2.2.0",
     "@mujo/raf": "^3.4.1-1",
-    "@mujo/ui": "^2.2.0",
-    "@mujo/utils": "^2.2.0",
+    "@mujo/ui": "^2.3.0",
+    "@mujo/utils": "^2.3.0",
     "@sentry/browser": "^5.6.3",
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-knobs": "^5.2.1",
