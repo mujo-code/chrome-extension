@@ -64,6 +64,6 @@
   "youre-mindful": "You are so mindful.",
   "youre-the-best": "You are the best!",
   "youre-pro": "You are a pro at this!",
-  "conditional-new-tab-page": "Conditional New Tab Page",
-  "conditional-new-tab-page-alt": "Override new tab page"
+  "conditional-new-tab-page": "New tab page",
+  "conditional-new-tab-page-alt": "Conditionally turn on or off the overriding of the new tab page."
 }
