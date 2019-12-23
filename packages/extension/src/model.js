@@ -12,6 +12,8 @@ import {
   ID_KEY,
   BREATH_AMOUNT_KEY,
   CURRENT_TAB_KEY,
+  CONDITIONAL_NEW_TAB_PAGE_KEY,
+  CONDITIONAL_NEW_TAB_PAGE_DEFAULT_VALUE,
 } from './constants'
 
 export default {
@@ -27,4 +29,8 @@ export default {
   [ID_KEY]: { type: String, default: null },
   [BREATH_AMOUNT_KEY]: { type: Number, defaultValue: 5 },
   [CURRENT_TAB_KEY]: { type: String, defaultValue: null },
+  [CONDITIONAL_NEW_TAB_PAGE_KEY]: {
+    type: Boolean,
+    defaultValue: CONDITIONAL_NEW_TAB_PAGE_DEFAULT_VALUE,
+  },
 }

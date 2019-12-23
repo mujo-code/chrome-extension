@@ -3,7 +3,7 @@ import React from 'react'
 import { BreakAlarmBackground } from './background'
 import { BreakAlarmNewTabPage } from './new-tab-page'
 
-const BreakAlarm = ({ constants }) => (
+const BreakAlarm = () => (
   <>
     <Background>
       <BreakAlarmBackground />

@@ -1,4 +1,4 @@
-import { Setting } from '@mujo/plugins'
+import { Setting, useStorage } from '@mujo/plugins'
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -10,6 +10,7 @@ import {
   SUPPORT_URL,
   WEBSTORE_URL,
   VERSION,
+  CONDITIONAL_NEW_TAB_PAGE_KEY,
 } from '../../constants'
 import { useExtension } from '../../hooks/use-extension'
 
@@ -41,6 +42,10 @@ export const Settings = ({ children }) => {
     window.open(SUPPORT_URL)
   }, [])
 
+  const [
+    conditionalNewTabPageEnabled,
+    setConditionalNewTabPageEnabled,
+  ] = useStorage(CONDITIONAL_NEW_TAB_PAGE_KEY)
   return (
     <>
       <Setting
@@ -55,6 +60,13 @@ export const Settings = ({ children }) => {
         onChange={openUpsell}
       />
       {children}
+      <Setting
+        label={t('conditional-new-tab-page')}
+        type="boolean"
+        alt={t('conditional-new-tab-page-alt')}
+        onChange={setConditionalNewTabPageEnabled}
+        value={conditionalNewTabPageEnabled}
+      />
       <Setting
         label={t('breath-amount')}
         type="number"

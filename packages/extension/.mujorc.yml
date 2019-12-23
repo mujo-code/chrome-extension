@@ -32,8 +32,6 @@ icons:
 
 browserAction:
   defaultIcon: favicon.png
-chromeUrlOverrides:
-  newtab: index.html
 webAccessibleResources:
   - images/*.png
   - images/*.svg

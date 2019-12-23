@@ -6,6 +6,7 @@ const {
   webNavigation,
   notifications,
   browserAction,
+  tabs,
 } = Extension
 jest.mock('./background/alarm')
 jest.mock('universal-analytics')
@@ -25,6 +26,7 @@ test('all the automatic setup of background', async () => {
   expect(webNavigation.onCommitted.addListener).toBeCalled()
   expect(notifications.onClicked.addListener).toBeCalled()
   expect(browserAction.onClicked.addListener).toBeCalled()
+  expect(tabs.onCreated.addListener).toBeCalled()
 
   // happens in a promise chain now so its deferred
   expect(initAlarms).toBeCalled()

@@ -64,4 +64,5 @@ export const {
   runtime,
   topSites,
   browserAction,
+  extension,
 } = chrome

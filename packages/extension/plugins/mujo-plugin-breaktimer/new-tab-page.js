@@ -1,6 +1,6 @@
 import { Setting, context, useStorage } from '@mujo/plugins'
 import React, { useContext } from 'react'
-import { ALARM_KEY } from './constants'
+import { ALARM_KEY, CONDITIONAL_NEW_TAB_PAGE_KEY } from './constants'
 
 export const BreakAlarmNewTabPage = () => {
   const { extension } = useContext(context)

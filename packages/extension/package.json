@@ -10,7 +10,6 @@
     "@mujo/box": "^3.0.1",
     "@mujo/eslint-config": "^1.0.4",
     "@mujo/ingress": "^0.1.1",
-    "@mujo/jest-webextension-mock": "^3.5.0",
     "@mujo/plugins": "^2.2.0",
     "@mujo/raf": "^3.4.1-1",
     "@mujo/ui": "^2.2.0",
@@ -105,7 +104,7 @@
     "last 3 Chrome versions"
   ],
   "devDependencies": {
-    "@mujo/jest-webextension-mock": "^3.5.0",
+    "@mujo/jest-webextension-mock": "^3.5.2",
     "babel-loader": "^8.0.6",
     "change-case": "^3.1.0",
     "cosmiconfig": "^5.2.1",
