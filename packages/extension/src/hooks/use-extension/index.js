@@ -19,6 +19,7 @@ import { useDeeplink } from './use-deeplink'
 import { useModel } from './use-model'
 import { useSettings } from './use-settings'
 import { useTabs } from './use-tabs'
+import { useEndScreen } from './use-end-screen'
 import { useTopsitesAPI } from './use-topsites-api'
 
 const { message } = Extension
@@ -55,6 +56,7 @@ export const ExtensionProvider = props => {
     setBreathAmount,
   } = useModel()
   const { user } = useSubscription()
+  const endScreenInterface = useEndScreen()
 
   // effects
   useDeeplink({
@@ -139,6 +141,7 @@ export const ExtensionProvider = props => {
         updateBreakTimers,
         ...settingsInterface,
         ...tabInterface,
+        ...endScreenInterface,
       }}
     >
       <IngressProvider>{props.children}</IngressProvider>

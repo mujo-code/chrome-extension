@@ -4,7 +4,7 @@ import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SETTINGS_MODAL, TRANSLATION_FILE } from '../../constants'
-import { PostSessionAffirmation } from './post-session-affirmation'
+import { EndScreen } from './end-screen'
 
 const { track } = Tracker
 export const Header = ({
@@ -74,7 +74,7 @@ export const Header = ({
           }}
           onMouseEnter={() => setToolTipOpen(true)}
           onMouseLeave={() => setToolTipOpen(false)}
-          EndCard={PostSessionAffirmation}
+          EndCard={EndScreen}
         />
       </Box>
       <ToolTip
