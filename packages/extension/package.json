@@ -104,7 +104,7 @@
     "last 3 Chrome versions"
   ],
   "devDependencies": {
-    "@mujo/jest-webextension-mock": "^3.5.1",
+    "@mujo/jest-webextension-mock": "^3.5.2",
     "babel-loader": "^8.0.6",
     "change-case": "^3.1.0",
     "cosmiconfig": "^5.2.1",
