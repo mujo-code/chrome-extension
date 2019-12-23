@@ -24,7 +24,7 @@ describe('Tab component', () => {
     const pushTab = jest.fn()
     const removeTab = jest.fn()
     const constants = { TABS_TARGET: 'foo' }
-    render(
+    const { unmount } = render(
       <PluginProvider
         env="ntp"
         tabs={{ pushTab, removeTab, currentTab: 'foo' }}
@@ -34,6 +34,8 @@ describe('Tab component', () => {
       </PluginProvider>
     )
     expect(pushTab).toBeCalled()
+    expect(removeTab).not.toBeCalled()
+    unmount()
     expect(removeTab).toBeCalled()
   })
 

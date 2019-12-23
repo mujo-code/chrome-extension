@@ -25,6 +25,12 @@ export const TRANSLATION_FILE = 'translation'
 export const TABS_TARGET = 'tabs'
 export const MESSAGE = 'message'
 export const CONDITIONAL_NEW_TAB_PAGE_DEFAULT_VALUE = true
+export const DEFAULT_END_SCREEN = 'default end screen'
+export const DEFAULT_URLS = [
+  { title: 'Google', url: 'https://google.com' },
+  { title: 'Mujō', url: 'https://getmujo.com' },
+  { title: 'Headspace', url: 'https://headspace.com' },
+]
 
 // ALARMS
 export const ALARM_KEY = 'MINDFUL_ALARM' // also storage key
