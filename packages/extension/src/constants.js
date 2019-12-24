@@ -94,3 +94,4 @@ export const SCREEN_TIME_PERMISSIONS = {
 
 // optional new tab page
 export const NEW_TAB = 'chrome://newtab/'
+export const NEW_TAB_FIREFOX = 'about:newtab'
