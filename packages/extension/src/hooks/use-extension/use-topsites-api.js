@@ -4,6 +4,10 @@ import { DEFAULT_URLS } from '../../constants'
 
 const { topSites } = Extension
 
+const getTopSites = async set => {
+  set(await topSites.get())
+}
+
 export const useTopsitesAPI = ({ setTopSites }) => {
   const [hasRefreshTopSites, setHasRefreshedTopSites] = useState(
     false
@@ -11,7 +15,7 @@ export const useTopsitesAPI = ({ setTopSites }) => {
   useEffect(() => {
     if (!hasRefreshTopSites && topSites) {
       try {
-        topSites.get(setTopSites)
+        getTopSites(setTopSites)
       } catch (e) {
         setTopSites(DEFAULT_URLS)
       }
