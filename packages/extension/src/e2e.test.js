@@ -37,7 +37,6 @@ beforeAll(async () => {
     args: [
       `--disable-extensions-except=${BUILD_PATH}`,
       `--load-extension=${BUILD_PATH}`,
-      '--no-sandbox',
     ],
     defaultViewport: {
       width: 1280,
