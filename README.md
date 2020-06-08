@@ -16,10 +16,8 @@ This repository is a [lerna](https://lerna.js.org/) repo. I contains not only th
 ## Running
 
 ```shell
-npm i
-npm run bootstrap:hoist
-npm run bootstrap
-npm start # starts the extension
+yarn
+yarn lerna run prepublish
 ```
 
 ## Installing into Chrome
@@ -34,8 +32,8 @@ npm start # starts the extension
 
 More about the extension
 
-* [extension docs](./packages/extension/docs/README.md)
+- [extension docs](./packages/extension/docs/README.md)
 
 Build your own Mujō plugin!
 
-* [plugin docs](./packages/extension/docs/README.md)
+- [plugin docs](./packages/extension/docs/README.md)

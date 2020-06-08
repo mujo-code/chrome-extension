@@ -2,13 +2,19 @@
   "name": "root",
   "private": true,
   "license": "MIT",
+  "workspaces": [
+    "packages/utils",
+    "packages/ui",
+    "packages/plugins",
+    "packages/extension"
+  ],
   "scripts": {
-    "start": "cd packages/extension && npm run start",
-    "bootstrap:hoist": "lerna bootstrap --hoist",
-    "bootstrap": "lerna bootstrap",
-    "build": "lerna run build",
+    "start": "yarn workspace mujo start",
+    "build": "yarn lerna run build",
+    "bootstrap": "yarn workspace util build && yarn workspace ui build && yarn workspace plugins build",
     "test": "lerna run test",
-    "test:update": "lerna exec 'npm test -- -u'"
+    "test:update": "lerna exec 'npm test -- -u'",
+    "fmt": "lerna run fmt"
   },
   "devDependencies": {
     "lerna": "^3.16.4",

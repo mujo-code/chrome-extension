@@ -102,9 +102,9 @@ test(
     const el = await page.$('[data-testid="breath-player--count"]')
     expect(el).not.toBe(null)
 
-    const initialCount = await (await el.getProperty(
-      'textContent'
-    )).jsonValue()
+    const initialCount = await (
+      await el.getProperty('textContent')
+    ).jsonValue()
     expect(initialCount.trim()).toBe('5')
   },
   TEST_TIMEOUT
