@@ -11,7 +11,7 @@
   "scripts": {
     "start": "yarn workspace mujo start",
     "build": "yarn lerna run build",
-    "bootstrap": "yarn workspace util build && yarn workspace ui build && yarn workspace plugins build",
+    "bootstrap": "yarn workspace @mujo/utils build && yarn workspace @mujo/ui build && yarn workspace @mujo/plugins build",
     "test": "NODE_ENV=test jest",
     "test:update": "lerna exec 'npm test -- -u'",
     "fmt": "lerna run fmt"
