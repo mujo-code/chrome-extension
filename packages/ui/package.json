@@ -62,39 +62,6 @@
     "react": ">=16.8.6",
     "react-modal": ">=3.10.1"
   },
-  "jest": {
-    "setupFiles": [
-      "@mujo/jest-webextension-mock"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js}"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.js",
-      "<rootDir>/src/**/*.{spec,test}.js"
-    ],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
-    ],
-    "modulePaths": [],
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
-  },
   "babel": {
     "presets": [
       "@babel/preset-env",

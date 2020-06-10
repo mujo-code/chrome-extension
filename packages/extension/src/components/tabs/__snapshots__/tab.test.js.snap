@@ -2,21 +2,15 @@
 
 exports[`Tab component matches snapshot 1`] = `
 <div
-  className="css-17lhke"
+  className="css-ysnj1r"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
-  overflow="hidden"
-  position="relative"
 >
   <div
-    backgroundColor="saltBox"
-    className="css-2djo8t"
-    height="m"
-    position="absolute"
-    width="m"
+    className="css-7gn3rw"
   />
   <p
-    className="css-1hhdzfd"
+    className="css-bqluz9"
   >
     foo
   </p>

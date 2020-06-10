@@ -113,64 +113,6 @@
     "react-devtools": "^4.1.0",
     "serve": "^11.1.0"
   },
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "statments": 75,
-        "branches": 55,
-        "functions": 70,
-        "lines": 75
-      }
-    },
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts",
-      "!src/background/storage/migrations/*.js"
-    ],
-    "setupFiles": [
-      "react-app-polyfill/jsdom",
-      "@mujo/jest-webextension-mock"
-    ],
-    "setupFilesAfterEnv": [
-      "./jest.setup.js"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "modulePaths": [],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^react$": "<rootDir>/node_modules/react",
-      "^@mujo/plugins$": "<rootDir>/node_modules/@mujo/plugins",
-      "^@mujo/ingress$": "<rootDir>/node_modules/@mujo/ingress",
-      "^@mujo/ui$": "<rootDir>/node_modules/@mujo/ui",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
-  },
   "babel": {
     "presets": [
       "react-app"

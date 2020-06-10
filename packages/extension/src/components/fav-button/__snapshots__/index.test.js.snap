@@ -2,8 +2,7 @@
 
 exports[`FavButton component matches snapshot 1`] = `
 <a
-  backgroundColor="outerSpace"
-  className="css-51z5ye"
+  className="css-1wtzem9"
   disable={false}
   disabled={true}
   href="foo"
@@ -16,27 +15,25 @@ exports[`FavButton component matches snapshot 1`] = `
   />
   <img
     alt="bar"
-    className="css-1numroz"
-    height="m"
+    className="css-138kkf8"
     onError={[Function]}
     onLoad={[Function]}
     src="https://getmujo.com/api/icon?site=foo"
-    width="m"
   />
   <div
-    className="css-79elbk"
+    className="css-19sk4h4"
   >
     <div
-      className="css-4pw2fe"
+      className="css-aq08jq"
     >
       <span
-        className="css-xrmt9z"
+        className="css-7son14"
       >
         <div
-          className="css-nxex8j"
+          className="css-1ht175c"
         />
         <div
-          className="css-91tplw"
+          className="css-wuflo1"
         >
           bar
         </div>

@@ -2,18 +2,13 @@
 
 exports[`FavRows component matches snapshot 1`] = `
 <div
-  className="css-gvoll6"
-  flexWrap="wrap"
+  className="css-z94wou"
 >
   <div
-    className="css-s8fzq"
-    height="xxl"
-    maxHeight="xxl"
-    width="xxl"
+    className="css-18blzha"
   >
     <a
-      backgroundColor="outerSpace"
-      className="css-1ioivri"
+      className="css-tr0e1s"
       disabled={true}
       href="https://foo.com"
       onClick={[Function]}
@@ -26,27 +21,25 @@ exports[`FavRows component matches snapshot 1`] = `
       />
       <img
         alt="foo"
-        className="css-1numroz"
-        height="m"
+        className="css-138kkf8"
         onError={[Function]}
         onLoad={[Function]}
         src="https://getmujo.com/api/icon?site=https%3A%2F%2Ffoo.com"
-        width="m"
       />
       <div
-        className="css-79elbk"
+        className="css-19sk4h4"
       >
         <div
-          className="css-4pw2fe"
+          className="css-aq08jq"
         >
           <span
-            className="css-xrmt9z"
+            className="css-7son14"
           >
             <div
-              className="css-nxex8j"
+              className="css-1ht175c"
             />
             <div
-              className="css-91tplw"
+              className="css-wuflo1"
             >
               foo
             </div>
@@ -56,14 +49,10 @@ exports[`FavRows component matches snapshot 1`] = `
     </a>
   </div>
   <div
-    className="css-s8fzq"
-    height="xxl"
-    maxHeight="xxl"
-    width="xxl"
+    className="css-18blzha"
   >
     <a
-      backgroundColor="outerSpace"
-      className="css-1ioivri"
+      className="css-tr0e1s"
       disabled={true}
       href={null}
       onClick={[Function]}
@@ -76,27 +65,25 @@ exports[`FavRows component matches snapshot 1`] = `
       />
       <img
         alt="bar"
-        className="css-64d9dy"
-        height="m"
+        className="css-1kjhkqx"
         onError={[Function]}
         onLoad={[Function]}
         src="https://getmujo.com/api/icon?site=https%3A%2F%2Fbar.com"
-        width="m"
       />
       <div
-        className="css-79elbk"
+        className="css-19sk4h4"
       >
         <div
-          className="css-4pw2fe"
+          className="css-aq08jq"
         >
           <span
-            className="css-xrmt9z"
+            className="css-7son14"
           >
             <div
-              className="css-nxex8j"
+              className="css-1ht175c"
             />
             <div
-              className="css-91tplw"
+              className="css-wuflo1"
             >
               Bring back this link by taking a break
             </div>
