@@ -20,11 +20,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: yarn bootstrap
-      - name: Bootstrap Monorepo
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - run: yarn build
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
