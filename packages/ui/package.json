@@ -62,12 +62,6 @@
     "react": ">=16.8.6",
     "react-modal": ">=3.10.1"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
   "browserslist": [
     "last 3 Chrome versions"
   ],

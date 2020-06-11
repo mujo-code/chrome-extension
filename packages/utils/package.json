@@ -54,15 +54,6 @@
     "@mujo/ingress": ">=0.1.0",
     "react": ">=16.8.6"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-export-namespace-from"
-    ]
-  },
   "browserslist": [
     "last 3 Chrome versions"
   ],

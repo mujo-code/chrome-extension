@@ -17,7 +17,8 @@ This repository is a [lerna](https://lerna.js.org/) repo. I contains not only th
 
 ```shell
 yarn
-yarn lerna run prepublish
+yarn build
+yarn start
 ```
 
 ## Installing into Chrome

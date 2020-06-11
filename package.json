@@ -11,7 +11,6 @@
   "scripts": {
     "start": "yarn workspace mujo start",
     "build": "yarn lerna run build",
-    "bootstrap": "yarn workspace @mujo/utils build && yarn workspace @mujo/ui build && yarn workspace @mujo/plugins build",
     "test": "NODE_ENV=test jest",
     "test:update": "lerna exec 'npm test -- -u'",
     "fmt": "lerna run fmt"
@@ -40,10 +39,5 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0"
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
   }
 }
