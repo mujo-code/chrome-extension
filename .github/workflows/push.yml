@@ -25,15 +25,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: npm run bootstrap
-      - name: Build Modules
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - run: npm run build
+      - run: yarn build
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:
           CI: 'true'
         with:
-          args: npm test
+          args: yarn test
