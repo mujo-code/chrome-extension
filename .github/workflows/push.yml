@@ -25,4 +25,4 @@ jobs:
         env:
           CI: 'true'
         with:
-          args: yarn test
+          args: yarn test:ci
