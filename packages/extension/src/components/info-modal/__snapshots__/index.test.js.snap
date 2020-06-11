@@ -2,16 +2,16 @@
 
 exports[`InfoModal should match snapshot 1`] = `
 <div
-  className="css-wjsxuu"
+  className="css-yjzs9h"
   closeTimeoutMS={200}
   data-mujo={true}
   isOpen={true}
-  overlayClassName="mujo-modal css-qcfpiy"
+  overlayClassName="mujo-modal css-c0jk66"
   portalClassName="css-1bdqre4"
   shouldCloseOnOverlayClick={true}
 >
   <div
-    className="css-1gam40h"
+    className="css-10h3ml4"
   >
     <svg
       fill="none"
@@ -43,27 +43,25 @@ exports[`InfoModal should match snapshot 1`] = `
     className="css-1r5j51h"
   >
     <h2
-      className="css-wxpusu"
+      className="css-18ms6vv"
     >
       Mindful to the max
     </h2>
   </div>
   <div
-    className="css-5mk0cz"
-    overflow="scroll"
+    className="css-1ia6rhm"
   >
     <p
-      className="css-s5sz7t"
+      className="css-1dg2zw9"
     >
       You have set the max number of break timers. To get access to unlimited break timers and add a break timer for foo subscribe to Mujō.
     </p>
   </div>
   <div
-    backgroundColor="gravel"
-    className="css-1pgjng9"
+    className="css-1xfsdmi"
   >
     <button
-      className="css-1j51hru"
+      className="css-1cexgxb"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}

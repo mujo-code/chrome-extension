@@ -10,26 +10,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: npm i
-      - name: Hoist Bootstrap Lerna
+      - run: npm install yarn --global
+      - name: Install Yarn
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: npm run bootstrap:hoist
-      - name: Bootstrap Lerna
+      - run: yarn
+      - name: Yarn install
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: npm run bootstrap
-      - name: Build Modules
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - run: npm run build
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:
           CI: 'true'
         with:
-          args: npm test
+          args: yarn test:ci

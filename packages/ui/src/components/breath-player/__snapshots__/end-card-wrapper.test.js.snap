@@ -2,7 +2,7 @@
 
 exports[`EndCardWrapper component matches snapshot 1`] = `
 <div
-  className="css-j5wxqf"
+  className="css-wwcd6k"
   color="outerSpace"
   layer="2"
   onClick={[Function]}
@@ -15,11 +15,11 @@ exports[`EndCardWrapper component matches snapshot 1`] = `
   }
 >
   <div
-    className="css-1rr4qq7"
+    className="css-upe1zs"
   />
   Foo
   <div
-    className="css-1rr4qq7"
+    className="css-upe1zs"
   />
 </div>
 `;

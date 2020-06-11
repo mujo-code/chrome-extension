@@ -151,14 +151,14 @@ const webpackConfig = webpackEnv => ({ plugins }) => {
         'react-native': 'react-native-web',
         // Alias react to always be local version to support linked packages
         // https://github.com/facebook/react/issues/13991#
-        react: paths.react,
-        'react-modal': paths.reactModal,
+        // react: paths.react
+        // 'react-modal': paths.reactModal,
         // same issue but this is to allow context to be shared between linked
         // packages
-        '@mujo/plugins': paths.pluginsLib,
-        '@mujo/ingress': paths.ingressLib,
-        '@mujo/box': paths.boxLib,
-        '@mujo/ui': paths.uiLib,
+        // '@mujo/plugins': paths.pluginsLib,
+        // '@mujo/ingress': paths.ingressLib,
+        // '@mujo/box': paths.boxLib,
+        // '@mujo/ui': paths.uiLib,
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster

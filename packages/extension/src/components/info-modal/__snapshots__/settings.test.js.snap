@@ -11,25 +11,25 @@ exports[`SettingsItem boolean type should match snapshot 1`] = `
     className="css-vysije"
   >
     <h4
-      className="css-bog7t0"
+      className="css-sazcsg"
     >
       foo
     </h4>
     <p
-      className="css-1shpbgb"
+      className="css-5dhv03"
     >
       bar
     </p>
   </div>
   <div
-    className="css-naf6nl"
+    className="css-gl03vp"
   >
     <div
-      className="css-1j6ivwb"
+      className="css-cm335p"
       onClick={[Function]}
     >
       <div
-        className="css-fc7zzi"
+        className="css-3br9lw"
       />
     </div>
   </div>
@@ -47,12 +47,12 @@ exports[`SettingsItem button type should match snapshot 1`] = `
     className="css-vysije"
   >
     <h4
-      className="css-bog7t0"
+      className="css-sazcsg"
     >
       foo
     </h4>
     <p
-      className="css-1shpbgb"
+      className="css-5dhv03"
     >
       bar
     </p>
@@ -61,7 +61,7 @@ exports[`SettingsItem button type should match snapshot 1`] = `
     className="css-19d2vsr"
   >
     <button
-      className="css-z7ovzb"
+      className="css-1g0nwtk"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -83,25 +83,25 @@ exports[`SettingsItem should match snapshot 1`] = `
     className="css-vysije"
   >
     <h4
-      className="css-bog7t0"
+      className="css-sazcsg"
     >
       foo
     </h4>
     <p
-      className="css-1shpbgb"
+      className="css-5dhv03"
     >
       bar
     </p>
   </div>
   <div
-    className="css-naf6nl"
+    className="css-gl03vp"
   >
     <div
-      className="css-1j6ivwb"
+      className="css-cm335p"
       onClick={[Function]}
     >
       <div
-        className="css-1a07xhr"
+        className="css-f93aoc"
       />
     </div>
   </div>

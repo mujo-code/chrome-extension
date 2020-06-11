@@ -6,6 +6,7 @@ import { APP_READY_KEY } from './constants'
 
 const { wait } = AsyncHelpers
 const TEST_TIMEOUT = 20000 // extend test timeout sinces its E2E
+const TEST_DEFAULT_TIMEOUT = 5000
 
 let browser
 let page
@@ -56,6 +57,7 @@ afterAll(async () => {
 })
 
 beforeEach(async () => {
+  jest.setTimeout(TEST_TIMEOUT)
   page = await browser.newPage()
 })
 
@@ -63,6 +65,7 @@ afterEach(async () => {
   if (page) {
     await page.close()
   }
+  jest.setTimeout(TEST_DEFAULT_TIMEOUT)
 })
 
 const waitDOMLoaded = async () =>
@@ -102,9 +105,9 @@ test(
     const el = await page.$('[data-testid="breath-player--count"]')
     expect(el).not.toBe(null)
 
-    const initialCount = await (await el.getProperty(
-      'textContent'
-    )).jsonValue()
+    const initialCount = await (
+      await el.getProperty('textContent')
+    ).jsonValue()
     expect(initialCount.trim()).toBe('5')
   },
   TEST_TIMEOUT

@@ -21,6 +21,8 @@ permissions:
   - background
   - topSites
   - chrome://favicon/
+chromeUrlOverrides:
+  newtab: index.html
 ## TODO: Maybe infer this base on icons directory
 icons:
   16: favicon.png

@@ -21,7 +21,12 @@ export const InfoModal = ({
   const { title, description, button, children } = getModalData(
     context,
     subDetails,
-    { changeModal, settings, theme, t }
+    {
+      changeModal,
+      settings,
+      theme,
+      t,
+    }
   )
   return (
     <Modal

@@ -2,12 +2,10 @@
 
 exports[`Header component matches open snapshot 1`] = `
 <div
-  className="css-sb0vx4"
-  layer="2"
-  position="relative"
+  className="css-rr5oyj"
 >
   <div
-    className="css-4rodaq"
+    className="css-9wswc1"
     onClick={[Function]}
   >
     <svg
@@ -46,14 +44,14 @@ exports[`Header component matches open snapshot 1`] = `
     className="css-wmwfnm"
   >
     <div
-      className="css-97bura"
+      className="css-1md845p"
       data-testid="breath-player"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="css-1uugaji"
+        className="css-1ffd92o"
         style={
           Object {
             "borderRadius": "30vh",
@@ -69,7 +67,7 @@ exports[`Header component matches open snapshot 1`] = `
         }
       />
       <div
-        className="css-1o44dsb"
+        className="css-baoxwl"
         style={
           Object {
             "borderRadius": "30vh",
@@ -85,17 +83,17 @@ exports[`Header component matches open snapshot 1`] = `
         }
       />
       <div
-        className="css-ykw1nj"
+        className="css-1ez1fyi"
         style={Object {}}
       >
         <h2
-          className="css-j5os12"
+          className="css-hih133"
         >
           Breathe in
         </h2>
       </div>
       <div
-        className="css-ykw1nj"
+        className="css-1ez1fyi"
         style={
           Object {
             "opacity": 0,
@@ -104,19 +102,19 @@ exports[`Header component matches open snapshot 1`] = `
         }
       >
         <h2
-          className="css-j5os12"
+          className="css-hih133"
         >
           Breathe out
         </h2>
       </div>
       <h4
-        className="css-1r3e8hh"
+        className="css-7rvuyr"
         data-testid="breath-player--count"
       >
         5
       </h4>
       <div
-        className="css-cejex2"
+        className="css-1dt2cma"
         onClick={[Function]}
         style={
           Object {
@@ -126,28 +124,28 @@ exports[`Header component matches open snapshot 1`] = `
         }
       >
         <div
-          className="css-1rr4qq7"
+          className="css-upe1zs"
         />
         <div
-          className="css-1rr4qq7"
+          className="css-upe1zs"
         />
       </div>
     </div>
   </div>
   <div
-    className="css-79elbk"
+    className="css-19sk4h4"
   >
     <div
-      className="css-4pw2fe"
+      className="css-aq08jq"
     >
       <span
-        className="css-xrmt9z"
+        className="css-7son14"
       >
         <div
-          className="css-1as2nky"
+          className="css-m89b1l"
         />
         <div
-          className="css-91tplw"
+          className="css-wuflo1"
         >
           Take a break
         </div>
@@ -159,12 +157,10 @@ exports[`Header component matches open snapshot 1`] = `
 
 exports[`Header component matches snapshot 1`] = `
 <div
-  className="css-sb0vx4"
-  layer="2"
-  position="relative"
+  className="css-rr5oyj"
 >
   <div
-    className="css-1kyoofh"
+    className="css-76bosp"
     onClick={[Function]}
   >
     <svg
@@ -203,14 +199,14 @@ exports[`Header component matches snapshot 1`] = `
     className="css-sdhbkc"
   >
     <div
-      className="css-1y63kkb"
+      className="css-1ckxn53"
       data-testid="breath-player"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="css-1uugaji"
+        className="css-1ffd92o"
         style={
           Object {
             "borderRadius": 80,
@@ -226,7 +222,7 @@ exports[`Header component matches snapshot 1`] = `
         }
       />
       <div
-        className="css-1o44dsb"
+        className="css-baoxwl"
         style={
           Object {
             "borderRadius": 80,
@@ -244,19 +240,19 @@ exports[`Header component matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-79elbk"
+    className="css-19sk4h4"
   >
     <div
-      className="css-4pw2fe"
+      className="css-aq08jq"
     >
       <span
-        className="css-xrmt9z"
+        className="css-7son14"
       >
         <div
-          className="css-1as2nky"
+          className="css-m89b1l"
         />
         <div
-          className="css-91tplw"
+          className="css-wuflo1"
         >
           Take a break
         </div>

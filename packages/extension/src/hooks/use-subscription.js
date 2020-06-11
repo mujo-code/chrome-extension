@@ -19,10 +19,7 @@ export const userFactory = (products = []) => ({
 })
 
 export const hydrate = async ({ setProducts, setUser }) => {
-  const hydrateUser = compose(
-    setUser,
-    userFactory
-  )
+  const hydrateUser = compose(setUser, userFactory)
   hydrateUser(await Payment.getPurchases())
   setProducts(await Payment.getProducts())
 }

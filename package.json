@@ -2,16 +2,21 @@
   "name": "root",
   "private": true,
   "license": "MIT",
+  "workspaces": [
+    "packages/utils",
+    "packages/ui",
+    "packages/plugins",
+    "packages/extension"
+  ],
   "scripts": {
-    "start": "cd packages/extension && npm run start",
-    "bootstrap:hoist": "lerna bootstrap --hoist",
-    "bootstrap": "lerna bootstrap",
-    "build": "lerna run build",
-    "test": "lerna run test",
-    "test:update": "lerna exec 'npm test -- -u'"
+    "start": "yarn workspace mujo start",
+    "build": "yarn lerna run build",
+    "test": "jest --coverage",
+    "test:ci": "yarn build && jest --coverage",
+    "test:update": "lerna exec 'npm test -- -u'",
+    "fmt": "lerna run fmt"
   },
   "devDependencies": {
-    "lerna": "^3.16.4",
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.4.5",
@@ -20,20 +25,20 @@
     "@emotion/core": "^10.0.17",
     "@mujo/eslint-config": "^1.0.4",
     "@mujo/ingress": "^0.1.1",
+    "@mujo/jest-webextension-mock": "^3.5.2",
     "@testing-library/react": "^9.1.4",
+    "babel-jest": "^26.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^5.16.0",
-    "jest": "^24.9.0",
+    "jest": "26",
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-image-snapshot": "^2.9.0",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "^0.4.0",
+    "lerna": "^3.16.4",
     "prettier": "^1.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0"
-  },
-  "dependencies": {
-    "@mujo/jest-webextension-mock": "^3.5.2"
   }
 }
