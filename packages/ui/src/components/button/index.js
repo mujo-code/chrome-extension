@@ -1,7 +1,7 @@
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
+import { Box } from '../box'
 import { headerS } from '../fonts/styles'
 import { ToolTip } from '../tool-tip'
 
@@ -27,7 +27,7 @@ const colors = {
 
 export const Button = props => {
   const { children = 'Label', design = 'primary', alt, altOffset = 0 } = props
-  const restProps = removeKeys(
+  const restProps = omitKeys(
     props,
     'design',
     'alt',

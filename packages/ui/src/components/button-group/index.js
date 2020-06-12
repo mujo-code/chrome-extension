@@ -1,6 +1,6 @@
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import React from 'react'
+import { Box } from '../box'
 import { Button } from '../button'
 
 const defaultSpacerStyles = { width: '1px' }
@@ -8,7 +8,7 @@ const defaultSpacerStyles = { width: '1px' }
 export const ButtonGroup = props => {
   const { spacerStyles = defaultSpacerStyles, childComponent = Button } = props
   const childArr = React.Children.toArray(props.children)
-  const otherProps = removeKeys(props, 'children', 'spacerStyles')
+  const otherProps = omitKeys(props, 'children', 'spacerStyles')
   return (
     <Box display="flex" direction="row" {...otherProps}>
       {childArr

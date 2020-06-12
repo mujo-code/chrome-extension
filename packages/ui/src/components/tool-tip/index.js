@@ -1,6 +1,6 @@
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import React from 'react'
+import { Box } from '../box'
 import { useTheme } from '../../hooks/use-theme'
 
 const toolTipWrapper = {
@@ -60,7 +60,7 @@ export const ToolTip = props => {
   const triangleStyles = below
     ? trianglePositions.below
     : trianglePositions.above
-  const otherProps = removeKeys(props, 'isOpen', 'children', 'below', 'offset')
+  const otherProps = omitKeys(props, 'isOpen', 'children', 'below', 'offset')
   return (
     <Box position="relative">
       <Box

@@ -1,7 +1,7 @@
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import React from 'react'
 import { Menu, X } from 'react-feather'
+import { Box } from '../box'
 import { colors } from '../../styles/colors'
 
 // maintain list to avoid blowing up bundle size
@@ -14,7 +14,7 @@ const NotFound = ({ icon }) => (
 
 export const Icon = props => {
   const { icon, color, size } = props
-  const otherProps = removeKeys(props, 'icon', 'color', 'size')
+  const otherProps = omitKeys(props, 'icon', 'color', 'size')
   const Component = icons[icon] || NotFound
   return (
     <Box {...otherProps}>

@@ -1,51 +1,17 @@
-import { css } from '@emotion/core'
-import { generateStyle } from '@mujo/box/dist/styles/helpers'
+import { makeStyles } from '@mujo/box'
 import { colors } from './colors'
 
-const makeStyles = (key, values) => {
-  const reducer = generateStyle(key, values)
-  const keys = Object.keys(values)
-  return keys.reduce(reducer, {})
+const spacingValues = {
+  xxs: 4,
+  xs: 8,
+  s: 16,
+  m: 24,
+  l: 32,
+  xl: 40,
+  xxl: 56,
+  none: 'none',
+  zero: 0,
 }
-
-const spacingValues = { zero: 0 }
-
-// Spacing Addons
-export const marginBottom = makeStyles('marginBottom', spacingValues)
-export const marginTop = makeStyles('marginTop', spacingValues)
-export const marginLeft = makeStyles('marginLeft', spacingValues)
-export const marginRight = makeStyles('marginRight', spacingValues)
-export const margin = makeStyles('margin', spacingValues)
-
-// Colors
-export const backgroundColor = makeStyles('backgroundColor', colors)
-export const color = makeStyles('color', colors)
-export const fill = makeStyles('fill', colors)
-export const stroke = makeStyles('stroke', colors)
-export const outlineColor = makeStyles('outlineColor', colors)
-
-export const textOverflow = {
-  ellipsis: css({ textOverflow: 'ellipsis' }),
-  clip: css({ textOverflow: 'clip' }),
-  none: css({ textOverflow: 'none' }),
-  fade: css({ textOverflow: 'none' }),
-}
-
-export const overflow = {
-  hidden: css({ overflow: 'hidden' }),
-  visible: css({ overflow: 'visible' }),
-  scroll: css({ overflow: 'scroll' }),
-}
-
-export const position = {
-  absolute: css({ position: 'absolute' }),
-  relative: css({ position: 'relative' }),
-  static: css({ position: 'static' }),
-  sticky: css({ position: 'sticky' }),
-}
-
-export const display = { table: css({ display: 'table' }) }
-
 const sizes = {
   xs: '4px',
   s: '8px',
@@ -62,31 +28,68 @@ const sizes = {
   '600px': '600px',
 }
 
-export const width = makeStyles('width', sizes)
-export const maxWidth = makeStyles('maxWidth', sizes)
-export const height = makeStyles('height', sizes)
-export const maxHeight = makeStyles('maxHeight', sizes)
+export const styleGuide = {
+  // Spacing Addons
+  marginBottom: makeStyles('marginBottom', spacingValues),
+  marginTop: makeStyles('marginTop', spacingValues),
+  marginLeft: makeStyles('marginLeft', spacingValues),
+  marginRight: makeStyles('marginRight', spacingValues),
+  margin: makeStyles('margin', spacingValues),
+  paddingBottom: makeStyles('paddingBottom', spacingValues),
+  paddingTop: makeStyles('paddingTop', spacingValues),
+  paddingLeft: makeStyles('paddingLeft', spacingValues),
+  paddingRight: makeStyles('paddingRight', spacingValues),
+  padding: makeStyles('padding', spacingValues),
 
-export const borderRadius = makeStyles('borderRadius', sizes)
-export const borderTopLeftRadius = makeStyles('borderTopLeftRadius', sizes)
-export const borderBottomLeftRadius = makeStyles(
-  'borderBottomLeftRadius',
-  sizes
-)
-export const borderTopRightRadius = makeStyles('borderTopRightRadius', sizes)
-export const borderBottomRightRadius = makeStyles(
-  'borderBottomRightRadius',
-  sizes
-)
+  // Colors
+  backgroundColor: makeStyles('backgroundColor', colors),
+  color: makeStyles('color', colors),
+  fill: makeStyles('fill', colors),
+  stroke: makeStyles('stroke', colors),
+  outlineColor: makeStyles('outlineColor', colors),
 
-export const layer = {
-  0: css({ zIndex: 0 }),
-  1: css({ zIndex: 10 }),
-  2: css({ zIndex: 100 }),
-  3: css({ zIndex: 1000 }),
+  textOverflow: {
+    ellipsis: { textOverflow: 'ellipsis' },
+    clip: { textOverflow: 'clip' },
+    none: { textOverflow: 'none' },
+    fade: { textOverflow: 'none' },
+  },
+
+  overflow: {
+    hidden: { overflow: 'hidden' },
+    visible: { overflow: 'visible' },
+    scroll: { overflow: 'scroll' },
+  },
+
+  position: {
+    absolute: { position: 'absolute' },
+    relative: { position: 'relative' },
+    static: { position: 'static' },
+    sticky: { position: 'sticky' },
+  },
+  display: {
+    table: { display: 'table' },
+    block: { display: 'block' },
+    flex: { display: 'flex' },
+    inlineBlock: { display: 'inlineBlock' },
+    inlineFlex: { display: 'inlineFlex' },
+  },
+
+  width: makeStyles('width', sizes),
+  maxWidth: makeStyles('maxWidth', sizes),
+  height: makeStyles('height', sizes),
+  maxHeight: makeStyles('maxHeight', sizes),
+
+  borderRadius: makeStyles('borderRadius', sizes),
+  borderTopLeftRadius: makeStyles('borderTopLeftRadius', sizes),
+  borderBottomLeftRadius: makeStyles('borderBottomLeftRadius', sizes),
+  borderTopRightRadius: makeStyles('borderTopRightRadius', sizes),
+  borderBottomRightRadius: makeStyles('borderBottomRightRadius', sizes),
+
+  layer: {
+    0: { zIndex: 0 },
+    1: { zIndex: 10 },
+    2: { zIndex: 100 },
+    3: { zIndex: 1000 },
+  },
 }
-
-const flexValues = { flexEnd: 'flex-end', flexStart: 'flex-start' }
-export const justifyContent = makeStyles('justifyContent', flexValues)
-export const alignItems = makeStyles('alignItems', flexValues)
-export const flexWrap = { wrap: css({ flexWrap: 'wrap' }) }

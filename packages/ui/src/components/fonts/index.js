@@ -1,7 +1,7 @@
 import { Global, css } from '@emotion/core'
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import React from 'react'
+import { Box } from '../box'
 import { headerL, headerS, bodyL, bodyS, fixedL, fixedS } from './styles'
 
 const sup = { ' sup': { fontSize: '0.6em' } }
@@ -20,7 +20,7 @@ export const Font = props => (
 )
 
 const FontBox = props => {
-  const otherProps = removeKeys(
+  const otherProps = omitKeys(
     props,
     'Component',
     'color',

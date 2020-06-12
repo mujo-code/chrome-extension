@@ -1,35 +1,26 @@
 import { css as emotion, ClassNames } from '@emotion/core'
-import { styleGuide } from '@mujo/box'
-import { propsToStyles } from '@mujo/box/dist/lib/helpers'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
-import { cssToStyle } from '@mujo/box/dist/styles/helpers'
+import { omitKeys } from '@mujo/box'
 import React from 'react'
 import ReactModal from 'react-modal'
 import { useTheme } from '../../hooks/use-theme'
 import { rgba, getColor } from '../../styles/colors'
 import { Icon } from '../icon'
 
-const overlay = emotion({
-  position: 'fixed',
-  zIndex: 10000,
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-})
+// TODO: this is a mess :-/
 
-const modelContent = modalMaxHeight =>
+const getOverlayClass = c =>
   emotion({
-    maxHeight: modalMaxHeight,
-    overflow: 'scroll',
-    position: 'relative',
+    backgroundColor: rgba(c, 0.3),
+    position: 'fixed',
+    zIndex: 10000,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   })
-
-const getPropClasses = propsToStyles(styleGuide)
-const getOverlayClass = c => emotion({ backgroundColor: rgba(c, 0.3) }, overlay)
 
 const getModalContent = ({ background, color, modalMaxHeight }) =>
   emotion(
@@ -50,21 +41,19 @@ const getModalContent = ({ background, color, modalMaxHeight }) =>
         transition: 'all 0.2s cubic-bezier(0.555, 0, 0.500, 0.750)',
       },
     },
-    modelContent(modalMaxHeight)
+    {
+      maxHeight: modalMaxHeight,
+      overflow: 'scroll',
+      position: 'relative',
+    }
   )
 
 export const Modal = props => {
   ReactModal.setAppElement('#mujo-extension')
   const theme = useTheme()
   const { css: addedCSS, modalMaxHeight, zIndex = '1000' } = props
-  const customStyles = cssToStyle(addedCSS)
-  const results = getPropClasses({ ...props })
-  if (customStyles) {
-    results.styles.push(customStyles)
-  }
-  const otherProps = removeKeys(
+  const otherProps = omitKeys(
     props,
-    ...results.used,
     'Component',
     'getStyles',
     'modalMaxHeight',
@@ -75,6 +64,7 @@ export const Modal = props => {
     'background',
     'zIndex'
   )
+
   return (
     <ClassNames>
       {({ css }) => (
@@ -89,7 +79,7 @@ export const Modal = props => {
             })
           )}
           className={css([
-            ...results.styles,
+            addedCSS,
             getModalContent({
               background: props.background || theme.background,
               color: props.color || theme.foreground,

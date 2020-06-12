@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
-import { Box } from '@mujo/box'
 import React from 'react'
+import { Box } from '../box'
 import { createGraphAttibutes } from './attributes'
 
 const sampleData = [
