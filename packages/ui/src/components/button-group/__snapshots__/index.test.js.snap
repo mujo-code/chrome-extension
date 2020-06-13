@@ -2,21 +2,13 @@
 
 exports[`ButtonGroup component matches snapshot 1`] = `
 <div
-  className="css-1ur1i3x"
+  className="css-co87ft"
 >
   <button
-    backgroundColor="outerSpace"
-    borderBottomLeftRadius="l"
-    borderBottomRightRadius="none"
-    borderTopLeftRadius="l"
-    borderTopRightRadius="none"
-    className="css-qqdcck"
-    color="mischka"
+    className="css-1ut4tw3"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    outlineColor="saltBox"
-    position="relative"
   >
     Foo
   </button>
@@ -24,18 +16,10 @@ exports[`ButtonGroup component matches snapshot 1`] = `
     className="css-14vqfdl"
   />
   <button
-    backgroundColor="outerSpace"
-    borderBottomLeftRadius="none"
-    borderBottomRightRadius="l"
-    borderTopLeftRadius="none"
-    borderTopRightRadius="l"
-    className="css-qqdcck"
-    color="mischka"
+    className="css-1wvs27t"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    outlineColor="saltBox"
-    position="relative"
   >
     Bar
   </button>

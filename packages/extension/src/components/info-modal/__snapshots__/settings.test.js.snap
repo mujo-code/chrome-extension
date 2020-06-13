@@ -2,34 +2,34 @@
 
 exports[`SettingsItem boolean type should match snapshot 1`] = `
 <div
-  className="css-eawcpc"
+  className="css-15rdkip"
 >
   <div
     className="css-aoco0s"
   />
   <div
-    className="css-vysije"
+    className="css-18jimio"
   >
     <h4
-      className="css-sazcsg"
+      className="css-1pb2rzu"
     >
       foo
     </h4>
     <p
-      className="css-5dhv03"
+      className="css-1x99lh8"
     >
       bar
     </p>
   </div>
   <div
-    className="css-gl03vp"
+    className="css-16bqjgr"
   >
     <div
-      className="css-cm335p"
+      className="css-1tbh8fp"
       onClick={[Function]}
     >
       <div
-        className="css-3br9lw"
+        className="css-13eettf"
       />
     </div>
   </div>
@@ -38,30 +38,30 @@ exports[`SettingsItem boolean type should match snapshot 1`] = `
 
 exports[`SettingsItem button type should match snapshot 1`] = `
 <div
-  className="css-eawcpc"
+  className="css-15rdkip"
 >
   <div
     className="css-aoco0s"
   />
   <div
-    className="css-vysije"
+    className="css-18jimio"
   >
     <h4
-      className="css-sazcsg"
+      className="css-1pb2rzu"
     >
       foo
     </h4>
     <p
-      className="css-5dhv03"
+      className="css-1x99lh8"
     >
       bar
     </p>
   </div>
   <div
-    className="css-19d2vsr"
+    className="css-bidzcy"
   >
     <button
-      className="css-1g0nwtk"
+      className="css-c4ln1"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -74,30 +74,30 @@ exports[`SettingsItem button type should match snapshot 1`] = `
 
 exports[`SettingsItem should match snapshot 1`] = `
 <div
-  className="css-eawcpc"
+  className="css-15rdkip"
 >
   <div
     className="css-aoco0s"
   />
   <div
-    className="css-vysije"
+    className="css-18jimio"
   >
     <h4
-      className="css-sazcsg"
+      className="css-1pb2rzu"
     >
       foo
     </h4>
     <p
-      className="css-5dhv03"
+      className="css-1x99lh8"
     >
       bar
     </p>
   </div>
   <div
-    className="css-gl03vp"
+    className="css-16bqjgr"
   >
     <div
-      className="css-cm335p"
+      className="css-1tbh8fp"
       onClick={[Function]}
     >
       <div

@@ -2,26 +2,25 @@ import { omitKeys } from '@mujo/box'
 import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
 import { Box } from '../box'
-import { headerS } from '../fonts/styles'
 import { ToolTip } from '../tool-tip'
 
 const { track } = Tracker
 
 const colors = {
   primary: {
-    color: 'mischka',
-    backgroundColor: 'outerSpace',
-    highlight: 'saltBox',
+    color: 'light',
+    backgroundColor: 'dark',
+    highlight: 'highlight',
   },
   secondary: {
     color: 'white',
-    backgroundColor: 'saltBox',
-    highlight: 'gravel',
+    backgroundColor: 'dark',
+    highlight: 'black',
   },
   tertiary: {
-    color: 'outerSpace',
-    backgroundColor: 'mischka',
-    highlight: 'saltBox',
+    color: 'black',
+    backgroundColor: 'light',
+    highlight: 'highlight',
   },
 }
 

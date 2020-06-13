@@ -2,7 +2,7 @@
 
 exports[`Header component matches open snapshot 1`] = `
 <div
-  className="css-rr5oyj"
+  className="css-zlms21"
 >
   <div
     className="css-9wswc1"
@@ -12,7 +12,7 @@ exports[`Header component matches open snapshot 1`] = `
       fill="none"
       height={32}
       icon="menu"
-      stroke="#EAE2EB"
+      stroke="#EBE8E2"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
@@ -51,7 +51,7 @@ exports[`Header component matches open snapshot 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="css-1ffd92o"
+        className="css-100oh7x"
         style={
           Object {
             "borderRadius": "30vh",
@@ -67,7 +67,7 @@ exports[`Header component matches open snapshot 1`] = `
         }
       />
       <div
-        className="css-baoxwl"
+        className="css-ubvrbx"
         style={
           Object {
             "borderRadius": "30vh",
@@ -87,7 +87,7 @@ exports[`Header component matches open snapshot 1`] = `
         style={Object {}}
       >
         <h2
-          className="css-hih133"
+          className="css-1sfqj93"
         >
           Breathe in
         </h2>
@@ -102,13 +102,13 @@ exports[`Header component matches open snapshot 1`] = `
         }
       >
         <h2
-          className="css-hih133"
+          className="css-1sfqj93"
         >
           Breathe out
         </h2>
       </div>
       <h4
-        className="css-7rvuyr"
+        className="css-1gcdh9u"
         data-testid="breath-player--count"
       >
         5
@@ -124,25 +124,25 @@ exports[`Header component matches open snapshot 1`] = `
         }
       >
         <div
-          className="css-upe1zs"
+          className="css-1qh5309"
         />
         <div
-          className="css-upe1zs"
+          className="css-1qh5309"
         />
       </div>
     </div>
   </div>
   <div
-    className="css-19sk4h4"
+    className="css-l5xv05"
   >
     <div
       className="css-aq08jq"
     >
       <span
-        className="css-7son14"
+        className="css-zfsq8m"
       >
         <div
-          className="css-m89b1l"
+          className="css-1f3h180"
         />
         <div
           className="css-wuflo1"
@@ -157,7 +157,7 @@ exports[`Header component matches open snapshot 1`] = `
 
 exports[`Header component matches snapshot 1`] = `
 <div
-  className="css-rr5oyj"
+  className="css-zlms21"
 >
   <div
     className="css-76bosp"
@@ -167,7 +167,7 @@ exports[`Header component matches snapshot 1`] = `
       fill="none"
       height={32}
       icon="menu"
-      stroke="#EAE2EB"
+      stroke="#EBE8E2"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
@@ -206,7 +206,7 @@ exports[`Header component matches snapshot 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="css-1ffd92o"
+        className="css-100oh7x"
         style={
           Object {
             "borderRadius": 80,
@@ -222,7 +222,7 @@ exports[`Header component matches snapshot 1`] = `
         }
       />
       <div
-        className="css-baoxwl"
+        className="css-ubvrbx"
         style={
           Object {
             "borderRadius": 80,
@@ -240,16 +240,16 @@ exports[`Header component matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-19sk4h4"
+    className="css-l5xv05"
   >
     <div
       className="css-aq08jq"
     >
       <span
-        className="css-7son14"
+        className="css-zfsq8m"
       >
         <div
-          className="css-m89b1l"
+          className="css-1f3h180"
         />
         <div
           className="css-wuflo1"

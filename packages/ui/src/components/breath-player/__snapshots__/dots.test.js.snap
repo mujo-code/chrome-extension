@@ -3,10 +3,7 @@
 exports[`Dots component matches snapshot 1`] = `
 Array [
   <div
-    backgroundColor="saltBox"
-    className="css-0"
-    layer="1"
-    position="absolute"
+    className="css-100oh7x"
     style={
       Object {
         "borderRadius": undefined,
@@ -22,10 +19,7 @@ Array [
     }
   />,
   <div
-    backgroundColor="mischka"
-    className="css-0"
-    layer="1"
-    position="absolute"
+    className="css-ubvrbx"
     style={
       Object {
         "borderRadius": undefined,

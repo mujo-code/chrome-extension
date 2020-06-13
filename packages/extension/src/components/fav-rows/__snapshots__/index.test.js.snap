@@ -2,13 +2,13 @@
 
 exports[`FavRows component matches snapshot 1`] = `
 <div
-  className="css-z94wou"
+  className="css-1ggicjc"
 >
   <div
-    className="css-18blzha"
+    className="css-1ymp65q"
   >
     <a
-      className="css-tr0e1s"
+      className="css-iq7krj"
       disabled={true}
       href="https://foo.com"
       onClick={[Function]}
@@ -27,16 +27,16 @@ exports[`FavRows component matches snapshot 1`] = `
         src="https://getmujo.com/api/icon?site=https%3A%2F%2Ffoo.com"
       />
       <div
-        className="css-19sk4h4"
+        className="css-l5xv05"
       >
         <div
           className="css-aq08jq"
         >
           <span
-            className="css-7son14"
+            className="css-zfsq8m"
           >
             <div
-              className="css-1ht175c"
+              className="css-ngp4q"
             />
             <div
               className="css-wuflo1"
@@ -49,10 +49,10 @@ exports[`FavRows component matches snapshot 1`] = `
     </a>
   </div>
   <div
-    className="css-18blzha"
+    className="css-1ymp65q"
   >
     <a
-      className="css-tr0e1s"
+      className="css-iq7krj"
       disabled={true}
       href={null}
       onClick={[Function]}
@@ -65,22 +65,22 @@ exports[`FavRows component matches snapshot 1`] = `
       />
       <img
         alt="bar"
-        className="css-1kjhkqx"
+        className="css-g2a6d6"
         onError={[Function]}
         onLoad={[Function]}
         src="https://getmujo.com/api/icon?site=https%3A%2F%2Fbar.com"
       />
       <div
-        className="css-19sk4h4"
+        className="css-l5xv05"
       >
         <div
           className="css-aq08jq"
         >
           <span
-            className="css-7son14"
+            className="css-zfsq8m"
           >
             <div
-              className="css-1ht175c"
+              className="css-ngp4q"
             />
             <div
               className="css-wuflo1"
