@@ -13,7 +13,7 @@ export const Input = props => {
   const id = propsId || toDashCase(label)
   const otherProps = omitKeys(props, 'label', 'id', 'marginTop')
   return (
-    <Box display="flex" direction="column">
+    <Box display="flex" flexDirection="column">
       <HeaderS
         Component="label"
         htmlFor={id}

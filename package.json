@@ -40,8 +40,5 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0"
-  },
-  "dependencies": {
-    "@mujo/box": "4"
   }
 }

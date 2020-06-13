@@ -43,7 +43,7 @@ export const Button = props => {
       color={color}
       backgroundColor={backgroundColor}
       display="inlineFlex"
-      direction="column"
+      flexDirection="column"
       alignItems="center"
       paddingTop="xs"
       paddingLeft="l"

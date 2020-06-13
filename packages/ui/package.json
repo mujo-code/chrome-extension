@@ -33,7 +33,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.6.0",
     "@emotion/core": "^10.0.14",
-    "@mujo/box": "^3.0.1",
+    "@mujo/box": "^4",
     "@mujo/eslint-config": "^1.0.4",
     "@mujo/ingress": "^0.1.0",
     "@mujo/plugins": "^2.2.0",
@@ -55,7 +55,7 @@
   },
   "peerDependencies": {
     "@emotion/core": ">=10.0.14",
-    "@mujo/box": "^3.0.1",
+    "@mujo/box": "^4",
     "@mujo/ingress": ">=0.1.0",
     "@mujo/plugins": "*",
     "@mujo/utils": "*",

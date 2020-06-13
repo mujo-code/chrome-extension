@@ -1,7 +1,6 @@
 import { css } from '@emotion/core'
-import { Box } from '@mujo/box'
 import { Tab } from '@mujo/plugins'
-import { useTheme, ToolTip, HeaderS } from '@mujo/ui'
+import { useTheme, ToolTip, HeaderS, Box } from '@mujo/ui'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
@@ -29,7 +28,7 @@ export const TopSites = () => {
       <Box
         display="flex"
         flex={1}
-        direction="column"
+        flexDirection="column"
         justifyContent="center"
         alignItems="center"
         textAlign="center"

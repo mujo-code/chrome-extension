@@ -1,6 +1,5 @@
 import { css } from '@emotion/core'
-import { Box } from '@mujo/box'
-import { HeaderL } from '@mujo/ui'
+import { HeaderL, Box } from '@mujo/ui'
 import ErrorStackParser from 'error-stack-parser'
 import React from 'react'
 import { ENVIRONMENT } from '../../env'

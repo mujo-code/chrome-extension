@@ -10,7 +10,7 @@ export const ButtonGroup = props => {
   const childArr = React.Children.toArray(props.children)
   const otherProps = omitKeys(props, 'children', 'spacerStyles')
   return (
-    <Box display="flex" direction="row" {...otherProps}>
+    <Box display="flex" flexDirection="row" {...otherProps}>
       {childArr
         .filter(child => child.type === childComponent)
         .map((child, i, arr) => {

@@ -1,5 +1,4 @@
-import { Box } from '@mujo/box'
-import { Icon, ToolTip, useTheme, BreathPlayer } from '@mujo/ui'
+import { Icon, ToolTip, useTheme, BreathPlayer, Box } from '@mujo/ui'
 import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -22,7 +21,7 @@ export const Header = ({
   return (
     <Box
       display="flex"
-      direction="column"
+      flexDirection="column"
       flex={0}
       alignItems="center"
       textAlign="center"

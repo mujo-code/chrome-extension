@@ -2601,18 +2601,13 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@mujo/box@4":
+"@mujo/box@^4":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@mujo/box/-/box-4.1.1.tgz#6b0561aae767439acd0ce5f749647f6117918def"
   integrity sha512-lEmKvRNqfNEsevD0EClXn13/LBcOzdYgT7/J27QBoFrG8b0fhRz9z6+jIrCGdI11KBX5UNMKpvqE3Ov0OvF96Q==
   dependencies:
     "@types/object-keys" "^1.0.1"
     object-keys "^1.1.1"
-
-"@mujo/box@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@mujo/box/-/box-3.0.1.tgz#91729665114ec32d2d9deba2bfd96be4c82332d4"
-  integrity sha512-/YUNjiAifKpb36W0z8Kif1oDRXrrRU1dh8O9oazrJhnYLklSwd+tsoYwBN2EBjCsllV+Uvswke2ZnvV0OaEsxg==
 
 "@mujo/eslint-config@^1.0.4":
   version "1.1.0"

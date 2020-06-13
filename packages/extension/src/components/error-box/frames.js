@@ -1,5 +1,4 @@
-import { Box } from '@mujo/box'
-import { FixedS, FixedL } from '@mujo/ui'
+import { FixedS, FixedL, Box } from '@mujo/ui'
 import React from 'react'
 
 const FN_SIZE = 25
@@ -19,7 +18,7 @@ export const Frames = ({ frames, error }) => (
         marginBottom="xxs"
         key={index}
         display="flex"
-        direction="row"
+        flexDirection="row"
       >
         <FixedS
           Component="pre"

@@ -20,7 +20,7 @@ export const EndCardWrapper = ({ children, show, ...otherProps }) => {
       position="absolute"
       Component={A.div}
       color={background}
-      direction="column"
+      flexDirection="column"
       style={style}
       css={{
         left: 0,

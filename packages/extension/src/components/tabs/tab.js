@@ -1,5 +1,4 @@
-import { Box } from '@mujo/box'
-import { BodyS, useTheme } from '@mujo/ui'
+import { BodyS, useTheme, Box } from '@mujo/ui'
 import React, { useState } from 'react'
 
 export const Tab = ({ label, selected, onClick }) => {

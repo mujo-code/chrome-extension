@@ -1,4 +1,4 @@
-import { Box } from '@mujo/box'
+import { Box } from '@mujo/ui'
 import React from 'react'
 import { FavButton } from '../fav-button'
 
@@ -24,7 +24,7 @@ export const FavRows = ({ items, updateSitesUsed }) => {
           key={`row-${i}`}
           flex={1}
           display="flex"
-          direction="column"
+          flexDirection="column"
           padding="s"
           maxWidth="xxl"
           maxHeight="xxl"
