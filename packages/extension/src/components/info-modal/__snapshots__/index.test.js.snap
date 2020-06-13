@@ -66,7 +66,7 @@ exports[`InfoModal should match snapshot 1`] = `
     className="css-fje8g2"
   >
     <button
-      className="css-1sitfvj"
+      className="css-1l2hcvu"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}

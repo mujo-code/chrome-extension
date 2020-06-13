@@ -61,7 +61,7 @@ exports[`SettingsItem button type should match snapshot 1`] = `
     className="css-bidzcy"
   >
     <button
-      className="css-c4ln1"
+      className="css-17j2tg6"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
