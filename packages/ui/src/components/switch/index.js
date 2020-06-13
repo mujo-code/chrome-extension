@@ -1,7 +1,7 @@
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import { Functional } from '@mujo/utils'
 import React from 'react'
+import { Box } from '../box'
 import { useTheme } from '../../hooks/use-theme'
 
 const { noop } = Functional
@@ -13,7 +13,7 @@ const radius = {
 
 export const Switch = props => {
   const { size = 'l', value, onChange = noop, borderSize = 1 } = props
-  const otherProps = removeKeys(props, 'size', 'value', 'onChange')
+  const otherProps = omitKeys(props, 'size', 'value', 'onChange')
   const { highlight, foreground, background } = useTheme()
   return (
     <Box

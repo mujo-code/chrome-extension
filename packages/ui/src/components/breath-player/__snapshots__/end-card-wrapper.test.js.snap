@@ -2,11 +2,8 @@
 
 exports[`EndCardWrapper component matches snapshot 1`] = `
 <div
-  className="css-wwcd6k"
-  color="outerSpace"
-  layer="2"
+  className="css-1dt2cma"
   onClick={[Function]}
-  position="absolute"
   style={
     Object {
       "opacity": 0,
@@ -15,11 +12,11 @@ exports[`EndCardWrapper component matches snapshot 1`] = `
   }
 >
   <div
-    className="css-upe1zs"
+    className="css-1qh5309"
   />
   Foo
   <div
-    className="css-upe1zs"
+    className="css-1qh5309"
   />
 </div>
 `;

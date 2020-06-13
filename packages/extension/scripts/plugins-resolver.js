@@ -57,8 +57,6 @@ const doesExist = async pluginPath => {
 }
 
 const createPluginFile = async plugins => {
-  log('creating plugin file')
-  console.log(plugins)
   const content = `module.exports = [${plugins
     .map(plugin => {
       const pluginPath = path.relative(

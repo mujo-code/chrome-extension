@@ -1,6 +1,5 @@
-import { Box } from '@mujo/box'
 import { context, EndScreen } from '@mujo/plugins'
-import { HeaderL, useTheme } from '@mujo/ui'
+import { HeaderL, useTheme, Box } from '@mujo/ui'
 import React, { useEffect, useMemo, useContext } from 'react'
 import { HappyFace } from './happy-face'
 

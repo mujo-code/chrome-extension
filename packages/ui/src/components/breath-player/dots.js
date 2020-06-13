@@ -1,6 +1,6 @@
-import { Box } from '@mujo/box'
 import React from 'react'
 import { animated as A } from 'react-spring'
+import { Box } from '../box'
 import { useTheme } from '../../hooks/use-theme'
 import { getStyle } from './styles'
 import { useDotAnimation } from './use-dot-animation'

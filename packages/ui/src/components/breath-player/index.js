@@ -1,5 +1,5 @@
-import { Box } from '@mujo/box'
 import React, { useState, useMemo } from 'react'
+import { Box } from '../box'
 import { useTheme } from '../../hooks/use-theme'
 import { HeaderS } from '../fonts'
 import { createAnimationSteps } from './animation-steps'

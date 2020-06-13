@@ -1,6 +1,4 @@
-import { css } from '@emotion/core'
-import { Box } from '@mujo/box'
-import { HeaderL } from '@mujo/ui'
+import { HeaderL, Box } from '@mujo/ui'
 import ErrorStackParser from 'error-stack-parser'
 import React from 'react'
 import { ENVIRONMENT } from '../../env'
@@ -44,14 +42,14 @@ export class ErrorBox extends React.Component {
           position="fixed"
           backgroundColor="outerSpace"
           padding="xl"
-          {...css({
+          css={{
             top: 0,
             left: 0,
             bottom: 0,
             right: 0,
             height: '100vh',
             width: '100vw',
-          })}
+          }}
         >
           <HeaderL
             maxWidth="500px"

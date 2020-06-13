@@ -1,7 +1,6 @@
 import { css, Global } from '@emotion/core'
-import { Box } from '@mujo/box'
 import { IngressTarget } from '@mujo/ingress'
-import { colors, useTheme } from '@mujo/ui'
+import { colors, useTheme, Box } from '@mujo/ui'
 import React, { memo } from 'react'
 import { Header } from './components/header'
 import { InfoModal } from './components/info-modal'
@@ -23,12 +22,9 @@ const radialGradient = (centerColor, outerColor) => {
 }
 
 const bodyBackgrounds = {
-  outerSpace: radialGradient(colors.gravel, colors.outerSpace),
-  mischka: radialGradient(colors.white, colors.mischka),
+  dark: radialGradient(colors.black, colors.dark),
+  light: radialGradient(colors.white, colors.light),
 }
-
-const appWrapper = css({ height: '100vh' })
-
 const DEFAULT_SIZE = 40
 const factor = x => x * 0.0025
 const factorMin = size => Math.max(size, DEFAULT_SIZE)
@@ -55,9 +51,9 @@ const App = memo(() => {
     <Box
       color={theme.foreground}
       display="flex"
-      direction="column"
+      flexDirection="column"
       position="relative"
-      {...appWrapper}
+      css={{ height: '100vh' }}
     >
       <Global
         styles={css`
@@ -93,7 +89,7 @@ const App = memo(() => {
             layer="3"
             position="relative"
           >
-            <Box flex={0} display="flex" direction="row">
+            <Box flex={0} display="flex" flexDirection="row">
               <Tabs />
             </Box>
           </Box>

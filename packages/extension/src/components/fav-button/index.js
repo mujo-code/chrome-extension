@@ -1,21 +1,12 @@
-import { css } from '@emotion/core'
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
-import { ToolTip, useTheme } from '@mujo/ui'
+import { omitKeys } from '@mujo/box'
+import { ToolTip, useTheme, Box } from '@mujo/ui'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
 
-const imageStyles = css({
-  opacity: 0,
-  transition: 'all 0.3s',
-})
-
-const loadedStyles = css({ opacity: 1 })
-
 export const FavButton = props => {
   const { disabled } = props
-  const restProps = removeKeys(props, 'url', 'title', 'disabled')
+  const restProps = omitKeys(props, 'url', 'title', 'disabled')
   const [tooltipOpen, setToolTipOpen] = useState(false)
   const [isServer, setIsServer] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -34,7 +25,7 @@ export const FavButton = props => {
       cursor="pointer"
       backgroundColor={background}
       display="flex"
-      direction="column"
+      flexDirection="column"
       padding="s"
       border="none"
       borderRadius="l"
@@ -54,9 +45,14 @@ export const FavButton = props => {
         width="m"
         height="m"
         alt={`${props.title}`}
-        {...imageStyles}
-        {...(isLoaded ? loadedStyles : {})}
-        {...(disabled ? css({ opacity: 0.5 }) : {})}
+        css={[
+          {
+            opacity: 0,
+            transition: 'all 0.3s',
+          },
+          isLoaded ? { opacity: 1 } : {},
+          disabled ? { opacity: 0.5 } : {},
+        ]}
       />
       <ToolTip isOpen={tooltipOpen}>
         {disabled ? t('bring-back-link') : props.title}

@@ -1,8 +1,7 @@
 import { Global, css } from '@emotion/core'
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import React from 'react'
-import { headerL, headerS, bodyL, bodyS, fixedL, fixedS } from './styles'
+import { Box } from '../box'
 
 const sup = { ' sup': { fontSize: '0.6em' } }
 
@@ -20,31 +19,29 @@ export const Font = props => (
 )
 
 const FontBox = props => {
-  const otherProps = removeKeys(
+  const otherProps = omitKeys(
     props,
     'Component',
     'color',
     'marginTop',
     'marginBottom',
-    'css',
-    'font'
+    'css'
   )
   const overrides = Array.isArray(props.css) ? props.css : [props.css]
-  const font = props.font || {}
   return (
     <Box
       Component={props.Component || 'p'}
       color={props.color || 'color'}
       marginTop={props.marginTop || 'm'}
       marginBottom={props.marginBottom || 'm'}
-      css={[sup, font, ...overrides]}
+      css={[sup, ...overrides]}
       {...otherProps}
     />
   )
 }
 
 export const HeaderL = props => (
-  <FontBox Component="h2" font={headerL} {...props} />
+  <FontBox Component="h2" font="headerL" {...props} />
 )
 
 export const HeaderS = props => (
@@ -52,14 +49,14 @@ export const HeaderS = props => (
     Component="h4"
     marginTop="s"
     marginBottom="s"
-    font={headerS}
+    font="headerS"
     {...props}
   />
 )
 
-export const BodyL = props => <FontBox font={bodyL} {...props} />
+export const BodyL = props => <FontBox font="bodyL" {...props} />
 
-export const BodyS = props => <FontBox font={bodyS} {...props} />
+export const BodyS = props => <FontBox font="bodyS" {...props} />
 
 export const Link = props => (
   <FontBox
@@ -72,10 +69,10 @@ export const Link = props => (
 )
 
 export const FixedL = props => (
-  <FontBox Component="span" font={fixedL} {...props} />
+  <FontBox Component="span" font="fixedL" {...props} />
 )
 export const FixedS = props => (
-  <FontBox Component="span" font={fixedS} {...props} />
+  <FontBox Component="span" font="fixedS" {...props} />
 )
 
 export const Span = props => (

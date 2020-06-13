@@ -1,5 +1,4 @@
-import { Box } from '@mujo/box'
-import { useTheme, Button, HeaderL, Modal } from '@mujo/ui'
+import { useTheme, Button, HeaderL, Modal, Box } from '@mujo/ui'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
@@ -32,7 +31,7 @@ export const InfoModal = ({
     <Modal
       zIndex="10000"
       display="flex"
-      direction="column"
+      flexDirection="column"
       outlineColor={highlight}
       isOpen={isOpen}
       onRequestClose={onRequestClose}
@@ -72,7 +71,7 @@ export const InfoModal = ({
         <Box
           flex="0"
           display="flex"
-          direction="row"
+          flexDirection="row"
           paddingLeft="m"
           paddingRight="m"
           paddingTop="s"

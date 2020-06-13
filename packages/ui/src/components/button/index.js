@@ -1,33 +1,32 @@
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import { Tracker } from '@mujo/utils'
 import React, { useState } from 'react'
-import { headerS } from '../fonts/styles'
+import { Box } from '../box'
 import { ToolTip } from '../tool-tip'
 
 const { track } = Tracker
 
 const colors = {
   primary: {
-    color: 'mischka',
-    backgroundColor: 'outerSpace',
-    highlight: 'saltBox',
+    color: 'light',
+    backgroundColor: 'dark',
+    highlight: 'highlight',
   },
   secondary: {
     color: 'white',
-    backgroundColor: 'saltBox',
-    highlight: 'gravel',
+    backgroundColor: 'dark',
+    highlight: 'black',
   },
   tertiary: {
-    color: 'outerSpace',
-    backgroundColor: 'mischka',
-    highlight: 'saltBox',
+    color: 'black',
+    backgroundColor: 'light',
+    highlight: 'highlight',
   },
 }
 
 export const Button = props => {
   const { children = 'Label', design = 'primary', alt, altOffset = 0 } = props
-  const restProps = removeKeys(
+  const restProps = omitKeys(
     props,
     'design',
     'alt',
@@ -39,11 +38,12 @@ export const Button = props => {
   const { color, backgroundColor, highlight } = colors[design]
   return (
     <Box
+      font="headerS"
       outlineColor={highlight}
       color={color}
       backgroundColor={backgroundColor}
       display="inlineFlex"
-      direction="column"
+      flexDirection="column"
       alignItems="center"
       paddingTop="xs"
       paddingLeft="l"
@@ -63,7 +63,6 @@ export const Button = props => {
       }}
       onMouseLeave={() => setToolTipOpen(false)}
       onMouseEnter={() => setToolTipOpen(true)}
-      {...headerS}
       {...restProps}
     >
       {children}

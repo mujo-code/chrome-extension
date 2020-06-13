@@ -1,9 +1,19 @@
+// export const colors = {
+//   outerSpace: '#353D42',
+//   gravel: '#4D484E',
+//   saltBox: '#756577',
+//   mischka: '#EAE2EB',
+//   white: '#FFFFFF',
+//   transparent: 'transparent',
+// }
+
 export const colors = {
-  outerSpace: '#353D42',
-  gravel: '#4D484E',
-  saltBox: '#756577',
-  mischka: '#EAE2EB',
+  dark: '#353D42',
+  black: '#282E32',
+  highlight: '#8DDAB9',
+  light: '#EBE8E2',
   white: '#FFFFFF',
+  grey: '#6A7378',
   transparent: 'transparent',
 }
 

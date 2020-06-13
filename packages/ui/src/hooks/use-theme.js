@@ -4,19 +4,19 @@ const DEFAULT_COLOR_THEME = 'dark'
 
 const colors = {
   dark: {
-    foreground: 'mischka',
+    foreground: 'light',
     foregroundSecondary: 'white',
-    background: 'outerSpace',
-    backgroundSecondary: 'gravel',
-    highlight: 'saltBox',
+    background: 'dark',
+    backgroundSecondary: 'black',
+    highlight: 'highlight',
     buttonStyle: 'primary',
   },
   light: {
-    foreground: 'outerSpace',
-    foregroundSecondary: 'gravel',
-    background: 'mischka',
+    foreground: 'dark',
+    foregroundSecondary: 'black',
+    background: 'light',
     backgroundSecondary: 'white',
-    highlight: 'saltBox',
+    highlight: 'highlight',
     buttonStyle: 'tertiary',
   },
 }

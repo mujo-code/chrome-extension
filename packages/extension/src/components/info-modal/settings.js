@@ -1,5 +1,4 @@
-import { Box } from '@mujo/box'
-import { Button, HeaderS, BodyS, Input, Switch } from '@mujo/ui'
+import { Button, HeaderS, BodyS, Input, Switch, Box } from '@mujo/ui'
 import React from 'react'
 import { i18n } from '../../i18n'
 
@@ -55,7 +54,7 @@ export const SettingItem = ({
 }) => (
   <Box
     display="flex"
-    direction="row"
+    flexDirection="row"
     paddingTop="s"
     paddingBottom="s"
   >
@@ -65,7 +64,12 @@ export const SettingItem = ({
       borderRadius="s"
       marginRight="m"
     />
-    <Box flex="1" paddingRight="m" display="flex" direction="column">
+    <Box
+      flex="1"
+      paddingRight="m"
+      display="flex"
+      flexDirection="column"
+    >
       <HeaderS
         marginTop="zero"
         marginBottom={alt ? 'xs' : 'zero'}
@@ -87,7 +91,7 @@ export const SettingItem = ({
     <Box
       flex="0"
       display="flex"
-      direction="column"
+      flexDirection="column"
       alignItems={type === 'button' ? 'center' : 'flexStart'}
     >
       <SettingsInput

@@ -1,7 +1,7 @@
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import { Util } from '@mujo/utils'
 import React from 'react'
+import { Box } from '../box'
 import { useTheme } from '../../hooks/use-theme'
 import { HeaderS } from '../fonts'
 
@@ -11,9 +11,9 @@ export const Input = props => {
   const { foreground, background } = useTheme()
   const { label, id: propsId, marginTop } = props
   const id = propsId || toDashCase(label)
-  const otherProps = removeKeys(props, 'label', 'id', 'marginTop')
+  const otherProps = omitKeys(props, 'label', 'id', 'marginTop')
   return (
-    <Box display="flex" direction="column">
+    <Box display="flex" flexDirection="column">
       <HeaderS
         Component="label"
         htmlFor={id}

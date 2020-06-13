@@ -2,7 +2,7 @@
 
 exports[`FavButton component matches snapshot 1`] = `
 <a
-  className="css-1wtzem9"
+  className="css-1px3l"
   disable={false}
   disabled={true}
   href="foo"
@@ -21,16 +21,16 @@ exports[`FavButton component matches snapshot 1`] = `
     src="https://getmujo.com/api/icon?site=foo"
   />
   <div
-    className="css-19sk4h4"
+    className="css-l5xv05"
   >
     <div
       className="css-aq08jq"
     >
       <span
-        className="css-7son14"
+        className="css-zfsq8m"
       >
         <div
-          className="css-1ht175c"
+          className="css-ngp4q"
         />
         <div
           className="css-wuflo1"

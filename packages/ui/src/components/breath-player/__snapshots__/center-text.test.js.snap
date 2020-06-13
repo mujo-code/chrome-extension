@@ -2,10 +2,7 @@
 
 exports[`CenterText component matches snapshot 1`] = `
 <div
-  className="css-1yarh4c"
-  color="outerSpace"
-  layer="2"
-  position="absolute"
+  className="css-1ez1fyi"
   style={
     Object {
       "opacity": 0,
@@ -14,8 +11,7 @@ exports[`CenterText component matches snapshot 1`] = `
   }
 >
   <h2
-    className="css-s8grjw"
-    color="color"
+    className="css-1sfqj93"
   >
     Foo
   </h2>

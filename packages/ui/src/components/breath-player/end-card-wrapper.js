@@ -1,6 +1,6 @@
-import { Box } from '@mujo/box'
 import React from 'react'
 import { useSpring, animated as A } from 'react-spring'
+import { Box } from '../box'
 import { useTheme } from '../../hooks/use-theme'
 
 export const EndCardWrapper = ({ children, show, ...otherProps }) => {
@@ -20,7 +20,7 @@ export const EndCardWrapper = ({ children, show, ...otherProps }) => {
       position="absolute"
       Component={A.div}
       color={background}
-      direction="column"
+      flexDirection="column"
       style={style}
       css={{
         left: 0,

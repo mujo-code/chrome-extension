@@ -1,4 +1,4 @@
-import { Box } from '@mujo/box'
+import { Box } from '@mujo/ui'
 import React from 'react'
 
 export const HappyFace = ({

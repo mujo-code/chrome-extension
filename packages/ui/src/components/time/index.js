@@ -1,10 +1,10 @@
-import { Box } from '@mujo/box'
-import { removeKeys } from '@mujo/box/dist/lib/remove-keys'
+import { omitKeys } from '@mujo/box'
 import { Time as TimeUtil } from '@mujo/utils'
 import React from 'react'
+import { Box } from '../box'
 
 const { readableTime } = TimeUtil
 
 export const Time = props => (
-  <Box {...removeKeys(props, 'children')}>{readableTime(props.children)}</Box>
+  <Box {...omitKeys(props, 'children')}>{readableTime(props.children)}</Box>
 )
