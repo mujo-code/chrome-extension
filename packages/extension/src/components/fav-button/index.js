@@ -1,16 +1,8 @@
-import { css } from '@emotion/core'
 import { omitKeys } from '@mujo/box'
 import { ToolTip, useTheme, Box } from '@mujo/ui'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
-
-const imageStyles = css({
-  opacity: 0,
-  transition: 'all 0.3s',
-})
-
-const loadedStyles = css({ opacity: 1 })
 
 export const FavButton = props => {
   const { disabled } = props
@@ -53,9 +45,14 @@ export const FavButton = props => {
         width="m"
         height="m"
         alt={`${props.title}`}
-        {...imageStyles}
-        {...(isLoaded ? loadedStyles : {})}
-        {...(disabled ? css({ opacity: 0.5 }) : {})}
+        css={[
+          {
+            opacity: 0,
+            transition: 'all 0.3s',
+          },
+          isLoaded ? { opacity: 1 } : {},
+          disabled ? { opacity: 0.5 } : {},
+        ]}
       />
       <ToolTip isOpen={tooltipOpen}>
         {disabled ? t('bring-back-link') : props.title}

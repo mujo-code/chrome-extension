@@ -22,8 +22,8 @@ const radialGradient = (centerColor, outerColor) => {
 }
 
 const bodyBackgrounds = {
-  outerSpace: radialGradient(colors.gravel, colors.outerSpace),
-  mischka: radialGradient(colors.white, colors.mischka),
+  dark: radialGradient(colors.black, colors.dark),
+  light: radialGradient(colors.white, colors.light),
 }
 const DEFAULT_SIZE = 40
 const factor = x => x * 0.0025

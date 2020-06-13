@@ -39,6 +39,7 @@ export const Button = props => {
   const { color, backgroundColor, highlight } = colors[design]
   return (
     <Box
+      font="headerS"
       outlineColor={highlight}
       color={color}
       backgroundColor={backgroundColor}
@@ -63,7 +64,6 @@ export const Button = props => {
       }}
       onMouseLeave={() => setToolTipOpen(false)}
       onMouseEnter={() => setToolTipOpen(true)}
-      {...headerS}
       {...restProps}
     >
       {children}

@@ -1,4 +1,3 @@
-import { css } from '@emotion/core'
 import React from 'react'
 import { Box } from '../box'
 import { createGraphAttibutes } from './attributes'
@@ -14,7 +13,7 @@ const sampleData = [
 const isSelected = selected => seg =>
   selected && selected.label.children === seg.label.children
 
-const transitions = css({ transition: 'all .2s ease-in' })
+const transitions = { transition: 'all .2s ease-in' }
 
 export const Graph = React.memo(
   ({
@@ -50,7 +49,7 @@ export const Graph = React.memo(
         Component="svg"
         width={`${width}px`}
         height={`${height}px`}
-        style={{ width, height }}
+        css={{ width, height }}
       >
         <Box
           Component="g"
@@ -68,8 +67,8 @@ export const Graph = React.memo(
               onClick={onSegmentClick.bind(null, seg)}
               cursor="pointer"
               aria-selected={isSelectedSegment(seg)}
+              css={transitions}
               {...seg.path}
-              {...transitions}
             />
           ))}
         </Box>

@@ -28,7 +28,7 @@ const sizes = {
   '600px': '600px',
 }
 
-export const styleGuide = {
+export const utilStyles = {
   // Spacing Addons
   marginBottom: makeStyles('marginBottom', spacingValues),
   marginTop: makeStyles('marginTop', spacingValues),
@@ -67,6 +67,7 @@ export const styleGuide = {
     static: { position: 'static' },
     sticky: { position: 'sticky' },
   },
+
   display: {
     table: { display: 'table' },
     block: { display: 'block' },
@@ -81,6 +82,7 @@ export const styleGuide = {
   maxHeight: makeStyles('maxHeight', sizes),
 
   borderRadius: makeStyles('borderRadius', sizes),
+  border: makeStyles('border', spacingValues),
   borderTopLeftRadius: makeStyles('borderTopLeftRadius', sizes),
   borderBottomLeftRadius: makeStyles('borderBottomLeftRadius', sizes),
   borderTopRightRadius: makeStyles('borderTopRightRadius', sizes),
@@ -91,5 +93,20 @@ export const styleGuide = {
     1: { zIndex: 10 },
     2: { zIndex: 100 },
     3: { zIndex: 1000 },
+  },
+
+  whiteSpace: { nowrap: { whiteSpace: 'nowrap' } },
+  textDecoration: {
+    none: { textDecoration: 'none' },
+    underline: { textDecoration: 'underline' },
+  },
+  textAlign: {
+    center: { textAlign: 'center' },
+    left: { textAlign: 'left' },
+    right: { textAlign: 'right' },
+  },
+
+  cursor: {
+    pointer: { cursor: 'pointer' },
   },
 }

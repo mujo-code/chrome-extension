@@ -1,4 +1,3 @@
-import { css } from '@emotion/core'
 import { Tab } from '@mujo/plugins'
 import { useTheme, ToolTip, HeaderS, Box } from '@mujo/ui'
 import React, { useState } from 'react'
@@ -6,16 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { TRANSLATION_FILE } from '../../constants'
 import { useExtension } from '../../hooks/use-extension'
 import { FavRows } from '../fav-rows'
-
-const siteWrapper = css({
-  transition: 'all 0.5s ease-in 0.2s',
-  opacity: 0,
-  transform: 'scale(0.9)',
-  ':not(:empty)': {
-    opacity: 1,
-    transform: 'scale(1)',
-  },
-})
 
 export const TopSites = () => {
   const { topSites, updateSitesUsed } = useExtension()
@@ -34,7 +23,15 @@ export const TopSites = () => {
         textAlign="center"
         position="relative"
         layer="1"
-        {...siteWrapper}
+        css={{
+          transition: 'all 0.5s ease-in 0.2s',
+          opacity: 0,
+          transform: 'scale(0.9)',
+          ':not(:empty)': {
+            opacity: 1,
+            transform: 'scale(1)',
+          },
+        }}
       >
         <HeaderS
           position="relative"
