@@ -20,7 +20,7 @@
     "@storybook/addon-notes": "^5.2.1",
     "@storybook/addon-viewport": "^5.2.1",
     "@storybook/react": "^5.2.1",
-    "@svgr/webpack": "4.3.3",
+    "@svgr/webpack": "5.5.0",
     "@testing-library/react-hooks": "^1.1.0",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
