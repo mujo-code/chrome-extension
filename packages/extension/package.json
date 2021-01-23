@@ -39,7 +39,7 @@
     "fake-indexeddb": "^3.1.2",
     "file-loader": "4.2.0",
     "filesize": "^5.0.3",
-    "fs-extra": "8.1.0",
+    "fs-extra": "9.1.0",
     "html-webpack-plugin": "4.0.0-beta.8",
     "i18next": "^19.4.5",
     "idb": "^4.0.4",
