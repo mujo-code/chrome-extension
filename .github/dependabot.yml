@@ -1,0 +1,25 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: saturday
+    time: "13:00"
+    timezone: America/Los_Angeles
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: jest-image-snapshot
+    versions:
+    - 4.3.0
+    - 4.4.0
+  - dependency-name: bl
+    versions:
+    - 4.0.3
+    - 4.0.4
+  - dependency-name: lerna
+    versions:
+    - 3.22.1
